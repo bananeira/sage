@@ -1,0 +1,38 @@
+@import "src/app/variables";
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: $normal-padding;
+    border-bottom: $b-width solid $b-color;
+
+    &__icon {
+        height: 28px;
+        width: 28px;
+        margin-right: 12px;
+    }
+
+    &--opts {
+        display: flex;
+        flex-direction: row;
+
+        &__opt {
+            margin-left: 6px;
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            text-decoration: none;
+            transition: 0.2s;
+
+            padding: $normal-padding;
+            color: $high-emphasis-text;
+            border-radius: $b-radius-small;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, $very-low-emphasis);
+            }
+        }
+    }
+}

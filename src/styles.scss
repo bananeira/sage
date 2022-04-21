@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "src/app/variables";
+
+html {
+    user-select: none;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+
+    color: $high-emphasis-text;
+}
+
+p {
+    line-height: 1.8em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+
+    color: $medium-emphasis-text;
+}
