@@ -1,0 +1,36 @@
+//emphasis
+$high-emphasis: 0.87;
+$medium-emphasis: 0.6;
+$low-emphasis: 0.38;
+$very-low-emphasis: 0.16;
+$lowest-emphasis: 0.1;
+
+//text
+$high-emphasis-text: rgba(0, 0, 0, $high-emphasis);
+$medium-emphasis-text: rgba(0, 0, 0, $medium-emphasis);
+$low-emphasis-text: rgba(0, 0, 0, $low-emphasis);
+
+//inverted-text
+$high-emphasis-inverted-text: rgba(255, 255, 255, $high-emphasis);
+$medium-emphasis-inverted-text: rgba(255, 255, 255, $medium-emphasis);
+$low-emphasis-inverted-text: rgba(255, 255, 255, $low-emphasis);
+
+//error
+$error: rgb(176, 0, 32);
+
+//style
+$primary-color: rgb(137, 82, 224);
+$highlight: rgba($primary-color, 0.38);
+
+//border
+$b-radius-small: 5px;
+$b-radius-block: 10px;
+$b-color: rgba(0, 0, 0, $very-low-emphasis);
+$b-width: 1px;
+
+//margin & padding
+$normal-padding: 12px;
+$high-padding: 24px;
+
+//block background
+$block-background: rgb(247, 246, 249);
