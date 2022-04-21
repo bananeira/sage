@@ -10,6 +10,7 @@ body {
 }
 
 h1, h2 {
+    margin: 12px 0;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-size: 42px;
@@ -17,7 +18,7 @@ h1, h2 {
     color: $text-high-emphasis;
 }
 
-p {
+p, a {
     line-height: 1.8em;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
@@ -28,21 +29,23 @@ p {
 
 h1 {
     position: relative;
-    animation: 2.5s animate-heading ease-in-out;
 }
 
-@keyframes animate-heading {
-    0% {
-        top: 80px;
-        opacity: 0;
-    }
+.btn-primary {
+    width: fit-content;
+    text-decoration: none;
+    font-size: 15px;
+    align-self: end;
+    margin-top: 1em;
+    transition: 0.2s;
 
-    30% {
-        opacity: 0;
-    }
+    padding: $padding-normal;
+    color: $inverted-text-highest-emphasis;
+    background-color: $primary-color;
+    border-radius: $b-radius-small;
 
-    100% {
-        top: 0;
-        opacity: 1;
+    &:hover {
+        color: $inverted-text-high-emphasis;
+        background-color: rgba($primary-color, $high-emphasis);
     }
 }

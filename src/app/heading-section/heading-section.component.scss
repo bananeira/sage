@@ -1,0 +1,52 @@
+@import "src/app/variables";
+
+.block--content {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+@keyframes animate-title {
+    0% {
+        top: 80px;
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+
+@keyframes animate-paragraph {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animate-button {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

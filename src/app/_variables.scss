@@ -1,16 +1,18 @@
 //emphasis
-$high-emphasis: 0.87;
+$highest-emphasis: 0.87;
+$high-emphasis: 0.82;
 $medium-emphasis: 0.6;
 $low-emphasis: 0.38;
 $very-low-emphasis: 0.16;
 $lowest-emphasis: 0.1;
 
 //text
-$text-high-emphasis: rgba(0, 0, 0, $high-emphasis);
+$text-high-emphasis: rgba(0, 0, 0, $highest-emphasis);
 $text-medium-emphasis: rgba(0, 0, 0, $medium-emphasis);
 $text-low-emphasis: rgba(0, 0, 0, $low-emphasis);
 
 //inverted-text
+$inverted-text-highest-emphasis: rgba(255, 255, 255, $highest-emphasis);
 $inverted-text-high-emphasis: rgba(255, 255, 255, $high-emphasis);
 $inverted-text-medium-emphasis: rgba(255, 255, 255, $medium-emphasis);
 $inverted-text-low-emphasis: rgba(255, 255, 255, $low-emphasis);
