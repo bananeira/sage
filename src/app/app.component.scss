@@ -7,11 +7,23 @@
 }
 
 .block {
-    margin-top: 24px;
-    padding: $high-padding;
+    margin: 18px 0;
     width: 50%;
     transition: 0.4s;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    background-color: $background-block;
+    border-radius: $b-radius-block;
+    border: $b-width solid $b-color-light;
+    padding: $padding-high;
+
+    &:nth-child(1) {
+        margin-top: 6em;
+    }
+
+    &:last-child {
+        margin-bottom: 4em;
+    }
 }

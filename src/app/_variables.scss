@@ -6,14 +6,14 @@ $very-low-emphasis: 0.16;
 $lowest-emphasis: 0.1;
 
 //text
-$high-emphasis-text: rgba(0, 0, 0, $high-emphasis);
-$medium-emphasis-text: rgba(0, 0, 0, $medium-emphasis);
-$low-emphasis-text: rgba(0, 0, 0, $low-emphasis);
+$text-high-emphasis: rgba(0, 0, 0, $high-emphasis);
+$text-medium-emphasis: rgba(0, 0, 0, $medium-emphasis);
+$text-low-emphasis: rgba(0, 0, 0, $low-emphasis);
 
 //inverted-text
-$high-emphasis-inverted-text: rgba(255, 255, 255, $high-emphasis);
-$medium-emphasis-inverted-text: rgba(255, 255, 255, $medium-emphasis);
-$low-emphasis-inverted-text: rgba(255, 255, 255, $low-emphasis);
+$inverted-text-high-emphasis: rgba(255, 255, 255, $high-emphasis);
+$inverted-text-medium-emphasis: rgba(255, 255, 255, $medium-emphasis);
+$inverted-text-low-emphasis: rgba(255, 255, 255, $low-emphasis);
 
 //error
 $error: rgb(176, 0, 32);
@@ -26,11 +26,13 @@ $highlight: rgba($primary-color, 0.38);
 $b-radius-small: 5px;
 $b-radius-block: 10px;
 $b-color: rgba(0, 0, 0, $very-low-emphasis);
+$b-color-light: rgba(0, 0, 0, $lowest-emphasis);
 $b-width: 1px;
 
 //margin & padding
-$normal-padding: 12px;
-$high-padding: 24px;
+$padding-normal: 12px;
+$padding-high: 24px;
 
-//block background
-$block-background: rgb(247, 246, 249);
+//background
+$background-base: rgb(243, 242, 243);
+$background-block: rgb(247, 246, 249);

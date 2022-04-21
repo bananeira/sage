@@ -1,15 +1,18 @@
 @import "src/app/variables";
 
 .navbar {
+    position: fixed;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-    padding: $normal-padding;
-    border-bottom: $b-width solid $b-color;
-    background-color: rgb($block-background, 0.75);
     backdrop-filter: blur(8px);
+    z-index: 1;
+
+    padding: $padding-normal;
+    border-bottom: $b-width solid $b-color;
+    background-color: rgb($background-block, 0.85);
 
     &__icon {
         height: 28px;
@@ -28,8 +31,8 @@
             text-decoration: none;
             transition: 0.2s;
 
-            padding: $normal-padding;
-            color: $high-emphasis-text;
+            padding: $padding-normal;
+            color: $text-high-emphasis;
             border-radius: $b-radius-small;
 
             &:hover {

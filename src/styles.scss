@@ -6,6 +6,7 @@ html {
 
 body {
     margin: 0;
+    background-color: $background-base;
 }
 
 h1, h2 {
@@ -13,7 +14,7 @@ h1, h2 {
     font-weight: 700;
     font-size: 42px;
 
-    color: $high-emphasis-text;
+    color: $text-high-emphasis;
 }
 
 p {
@@ -22,7 +23,7 @@ p {
     font-weight: 300;
     font-size: 18px;
 
-    color: $medium-emphasis-text;
+    color: $text-medium-emphasis;
 }
 
 h1 {
