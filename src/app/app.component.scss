@@ -21,14 +21,6 @@
     &.header {
         background-color: transparent;
         border: none;
-
-        & p {
-            animation: 3s animate-heading-paragraph ease-in-out;
-        }
-
-        & .btn-primary {
-            animation: 3.5s animate-heading-button ease-in-out;
-        }
     }
 
     &:nth-child(1) {

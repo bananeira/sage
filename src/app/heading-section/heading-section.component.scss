@@ -6,6 +6,18 @@
     text-align: end;
 }
 
+h1 {
+    animation: 2.5s animate-title ease-in-out;
+}
+
+p {
+    animation: 3s animate-paragraph ease-in-out;
+}
+
+.btn-primary {
+    animation: 3.5s animate-button ease-in-out;
+}
+
 @keyframes animate-title {
     0% {
         top: 80px;
