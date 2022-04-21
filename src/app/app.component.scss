@@ -1,0 +1,17 @@
+@import "src/app/variables";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block {
+    margin-top: 24px;
+    padding: $high-padding;
+    width: 50%;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
