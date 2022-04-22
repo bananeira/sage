@@ -10,12 +10,16 @@ h1 {
     animation: 2.5s animate-title ease-in-out;
 }
 
+h3 {
+    animation: 3.2s animate-emphasis ease-in-out;
+}
+
 p {
     animation: 3s animate-paragraph ease-in-out;
 }
 
 .btn-primary {
-    animation: 3.5s animate-button ease-in-out;
+    animation: 3s animate-emphasis ease-in-out;
 }
 
 @keyframes animate-title {
@@ -49,7 +53,7 @@ p {
     }
 }
 
-@keyframes animate-button {
+@keyframes animate-emphasis {
     0% {
         opacity: 0;
     }

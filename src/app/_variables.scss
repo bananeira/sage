@@ -1,40 +1,40 @@
 //emphasis
-$highest-emphasis: 0.87;
-$high-emphasis: 0.82;
-$medium-emphasis: 0.6;
-$low-emphasis: 0.38;
-$very-low-emphasis: 0.16;
-$lowest-emphasis: 0.1;
+$highest-emphasis:                  0.87;
+$high-emphasis:                     0.82;
+$medium-emphasis:                   0.6;
+$low-emphasis:                      0.38;
+$very-low-emphasis:                 0.16;
+$lowest-emphasis:                   0.1;
 
 //text
-$text-high-emphasis: rgba(0, 0, 0, $highest-emphasis);
-$text-medium-emphasis: rgba(0, 0, 0, $medium-emphasis);
-$text-low-emphasis: rgba(0, 0, 0, $low-emphasis);
+$text-high-emphasis:                rgba(0, 0, 0, $highest-emphasis);
+$text-medium-emphasis:              rgba(0, 0, 0, $medium-emphasis);
+$text-low-emphasis:                 rgba(0, 0, 0, $low-emphasis);
 
 //inverted-text
-$inverted-text-highest-emphasis: rgba(255, 255, 255, $highest-emphasis);
-$inverted-text-high-emphasis: rgba(255, 255, 255, $high-emphasis);
-$inverted-text-medium-emphasis: rgba(255, 255, 255, $medium-emphasis);
-$inverted-text-low-emphasis: rgba(255, 255, 255, $low-emphasis);
+$inverted-text-highest-emphasis:    rgba(255, 255, 255, $highest-emphasis);
+$inverted-text-high-emphasis:       rgba(255, 255, 255, $high-emphasis);
+$inverted-text-medium-emphasis:     rgba(255, 255, 255, $medium-emphasis);
+$inverted-text-low-emphasis:        rgba(255, 255, 255, $low-emphasis);
 
 //error
-$error: rgb(176, 0, 32);
+$error:                             rgb(176, 0, 32);
 
 //style
-$primary-color: rgb(137, 82, 224);
-$highlight: rgba($primary-color, 0.38);
+$primary-color:                     rgb(137, 82, 224);
+$highlight:                         rgba($primary-color, 0.38);
 
 //border
-$b-radius-small: 5px;
-$b-radius-block: 10px;
-$b-color: rgba(0, 0, 0, $very-low-emphasis);
-$b-color-light: rgba(0, 0, 0, $lowest-emphasis);
-$b-width: 1px;
+$b-radius-small:                    5px;
+$b-radius-block:                    10px;
+$b-color:                           rgba(0, 0, 0, $very-low-emphasis);
+$b-color-light:                     rgba(0, 0, 0, $lowest-emphasis);
+$b-width:                           1px;
 
 //margin & padding
-$padding-normal: 12px;
-$padding-high: 24px;
+$padding-normal:                    10px 14px;
+$padding-high:                      24px;
 
 //background
-$background-base: rgb(243, 242, 243);
-$background-block: rgb(247, 246, 249);
+$background-base:                   rgb(243, 242, 243);
+$background-block:                  rgb(247, 246, 249);

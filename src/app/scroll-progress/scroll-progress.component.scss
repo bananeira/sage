@@ -1,0 +1,18 @@
+@import "src/app/variables";
+
+progress {
+    position: absolute;
+    border: none;
+    height: 2px;
+    width: 100%;
+    background-color: transparent;
+    appearance: none;
+
+    &::-moz-progress-bar {
+        background-color: $primary-color;
+    }
+
+    &::-webkit-progress-value {
+        background-color: $primary-color;
+    }
+}
