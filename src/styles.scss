@@ -11,13 +11,17 @@ body {
     background-color: $background-base;
 }
 
-h1, h3 {
+h1, h2, h3 {
     margin: 12px 0;
     font-family: "Mulish", sans-serif;
     font-weight: 900;
     font-size: 32px;
 
     color: $text-high-emphasis;
+}
+
+h2 {
+    font-size: 28px;
 }
 
 h3 {
@@ -37,7 +41,9 @@ p, a {
 }
 
 a {
-
+    color: $primary-color;
+    text-underline-offset: 5px;
+    font-weight: 400;
 }
 
 h1 {

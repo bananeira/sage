@@ -1,2 +1,2 @@
 <h1>{{ content?.title }}</h1>
-<p>{{ content?.text }}</p>
+<p *ngIf="content?.text" [innerHtml]="content?.text"></p>

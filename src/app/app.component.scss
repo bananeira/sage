@@ -10,7 +10,7 @@
     margin: 12px 0;
     width: 58%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     background-color: $background-block;
     border-radius: $b-radius-block;
@@ -20,6 +20,10 @@
     &.header, &.text {
         background-color: transparent;
         border: none;
+    }
+
+    &.header {
+        flex-direction: row;
     }
 
     &.text {
