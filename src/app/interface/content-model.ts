@@ -1,5 +1,6 @@
 export interface ContentModel {
-    title: string;
-    text: string;
     id: string;
+    title: string;
+    text?: string;
+    links?: string[];
 }

@@ -8,6 +8,7 @@ import { SectionHomeComponent } from './section-home/section-home.component';
 import { ScrollProgressComponent } from './scroll-progress/scroll-progress.component';
 import { SectionContentComponent } from './section-content/section-content.component';
 import { ContributionBoxComponent } from './contribution-box/contribution-box.component';
+import { ContentPlaceholderComponent } from './content-placeholder/content-placeholder.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContributionBoxComponent } from './contribution-box/contribution-box.co
     SectionHomeComponent,
     ScrollProgressComponent,
     SectionContentComponent,
-    ContributionBoxComponent
+    ContributionBoxComponent,
+    ContentPlaceholderComponent
   ],
   imports: [
     BrowserModule,
