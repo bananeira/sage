@@ -1,2 +1,9 @@
 <h1>{{ content?.title }}</h1>
 <p *ngIf="content?.text" [innerHtml]="content?.text"></p>
+
+<div class="placeholder" *ngIf="content?.text == ''">
+    <div class="placeholder--content">
+        <h1>nothing to see here yet...</h1>
+        <p>content will be displayed here</p>
+    </div>
+</div>
