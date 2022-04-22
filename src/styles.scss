@@ -3,6 +3,7 @@
 html {
     user-select: none;
     scroll-behavior: smooth;
+    scroll-padding-top: calc(5em + #{$padding-high});
 }
 
 body {
@@ -10,7 +11,7 @@ body {
     background-color: $background-base;
 }
 
-h1, h2, h3 {
+h1, h3 {
     margin: 12px 0;
     font-family: "Mulish", sans-serif;
     font-weight: 900;
@@ -33,6 +34,10 @@ p, a {
     font-size: 18px;
 
     color: $text-medium-emphasis;
+}
+
+a {
+
 }
 
 h1 {

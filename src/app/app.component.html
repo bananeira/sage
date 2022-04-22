@@ -1,5 +1,11 @@
 <app-navigation-bar></app-navigation-bar>
 
 <div class="container">
-    <app-heading-section class="block header"></app-heading-section>
+    <app-section-home id="home" class="block header"></app-section-home>
+    <app-section-content
+        class="block text"
+        [id]="content.id"
+        *ngFor="let content of textSectionContent"
+        [content]="content">
+    </app-section-content>
 </div>
