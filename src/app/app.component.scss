@@ -12,16 +12,6 @@
     display: flex;
     flex-direction: column;
 
-    background-color: $background-block;
-    border-radius: $b-radius-block;
-    border: $b-width solid $b-color-light;
-    padding: $padding-high;
-
-    &.header, &.text, &.footer {
-        background-color: transparent;
-        border: none;
-    }
-
     &.header {
         flex-direction: row;
     }
