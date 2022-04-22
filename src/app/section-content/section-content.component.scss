@@ -1,13 +1,21 @@
 @import "src/app/variables";
 
-@keyframes animate-placeholder-idle {
+:host {
+    animation: 2.5s animate-section-content ease-in-out;
+}
+
+p {
+    width: 50%;
+}
+
+@keyframes animate-section-content {
     0% {
-        opacity: $low-emphasis;
+        opacity: 0;
     }
     50% {
-        opacity: $lowest-emphasis;
+        opacity: 0;
     }
     100% {
-        opacity: $low-emphasis;
+        opacity: 1;
     }
 }

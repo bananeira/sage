@@ -25,3 +25,15 @@ section {
         font-weight: 400;
     }
 }
+
+@keyframes animate-placeholder-idle {
+    0% {
+        opacity: $low-emphasis;
+    }
+    50% {
+        opacity: $lowest-emphasis;
+    }
+    100% {
+        opacity: $low-emphasis;
+    }
+}

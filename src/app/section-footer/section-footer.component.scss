@@ -1,0 +1,17 @@
+@import "src/app/variables";
+
+:host {
+    font-size: 12px;
+
+    & p {
+        color: $text-low-emphasis;
+    }
+
+    & a {
+        text-transform: uppercase;
+        font-weight: 400;
+        color: $text-low-emphasis;
+    }
+}
+
+

@@ -9,6 +9,8 @@ import { ScrollProgressComponent } from './scroll-progress/scroll-progress.compo
 import { SectionContentComponent } from './section-content/section-content.component';
 import { ContributionBoxComponent } from './contribution-box/contribution-box.component';
 import { ContentPlaceholderComponent } from './content-placeholder/content-placeholder.component';
+import { ContributionBadgeComponent } from './contribution-badge/contribution-badge.component';
+import { SectionFooterComponent } from './section-footer/section-footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ContentPlaceholderComponent } from './content-placeholder/content-place
     ScrollProgressComponent,
     SectionContentComponent,
     ContributionBoxComponent,
-    ContentPlaceholderComponent
+    ContentPlaceholderComponent,
+    ContributionBadgeComponent,
+    SectionFooterComponent
   ],
   imports: [
     BrowserModule,

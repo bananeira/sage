@@ -17,7 +17,7 @@
     border: $b-width solid $b-color-light;
     padding: $padding-high;
 
-    &.header, &.text {
+    &.header, &.text, &.footer {
         background-color: transparent;
         border: none;
     }

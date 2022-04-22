@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ContentModel} from "../interface/content-model";
+import {SectionContentModel} from "../interface/section-content-model";
 
 @Component({
   selector: 'app-section-content',
@@ -8,5 +8,5 @@ import {ContentModel} from "../interface/content-model";
 })
 export class SectionContentComponent {
     @Input()
-    content?: ContentModel;
+    content?: SectionContentModel;
 }
