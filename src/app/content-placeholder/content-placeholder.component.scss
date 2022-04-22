@@ -1,0 +1,27 @@
+@import "src/app/variables";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: 3s animate-placeholder-idle ease-in-out infinite;
+}
+
+section {
+    padding: $padding-high;
+    border: $b-width solid $b-color;
+    border-radius: $b-radius-block;
+
+    & h1 {
+        margin: 6px;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    & p {
+        margin: 6px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
