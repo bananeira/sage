@@ -46,18 +46,19 @@ h1 {
 
     padding: $padding-normal;
     color: $inverted-text-highest-emphasis;
-    background-color: $primary-color;
+    background-color: rgba($primary-color, 0.92);
     border-radius: $b-radius-small;
 
     &:hover {
         color: $inverted-text-high-emphasis;
-        background-color: rgba($primary-color, $high-emphasis);
+        background-color: $primary-color;
     }
 }
 
 .btn-secondary {
     margin: 0 12px;
     text-decoration: underline;
+    text-underline-offset: 5px;
     font-size: 15px;
     font-weight: 400;
     transition: 0.2s;
