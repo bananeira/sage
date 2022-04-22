@@ -32,9 +32,10 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/@fontsource/roboto/300.css",
-              "node_modules/@fontsource/roboto/400.css",
-              "node_modules/@fontsource/roboto/700.css"
+              "node_modules/@fontsource/mulish/300.css",
+              "node_modules/@fontsource/mulish/400.css",
+              "node_modules/@fontsource/mulish/700.css",
+              "node_modules/@fontsource/mulish/900.css"
             ],
             "scripts": []
           },

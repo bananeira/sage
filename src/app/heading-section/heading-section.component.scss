@@ -6,19 +6,23 @@
     text-align: end;
 }
 
+.btn--container {
+    margin: 12px 0;
+}
+
 h1 {
     animation: 2.5s animate-title ease-in-out;
 }
 
 h3 {
-    animation: 3.2s animate-emphasis ease-in-out;
+    animation: 3.4s animate-emphasis ease-in-out;
 }
 
 p {
     animation: 3s animate-paragraph ease-in-out;
 }
 
-.btn-primary {
+.btn-primary, .btn-secondary {
     animation: 3s animate-emphasis ease-in-out;
 }
 

@@ -1,30 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    AfterContentInit,
+    AfterViewInit,
+    Component,
+    HostListener,
+    OnInit,
+    Renderer2,
+    TemplateRef,
+    ViewChild
+} from '@angular/core';
 
 @Component({
-  selector: 'app-scroll-progress',
-  templateUrl: './scroll-progress.component.html',
-  styleUrls: ['./scroll-progress.component.scss']
+    selector: 'app-scroll-progress',
+    templateUrl: './scroll-progress.component.html',
+    styleUrls: ['./scroll-progress.component.scss']
 })
+export class ScrollProgressComponent {
+    public progress = 0;
 
-export class ScrollProgressComponent implements OnInit {
-    outProgress: any;
+    @HostListener("window:scroll", [])
+    determineScrollProgress(): void {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollProgress = (scrollTop / (scrollHeight - clientHeight)) * 100;
 
-  constructor() { }
+        this.progress = this.round(scrollProgress, 0, 100);
+    }
 
-  ngOnInit(): void {
-  }
-
-}
-
-document.addEventListener("scroll", scrollProgressBar);
-
-function scrollProgressBar(this: any) {
-    let scrollTop = document.documentElement.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight;
-    let clientHeight = document.documentElement.clientHeight;
-    let scrollProgress = (scrollTop / (scrollHeight - clientHeight)) * 100;
-
-    function round(value: number, min: number, max: number) {
+    round(value: number, min: number, max: number): number {
         if (value > max) {
             return max;
         }
@@ -35,6 +38,4 @@ function scrollProgressBar(this: any) {
 
         return value;
     }
-
-    this.outProgress = round(scrollProgress, 0, 100);
 }
