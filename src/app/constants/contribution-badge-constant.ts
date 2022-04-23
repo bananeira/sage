@@ -1,6 +1,6 @@
 import {ContributionBadgeModel} from "../interface/contribution-badge-model";
 
-export const textSectionContent: ContributionBadgeModel[] = [
+export const contributionBadgeModels: ContributionBadgeModel[] = [
     {
         type: "ui",
         name: "UI/UX",

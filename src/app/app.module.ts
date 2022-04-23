@@ -11,6 +11,8 @@ import { ContributionBoxComponent } from './contribution-box/contribution-box.co
 import { ContentPlaceholderComponent } from './content-placeholder/content-placeholder.component';
 import { ContributionBadgeComponent } from './contribution-badge/contribution-badge.component';
 import { SectionFooterComponent } from './section-footer/section-footer.component';
+import { ProjectBoxComponent } from './project-box/project-box.component';
+import { SkillBoxComponent } from './skill-box/skill-box.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SectionFooterComponent } from './section-footer/section-footer.componen
     ContributionBoxComponent,
     ContentPlaceholderComponent,
     ContributionBadgeComponent,
-    SectionFooterComponent
+    SectionFooterComponent,
+    ProjectBoxComponent,
+    SkillBoxComponent
   ],
   imports: [
     BrowserModule,

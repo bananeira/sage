@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {textSectionContent} from "./constants/section-content.constant";
+import {sectionContentModels} from "./constants/section-content.constant";
 import {SectionContentModel} from "./interface/section-content-model";
 
 @Component({
@@ -11,5 +11,5 @@ import {SectionContentModel} from "./interface/section-content-model";
     ]
 })
 export class AppComponent {
-    textSectionContent: SectionContentModel[] = textSectionContent;
+    textSectionContent: SectionContentModel[] = sectionContentModels;
 }
