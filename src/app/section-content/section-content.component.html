@@ -1,7 +1,7 @@
 <h1>{{ content?.title }}</h1>
 <p *ngIf="content?.text" [innerHtml]="content?.text"></p>
 
-<app-skill-box *ngIf="!(content?.links?.length)"></app-skill-box>
-<app-project-box *ngIf="!(content?.links?.length)"></app-project-box>
-<app-contribution-box *ngIf="!(content?.links?.length)"></app-contribution-box>
+<app-skill-box *ngIf="content?.id == 'skills'"></app-skill-box>
+<app-project-box *ngIf="content?.id == 'projects'"></app-project-box>
+<app-contribution-box *ngIf="content?.id == 'contributions'"></app-contribution-box>
 <app-content-placeholder *ngIf="!(content?.links?.length || content?.text)"></app-content-placeholder>
