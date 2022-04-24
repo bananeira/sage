@@ -27,7 +27,7 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "thankful",
         title: "thankful",
-        text: `First of all, many thanks to <a href="https://undraw.co/" target="_blank">unDraw</a> for providing ` +
+        text: `Many thanks to <a href="https://undraw.co/" target="_blank">unDraw</a> for providing ` +
             "free wonderful illustrations that open up new ways to create beautiful designs. Also thanks for a nice " +
             "inspiration regarding the text layout.",
     },
