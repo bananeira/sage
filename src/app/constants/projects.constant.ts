@@ -15,6 +15,7 @@ export const projects: LinkModel[] = [
         badges: [
             "ui",
             "web",
+            "docs",
         ],
         link: "https://teris.vercel.app/",
     },

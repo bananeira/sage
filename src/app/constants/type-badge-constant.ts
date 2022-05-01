@@ -16,4 +16,9 @@ export const typeBadgeModels: TypeBadgeModel[] = [
         displayName: "(WEB) DESIGN",
         color: "purple",
     },
+    {
+        id: "docs",
+        displayName: "DOCS",
+        color: "blue",
+    },
 ];

@@ -24,4 +24,9 @@ span {
         color: $inverted-text-high-emphasis;
         background-color: rgba(118, 70, 220, 0.75);
     }
+
+    &.blue {
+        color: $inverted-text-high-emphasis;
+        background-color: rgba(100, 110, 243, 0.75);
+    }
 }
