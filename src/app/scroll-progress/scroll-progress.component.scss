@@ -15,4 +15,8 @@ progress {
     &::-webkit-progress-value {
         background-color: $primary-color;
     }
+
+    &::-webkit-progress-bar {
+        background-color: transparent;
+    }
 }
