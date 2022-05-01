@@ -12,10 +12,6 @@ export const sectionContentModels: SectionContentModel[] = [
             "forward to future projects and learning a lot of new things in the process.",
     },
     {
-        id: "skills",
-        title: "competencies",
-    },
-    {
         id: "projects",
         title: "my projects",
         links: projects,
