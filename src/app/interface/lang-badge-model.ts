@@ -1,4 +1,4 @@
-export interface TypeBadgeModel {
+export interface LangBadgeModel {
     id: string;
     displayName: string;
 }

@@ -3,6 +3,6 @@ export interface LinkModel {
     title: string;
     description?: string;
     language: string[];
-    badges: string[];
+    remit: string[];
     link: string;
 }

@@ -3,8 +3,7 @@
         <h1 class="title">{{ link.title }}</h1>
         <p class="description">{{ link.description }}</p>
         <p class="lang"></p>
-        <p class="contribution-type">My remit:
-            <app-type-badge *ngFor="let badge of badges" [badge]="badge"></app-type-badge>
-        </p>
+        <p class="resource-type">Used resources: <app-type-badge *ngFor="let lang of langBadges" [badge]="lang"></app-type-badge></p>
+        <p class="contribution-type">My remit: <app-type-badge *ngFor="let remit of typeBadges" [badge]="remit"></app-type-badge></p>
     </div>
 </a>

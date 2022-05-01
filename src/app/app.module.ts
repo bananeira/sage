@@ -13,6 +13,7 @@ import { TypeBadgeComponent } from './type-badge/type-badge.component';
 import { SectionFooterComponent } from './section-footer/section-footer.component';
 import { SkillBoxComponent } from './skill-box/skill-box.component';
 import { LinkComponent } from './link/link.component';
+import { LangBadgeComponent } from './lang-badge/lang-badge.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LinkComponent } from './link/link.component';
     TypeBadgeComponent,
     SectionFooterComponent,
     SkillBoxComponent,
-    LinkComponent
+    LinkComponent,
+    LangBadgeComponent
   ],
   imports: [
     BrowserModule,

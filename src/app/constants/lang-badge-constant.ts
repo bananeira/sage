@@ -1,19 +1,20 @@
-import {TypeBadgeModel} from "../interface/type-badge-model";
+import {LangBadgeModel} from "../interface/lang-badge-model";
 
-export const typeBadgeModels: TypeBadgeModel[] = [
+export const langBadgeModels: LangBadgeModel[] = [
     {
         id: "javascript",
         displayName: "JavaScript",
-        color: "yellow",
     },
     {
         id: "html",
         displayName: "HTML",
-        color: "orange",
     },
     {
         id: "css",
         displayName: "CSS",
-        color: "dark-green",
+    },
+    {
+        id: "react",
+        displayName: "REACT",
     },
 ];

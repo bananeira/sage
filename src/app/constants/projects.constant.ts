@@ -11,8 +11,9 @@ export const projects: LinkModel[] = [
             "javascript",
             "html",
             "css",
+            "react",
         ],
-        badges: [
+        remit: [
             "ui",
             "web",
             "docs",

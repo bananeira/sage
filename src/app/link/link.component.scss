@@ -16,6 +16,17 @@
     }
 }
 
+p {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+app-type-badge, app-lang-badge {
+    &:first-child{
+        margin-left: 5px;
+    }
+}
+
 .content {
     padding: 24px;
 }
