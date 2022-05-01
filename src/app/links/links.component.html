@@ -1,0 +1,8 @@
+<ng-template #placeholder>
+    <app-content-placeholder></app-content-placeholder>
+</ng-template>
+
+<ng-container *ngIf="contributions?.length || projects?.length else placeholder" >
+    <app-link *ngFor="let project of projects" [link]="project" ></app-link>
+    <app-link *ngFor="let contribution of contributions" [link]="contribution" ></app-link>
+</ng-container>

@@ -1,7 +1,8 @@
-export interface LinkBoxModel {
+export interface LinkModel {
     id: string;
     title: string;
     description?: string;
-    badges?: string[];
+    language: string[];
+    badges: string[];
     link: string;
 }

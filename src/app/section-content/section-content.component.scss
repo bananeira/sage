@@ -4,6 +4,13 @@
     animation: 2.5s animate-section-content ease-in-out;
 }
 
+app-contributions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
 p {
     width: 50%;
 }

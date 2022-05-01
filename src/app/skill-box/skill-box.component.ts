@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-skill-box',
+  selector: 'app-skills',
   templateUrl: './skill-box.component.html',
   styleUrls: ['./skill-box.component.scss']
 })

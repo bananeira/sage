@@ -1,39 +1,46 @@
 @import "src/app/variables";
 
-:host {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: 3s animate-placeholder-idle ease-in-out infinite;
-}
-
 section {
+    display: flex;
+    flex-direction: row;
+}
+
+div {
+    margin: 24px 36px 0 0;
+    width: 20vw;
+    opacity: 0.75;
+
     padding: $padding-high;
-    border: $b-width solid $b-color;
     border-radius: $b-radius-block;
+    background-color: $background-block;
+    box-shadow: 0 12px 24px -12px rgba($text-low-emphasis, 0.22);
 
-    & h1 {
-        margin: 6px;
-        font-size: 22px;
-        font-weight: 700;
-    }
-
-    & p {
-        margin: 6px;
-        font-size: 18px;
-        font-weight: 400;
+    &:last-child {
+        opacity: 0.25;
     }
 }
 
-@keyframes animate-placeholder-idle {
-    0% {
-        opacity: $low-emphasis;
-    }
-    50% {
-        opacity: $lowest-emphasis;
-    }
-    100% {
-        opacity: $low-emphasis;
+h1 {
+    height: 35px;
+    width: 80%;
+    animation: 2s animate-shine linear infinite;
+    background: linear-gradient(110deg, #ececec 8%, #f3f3f3 18%, #ececec 33%);
+    background-size: 200% 100%;
+
+    border-radius: $b-radius-small;
+}
+
+p {
+    height: 100px;
+    animation: 2s animate-shine linear infinite;
+    background: linear-gradient(110deg, #ececec 8%, #f3f3f3 18%, #ececec 33%);
+    background-size: 200% 100%;
+
+    border-radius: $b-radius-small;
+}
+
+@keyframes animate-shine {
+    to {
+        background-position-x: -200%;
     }
 }

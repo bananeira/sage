@@ -1,4 +1,6 @@
 import {SectionContentModel} from "../interface/section-content-model";
+import {contributions} from "./contributions.constant";
+import {projects} from "./projects.constant";
 
 export const sectionContentModels: SectionContentModel[] = [
     {
@@ -12,17 +14,16 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "skills",
         title: "competencies",
-        text: "",
     },
     {
         id: "projects",
         title: "my projects",
-        text: "",
+        links: projects,
     },
     {
         id: "contributions",
         title: "contributions",
-        text: "",
+        links: contributions,
     },
     {
         id: "thankful",

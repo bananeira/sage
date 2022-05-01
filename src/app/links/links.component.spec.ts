@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContributionBoxComponent } from './contribution-box.component';
+import { LinksComponent } from './links.component';
 
 describe('ContributionBoxComponent', () => {
-  let component: ContributionBoxComponent;
-  let fixture: ComponentFixture<ContributionBoxComponent>;
+  let component: LinksComponent;
+  let fixture: ComponentFixture<LinksComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContributionBoxComponent ]
+      declarations: [ LinksComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContributionBoxComponent);
+    fixture = TestBed.createComponent(LinksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

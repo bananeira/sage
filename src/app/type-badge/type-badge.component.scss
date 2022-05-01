@@ -1,0 +1,27 @@
+@import "src/app/variables";
+
+span {
+    width: fit-content;
+    margin: 0 2px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 3px;
+    border-radius: 4px;
+
+    &.green {
+        color: $inverted-text-high-emphasis;
+        background-color: rgba(22, 197, 115, 0.75);
+    }
+
+    &.red {
+        color: $inverted-text-high-emphasis;
+        background-color: rgba(235, 59, 64, 0.75);
+    }
+
+    &.purple {
+        color: $inverted-text-high-emphasis;
+        background-color: rgba(118, 70, 220, 0.75);
+    }
+}

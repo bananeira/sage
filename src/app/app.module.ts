@@ -7,12 +7,12 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { SectionHomeComponent } from './section-home/section-home.component';
 import { ScrollProgressComponent } from './scroll-progress/scroll-progress.component';
 import { SectionContentComponent } from './section-content/section-content.component';
-import { ContributionBoxComponent } from './contribution-box/contribution-box.component';
+import { LinksComponent } from './links/links.component';
 import { ContentPlaceholderComponent } from './content-placeholder/content-placeholder.component';
-import { ContributionBadgeComponent } from './contribution-badge/contribution-badge.component';
+import { TypeBadgeComponent } from './type-badge/type-badge.component';
 import { SectionFooterComponent } from './section-footer/section-footer.component';
-import { ProjectBoxComponent } from './project-box/project-box.component';
 import { SkillBoxComponent } from './skill-box/skill-box.component';
+import { LinkComponent } from './link/link.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +21,12 @@ import { SkillBoxComponent } from './skill-box/skill-box.component';
     SectionHomeComponent,
     ScrollProgressComponent,
     SectionContentComponent,
-    ContributionBoxComponent,
+    LinksComponent,
     ContentPlaceholderComponent,
-    ContributionBadgeComponent,
+    TypeBadgeComponent,
     SectionFooterComponent,
-    ProjectBoxComponent,
-    SkillBoxComponent
+    SkillBoxComponent,
+    LinkComponent
   ],
   imports: [
     BrowserModule,
