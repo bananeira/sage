@@ -10,6 +10,8 @@
     box-shadow: 0 12px 24px -12px rgba($text-low-emphasis, 0.22);
 
     &:hover {
+        background-color: #f4f3f6;
+
         .title {
             color: $primary-color;
         }
@@ -29,14 +31,49 @@ app-type-badge, app-lang-badge {
 
 .content {
     padding: 24px;
+    height: 100%;
 }
 
 .title {
+    position: relative;
+    width: fit-content;
     font-weight: 700;
     font-size: 28px;
     transition: 0.4s;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: $primary-color;
+        visibility: hidden;
+        transition: 0.4s ease-in-out;
+    }
+
+    a:hover &:before {
+        width: 100%;
+        visibility: visible;
+    }
 }
 
 a {
     text-decoration: none;
+    display: block;
+    height: auto;
+    width: fit-content;
+}
+
+.btn {
+    &--container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &-secondary {
+        text-decoration: underline;
+    }
 }

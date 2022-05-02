@@ -19,5 +19,6 @@ export const projects: LinkModel[] = [
             "docs",
         ],
         link: "https://teris.vercel.app/",
+        codeLink: "https://github.com/clk1006/tetris/",
     },
 ];

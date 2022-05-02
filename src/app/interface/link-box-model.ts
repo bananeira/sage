@@ -4,5 +4,6 @@ export interface LinkModel {
     description?: string;
     language: string[];
     remit: string[];
-    link: string;
+    link?: string;
+    codeLink?: string;
 }
