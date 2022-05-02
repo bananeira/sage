@@ -21,4 +21,21 @@ export const projects: LinkModel[] = [
         link: "https://teris.vercel.app/",
         codeLink: "https://github.com/clk1006/tetris/",
     },
+    {
+        id: "homepage",
+        title: "homepage",
+        description: "This link refers to this homepage. Since it's also a relatively extensive project of mine, " +
+            "you will also find the link to the code here.",
+        language: [
+            "ng",
+            "typescript",
+            "javascript",
+            "html",
+            "scss",
+        ],
+        remit: [
+            "front-end"
+        ],
+        codeLink: "https://github.com/bananeira/sage",
+    },
 ];

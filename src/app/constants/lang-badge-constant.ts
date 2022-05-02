@@ -17,4 +17,16 @@ export const langBadgeModels: LangBadgeModel[] = [
         id: "react",
         displayName: "REACT",
     },
+    {
+        id: "typescript",
+        displayName: "TYPESCRIPT",
+    },
+    {
+        id: "ng",
+        displayName: "ANGULAR",
+    },
+    {
+        id: "scss",
+        displayName: "SCSS/SASS",
+    },
 ];

@@ -31,7 +31,10 @@ app-type-badge, app-lang-badge {
 
 .content {
     padding: 24px;
-    height: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
 .title {
@@ -71,6 +74,7 @@ a {
         display: flex;
         flex-direction: row;
         align-items: center;
+        align-self: flex-end;
     }
 
     &-secondary {

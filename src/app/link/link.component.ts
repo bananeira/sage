@@ -16,8 +16,15 @@ export class LinkComponent implements OnInit {
 
     typeBadges: TypeBadgeModel[] = [];
     langBadges: TypeBadgeModel[] = [];
+    boxLink?: string;
 
     ngOnInit(): void {
+        if (this.link.link) {
+            this.boxLink = this.link.link;
+        } else {
+            this.boxLink = this.link.codeLink;
+        }
+
         for (const remit of this.link.remit) {
             const foundTypeBadge = typeBadgeModels.find(
                 (remitBadge: TypeBadgeModel) => (remitBadge.id === remit)

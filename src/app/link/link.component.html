@@ -1,4 +1,4 @@
-<a [href]="link.link" target="_blank">
+<a [href]="boxLink" target="_blank">
     <div class="content">
         <h1 class="title">{{ link.title }}</h1>
         <p class="description">{{ link.description }}</p>
@@ -6,9 +6,9 @@
         <p class="resource-type">Used resources: <app-type-badge *ngFor="let lang of langBadges" [badge]="lang"></app-type-badge></p>
         <p class="contribution-type">My remit: <app-type-badge *ngFor="let remit of typeBadges" [badge]="remit"></app-type-badge></p>
         <div class="btn--container">
+            <a *ngIf="link.codeLink && link.link" [href]="link.codeLink" target="_blank" class="btn-secondary">review code</a>
             <a *ngIf="link.link" [href]="link.link" target="_blank" class="btn-primary">visit site</a>
             <a *ngIf="!link.link" [href]="link.codeLink" target="_blank" class="btn-primary">review code</a>
-            <a *ngIf="link.codeLink && link.link" [href]="link.codeLink" target="_blank" class="btn-secondary">review code</a>
         </div>
     </div>
 </a>
