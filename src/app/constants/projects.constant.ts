@@ -8,10 +8,10 @@ export const projects: LinkModel[] = [
             "game Tetris to provide its functions as an API, so that our classmates could create AIs " +
             "to battle against each other. This project was created in the course of my comp-sci class (see site)",
         language: [
+            "react",
             "javascript",
             "html",
             "css",
-            "react",
         ],
         remit: [
             "ui",

@@ -1,6 +1,7 @@
 @import "src/app/variables";
 
 :host {
+    position: relative;
     max-width: 33%;
     word-break: break-word;
     transition: 0.4s;
@@ -10,7 +11,7 @@
     box-shadow: 0 12px 24px -12px rgba($text-low-emphasis, 0.22);
 
     &:hover {
-        background-color: #f4f3f6;
+        background-color: #f2f1f5;
 
         .title {
             color: $primary-color;
@@ -30,11 +31,34 @@ app-type-badge, app-lang-badge {
 }
 
 .content {
+    height: 100%;
     padding: 24px;
-    height: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    justify-content: space-between;
+}
+
+.context--container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer--container {
+    display: flex;
+    flex-direction: column;
+
+    & hr {
+        width: 16%;
+        height: 2px;
+        border: none;
+
+        background-color: $text-low-emphasis;
+    }
+
+    & p {
+        margin: 6px 0;
+        font-size: 16px;
+    }
 }
 
 .title {
@@ -65,16 +89,17 @@ app-type-badge, app-lang-badge {
 a {
     text-decoration: none;
     display: block;
-    height: auto;
     width: fit-content;
+    box-sizing: border-box;
 }
 
 .btn {
     &--container {
+        margin-top: 12px;
+        height: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        align-self: flex-end;
     }
 
     &-secondary {
