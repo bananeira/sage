@@ -25,9 +25,9 @@ export const projects: LinkModel[] = [
         id: "homepage",
         title: "(this homepage)",
         description: "This link refers to this homepage. Since it's also a relatively extensive project of mine, " +
-            "you will also find the link to the code here. The homepage is written using Angular, which technically " +
-            "is a bit overkill for a simple web application like this, thus I'm listing it here, just " +
-            "for reference purposes.",
+            "you will also find the link to the code here. The homepage is written using Angular. " +
+            "Since this is technically a bit overkill for a small web application, I would still like to refer " +
+            "to the code, if interested...",
         language: [
             "ng",
             "typescript",
