@@ -73,16 +73,19 @@ app-type-badge, app-lang-badge {
         position: absolute;
         width: 0;
         height: 2px;
-        bottom: -4px;
+        bottom: -7px;
         left: 0;
-        background-color: $primary-color;
         visibility: hidden;
         transition: 0.4s ease-in-out;
+
+        background-color: $text-high-emphasis;
     }
 
     a:hover &:before {
         width: 100%;
         visibility: visible;
+
+        background-color: $primary-color;
     }
 }
 
