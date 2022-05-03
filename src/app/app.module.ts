@@ -8,12 +8,13 @@ import { SectionHomeComponent } from './section-home/section-home.component';
 import { ScrollProgressComponent } from './scroll-progress/scroll-progress.component';
 import { SectionContentComponent } from './section-content/section-content.component';
 import { LinksComponent } from './links/links.component';
-import { ContentPlaceholderComponent } from './content-placeholder/content-placeholder.component';
+import { ContentSkeletonPlaceholderComponent } from './content-skeleton-placeholder/content-skeleton-placeholder.component';
 import { TypeBadgeComponent } from './type-badge/type-badge.component';
 import { SectionFooterComponent } from './section-footer/section-footer.component';
 import { SkillBoxComponent } from './skill-box/skill-box.component';
 import { LinkComponent } from './link/link.component';
 import { LangBadgeComponent } from './lang-badge/lang-badge.component';
+import { ContentEmptyComponent } from './content-empty/content-empty.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,13 @@ import { LangBadgeComponent } from './lang-badge/lang-badge.component';
     ScrollProgressComponent,
     SectionContentComponent,
     LinksComponent,
-    ContentPlaceholderComponent,
+    ContentSkeletonPlaceholderComponent,
     TypeBadgeComponent,
     SectionFooterComponent,
     SkillBoxComponent,
     LinkComponent,
-    LangBadgeComponent
+    LangBadgeComponent,
+    ContentEmptyComponent
   ],
   imports: [
     BrowserModule,

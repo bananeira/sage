@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentPlaceholderComponent } from './content-placeholder.component';
+import { ContentEmptyComponent } from './content-empty.component';
 
-describe('ContentPlaceholderComponent', () => {
-  let component: ContentPlaceholderComponent;
-  let fixture: ComponentFixture<ContentPlaceholderComponent>;
+describe('ContentEmptyComponent', () => {
+  let component: ContentEmptyComponent;
+  let fixture: ComponentFixture<ContentEmptyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContentPlaceholderComponent ]
+      declarations: [ ContentEmptyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContentPlaceholderComponent);
+    fixture = TestBed.createComponent(ContentEmptyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
