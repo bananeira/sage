@@ -4,16 +4,9 @@ export const skills: SmallLinkModel[] = [
     {
         id: "angular",
         img: "assets/skills/angular.svg",
-        title: "AngularJS",
+        title: "Angular",
         desc: "",
         link: "https://angular.io/",
-    },
-    {
-        id: "html",
-        img: "assets/skills/html5.svg",
-        title: "HTML5",
-        desc: "",
-        link: "https://html.spec.whatwg.org/multipage/",
     },
     {
         id: "java",
@@ -23,18 +16,18 @@ export const skills: SmallLinkModel[] = [
         link: "https://www.java.com/de/",
     },
     {
-        id: "js",
-        img: "assets/skills/javascript.svg",
-        title: "JavaScript",
+        id: "spigot",
+        img: "assets/skills/spigot.png",
+        title: "Spigot",
         desc: "",
-        link: "https://www.javascript.com/",
+        link: "https://hub.spigotmc.org/javadocs/bukkit/",
     },
     {
-        id: "react",
-        img: "assets/skills/reactjs.svg",
-        title: "ReactJS",
+        id: "html",
+        img: "assets/skills/html5.svg",
+        title: "HTML5",
         desc: "",
-        link: "https://reactjs.org/",
+        link: "https://html.spec.whatwg.org/multipage/",
     },
     {
         id: "sass",
@@ -44,6 +37,13 @@ export const skills: SmallLinkModel[] = [
         link: "https://sass-lang.com/",
     },
     {
+        id: "js",
+        img: "assets/skills/javascript.svg",
+        title: "JavaScript",
+        desc: "",
+        link: "https://www.javascript.com/",
+    },
+    {
         id: "ts",
         img: "assets/skills/typescript.svg",
         title: "TypeScript",
@@ -51,10 +51,10 @@ export const skills: SmallLinkModel[] = [
         link: "https://www.typescriptlang.org/",
     },
     {
-        id: "spigot",
-        img: "assets/skills/spigot.png",
-        title: "Spigot",
+        id: "react",
+        img: "assets/skills/reactjs.svg",
+        title: "ReactJS",
         desc: "",
-        link: "https://hub.spigotmc.org/javadocs/bukkit/",
+        link: "https://reactjs.org/",
     },
 ];
