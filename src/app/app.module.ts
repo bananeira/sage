@@ -15,6 +15,7 @@ import { SkillBoxComponent } from './skill-box/skill-box.component';
 import { LinkComponent } from './link/link.component';
 import { LangBadgeComponent } from './lang-badge/lang-badge.component';
 import { ContentEmptyComponent } from './content-empty/content-empty.component';
+import { SmallLinkComponent } from './small-link/small-link.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContentEmptyComponent } from './content-empty/content-empty.component';
     SkillBoxComponent,
     LinkComponent,
     LangBadgeComponent,
-    ContentEmptyComponent
+    ContentEmptyComponent,
+    SmallLinkComponent
   ],
   imports: [
     BrowserModule,

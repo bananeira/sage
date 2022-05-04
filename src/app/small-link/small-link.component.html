@@ -1,0 +1,9 @@
+<a [href]="smallLink.link" target="_blank" class="content">
+    <div class="context--header">
+        <img [src]="smallLink.img">
+        <h1 class="title">{{ smallLink.title }}</h1>
+    </div>
+    <div *ngIf="smallLink.desc" class="context--main">
+        <p class="desc">{{ smallLink.desc }}</p>
+    </div>
+</a>

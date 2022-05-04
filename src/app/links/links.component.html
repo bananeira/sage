@@ -2,7 +2,10 @@
     <app-content-empty></app-content-empty>
 </ng-template>
 
-<ng-container *ngIf="contributions?.length || projects?.length else placeholder" >
+<ng-container *ngIf="contributions?.length || projects?.length || skills?.length || resources?.length else placeholder" >
     <app-link *ngFor="let project of projects" [link]="project" ></app-link>
     <app-link *ngFor="let contribution of contributions" [link]="contribution" ></app-link>
+    <app-small-link *ngFor="let skill of skills" [smallLink]="skill" ></app-small-link>
+    <app-small-link *ngFor="let resource of resources" [smallLink]="resource" ></app-small-link>
 </ng-container>
+

@@ -1,0 +1,54 @@
+@import "src/app/variables";
+
+:host {
+    position: relative;
+    width: 14vw;
+    transition: 0.4s;
+
+    border-radius: $b-radius-small;
+    background-color: $background-block;
+    box-shadow: 0 12px 24px -12px rgba($text-low-emphasis, 0.22);
+
+    &:hover {
+        background-color: #f2f1f5;
+
+        .title {
+            color: $primary-color;
+        }
+    }
+}
+
+.content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.context {
+    display: flex;
+    flex-wrap: wrap;
+
+    &--header {
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        text-align: center;
+    }
+}
+
+.title {
+    font-weight: 700;
+    font-size: 28px;
+    transition: 0.4s;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
+}
+
+img {
+    height: 38px;
+}

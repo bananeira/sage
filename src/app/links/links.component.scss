@@ -2,8 +2,10 @@
     margin: 0 0 36px 0;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
-app-link {
+app-link, app-small-link {
     margin: 38px 26px 0 0;
+    display: block;
 }

@@ -1,6 +1,7 @@
 <h1>{{ content?.title }}</h1>
 <p *ngIf="content?.text" [innerHtml]="content?.text"></p>
 
-<app-skills *ngIf="content?.id === 'skills'"></app-skills>
+<app-links *ngIf="content?.id === 'skills'" [skills]="content?.smallLinks"></app-links>
 <app-links *ngIf="content?.id === 'projects'" [projects]="content?.links"></app-links>
 <app-links *ngIf="content?.id === 'contributions'" [contributions]="content?.links"></app-links>
+<app-links *ngIf="content?.id === 'resources'" [resources]="content?.smallLinks"></app-links>

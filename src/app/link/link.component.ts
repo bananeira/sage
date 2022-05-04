@@ -3,12 +3,12 @@ import {LinkModel} from "../interface/link-box-model";
 import {TypeBadgeModel} from "../interface/type-badge-model";
 import {typeBadgeModels} from "../constants/type-badge-constant";
 import {LangBadgeModel} from "../interface/lang-badge-model";
-import {langBadgeModels} from "../constants/lang-badge-constant";
+import {langBadgeModels} from "../constants/lang-badge-constant"
 
 @Component({
-  selector: 'app-link',
-  templateUrl: './link.component.html',
-  styleUrls: ['./link.component.scss']
+    selector: 'app-link',
+    templateUrl: './link.component.html',
+    styleUrls: ['./link.component.scss']
 })
 export class LinkComponent implements OnInit {
     @Input()
