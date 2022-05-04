@@ -11,8 +11,13 @@ app-contributions {
     justify-content: flex-start;
 }
 
+h1 {
+    user-select: text;
+}
+
 p {
     width: 65%;
+    user-select: text;
 }
 
 @keyframes animate-section-content {

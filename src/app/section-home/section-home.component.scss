@@ -19,6 +19,7 @@ img {
 }
 
 h1 {
+    user-select: text;
     animation: 2.5s animate-title ease-in-out;
 }
 
@@ -27,6 +28,7 @@ h1 {
 }
 
 p {
+    user-select: text;
     animation: 3s animate-paragraph ease-in-out;
 }
 
