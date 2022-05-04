@@ -21,4 +21,8 @@ export const typeBadgeModels: TypeBadgeModel[] = [
         id: "front-end",
         displayName: "FRONT-END",
     },
+    {
+        id: "back-end",
+        displayName: "BACK-END",
+    },
 ];

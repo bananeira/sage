@@ -22,8 +22,24 @@ export const projects: LinkModel[] = [
         codeLink: "https://github.com/clk1006/tetris/",
     },
     {
+        id: "serveressentials",
+        title: "server essentials (test)",
+        description: "This is an attempt on my part to get used to programming Minecraft plugins in " +
+            "Spigot and to Java. The scope is negligible so far, but I am curious to see how far it will " +
+            "expand as soon as I have time. Until then, let this project be considered as a " +
+            "placeholder for this website.",
+        language: [
+            "java",
+            "spigot",
+        ],
+        remit: [
+            "back-end"
+        ],
+        codeLink: "https://github.com/bananeira/ServerEssentials",
+    },
+    {
         id: "homepage",
-        title: "(this homepage)",
+        title: "this page (reference)",
         description: "This link refers to this homepage. Since it's also a relatively extensive project of mine, " +
             "you will also find the link to the code here. The homepage is written using Angular. " +
             "Since this is technically a bit overkill for a small web application, I would still like to refer " +

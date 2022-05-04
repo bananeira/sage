@@ -29,4 +29,12 @@ export const langBadgeModels: LangBadgeModel[] = [
         id: "scss",
         displayName: "SCSS/SASS",
     },
+    {
+        id: "java",
+        displayName: "JAVA",
+    },
+    {
+        id: "spigot",
+        displayName: "SPIGOT",
+    },
 ];
