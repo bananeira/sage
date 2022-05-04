@@ -10,6 +10,7 @@
     justify-content: center;
     backdrop-filter: blur(8px);
     z-index: 1;
+    animation: 1.75s animate-navbar ease-in-out;
 
     padding: $padding-normal;
     border-bottom: $b-width solid $b-color;
@@ -55,4 +56,16 @@
         bottom: -1px;
         width: 100%;
     }
+}
+
+@keyframes animate-navbar {
+    from {
+        opacity: 0;
+        top: -10%;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+
 }
