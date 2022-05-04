@@ -36,8 +36,8 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "resources",
         title: "tools/resources",
-        text: "The following is a list of the tools and resources that I generally use for learning.the following is a " +
-            "list of the tools and resources I generally use to learn and share my results.",
+        text: "The following is a list of the tools and resources that I generally use for learning. " +
+            "The following is a list of the tools and resources I generally use to learn and share my results.",
         smallLinks: resources,
     },
     {
