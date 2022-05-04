@@ -29,4 +29,11 @@ export const resources: SmallLinkModel[] = [
         desc: "",
         link: "https://github.com/",
     },
+    {
+        id: "bitbucket",
+        img: "assets/resources/bitbucket.svg",
+        title: "Atlassian Bitbucket",
+        desc: "",
+        link: "https://bitbucket.org/",
+    },
 ];

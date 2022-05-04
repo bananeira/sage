@@ -30,6 +30,13 @@ export const skills: SmallLinkModel[] = [
         link: "https://html.spec.whatwg.org/multipage/",
     },
     {
+        id: "css",
+        img: "assets/skills/css3.svg",
+        title: "CSS",
+        desc: "",
+        link: "https://www.w3.org/Style/CSS/Overview.de.html",
+    },
+    {
         id: "sass",
         img: "assets/skills/sass.svg",
         title: "Sass",
@@ -49,6 +56,13 @@ export const skills: SmallLinkModel[] = [
         title: "TypeScript",
         desc: "",
         link: "https://www.typescriptlang.org/",
+    },
+    {
+        id: "git",
+        img: "assets/skills/git.svg",
+        title: "Git",
+        desc: "",
+        link: "https://git-scm.com/",
     },
     {
         id: "react",
