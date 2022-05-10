@@ -95,7 +95,7 @@ app-type-badge, app-lang-badge {
 }
 
 .sources:last-child {
-    & span {
+    & app-source-badge span {
         margin-right: 0;
     }
 }
