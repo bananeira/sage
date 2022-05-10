@@ -12,7 +12,6 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .context {
@@ -31,6 +30,10 @@
     font-weight: 700;
     font-size: 28px;
     transition: 0.4s;
+}
+
+.desc {
+    text-align: center;
 }
 
 a {

@@ -3,7 +3,7 @@ export interface LinkModel {
     title: string;
     description?: string;
     language: string[];
-    remit: string[];
+    remit?: string[];
     link?: string;
     codeLink?: string;
 }

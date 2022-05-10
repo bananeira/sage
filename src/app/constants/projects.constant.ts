@@ -56,4 +56,47 @@ export const projects: LinkModel[] = [
         ],
         codeLink: "https://github.com/bananeira/sage",
     },
+    {
+        id: "terminal velocity",
+        title: "Terminal velocity",
+        description: "This link will take you to an InsightMaker simulation I created for fun some time ago. " +
+            "It simulates the terminal velocity of a cube made of different materials in different environments.",
+        language: [
+            "insightmaker",
+            "physics",
+        ],
+        remit: [
+
+        ],
+        link: "https://insightmaker.com/insight/5Xf4Qi4RZMfPpYAZQZFEfM/Terminalgeschwindigkeit-eines-W-rfels",
+    },
+    {
+        id: "coupled pendulums",
+        title: "Coupled pendulums",
+        description: "This link will take you to an InsightMaker simulation that I created for a school " +
+            "presentation. In this simulation the energy exchange between coupled pendulums is visualised.",
+        language: [
+            "insightmaker",
+            "physics",
+        ],
+        remit: [
+
+        ],
+        link: "https://insightmaker.com/insight/lUM5LCAcR4nWCPAiQ3w6x/3-gekoppelte-Pendel-edit",
+    },
+    {
+        id: "pandemic",
+        title: "A pandemic...",
+        description: `<span>(Ger/Deu) This link leads to a school project in which an approximation of a classical
+            progression of a pandemic/epidemic was to be created. Here you will also find a <a href="" target="_blank">document</a>
+            outlining the context of this simulation. Please note that this is not a scientific article and that
+            this document is written in german.</span>`,
+        language: [
+            "insightmaker",
+        ],
+        remit: [
+
+        ],
+        link: "https://insightmaker.com/insight/lUM5LCAcR4nWCPAiQ3w6x/3-gekoppelte-Pendel-edit",
+    },
 ];

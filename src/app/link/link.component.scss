@@ -36,11 +36,12 @@ app-type-badge, app-lang-badge {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
     & .sources {
         display: flex;
+        width: fit-content;
         flex-direction: row-reverse;
         align-items: center;
         justify-content: flex-end;

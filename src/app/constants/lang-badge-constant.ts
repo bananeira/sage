@@ -37,4 +37,12 @@ export const langBadgeModels: LangBadgeModel[] = [
         id: "spigot",
         displayName: "Spigot",
     },
+    {
+        id: "insightmaker",
+        displayName: "InsightMaker",
+    },
+    {
+        id: "physics",
+        displayName: "Physics",
+    },
 ];

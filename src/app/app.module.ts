@@ -11,7 +11,6 @@ import { LinksComponent } from './links/links.component';
 import { ContentSkeletonPlaceholderComponent } from './content-skeleton-placeholder/content-skeleton-placeholder.component';
 import { TypeBadgeComponent } from './type-badge/type-badge.component';
 import { SectionFooterComponent } from './section-footer/section-footer.component';
-import { SkillBoxComponent } from './skill-box/skill-box.component';
 import { LinkComponent } from './link/link.component';
 import { LangBadgeComponent } from './lang-badge/lang-badge.component';
 import { ContentEmptyComponent } from './content-empty/content-empty.component';
@@ -29,7 +28,6 @@ import { SourceBadgeComponent } from './source-badge/source-badge.component';
     ContentSkeletonPlaceholderComponent,
     TypeBadgeComponent,
     SectionFooterComponent,
-    SkillBoxComponent,
     LinkComponent,
     LangBadgeComponent,
     ContentEmptyComponent,

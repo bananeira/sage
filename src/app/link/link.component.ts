@@ -26,6 +26,7 @@ export class LinkComponent implements OnInit {
             this.boxLink = this.link.codeLink;
         }
 
+        if (this.link.remit)
         for (const remit of this.link.remit) {
             const foundTypeBadge = typeBadgeModels.find(
                 (remitBadge: TypeBadgeModel) => (remitBadge.id === remit)
@@ -59,6 +60,10 @@ export class LinkComponent implements OnInit {
 
         if (this.link.link?.includes("vercel.app/")) {
             this.sourceLinks.push("Vercel");
+        }
+
+        if (this.link.link?.includes("insightmaker.com/")) {
+            this.sourceLinks.push("InsightMaker");
         }
     }
 }
