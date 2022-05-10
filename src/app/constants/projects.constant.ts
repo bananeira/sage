@@ -87,10 +87,8 @@ export const projects: LinkModel[] = [
     {
         id: "pandemic",
         title: "A pandemic...",
-        description: `<span>(Ger/Deu) This link leads to a school project in which an approximation of a classical
-            progression of a pandemic/epidemic was to be created. Here you will also find a <a href="" target="_blank">document</a>
-            outlining the context of this simulation. Please note that this is not a scientific article and that
-            this document is written in german.</span>`,
+        description: "(Ger/Deu) This link leads to a school project in which an approximation of a classical " +
+            "progression of a pandemic/epidemic was to be created.",
         language: [
             "insightmaker",
         ],
