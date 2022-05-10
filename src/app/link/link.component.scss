@@ -94,8 +94,8 @@ app-type-badge, app-lang-badge {
     }
 }
 
-app-source-badge {
-    &:last-child {
+.sources:last-child {
+    & span {
         margin-right: 0;
     }
 }
