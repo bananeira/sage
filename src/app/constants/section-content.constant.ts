@@ -47,4 +47,15 @@ export const sectionContentModels: SectionContentModel[] = [
             "free wonderful illustrations that open up new ways to create beautiful designs. Also thanks for a nice " +
             "inspiration regarding the text layout.",
     },
+    {
+        id: "contact",
+        title: "contact",
+        text: `If you have any concerns or feedback, feel free to contact me via my e-mail
+            <span class="e-mail">ijamil.osoria(at)gmail.com</span>.`,
+    },
+    {
+        id: "copyright",
+        title: "",
+        text: "",
+    },
 ];
