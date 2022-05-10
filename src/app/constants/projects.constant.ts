@@ -3,7 +3,7 @@ import {LinkModel} from "../interface/link-box-model";
 export const projects: LinkModel[] = [
     {
         id: "teris",
-        title: "teris api",
+        title: "Teris API",
         description: "This link refers to a recreation of the " +
             "game Tetris to provide its functions as an API, so that our classmates could create AIs " +
             "to battle against each other. This project was created in the course of my comp-sci class (see site).",
@@ -23,11 +23,11 @@ export const projects: LinkModel[] = [
     },
     {
         id: "serveressentials",
-        title: "server essentials (test)",
+        title: "1.18 ServerEssentials",
         description: "This is an attempt on my part to get used to programming Minecraft plugins in " +
-            "Spigot and to Java. The scope is negligible so far, but I am curious to see how far it will " +
+            "Spigot and to Java. The scope of this project is negligible so far, but I am curious to see how far it will " +
             "expand as soon as I have time. Until then, let this project be considered as a " +
-            "placeholder for this website.",
+            "placeholder.",
         language: [
             "java",
             "spigot",
@@ -39,13 +39,13 @@ export const projects: LinkModel[] = [
     },
     {
         id: "homepage",
-        title: "this page (reference)",
+        title: "This page",
         description: "This link refers to this homepage. Since it's also a relatively extensive project of mine, " +
             "you will also find the link to the code here. The homepage is written using Angular. " +
             "Since this is technically a bit overkill for a small web application, I would still like to refer " +
             "to the code, if interested...",
         language: [
-            "ng",
+            "angular",
             "typescript",
             "javascript",
             "html",

@@ -16,6 +16,7 @@ import { LinkComponent } from './link/link.component';
 import { LangBadgeComponent } from './lang-badge/lang-badge.component';
 import { ContentEmptyComponent } from './content-empty/content-empty.component';
 import { SmallLinkComponent } from './small-link/small-link.component';
+import { SourceBadgeComponent } from './source-badge/source-badge.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SmallLinkComponent } from './small-link/small-link.component';
     LinkComponent,
     LangBadgeComponent,
     ContentEmptyComponent,
-    SmallLinkComponent
+    SmallLinkComponent,
+    SourceBadgeComponent
   ],
   imports: [
     BrowserModule,

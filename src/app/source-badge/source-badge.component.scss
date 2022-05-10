@@ -1,0 +1,14 @@
+@import "src/app/variables";
+
+span {
+    margin-right: 3px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    word-break: keep-all;
+    padding: 3px 5px;
+    border-radius: 10px;
+
+    color: $text-medium-emphasis;
+    background-color: rgba(0, 0, 0, $lowest-emphasis);
+}

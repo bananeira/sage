@@ -11,18 +11,18 @@ export const typeBadgeModels: TypeBadgeModel[] = [
     },
     {
         id: "web",
-        displayName: "(WEB) DESIGN",
+        displayName: "(Web) design",
     },
     {
         id: "docs",
-        displayName: "DOCS",
+        displayName: "Docs",
     },
     {
         id: "front-end",
-        displayName: "FRONT-END",
+        displayName: "Front-end",
     },
     {
         id: "back-end",
-        displayName: "BACK-END",
+        displayName: "Back-end",
     },
 ];

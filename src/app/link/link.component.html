@@ -1,11 +1,16 @@
 <a [href]="boxLink" target="_blank" class="content">
     <div class="context--container">
-        <h1 class="title">{{ link.title }}</h1>
+        <div class="heading">
+            <h1 class="title">{{ link.title }}</h1>
+            <div class="sources">
+                <app-source-badge *ngFor="let source of sourceLinks" [displayName]="source"></app-source-badge>
+            </div>
+        </div>
         <p class="description">{{ link.description }}</p>
     </div>
     <div class="footer--container">
         <hr>
-        <p class="resource-type">Used resources: <app-type-badge *ngFor="let lang of langBadges" [badge]="lang"></app-type-badge></p>
+        <p class="resource-type">Resources: <app-type-badge *ngFor="let lang of langBadges" [badge]="lang"></app-type-badge></p>
         <p class="contribution-type">My remit: <app-type-badge *ngFor="let remit of typeBadges" [badge]="remit"></app-type-badge></p>
         <div class="btn--container">
             <a *ngIf="link.link" [href]="link.link" target="_blank" class="btn-primary">visit site</a>

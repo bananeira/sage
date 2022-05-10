@@ -15,26 +15,26 @@ export const langBadgeModels: LangBadgeModel[] = [
     },
     {
         id: "react",
-        displayName: "REACT",
+        displayName: "React",
     },
     {
         id: "typescript",
-        displayName: "TYPESCRIPT",
+        displayName: "TypeScript",
     },
     {
-        id: "ng",
-        displayName: "ANGULAR",
+        id: "angular",
+        displayName: "Angular",
     },
     {
         id: "scss",
-        displayName: "SCSS/SASS",
+        displayName: "SCSS/Sass",
     },
     {
         id: "java",
-        displayName: "JAVA",
+        displayName: "Java",
     },
     {
         id: "spigot",
-        displayName: "SPIGOT",
+        displayName: "Spigot",
     },
 ];

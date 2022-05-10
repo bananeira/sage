@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {LinkModel} from "../interface/link-box-model";
 import {SmallLinkModel} from "../interface/small-link-model";
 

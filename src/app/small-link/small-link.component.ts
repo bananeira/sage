@@ -1,9 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input } from '@angular/core';
 import {SmallLinkModel} from "../interface/small-link-model";
-import {typeBadgeModels} from "../constants/type-badge-constant";
-import {TypeBadgeModel} from "../interface/type-badge-model";
-import {langBadgeModels} from "../constants/lang-badge-constant";
-import {LangBadgeModel} from "../interface/lang-badge-model";
 
 @Component({
   selector: 'app-small-link',

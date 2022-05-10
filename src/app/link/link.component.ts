@@ -17,6 +17,7 @@ export class LinkComponent implements OnInit {
     typeBadges: TypeBadgeModel[] = [];
     langBadges: TypeBadgeModel[] = [];
     boxLink?: string;
+    sourceLinks: string[] = [];
 
     ngOnInit(): void {
         if (this.link.link) {
@@ -47,6 +48,17 @@ export class LinkComponent implements OnInit {
             }
 
             this.langBadges.push(foundLangBadge);
+        }
+        this.buildSourceBadgeName();
+    }
+
+    private buildSourceBadgeName() {
+        if (this.link.codeLink?.includes("github.com/")) {
+            this.sourceLinks.push("GitHub");
+        }
+
+        if (this.link.link?.includes("vercel.app/")) {
+            this.sourceLinks.push("Vercel");
         }
     }
 }
