@@ -78,4 +78,11 @@ export const skills: SmallLinkModel[] = [
         desc: "",
         link: "https://insightmaker.com/",
     },
+    {
+        id: "node",
+        img: "assets/skills/nodejs.svg",
+        title: "NodeJS",
+        desc: "",
+        link: "https://nodejs.org/",
+    },
 ];

@@ -32,8 +32,15 @@ export const resources: SmallLinkModel[] = [
     {
         id: "bitbucket",
         img: "assets/resources/bitbucket.svg",
-        title: "Atlassian Bitbucket",
+        title: "Bitbucket",
         desc: "",
         link: "https://bitbucket.org/",
+    },
+    {
+        id: "insightmaker",
+        img: "assets/resources/insightmaker.png",
+        title: "Insight Maker",
+        desc: "",
+        link: "https://insightmaker.com/",
     },
 ];
