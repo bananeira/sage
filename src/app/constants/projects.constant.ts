@@ -87,7 +87,7 @@ export const projects: LinkModel[] = [
     {
         id: "pandemic",
         title: "A pandemic...",
-        description: "(Ger/Deu) This link leads to a school project in which an approximation of a classical " +
+        description: "This link leads to a school project in which an approximation of a classical " +
             "progression of a pandemic/epidemic was to be created.",
         language: [
             "insightmaker",
