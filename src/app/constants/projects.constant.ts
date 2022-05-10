@@ -95,6 +95,6 @@ export const projects: LinkModel[] = [
         remit: [
 
         ],
-        link: "https://insightmaker.com/insight/lUM5LCAcR4nWCPAiQ3w6x/3-gekoppelte-Pendel-edit",
+        link: "https://insightmaker.com/insight/4UT9qjXaBc265DOFOpD5XZ/Simulation-einer-Pandemie",
     },
 ];
