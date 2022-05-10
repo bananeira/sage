@@ -94,6 +94,12 @@ app-type-badge, app-lang-badge {
     }
 }
 
+app-source-badge {
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
 a {
     text-decoration: none;
     display: block;
