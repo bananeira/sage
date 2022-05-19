@@ -51,6 +51,7 @@ a, .e-mail {
 
 .e-mail {
     user-select: all;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -131,5 +132,11 @@ h1 {
 
     100% {
         opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    html {
+        scroll-padding-top: $padding-high;
     }
 }

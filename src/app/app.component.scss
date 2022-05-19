@@ -22,9 +22,43 @@
 }
 
 .header {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 .text {
     flex-direction: column;
+}
+
+@media only screen and (min-width: 2000px) {
+    .block {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .block {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .block {
+        &:nth-child(1) {
+            margin-top: 3em;
+        }
+
+        &:last-child {
+            margin-bottom: 6em;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .block {
+        width: 85%;
+    }
 }

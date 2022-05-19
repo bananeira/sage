@@ -10,7 +10,6 @@ import { SectionContentComponent } from './section-content/section-content.compo
 import { LinksComponent } from './links/links.component';
 import { ContentSkeletonPlaceholderComponent } from './content-skeleton-placeholder/content-skeleton-placeholder.component';
 import { TypeBadgeComponent } from './type-badge/type-badge.component';
-import { SectionFooterComponent } from './section-footer/section-footer.component';
 import { LinkComponent } from './link/link.component';
 import { LangBadgeComponent } from './lang-badge/lang-badge.component';
 import { ContentEmptyComponent } from './content-empty/content-empty.component';
@@ -28,7 +27,6 @@ import { CopyrightComponent } from './copyright/copyright.component';
     LinksComponent,
     ContentSkeletonPlaceholderComponent,
     TypeBadgeComponent,
-    SectionFooterComponent,
     LinkComponent,
     LangBadgeComponent,
     ContentEmptyComponent,

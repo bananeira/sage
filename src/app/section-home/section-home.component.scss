@@ -1,5 +1,10 @@
 @import "src/app/variables";
 
+:host {
+    display: flex;
+    flex-direction: row;
+}
+
 .block--content {
     display: flex;
     flex-direction: column;
@@ -35,4 +40,32 @@ p {
 
 .btn-primary, .btn-secondary {
     animation: 3s animate-emphasis ease-in-out;
+}
+
+@media only screen and (max-width: 1200px) {
+    .head-illustration {
+        width: 40vw;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .head-illustration {
+        width: 100%;
+    }
+
+    .block--content {
+        text-align: start;
+    }
+
+    .btn--container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        margin: auto 0;
+    }
+
+    .btn-primary, .btn-secondary {
+        display: flex;
+        align-items: center;
+    }
 }

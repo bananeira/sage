@@ -13,6 +13,23 @@ app-contributions {
 
 h1 {
     user-select: text;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    & span {
+        display: block;
+        margin: auto 8px auto 0;
+        font-family: "Mulish", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        word-break: keep-all;
+        padding: 3px 5px;
+        border-radius: 50px;
+
+        color: $text-medium-emphasis;
+        background-color: rgba(0, 0, 0, $lowest-emphasis);
+    }
 }
 
 p {
@@ -29,5 +46,17 @@ p {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    p {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    p {
+        width: 100%;
     }
 }
