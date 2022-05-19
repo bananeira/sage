@@ -74,9 +74,15 @@
     .navbar {
         top: initial;
         bottom: 0;
+        border-bottom: none;
+        padding: 6px 0;
+
         background-color: $background-block;
         border-top: $b-width solid $b-color;
-        border-bottom: none;
+
+        &__icon {
+            display: none;
+        }
 
         & .scroll-progress {
             position: absolute;
@@ -95,6 +101,5 @@
             opacity: 1;
             bottom: 0;
         }
-
     }
 }
