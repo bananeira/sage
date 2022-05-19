@@ -45,8 +45,20 @@
             color: $text-high-emphasis;
             border-radius: $b-radius-small;
 
+            &__icon {
+                display: none;
+                filter: brightness(1.75) saturate(0.2) hue-rotate(-30deg);
+                opacity: 0.8;
+                transition: 0.4s;
+            }
+
             &:hover {
                 background-color: rgba(0, 0, 0, $very-low-emphasis);
+
+                & .navbar--opts__opt__icon {
+                    filter: brightness(1) saturate(1) hue-rotate(0);
+                    opacity: 0.9;
+                }
             }
         }
     }
@@ -82,6 +94,18 @@
 
         &__icon {
             display: none;
+        }
+
+        &--opts__opt__icon {
+            display: block;
+            height: 28px;
+            max-width: 30px;
+        }
+
+        & a {
+            & span {
+                display: none;
+            }
         }
 
         & .scroll-progress {
