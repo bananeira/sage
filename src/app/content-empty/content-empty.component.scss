@@ -28,3 +28,9 @@ h1 {
 
     color: $text-medium-emphasis;
 }
+
+@media only screen and (max-width: 1000px) {
+    section {
+        max-width: 85%;
+    }
+}
