@@ -96,17 +96,19 @@
             display: none;
         }
 
-        &--opts {
-            justify-content: space-evenly;
+        &--opts__opt {
+            margin-left: 24px;
 
-            &__opt__icon {
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &__icon {
                 display: block;
-                height: 28px;
-                max-width: 30px;
+                height: 24px;
+                max-width: 28px;
             }
         }
-
-
 
         & a {
             & span {
