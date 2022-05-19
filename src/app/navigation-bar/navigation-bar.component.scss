@@ -96,11 +96,17 @@
             display: none;
         }
 
-        &--opts__opt__icon {
-            display: block;
-            height: 28px;
-            max-width: 30px;
+        &--opts {
+            justify-content: space-evenly;
+
+            &__opt__icon {
+                display: block;
+                height: 28px;
+                max-width: 30px;
+            }
         }
+
+
 
         & a {
             & span {
