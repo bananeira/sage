@@ -17,8 +17,8 @@ export const sectionContentModels: SectionContentModel[] = [
         title: "competencies",
         text: "The following list basically refers to those instances that I have recently dealt with to " +
             "the extent that I think I can deal with them in principle. This does not mean that I have mastered " +
-            "them perfectly, but that the instances listed are the ones I am more or less able to work with. " +
-            "Furthermore, the listed instances are not ordered according to competence.",
+            "them. The instances listed are the ones I am more or less able to work with. " +
+            "Furthermore, the they are not ordered according to competence.",
         smallLinks: skills,
     },
     {
@@ -34,8 +34,7 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "resources",
         title: "tools/resources",
-        text: "The following is a list of the tools and resources that I generally use for learning. " +
-            "The following is a list of the tools and resources I generally use to learn and share my results.",
+        text: "The following is a list of the tools and resources that I generally use for learning and sharing my results.",
         smallLinks: resources,
     },
     {

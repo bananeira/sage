@@ -26,6 +26,7 @@ app-link {
 app-small-link {
     display: block;
     width: calc(100% * (1/4) - 3%);
+    height: fit-content;
 
     margin: $margin-links-y/1.75 3% $margin-links-y/1.75 0;
 }

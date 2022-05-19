@@ -4,9 +4,8 @@ export const projects: LinkModel[] = [
     {
         id: "teris",
         title: "Teris API",
-        description: "This link refers to a recreation of the " +
-            "game Tetris to provide its functions as an API, so that our classmates could create AIs " +
-            "to battle against each other. This project was created in the course of my comp-sci class (see site).",
+        description: "Teris provides general functions of Tetris as an API, to create a basis for the construction of AIs." +
+            "This project was created in the course of my comp-sci class (see site).",
         language: [
             "react",
             "javascript",
@@ -39,7 +38,7 @@ export const projects: LinkModel[] = [
     {
         id: "homepage",
         title: "This page",
-        description: "This homepage is written using Angular. " +
+        description: "The homepage you're on right now is written using Angular. " +
             "Since this is technically overkill for a small web application, I'm still referring " +
             "to the GitHub repo, if interested...",
         language: [
@@ -57,8 +56,8 @@ export const projects: LinkModel[] = [
     {
         id: "terminal velocity",
         title: "Terminal velocity",
-        description: "This link will take you to an InsightMaker simulation. " +
-            "It computes the terminal velocity of a cube with differing properties in different environments, atmospheres.",
+        description: "The simulation computes the terminal velocity of a cube with differing properties " +
+            "in different environments, atmospheres.",
         language: [
             "insightmaker",
             "physics",
