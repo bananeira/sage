@@ -39,9 +39,9 @@ export const projects: LinkModel[] = [
     {
         id: "homepage",
         title: "This page",
-        description: "This link refers to the repository of this homepage. The homepage is written using Angular. " +
+        description: "This homepage is written using Angular. " +
             "Since this is technically overkill for a small web application, I'm still referring " +
-            "to the GitHub repo, in case interested...",
+            "to the GitHub repo, if interested...",
         language: [
             "angular",
             "typescript",
@@ -71,8 +71,8 @@ export const projects: LinkModel[] = [
     {
         id: "coupled pendulums",
         title: "Coupled pendulums",
-        description: "This link will take you to an InsightMaker simulation that I created for a school " +
-            "presentation. In this simulation the energy exchange between coupled pendulums is visualised.",
+        description: "I created this simulation for a school presentation, in which occurring energy exchange " +
+            "under differing settings between coupled pendulums was to be demonstrated and explained.",
         language: [
             "insightmaker",
             "physics",
