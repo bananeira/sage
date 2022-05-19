@@ -52,14 +52,6 @@ app-type-badge, app-lang-badge {
     display: flex;
     flex-direction: column;
 
-    & hr {
-        width: 16%;
-        height: 2px;
-        border: none;
-
-        background-color: $text-low-emphasis;
-    }
-
     & p {
         margin: 6px 0;
         font-size: 16px;

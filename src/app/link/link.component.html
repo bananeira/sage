@@ -9,7 +9,6 @@
         <p class="description" [innerHtml]="link.description"></p>
     </div>
     <div class="footer--container">
-        <hr>
         <p class="resource-type">Resources: <app-type-badge *ngFor="let lang of langBadges" [badge]="lang"></app-type-badge></p>
         <p class="contribution-type" *ngIf="link.remit?.length">My remit: <app-type-badge *ngFor="let remit of typeBadges" [badge]="remit"></app-type-badge></p>
         <div class="btn--container">
