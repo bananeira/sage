@@ -47,7 +47,7 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "contact",
         title: "contact",
-        text: `If you have any issues you would like to contact me about or feedback, feel free to send me an e-mail via
+        text: `If you have any issues or feedback you would like to contact me about, feel free to send me an e-mail via
             <span class="e-mail">de.jamil(at)proton.me</span>.`,
     },
     {
