@@ -24,10 +24,9 @@ export const projects: LinkModel[] = [
     {
         id: "serveressentials",
         title: "1.18 ServerEssentials",
-        description: "This is an attempt on my part to get used to programming Minecraft plugins in " +
-            "Spigot and to Java. The scope of this project is negligible so far, but I am curious to see how far it will " +
-            "expand as soon as I have time. Until then, let this project be considered as a " +
-            "placeholder.",
+        description: "This is my attempt to get used to programming Minecraft plugins in " +
+            "Spigot and Java. The scope of this project is negligible so far, but I am curious to see how far it will " +
+            "expand over time. Until then, let this project be considered as a placeholder.",
         language: [
             "java",
             "spigot",
@@ -40,10 +39,9 @@ export const projects: LinkModel[] = [
     {
         id: "homepage",
         title: "This page",
-        description: "This link refers to this homepage. Since it's also a relatively extensive project of mine, " +
-            "you will also find the link to the code here. The homepage is written using Angular. " +
-            "Since this is technically a bit overkill for a small web application, I would still like to refer " +
-            "to the code, if interested...",
+        description: "This link refers to the repository of this homepage. The homepage is written using Angular. " +
+            "Since this is technically overkill for a small web application, I'm still referring " +
+            "to the GitHub repo, in case interested...",
         language: [
             "angular",
             "typescript",
@@ -59,8 +57,8 @@ export const projects: LinkModel[] = [
     {
         id: "terminal velocity",
         title: "Terminal velocity",
-        description: "This link will take you to an InsightMaker simulation I created for fun some time ago. " +
-            "It simulates the terminal velocity of a cube made of different materials in different environments.",
+        description: "This link will take you to an InsightMaker simulation. " +
+            "It computes the terminal velocity of a cube with differing properties in different environments, atmospheres.",
         language: [
             "insightmaker",
             "physics",
