@@ -71,7 +71,7 @@ app-type-badge, app-lang-badge {
         position: absolute;
         width: 100%;
         height: 28%;
-        bottom: -2px;
+        bottom: -1px;
         left: -4px;
         transition: 0.22s ease-in-out;
 
@@ -79,7 +79,7 @@ app-type-badge, app-lang-badge {
     }
 
     a:hover &:before {
-        height: calc(100% + 2*2px);
+        height: calc(100% + 2*1px);
 
         background-color: rgba($primary-color, 0.12);
     }
