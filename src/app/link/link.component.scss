@@ -66,24 +66,27 @@ app-type-badge, app-lang-badge {
     transition: 0.4s;
 
     &:before {
+        padding: 0 3px;
         content: "";
         position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -3px;
-        left: 0;
-        visibility: hidden;
-        transition: 0.4s ease-in-out;
+        width: 100%;
+        height: 23%;
+        bottom: 0;
+        left: -3px;
+        transition: 0.22s ease-in-out;
 
-        background-color: $text-high-emphasis;
+        background-color: rgb(0, 0, 0, 0.1);
     }
 
     a:hover &:before {
-        width: 100%;
-        visibility: visible;
+        height: 100%;
 
-        background-color: $primary-color;
+        background-color: rgba($primary-color, 0.12);
     }
+}
+
+.state-type {
+    margin: 6px 0 0 0;
 }
 
 .sources:last-child {

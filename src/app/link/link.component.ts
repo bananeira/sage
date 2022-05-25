@@ -4,6 +4,9 @@ import {TypeBadgeModel} from "../interface/type-badge-model";
 import {typeBadgeModels} from "../constants/type-badge-constant";
 import {LangBadgeModel} from "../interface/lang-badge-model";
 import {langBadgeModels} from "../constants/lang-badge-constant"
+import {StateBadgeModel} from "../interface/state-badge-model";
+import {stateBadgeModels} from "../constants/state-badge-constant";
+import {StateBadgeComponent} from "../state-badge/state-badge.component";
 
 @Component({
     selector: 'app-link',
@@ -15,7 +18,9 @@ export class LinkComponent implements OnInit {
     link!: LinkModel;
 
     typeBadges: TypeBadgeModel[] = [];
-    langBadges: TypeBadgeModel[] = [];
+    langBadges: LangBadgeModel[] = [];
+    stateBadge?: StateBadgeModel;
+
     boxLink?: string;
     sourceLinks: string[] = [];
 
@@ -26,18 +31,23 @@ export class LinkComponent implements OnInit {
             this.boxLink = this.link.codeLink;
         }
 
+        this.stateBadge = stateBadgeModels.find(
+            (stateBadge: StateBadgeModel) => (stateBadge.id === this.link.state)
+        );
+
+
         if (this.link.remit)
-        for (const remit of this.link.remit) {
-            const foundTypeBadge = typeBadgeModels.find(
-                (remitBadge: TypeBadgeModel) => (remitBadge.id === remit)
-            )
+            for (const remit of this.link.remit) {
+                const foundTypeBadge = typeBadgeModels.find(
+                    (remitBadge: TypeBadgeModel) => (remitBadge.id === remit)
+                )
 
-            if (undefined === foundTypeBadge) {
-                continue;
+                if (undefined === foundTypeBadge) {
+                    continue;
+                }
+
+                this.typeBadges.push(foundTypeBadge);
             }
-
-            this.typeBadges.push(foundTypeBadge);
-        }
 
         for (const lang of this.link.language) {
             const foundLangBadge = langBadgeModels.find(

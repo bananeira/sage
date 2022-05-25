@@ -1,0 +1,32 @@
+@import "src/app/variables";
+
+.badge {
+    margin: 0 5px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 3px 5px;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.concluded {
+    color: rgba(46, 178, 143, 0.83);
+    background-color: rgba(46, 178, 143, 0.11);
+}
+
+.progressing {
+    color: rgba(217, 65, 73, 0.83);
+    background-color: rgba(217, 65, 73, 0.11);
+}
+
+.pending {
+    color: rgba(249, 169, 83, 0.83);
+    background-color: rgba(249, 169, 83, 0.11);
+}
+
+.new {
+    color: rgba(95, 82, 211, 0.83);
+    background-color: rgba(95, 82, 211, 0.11);
+}

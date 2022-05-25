@@ -6,4 +6,6 @@ export interface LinkModel {
     remit?: string[];
     link?: string;
     codeLink?: string;
+    state: string;
+    conclusionDate?: string;
 }

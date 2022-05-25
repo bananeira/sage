@@ -7,8 +7,6 @@ import {SectionContentModel} from "../interface/section-content-model";
   styleUrls: ['./section-content.component.scss']
 })
 export class SectionContentComponent {
-    contentLength!: number;
-
     @Input()
     content?: SectionContentModel;
 }
