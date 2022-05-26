@@ -27,7 +27,7 @@ export const langBadgeModels: LangBadgeModel[] = [
     },
     {
         id: "scss",
-        displayName: "SCSS/Sass",
+        displayName: "Sass",
     },
     {
         id: "java",
