@@ -60,7 +60,8 @@ export const projects: LinkModel[] = [
     {
         id: "terminal velocity",
         title: "terminal velocity",
-        description: "The simulation computes the terminal velocity of a cube with differing properties " +
+        description: "The constant speed that a freely falling object reaches when resistance prevents further acceleration. " +
+            "This simulation computes the terminal velocity of a cube with differing properties " +
             "in different environments, atmospheres.",
         language: [
             "insightmaker",
