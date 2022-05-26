@@ -1,5 +1,4 @@
 import {SectionContentModel} from "../interface/section-content-model";
-import {contributions} from "./contributions.constant";
 import {projects} from "./projects.constant";
 import {skills} from "./skills.constant"
 import {resources} from "./resources.constant";
@@ -29,19 +28,19 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "resources",
         title: "tools/resources",
-        text: "The following is a list of the tools and resources that I generally use for learning and sharing my results.",
+        text: "The following is a list of the tools and resources that I generally use for working, learning and sharing my results.",
         smallLinks: resources,
     },
     {
         id: "thankful",
         title: "thankful",
         text: `Many thanks to <a href="https://undraw.co/" target="_blank">unDraw</a> for providing ` +
-            "wonderful illustrations! Also thanks for a nice inspiration regarding the text layout ;).",
+            "wonderful illustrations and also for a nice inspiration regarding the text layout ;).",
     },
     {
         id: "contact",
         title: "contact",
-        text: `If you have any issues or feedback you would like to contact me about, feel free to send me an e-mail via
+        text: `If you have any issues or feedback you would like to contact me about, feel free to send an e-mail via
             <span class="e-mail">de.jamil(at)proton.me</span>.`,
     },
     {

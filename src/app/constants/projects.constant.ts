@@ -39,7 +39,7 @@ export const projects: LinkModel[] = [
     {
         id: "teris",
         title: "Teris",
-        description: "Teris provides general functions of Tetris as an API, to create a basis for the construction of AIs. " +
+        description: "Teris provides general functions of Tetris as an API to create a basis for the construction of A.I.s. " +
             "This project was created in the course of my comp-sci class (see site).",
         language: [
             "react",
