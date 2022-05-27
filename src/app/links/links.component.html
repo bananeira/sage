@@ -2,10 +2,12 @@
     <app-content-empty></app-content-empty>
 </ng-template>
 
-<ng-container *ngIf="contributions?.length || projects?.length || skills?.length || resources?.length else placeholder" >
+<ng-container class="link--container" *ngIf="projects?.length || contributions?.length || skills?.length || resources?.length else placeholder" >
     <app-link class="links" *ngFor="let project of projects" [link]="project" ></app-link>
     <app-link class="links" *ngFor="let contribution of contributions" [link]="contribution" ></app-link>
+</ng-container>
+
+<ng-container class="small-link--container" *ngIf="skills?.length || resources?.length  || projects?.length || contributions?.length else placeholder" >
     <app-small-link class="small-links" *ngFor="let skill of skills" [smallLink]="skill" ></app-small-link>
     <app-small-link class="small-links" *ngFor="let resource of resources" [smallLink]="resource" ></app-small-link>
 </ng-container>
-
