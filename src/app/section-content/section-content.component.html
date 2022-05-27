@@ -3,7 +3,9 @@
 </h1>
 <p *ngIf="content?.text" [innerHtml]="content?.text"></p>
 
-<app-links *ngIf="content?.id === 'skills'" class="small" [skills]="content?.smallLinks"></app-links>
+<app-links *ngIf="content?.id === 'skills' && content?.smallLinks?.length! % 2 == 1" class="center" [skills]="content?.smallLinks"></app-links>
+<app-links *ngIf="content?.id === 'skills' && content?.smallLinks?.length! % 2 == 0" [skills]="content?.smallLinks"></app-links>
 <app-links *ngIf="content?.id === 'projects'" [projects]="content?.links"></app-links>
 <app-links *ngIf="content?.id === 'contributions'" [contributions]="content?.links"></app-links>
-<app-links *ngIf="content?.id === 'resources'" [resources]="content?.smallLinks"></app-links>
+<app-links *ngIf="content?.id === 'resources' && content?.smallLinks?.length! % 2 == 1" class="center" [resources]="content?.smallLinks"></app-links>
+<app-links *ngIf="content?.id === 'resources' && content?.smallLinks?.length! % 2 == 0" [resources]="content?.smallLinks"></app-links>
