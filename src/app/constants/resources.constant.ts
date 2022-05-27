@@ -43,4 +43,11 @@ export const resources: SmallLinkModel[] = [
         desc: "",
         link: "https://insightmaker.com/",
     },
+    {
+        id: "insightmaker",
+        img: "assets/resources/insightmaker.png",
+        title: "Insight Maker",
+        desc: "",
+        link: "https://insightmaker.com/",
+    },
 ];
