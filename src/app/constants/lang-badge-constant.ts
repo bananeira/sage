@@ -1,6 +1,5 @@
-import {LangBadgeModel} from "../interface/lang-badge-model";
-
-export const langBadgeModels: LangBadgeModel[] = [
+import {BadgeModel} from "../interface/badge-model";
+export const langBadgeModels: BadgeModel[] = [
     {
         id: "javascript",
         displayName: "JavaScript",

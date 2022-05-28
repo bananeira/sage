@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {LangBadgeModel} from "../interface/lang-badge-model";
+import {BadgeModel} from "../interface/badge-model";
 
 @Component({
   selector: 'app-lang-badge',
@@ -8,5 +8,5 @@ import {LangBadgeModel} from "../interface/lang-badge-model";
 })
 export class LangBadgeComponent {
     @Input()
-    badge!: LangBadgeModel;
+    badge!: BadgeModel;
 }

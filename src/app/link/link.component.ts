@@ -1,12 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LinkModel} from "../interface/link-box-model";
-import {TypeBadgeModel} from "../interface/type-badge-model";
+import {BadgeModel} from "../interface/badge-model";
 import {typeBadgeModels} from "../constants/type-badge-constant";
-import {LangBadgeModel} from "../interface/lang-badge-model";
 import {langBadgeModels} from "../constants/lang-badge-constant"
-import {StateBadgeModel} from "../interface/state-badge-model";
 import {stateBadgeModels} from "../constants/state-badge-constant";
-import {StateBadgeComponent} from "../state-badge/state-badge.component";
 
 @Component({
     selector: 'app-link',
@@ -17,9 +14,9 @@ export class LinkComponent implements OnInit {
     @Input()
     link!: LinkModel;
 
-    typeBadges: TypeBadgeModel[] = [];
-    langBadges: LangBadgeModel[] = [];
-    stateBadge?: StateBadgeModel;
+    typeBadges: BadgeModel[] = [];
+    langBadges: BadgeModel[] = [];
+    stateBadge?: BadgeModel;
 
     boxLink?: string;
     sourceLinks: string[] = [];
@@ -32,14 +29,14 @@ export class LinkComponent implements OnInit {
         }
 
         this.stateBadge = stateBadgeModels.find(
-            (stateBadge: StateBadgeModel) => (stateBadge.id === this.link.state)
+            (stateBadge: BadgeModel) => (stateBadge.id === this.link.state)
         );
 
 
         if (this.link.remit)
             for (const remit of this.link.remit) {
                 const foundTypeBadge = typeBadgeModels.find(
-                    (remitBadge: TypeBadgeModel) => (remitBadge.id === remit)
+                    (remitBadge: BadgeModel) => (remitBadge.id === remit)
                 )
 
                 if (undefined === foundTypeBadge) {
@@ -51,7 +48,7 @@ export class LinkComponent implements OnInit {
 
         for (const lang of this.link.language) {
             const foundLangBadge = langBadgeModels.find(
-                (langBadge: LangBadgeModel) => (langBadge.id === lang)
+                (langBadge: BadgeModel) => (langBadge.id === lang)
             )
 
             if (undefined === foundLangBadge) {

@@ -1,7 +1,6 @@
-import {StateBadgeModel} from "../interface/state-badge-model";
-import {Input} from "@angular/core";
+import {BadgeModel} from "../interface/badge-model";
 
-export const stateBadgeModels: StateBadgeModel[] = [
+export const stateBadgeModels: BadgeModel[] = [
     {
         id: "progressing",
         displayName: "IN PROGRESS",

@@ -1,6 +1,6 @@
-import {TypeBadgeModel} from "../interface/type-badge-model";
+import {BadgeModel} from "../interface/badge-model";
 
-export const typeBadgeModels: TypeBadgeModel[] = [
+export const typeBadgeModels: BadgeModel[] = [
     {
         id: "ui",
         displayName: "UI/UX",

@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StateBadgeModel} from "../interface/state-badge-model";
-import {projects} from "../constants/projects.constant";
+import {BadgeModel} from "../interface/badge-model";
 
 @Component({
     selector: 'app-state-badge',
@@ -10,7 +9,7 @@ import {projects} from "../constants/projects.constant";
 export class StateBadgeComponent {
 
     @Input()
-    badge?: StateBadgeModel;
+    badge?: BadgeModel;
 
     @Input()
     conclusionDate?: string;

@@ -1,5 +1,5 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
-import {TypeBadgeModel} from "../interface/type-badge-model";
+import {BadgeModel} from "../interface/badge-model";
 
 @Component({
   selector: 'app-type-badge',
@@ -8,5 +8,5 @@ import {TypeBadgeModel} from "../interface/type-badge-model";
 })
 export class TypeBadgeComponent {
     @Input()
-    badge!: TypeBadgeModel;
+    badge!: BadgeModel;
 }
