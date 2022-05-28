@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './copyright.component.html',
   styleUrls: ['./copyright.component.scss']
 })
-export class CopyrightComponent implements OnInit {
+export class CopyrightComponent {
+    year: Date = new Date();
+    yearOut: string | null;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    constructor(private datePipe: DatePipe){
+        this.yearOut = this.datePipe.transform(this.year, 'yyyy');
+    }
 }
