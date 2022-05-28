@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./copyright.component.scss']
 })
 export class CopyrightComponent {
-    year: Date = new Date();
-    yearOut: string | null;
-
-    constructor(private datePipe: DatePipe){
-        this.yearOut = this.datePipe.transform(this.year, 'yyyy');
-    }
+    year = new Date().getFullYear();
 }
