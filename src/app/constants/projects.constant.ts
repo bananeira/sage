@@ -106,4 +106,20 @@ export const projects: LinkModel[] = [
         state: State.Concluded,
         conclusionDate: "2 May 2021",
     },
+    {
+        id: "cardinal-spigot",
+        title: "cardinal",
+        description: "A first renewal of the concept from the previous SEss to implement a structure with stricter " +
+            "logical sense divisions. This plugin is intended to deal with in-game management " +
+            "capabilities for admins.",
+        language: [
+            "java",
+            "spigot",
+        ],
+        remit: [
+
+        ],
+        codeLink: "https://github.com/bananeira/spigot-cardinal",
+        state: State.Pending,
+    },
 ];
