@@ -16,7 +16,7 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/ServerEssentials",
-        state: State.Deposited,
+        state: State.Deprecated,
     },
     {
         id: "homepage",

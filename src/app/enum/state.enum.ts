@@ -1,6 +1,6 @@
 export enum State {
     Progressing,
-    Concluded,
     Pending,
-    Deposited,
+    Concluded,
+    Deprecated,
 }

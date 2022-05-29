@@ -34,7 +34,7 @@ import { StateBadgeComponent } from './state-badge/state-badge.component';
     SmallLinkComponent,
     SourceBadgeComponent,
     CopyrightComponent,
-    StateBadgeComponent
+    StateBadgeComponent,
   ],
   imports: [
     BrowserModule,

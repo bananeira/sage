@@ -18,8 +18,8 @@ export const stateBadgeModels: StateBadgeModel[] = [
         state: State.Concluded,
     },
     {
-        id: "deposited",
-        displayName: "DEPOSITED",
-        state: State.Deposited,
+        id: "deprecated",
+        displayName: "DEPRECATED",
+        state: State.Deprecated,
     },
 ];
