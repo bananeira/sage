@@ -4,6 +4,7 @@ import {BadgeModel} from "../interface/badge-model";
 import {typeBadgeModels} from "../constants/type-badge-constant";
 import {langBadgeModels} from "../constants/lang-badge-constant"
 import {stateBadgeModels} from "../constants/state-badge-constant";
+import {StateBadgeModel} from "../interface/state-badge-model";
 
 @Component({
     selector: 'app-link',
@@ -29,9 +30,8 @@ export class LinkComponent implements OnInit {
         }
 
         this.stateBadge = stateBadgeModels.find(
-            (stateBadge: BadgeModel) => (stateBadge.id === this.link.state)
+            (stateBadge: StateBadgeModel) => (stateBadge.state === this.link.state)
         );
-
 
         if (this.link.remit)
             for (const remit of this.link.remit) {

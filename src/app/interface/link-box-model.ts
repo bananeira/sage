@@ -1,3 +1,5 @@
+import {State} from "../enum/state.enum";
+
 export interface LinkModel {
     id: string;
     title: string;
@@ -6,6 +8,6 @@ export interface LinkModel {
     remit?: string[];
     link?: string;
     codeLink?: string;
-    state: string;
+    state: State;
     conclusionDate?: string;
 }

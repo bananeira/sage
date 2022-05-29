@@ -1,4 +1,5 @@
 import {LinkModel} from "../interface/link-box-model";
+import {State} from "../enum/state.enum";
 
 export const projects: LinkModel[] = [
     {
@@ -15,7 +16,7 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/ServerEssentials",
-        state: "progressing",
+        state: State.Deposited,
     },
     {
         id: "homepage",
@@ -34,7 +35,7 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/sage",
-        state: "pending",
+        state: State.Pending,
     },
     {
         id: "teris",
@@ -54,7 +55,7 @@ export const projects: LinkModel[] = [
         ],
         link: "https://teris.vercel.app/",
         codeLink: "https://github.com/clk1006/tetris/",
-        state: "concluded",
+        state: State.Concluded,
         conclusionDate: "15 Apr 2022",
     },
     {
@@ -71,7 +72,7 @@ export const projects: LinkModel[] = [
 
         ],
         link: "https://insightmaker.com/insight/5Xf4Qi4RZMfPpYAZQZFEfM/Terminalgeschwindigkeit-eines-W-rfels",
-        state: "concluded",
+        state: State.Concluded,
         conclusionDate: "Feb-Mar 2022",
     },
     {
@@ -87,7 +88,7 @@ export const projects: LinkModel[] = [
 
         ],
         link: "https://insightmaker.com/insight/lUM5LCAcR4nWCPAiQ3w6x/3-gekoppelte-Pendel-edit",
-        state: "concluded",
+        state: State.Concluded,
         conclusionDate: "31 May 2021",
     },
     {
@@ -102,7 +103,7 @@ export const projects: LinkModel[] = [
 
         ],
         link: "https://insightmaker.com/insight/4UT9qjXaBc265DOFOpD5XZ/Simulation-einer-Pandemie",
-        state: "concluded",
+        state: State.Concluded,
         conclusionDate: "2 May 2021",
     },
 ];
