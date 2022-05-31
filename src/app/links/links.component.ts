@@ -25,9 +25,5 @@ export class LinksComponent implements OnInit{
         projects.sort((project1: LinkModel, project2: LinkModel) => {
             return (project1.state - project2.state);
         });
-
-        projects.sort((project1: LinkModel, project2: LinkModel) => {
-            return (project2.pinned - project1.pinned);
-        });
     }
 }

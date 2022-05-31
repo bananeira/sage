@@ -11,5 +11,4 @@ export interface LinkModel {
     state: State;
     conclusionDate?: string;
     archivedComment?: string;
-    pinned: number;
 }
