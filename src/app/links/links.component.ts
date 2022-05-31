@@ -22,6 +22,12 @@ export class LinksComponent implements OnInit{
     resources?: SmallLinkModel[]
 
     ngOnInit(): void {
-        projects.sort((project1: LinkModel, project2: LinkModel) => (project1.state - project2.state));
+        projects.sort((project1: LinkModel, project2: LinkModel) => {
+            return (project1.state - project2.state);
+        });
+
+        projects.sort((project1: LinkModel, project2: LinkModel) => {
+            return (project2.pinned - project1.pinned);
+        });
     }
 }

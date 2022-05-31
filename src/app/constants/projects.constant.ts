@@ -16,7 +16,12 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/ServerEssentials",
-        state: State.Deprecated,
+        state: State.Archived,
+        archivedComment: "This activity is archived, since I have " +
+            "learned key features of programming with Spigot and Java through this very project. " +
+            "Nevertheless, clear thought outlines are missing here, which would define a strictly framed " +
+            "context of the plug-in.",
+        pinned: 0,
     },
     {
         id: "homepage",
@@ -36,6 +41,7 @@ export const projects: LinkModel[] = [
         ],
         codeLink: "https://github.com/bananeira/sage",
         state: State.Pending,
+        pinned: 1,
     },
     {
         id: "teris",
@@ -57,6 +63,7 @@ export const projects: LinkModel[] = [
         codeLink: "https://github.com/clk1006/tetris/",
         state: State.Concluded,
         conclusionDate: "15 Apr 2022",
+        pinned: 0,
     },
     {
         id: "terminal velocity",
@@ -74,6 +81,7 @@ export const projects: LinkModel[] = [
         link: "https://insightmaker.com/insight/5Xf4Qi4RZMfPpYAZQZFEfM/Terminalgeschwindigkeit-eines-W-rfels",
         state: State.Concluded,
         conclusionDate: "Feb-Mar 2022",
+        pinned: 0,
     },
     {
         id: "coupled pendulums",
@@ -90,6 +98,7 @@ export const projects: LinkModel[] = [
         link: "https://insightmaker.com/insight/lUM5LCAcR4nWCPAiQ3w6x/3-gekoppelte-Pendel-edit",
         state: State.Concluded,
         conclusionDate: "31 May 2021",
+        pinned: 0,
     },
     {
         id: "pandemic",
@@ -105,6 +114,7 @@ export const projects: LinkModel[] = [
         link: "https://insightmaker.com/insight/4UT9qjXaBc265DOFOpD5XZ/Simulation-einer-Pandemie",
         state: State.Concluded,
         conclusionDate: "2 May 2021",
+        pinned: 0,
     },
     {
         id: "cardinal-spigot",
@@ -121,5 +131,6 @@ export const projects: LinkModel[] = [
         ],
         codeLink: "https://github.com/bananeira/spigot-cardinal",
         state: State.Pending,
+        pinned: 0,
     },
 ];

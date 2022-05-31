@@ -89,6 +89,13 @@ app-type-badge, app-lang-badge {
     margin: 6px 0 0 0;
 }
 
+.archived-comment {
+    margin-top: 0;
+    font-size: 15px;
+
+    color: $text-low-emphasis;
+}
+
 .sources:last-child {
     & app-source-badge span {
         margin-right: 0;

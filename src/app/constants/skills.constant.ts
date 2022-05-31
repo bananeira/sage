@@ -13,7 +13,7 @@ export const skills: SmallLinkModel[] = [
         img: "assets/skills/java.svg",
         title: "Java",
         desc: "",
-        link: "https://www.java.com/de/",
+        link: "https://dev.java/",
     },
     {
         id: "spigot",

@@ -10,4 +10,6 @@ export interface LinkModel {
     codeLink?: string;
     state: State;
     conclusionDate?: string;
+    archivedComment?: string;
+    pinned: number;
 }
