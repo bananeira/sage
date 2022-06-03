@@ -25,7 +25,7 @@ export const skills: SmallLinkModel[] = [
     {
         id: "html",
         img: "assets/skills/html5.svg",
-        title: "HTML5",
+        title: "HTML/CSS",
         desc: "",
         link: "https://html.spec.whatwg.org/multipage/",
     },
@@ -77,5 +77,12 @@ export const skills: SmallLinkModel[] = [
         title: "NodeJS",
         desc: "",
         link: "https://nodejs.org/",
+    },
+    {
+        id: "python",
+        img: "assets/skills/python-5.svg",
+        title: "Python",
+        desc: "",
+        link: "https://www.python.org/",
     },
 ];
