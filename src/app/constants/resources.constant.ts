@@ -23,17 +23,26 @@ export const resources: SmallLinkModel[] = [
         link: "https://vercel.com/",
     },
     {
+        id: "insightmaker",
+        img: "assets/resources/insightmaker.png",
+        title: "Insight Maker",
+        desc: "",
+        link: "https://insightmaker.com/",
+    },
+    {
         id: "github",
         img: "assets/resources/github.svg",
         title: "GitHub",
-        desc: "",
+        desc: "Or check out my profile "
+            + `<a href="https://github.com/bananeira" target="_blank">bananeira</a>.`,
         link: "https://github.com/",
     },
     {
         id: "codewars",
         img: "assets/resources/codewars.svg",
         title: "Codewars",
-        desc: "",
+        desc: "Or check out my profile "
+            + `<a href="https://www.codewars.com/users/bananeira" target="_blank">bananeira</a>.`,
         link: "https://codewars.com/",
     },
     {
@@ -42,12 +51,5 @@ export const resources: SmallLinkModel[] = [
         title: "Atlassian Bitbucket",
         desc: "",
         link: "https://bitbucket.org/",
-    },
-    {
-        id: "insightmaker",
-        img: "assets/resources/insightmaker.png",
-        title: "Insight Maker",
-        desc: "",
-        link: "https://insightmaker.com/",
     },
 ];
