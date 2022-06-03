@@ -30,6 +30,13 @@ export const resources: SmallLinkModel[] = [
         link: "https://github.com/",
     },
     {
+        id: "codewars",
+        img: "assets/resources/codewars.svg",
+        title: "Codewars",
+        desc: "",
+        link: "https://codewars.com/",
+    },
+    {
         id: "bitbucket",
         img: "assets/resources/bitbucket.svg",
         title: "Atlassian Bitbucket",

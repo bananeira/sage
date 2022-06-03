@@ -34,13 +34,13 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "thankful",
         title: "thankful",
-        text: `Many thanks to <a href="https://undraw.co/" target="_blank">unDraw</a> for providing ` +
-            "wonderful illustrations and also for a nice inspiration regarding the text layout ;).",
+        text: `Thankful for <a href="https://undraw.co/" target="_blank">unDraw</a> providing ` +
+            "wonderful illustrations and also a nice little inspiration regarding the text layout.",
     },
     {
         id: "contact",
         title: "contact",
-        text: `If you have any issues or feedback you would like to contact me about, feel free to send an e-mail via
+        text: `If you have any issues or feedback you would like to contact me about, you may send an e-mail to
             <span class="e-mail">de.jamil(at)proton.me</span>.`,
     },
     {
