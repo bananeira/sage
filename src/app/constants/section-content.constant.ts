@@ -8,16 +8,15 @@ export const sectionContentModels: SectionContentModel[] = [
         id: "about",
         title: "about me",
         text: "Hello! I'm Jamil Osoria Peralta, a 17-year-old student. Currently my interests " +
-            "are particularly web application development and/or software development and, somewhat off-topic, playing the piano. " +
-            "At the moment I'm in my finals, afterwards my plan is to study software systems development."
+            "are web application development and/or software development and, somewhat off-topic, playing the piano. " +
+            "At the moment I'm in my finals, after which my plan is to study software systems development."
     },
     {
         id: "skills",
         title: "competencies",
-        text: "The following list basically refers to those instances that I have recently dealt with to " +
-            "the extent that I think I can deal with them in principle. This does not mean that I have mastered " +
-            "them. The instances listed are the ones I am more or less able to work with. " +
-            "Furthermore, the they are not ordered according to competence.",
+        text: "The following list sums up the skills and tools that I have acquired through my past experiences. " +
+            "I can confidently work with any of these, but since I have not yet mastered them, " +
+            "I am always ready to keep learning.",
         smallLinks: skills,
     },
     {
@@ -28,7 +27,8 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "resources",
         title: "tools/resources",
-        text: "The following is a list of the tools and resources that I generally use for working, learning and sharing my results.",
+        text: "The following is a list of the tools and resources that I generally use for working, learning and " +
+            "sharing my results.",
         smallLinks: resources,
     },
     {

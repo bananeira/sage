@@ -19,7 +19,7 @@ export const projects: LinkModel[] = [
         state: State.Archived,
         archivedComment: "This activity is archived, since I have " +
             "learned key features of programming with Spigot and Java through this very project. " +
-            "Nevertheless, clear thought outlines are missing here, which would define a strictly framed " +
+            "However, clear thought outlines are missing here, which would define a strictly framed " +
             "context of the plug-in.",
     },
     {
