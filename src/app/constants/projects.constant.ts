@@ -129,7 +129,9 @@ export const projects: LinkModel[] = [
     {
         id: "codewars-java",
         title: "codewars",
-        description: "In this repository, I am collecting a few assignments from codewars in Java",
+        description: "Codewars is an educational community, on which software developers can " +
+            "train on programming challenges. In this repository, I am collecting a few " +
+            "assignments from codewars in Java.",
         language: [
             "java"
         ],
