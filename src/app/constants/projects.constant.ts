@@ -126,4 +126,17 @@ export const projects: LinkModel[] = [
         codeLink: "https://github.com/bananeira/spigot-cardinal",
         state: State.Pending,
     },
+    {
+        id: "codewars-java",
+        title: "codewars",
+        description: "In this repository, I am collecting a few assignments from codewars in Java",
+        language: [
+            "java"
+        ],
+        remit: [
+
+        ],
+        codeLink: "https://github.com/bananeira/codewars-java",
+        state: State.Progressing,
+    },
 ];
