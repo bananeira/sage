@@ -33,6 +33,10 @@ export const langBadgeModels: BadgeModel[] = [
         displayName: "Java",
     },
     {
+        id: "python",
+        displayName: "Python",
+    },
+    {
         id: "spigot",
         displayName: "Spigot",
     },

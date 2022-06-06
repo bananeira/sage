@@ -127,18 +127,19 @@ export const projects: LinkModel[] = [
         state: State.Pending,
     },
     {
-        id: "codewars-java",
+        id: "codewars",
         title: "codewars",
         description: "Codewars is an educational community, on which software developers can " +
             "train on programming challenges. In this repository, I am collecting a few " +
             "assignments from codewars in Java.",
         language: [
-            "java"
+            "java",
+            "python",
         ],
         remit: [
 
         ],
-        codeLink: "https://github.com/bananeira/codewars-java",
+        codeLink: "https://github.com/bananeira/codewars",
         state: State.Progressing,
     },
 ];
