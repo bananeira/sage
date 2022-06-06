@@ -131,7 +131,7 @@ export const projects: LinkModel[] = [
         title: "codewars",
         description: "Codewars is an educational community, on which software developers can " +
             "train on programming challenges. In this repository, I am collecting a few " +
-            "assignments from codewars in Java.",
+            "assignments from codewars in Java and Python.",
         language: [
             "java",
             "python",
