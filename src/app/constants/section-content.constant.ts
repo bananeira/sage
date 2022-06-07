@@ -41,7 +41,7 @@ export const sectionContentModels: SectionContentModel[] = [
         id: "contact",
         title: "contact",
         text: `If you have any issues or feedback you would like to contact me about, you may send an e-mail to
-            <span class="e-mail">de.jamil(at)proton.me</span>.`,
+            <a href="mailto:de.jamil(at)proton.me">de.jamil(at)proton.me</a>.`,
     },
     {
         id: "copyright",
