@@ -140,6 +140,6 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/codewars",
-        state: State.Progressing,
+        state: State.Pending,
     },
 ];
