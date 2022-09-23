@@ -7,9 +7,9 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "about",
         title: "about me",
-        text: "Hello! I'm Jamil Osoria Peralta, a 18-year-old student. Currently my interests " +
-            "are web application development and/or software development and, somewhat off-topic, playing the piano. " +
-            "At the moment I'm in my finals, after which my plan is to study software systems development."
+        text: "Hello! I'm Jamil Osoria Peralta, an 18-year-old student. Currently my interests " +
+            "are web application development and/or software development and especially, but somewhat off-topic, playing the piano. " +
+            "I'm now studying software and systems development at the University of Hamburg."
     },
     {
         id: "skills",
