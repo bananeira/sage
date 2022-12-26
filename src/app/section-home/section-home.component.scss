@@ -43,31 +43,26 @@ a {
     color: $text-bright;
 }
 
-img {
-    pointer-events: none;
-    animation: 2s animate-paragraph ease-in-out;
-}
-
 h1 {
     font-size: 40px;
     user-select: text;
     color: $text-Bright;
-    animation: 2.5s animate-title ease-in-out;
+    animation: 1.6s animate-title ease-in-out;
 }
 
 .sub-heading {
-    animation: 3.4s animate-emphasis ease-in-out;
+    animation: 2.8s animate-emphasis ease-in-out;
 }
 
 p {
     user-select: text;
     color: $text-bright;
-    animation: 3s animate-paragraph ease-in-out;
+    animation: 1.5s animate-paragraph ease-in-out;
 }
 
 .btn-primary, .btn-secondary {
     color: $text-inverted-emphasis-normal;
-    animation: 3s animate-emphasis ease-in-out;
+    animation: 1.5s animate-emphasis ease-in-out;
 }
 
 @media only screen and (max-width: 1200px) {

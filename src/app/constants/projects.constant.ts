@@ -3,26 +3,6 @@ import {State} from "../enum/state.enum";
 
 export const projects: LinkModel[] = [
     {
-        id: "serveressentials",
-        title: "SEss 1.18",
-        description: "This is my attempt to get used to programming Minecraft plugins in " +
-            "Spigot and Java. Curious to see how far scope will " +
-            "expand over time...",
-        language: [
-            "java",
-            "spigot",
-        ],
-        remit: [
-
-        ],
-        codeLink: "https://github.com/bananeira/ServerEssentials",
-        state: State.Archived,
-        archivedComment: "This activity is archived, since I have " +
-            "learned key features of programming with Spigot and Java through this very project. " +
-            "However, clear thought outlines are missing here, which would define a strictly framed " +
-            "context of the plug-in.",
-    },
-    {
         id: "homepage",
         title: "sage",
         description: "The homepage you're on right now is written using Angular. " +
@@ -38,8 +18,8 @@ export const projects: LinkModel[] = [
         remit: [
 
         ],
-        codeLink: "https://github.com/bananeira/sage",
-        state: State.Pending,
+        codeLink: "https://github.com/bananeira/sage/tree/new/ui",
+        state: State.Progressing,
     },
     {
         id: "teris",

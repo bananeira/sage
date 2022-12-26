@@ -26,11 +26,10 @@
     width: 100%;
     border-bottom-left-radius: 50% 20%;
     border-bottom-right-radius: 50% 20%;
-    background-size: 175%;
+    background-size: 100%;
 
     background: $night-gradient;
     background-size: 100% 150%;
-    animation: 16s animate-gradient ease-in-out infinite;
 }
 
 .header {
@@ -78,19 +77,5 @@
 @media only screen and (max-width: 800px) {
     .block {
         width: 88%;
-    }
-}
-
-@keyframes animate-gradient {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 0 80%;
-    }
-
-    100% {
-        background-position: 0 0;
     }
 }
