@@ -54,7 +54,6 @@ export const projects: LinkModel[] = [
         ],
         remit: [
             "ui",
-            "web",
             "docs",
         ],
         link: "https://teris.vercel.app/",

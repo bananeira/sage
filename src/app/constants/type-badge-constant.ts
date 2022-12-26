@@ -10,8 +10,8 @@ export const typeBadgeModels: BadgeModel[] = [
         displayName: "API",
     },
     {
-        id: "web",
-        displayName: "(Web) design",
+        id: "ui",
+        displayName: "Interface",
     },
     {
         id: "docs",
