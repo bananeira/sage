@@ -13,7 +13,7 @@ div {
     padding: $padding-high;
     border-radius: $b-radius-block;
     background-color: $background-block;
-    box-shadow: 0 12px 24px -12px rgba($text-low-emphasis, 0.22);
+    box-shadow: 0 12px 24px -12px rgba($text-emphasis-low, 0.22);
 
     &:last-child {
         opacity: 0.25;

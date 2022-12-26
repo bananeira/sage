@@ -2,12 +2,13 @@ import {SectionContentModel} from "../interface/section-content-model";
 import {projects} from "./projects.constant";
 import {skills} from "./skills.constant"
 import {resources} from "./resources.constant";
+import {tools} from "./tools.constant";
 
 export const sectionContentModels: SectionContentModel[] = [
     {
         id: "about",
         title: "about me",
-        text: "Hello! I'm Jamil Osoria Peralta, an 18-year-old student. Currently my interests " +
+        text: "Hello! I'm Sora, an 18-year-old student. Currently my interests " +
             "are web application development and/or software development and especially, but somewhat off-topic, playing the piano. " +
             "I'm now studying software-systems development at the University of Hamburg."
     },
@@ -20,22 +21,21 @@ export const sectionContentModels: SectionContentModel[] = [
         smallLinks: skills,
     },
     {
+        id: "tools",
+        title: "tools",
+        links: tools,
+    },
+    {
         id: "projects",
         title: "activities",
         links: projects,
     },
     {
         id: "resources",
-        title: "tools/resources",
+        title: "resources",
         text: "The following is a list of the tools and resources that I generally use for working, learning and " +
             "sharing my results.",
         smallLinks: resources,
-    },
-    {
-        id: "thankful",
-        title: "thankful",
-        text: `Thankful for <a href="https://undraw.co/" target="_blank">unDraw</a> providing ` +
-            "wonderful illustrations and also a nice little inspiration regarding the text layout.",
     },
     {
         id: "contact",

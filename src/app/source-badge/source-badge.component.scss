@@ -7,8 +7,10 @@ span {
     font-size: 12px;
     word-break: keep-all;
     padding: 3px 5px;
-    border-radius: 10px;
+    border-radius: 12px;
 
-    color: $text-medium-emphasis;
-    background-color: rgba(0, 0, 0, $lowest-emphasis);
+    box-sizing: border-box;
+    border: 1px solid $b-color-light;
+    color: $text-emphasis-normal;
+    background-color: rgba(0, 0, 0, $emphasis-LOW);
 }

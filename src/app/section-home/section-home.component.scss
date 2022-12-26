@@ -3,20 +3,73 @@
 :host {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
-.block--content {
+.content {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    text-align: end;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.btn--container {
-    margin: 12px 0;
+.headline {
+    margin-top: 28vh;
+    text-align: center;
 }
 
-.head-illustration {
-    width: 32vw;
+.arrow-down {
+    position: relative;
+    color: $text-bright;
+    font-size: 32px;
+    text-decoration: none;
+    padding: $padding-high;
+    transition: 0.6s;
+
+    animation: 5s animate-arrow-down-pos infinite ease-in-out,
+        13s animate-arrow-down-opacity infinite ease-in-out;
+}
+
+.btn {
+    margin: 12px 0 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.primaries {
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    text-decoration: none;
+    color: $text-bright;
+}
+
+#toggle {
+    margin-left: 6px;
+
+    &.light {
+        .sun {
+            display: none;
+        }
+
+        .moon {
+            display: block;
+        }
+    }
+
+    &.dark {
+        .sun {
+            display: block;
+        }
+
+        .moon {
+            display: none;
+        }
+    }
 }
 
 img {
@@ -27,6 +80,7 @@ img {
 h1 {
     font-size: 40px;
     user-select: text;
+    color: $text-Bright;
     animation: 2.5s animate-title ease-in-out;
 }
 
@@ -36,10 +90,12 @@ h1 {
 
 p {
     user-select: text;
+    color: $text-bright;
     animation: 3s animate-paragraph ease-in-out;
 }
 
 .btn-primary, .btn-secondary {
+    color: $text-inverted-emphasis-normal;
     animation: 3s animate-emphasis ease-in-out;
 }
 
@@ -54,13 +110,13 @@ p {
         width: 100%;
     }
 
-    .block--content {
+    .content {
         text-align: start;
     }
 
-    .btn--container {
+    .btn {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: flex-end;
         margin: auto 0;
     }
@@ -68,5 +124,44 @@ p {
     .btn-primary, .btn-secondary {
         display: flex;
         align-items: center;
+    }
+}
+
+@keyframes animate-arrow-down-pos {
+    0% {
+        rotate: 90deg;
+        transform: translateX(-25px);
+    }
+
+    50% {
+        rotate: 90deg;
+        transform: translateX(5px);
+    }
+
+    100% {
+        rotate: 90deg;
+        transform: translateX(-25px);
+    }
+}
+
+@keyframes animate-arrow-down-opacity {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    75% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

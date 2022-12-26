@@ -2,59 +2,59 @@
 
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
+    left: 35%;
+    top: $margin-floating;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
     z-index: 1;
     animation: 1.75s animate-navbar ease-in-out;
+    border-radius: $b-radius-block;
 
-    padding: $padding-normal;
-    border-bottom: $b-width solid $b-color;
-    background-color: rgb($background-block, 0.78);
+    padding: $margin-floating;
 
-    &--content {
+    transition: 1s;
+
+    & .content {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
     }
 
-    &__icon {
+    & .icon {
         height: 28px;
         width: 28px;
         margin-right: 12px;
+        filter: brightness(1) saturate(1) hue-rotate(-6deg);
     }
 
-    &--opts {
+    & .opts {
         display: flex;
         flex-direction: row;
 
-        &__opt {
+        & .opt {
             margin-left: 6px;
             font-size: 16px;
             font-family: "Mulish", sans-serif;
             font-weight: 300;
             text-decoration: none;
-            transition: 0.2s;
+            transition: 0.5s;
 
             padding: $padding-normal;
-            color: $text-high-emphasis;
             border-radius: $b-radius-small;
 
-            &__icon {
+            & .icon {
                 display: none;
                 filter: brightness(1.75) saturate(0.2) hue-rotate(-30deg);
                 opacity: 0.8;
-                transition: 0.4s;
+                transition: 0.6s;
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, $very-low-emphasis);
-
                 & .navbar--opts__opt__icon {
                     filter: brightness(1) saturate(1) hue-rotate(0);
                     opacity: 0.9;
@@ -70,41 +70,69 @@
     }
 }
 
-@keyframes animate-navbar {
-    from {
-        opacity: 0;
-        top: -10%;
-    }
-    to {
-        opacity: 1;
-        top: 0;
-    }
+.navbar.light {
+    border: $b-width solid $b-color;
+    background-color: $background-floating;
 
+    & .opts {
+        & .opt {
+            color: $text-emphasis-high;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, $emphasis-Low);
+
+                & .navbar--opts__opt__icon {
+                    filter: brightness(1) saturate(1) hue-rotate(0);
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
 }
 
-@media only screen and (max-width: 1000px) {
+.navbar.dark {
+    border: $b-width solid $b-color-inverted;
+    background-color: $dark-background-floating;
+
+    & .opts {
+        & .opt {
+            color: $text-inverted-emphasis-normal;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, $emphasis-Low);
+
+                & .navbar--opts__opt__icon {
+                    filter: brightness(1) saturate(1) hue-rotate(-30deg);
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
     .navbar {
         top: initial;
         bottom: 0;
-        border-bottom: none;
-        padding: 6px 0;
+        width: 70%;
+        left: 15%;
+        border-bottom: 0px;
+        border-radius: 12px 12px 0 0;
 
         background-color: $background-block;
         border-top: $b-width solid $b-color;
 
-        &__icon {
+        & .icon {
             display: none;
         }
 
-        &--opts__opt {
-            margin-left: 24px;
-
+        & .opt {
             &:first-child {
                 margin-left: 0;
             }
 
-            &__icon {
-                display: block;
+            & .icon {
+                display: none;
                 height: 24px;
                 max-width: 28px;
             }
@@ -112,26 +140,8 @@
 
         & a {
             & span {
-                display: none;
+                display: block;
             }
-        }
-
-        & .scroll-progress {
-            position: absolute;
-            top: -1px;
-            bottom: revert;
-            width: 100%;
-        }
-    }
-
-    @keyframes animate-navbar {
-        from {
-            opacity: 0;
-            bottom: -10%;
-        }
-        to {
-            opacity: 1;
-            bottom: 0;
         }
     }
 }

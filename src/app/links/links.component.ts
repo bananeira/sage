@@ -13,6 +13,9 @@ export class LinksComponent implements OnInit{
     contributions?: LinkModel[]
 
     @Input()
+    tools?: LinkModel[]
+
+    @Input()
     projects?: LinkModel[]
 
     @Input()

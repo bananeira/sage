@@ -21,8 +21,20 @@
     }
 }
 
+.curved {
+    height: 110vh;
+    width: 100%;
+    border-bottom-left-radius: 60% 20%;
+    border-bottom-right-radius: 60% 20%;
+    background-size: 200%;
+
+    background: $night-gradient;
+    background-size: 100% 150%;
+    animation: 16s animate-gradient ease-in-out infinite;
+}
+
 .header {
-    flex-direction: row-reverse;
+    height: 100vh;
 }
 
 .text {
@@ -66,5 +78,19 @@
 @media only screen and (max-width: 800px) {
     .block {
         width: 88%;
+    }
+}
+
+@keyframes animate-gradient {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 0 80%;
+    }
+
+    100% {
+        background-position: 0 0;
     }
 }
