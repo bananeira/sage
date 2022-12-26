@@ -38,38 +38,9 @@
     align-items: center;
 }
 
-.primaries {
-    display: flex;
-    flex-direction: row;
-}
-
 a {
     text-decoration: none;
     color: $text-bright;
-}
-
-#toggle {
-    margin-left: 6px;
-
-    &.light {
-        .sun {
-            display: none;
-        }
-
-        .moon {
-            display: block;
-        }
-    }
-
-    &.dark {
-        .sun {
-            display: block;
-        }
-
-        .moon {
-            display: none;
-        }
-    }
 }
 
 img {

@@ -8,7 +8,7 @@
     <app-link class="links" *ngFor="let contribution of contributions" [link]="contribution" ></app-link>
 </ng-container>
 
-<ng-container class="small-link--container" *ngIf="skills?.length || resources?.length  || projects?.length || contributions?.length else placeholder" >
+<ng-container class="small-link--container" *ngIf="tools?.length || skills?.length || resources?.length  || projects?.length || contributions?.length else placeholder" >
     <app-small-link class="small-links" *ngFor="let skill of skills" [smallLink]="skill" ></app-small-link>
     <app-small-link class="small-links" *ngFor="let resource of resources" [smallLink]="resource" ></app-small-link>
 </ng-container>

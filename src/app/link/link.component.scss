@@ -110,6 +110,8 @@ a {
 }
 
 .btn {
+    display: flex;
+    flex-direction: row;
     &--container {
         margin-top: 12px;
         height: 100%;

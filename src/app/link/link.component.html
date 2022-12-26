@@ -20,9 +20,13 @@
         <p class="resource-type">Resources: <app-type-badge *ngFor="let lang of langBadges" [badge]="lang"></app-type-badge></p>
         <p class="contribution-type" *ngIf="link.remit?.length">My remit: <app-type-badge *ngFor="let remit of typeBadges" [badge]="remit"></app-type-badge></p>
         <div class="btn">
-            <a *ngIf="link.link" [href]="link.link" target="_blank" class="btn-primary">visit site</a>
-            <a *ngIf="!link.link" [href]="link.codeLink" target="_blank" class="btn-primary">view code</a>
-            <a *ngIf="link.codeLink && link.link" [href]="link.codeLink" target="_blank" class="btn-secondary">view code</a>
+            <a *ngIf="link.link && !link.testLink && !link.codeLink" [href]="link.link" target="_blank" class="btn-primary">visit page</a>
+            <a *ngIf="!link.link && link.codeLink && !link.testLink" [href]="link.codeLink" target="_blank" class="btn-primary">see code</a>
+            <a *ngIf="!link.link && !link.codeLink && link.testLink" [href]="link.testLink" target="_blank" class="btn-primary">try it out</a>
+            <a *ngIf="!link.link && link.codeLink && link.testLink" [href]="link.testLink" target="_blank" class="btn-primary">try it out</a>
+            <a *ngIf="!link.link && link.codeLink && link.testLink" [href]="link.codeLink" target="_blank" class="btn-secondary">see code</a>
+            <a *ngIf="link.link && link.codeLink && !link.testLink" [href]="link.link" target="_blank" class="btn-primary">visit page</a>
+            <a *ngIf="link.link && link.codeLink && !link.testLink" [href]="link.codeLink" target="_blank" class="btn-secondary">see code</a>
         </div>
     </div>
 </a>

@@ -1,9 +1,12 @@
-<div class="navbar {{ colorEnvironment }}">
+<div [ngClass]="{'active': navbarActive}" class="navbar {{ colorEnvironment }}">
     <div class="content">
         <a href="." class="icon">
             <img class="icon" src="../../assets/sage.svg" alt=""/>
         </a>
         <div class="opts">
+            <div class="toggle" (click)="toggleNavbar()">
+                <span>&#10095;</span>
+            </div>
             <a class="opt" href=".#top">
                 <span>top</span>
             </a>

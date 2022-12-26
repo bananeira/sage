@@ -10,6 +10,7 @@ let bounding = nightSection?.getBoundingClientRect();
 })
 export class NavigationBarComponent {
     public colorEnvironment = "dark";
+    public navbarActive: boolean = false;
 
     @HostListener('window:scroll', ['$event'])
     onScroll() {
@@ -23,5 +24,9 @@ export class NavigationBarComponent {
         this.colorEnvironment = (bounding!.bottom >= (document.documentElement.clientHeight - nightSection!.clientHeight + 225))
             ? "dark"
             : "light";
+    }
+
+    toggleNavbar(): void {
+        this.navbarActive = !this.navbarActive;
     }
 }
