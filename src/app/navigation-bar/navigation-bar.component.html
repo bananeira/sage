@@ -1,22 +1,22 @@
-<div [ngClass]="{'active': navbarActive}" class="navbar {{ colorEnvironment }}">
+<div [ngClass]="{'active': mobileNavbarActive}" class="navbar {{ colorEnvironment }}">
     <div class="content">
         <a href="." class="icon">
             <img class="icon" src="../../assets/sage.svg" alt=""/>
         </a>
         <div class="opts">
-            <div class="toggle" (click)="toggleNavbar()">
+            <div class="toggle" (click)="toggleMobileNavbar()">
                 <span>&#10095;</span>
             </div>
-            <a class="opt" href=".#about">
+            <a class="opt" (click)="toggleMobileNavbarOff()" href=".#about">
                 <span>about</span>
             </a>
-            <a class="opt" href=".#tools">
+            <a class="opt" (click)="toggleMobileNavbarOff()" href=".#tools">
                 <span>tools</span>
             </a>
-            <a class="opt" href=".#projects">
+            <a class="opt" (click)="toggleMobileNavbarOff()" href=".#projects">
                 <span>activities</span>
             </a>
-            <a class="opt" href=".#resources">
+            <a class="opt" (click)="toggleMobileNavbarOff()" href=".#resources">
                 <span>resources</span>
             </a>
         </div>
