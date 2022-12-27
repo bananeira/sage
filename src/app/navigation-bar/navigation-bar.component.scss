@@ -1,10 +1,15 @@
 @import "src/app/variables";
 
+:host {
+    width: 100%;
+}
+
 .navbar {
     position: fixed;
-    left: 35%;
-    top: $margin-floating;
-    width: 30%;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,6 +32,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        padding: 0 12px;
     }
 
     & .icon {
@@ -132,6 +138,7 @@
             box-sizing: border-box;
             display: block;
             transition: 0.6s;
+            rotate: 180deg;
         }
 
         & .opts {
@@ -151,7 +158,13 @@
         }
 
         &.active {
-            width: 50%;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            border: none;
+            top: 0;
+            text-align: center;
+
             & .opts {
                 & .opt {
                     display: block;
@@ -159,7 +172,7 @@
             }
 
             & .toggle {
-                rotate: 90deg;
+                rotate: 0deg;
                 align-self: center;
             }
         }
