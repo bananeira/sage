@@ -23,7 +23,7 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "tools",
         title: "tools",
-        links: tools,
+        tools: tools,
     },
     {
         id: "projects",

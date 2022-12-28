@@ -1,5 +1,6 @@
 import {LinkModel} from "./link-box-model";
 import {SmallLinkModel} from "./small-link-model";
+import {ToolShowcaseModel} from "./tool-showcase-model";
 
 export interface SectionContentModel {
     id: string;
@@ -7,4 +8,5 @@ export interface SectionContentModel {
     text?: string;
     links?: LinkModel[];
     smallLinks?: SmallLinkModel[];
+    tools?: ToolShowcaseModel[];
 }
