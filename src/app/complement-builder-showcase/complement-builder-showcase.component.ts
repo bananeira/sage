@@ -7,6 +7,9 @@ import {ToolShowcaseModel} from "../interface/tool-showcase-model";
   styleUrls: ['./complement-builder-showcase.component.scss']
 })
 export class ComplementBuilderShowcaseComponent {
+    radix: number = Number((document.getElementById("radix") as HTMLInputElement).value);
+    length: number = Number((document.getElementById("length") as HTMLInputElement).value);
+    input: string = (document.getElementById("input") as HTMLInputElement).value;
 
     public output: string = "Output will be given here";
     public isErrorMessage: boolean = false;

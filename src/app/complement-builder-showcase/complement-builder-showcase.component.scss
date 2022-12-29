@@ -70,10 +70,6 @@ p {
     font-family: "JetBrains Mono", monospace;
     font-weight: 300;
     color: $text-emphasis-low;
-
-    &::selection {
-        background-color: rgba($primary-color, $emphasis-medium);
-    }
 }
 
 .tex-example {
@@ -99,10 +95,10 @@ p {
 
 @media only screen and (max-width: 1200px) {
     h1 {
-        width: 100%;
+        width: 85%;
     }
     p {
-        width: 100%;
+        width: 85%;
     }
 
     .btn-primary {
