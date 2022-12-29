@@ -1,36 +1,36 @@
 //emphasis
-$emphasis-High:                    0.87;
-$emphasis-high:                    0.82;
-$emphasis-medium:                  0.6;
-$emphasis-low:                     0.38;
-$emphasis-Low:                     0.16;
-$emphasis-LOW:                     0.13;
+$emphasis-High:                     0.87;
+$emphasis-high:                     0.82;
+$emphasis-medium:                   0.6;
+$emphasis-low:                      0.38;
+$emphasis-Low:                      0.16;
+$emphasis-LOW:                      0.13;
 
-$text-Bright:                      rgba(255, 255, 255, $emphasis-high);
-$text-bright:                      rgba(255, 255, 255, $emphasis-medium);
+$text-Bright:                       rgba(255, 255, 255, $emphasis-high);
+$text-bright:                       rgba(255, 255, 255, $emphasis-medium);
 
 //border
-$b-radius-small:                   7px;
-$b-radius-block:                   12px;
-$b-width:                          1px;
+$b-radius-small:                    7px;
+$b-radius-block:                    12px;
+$b-width:                           1px;
 
 //error
-$hint:                             rgb(176, 0, 32);
+$hint:                              rgb(176, 0, 32);
 
 //style
-$primary-color:                    rgb(107, 76, 245);
-$highlight:                        rgba($primary-color, 0.38);
+$primary-color:                     rgb(107, 76, 245);
+$highlight:                         rgba($primary-color, 0.38);
 
 //margin & padding
-$padding-normal:                   12px 14px;
-$padding-high:                     24px;
-$margin-links-x:                   20px;
-$margin-links-y:                   32px;
-$margin-floating:                  12px;
+$padding-normal:                    12px 14px;
+$padding-high:                      24px;
+$margin-links-x:                    20px;
+$margin-links-y:                    32px;
+$margin-floating:                   12px;
 
-$dark-background-floating:         rgba(59, 59, 59, 0.3);
+$dark-background-floating:          rgba(59, 59, 59, 0.3);
 
-$night-gradient:                   linear-gradient(
+$night-gradient:                    linear-gradient(
                                             180deg,
                                             rgba(#191721, 1) 0%,
                                             rgba(#2a2046, 1) 70%,
@@ -41,25 +41,26 @@ $night-gradient:                   linear-gradient(
 
 
 //text
-$text-emphasis-high:               rgba(0, 0, 0, $emphasis-High);
-$text-emphasis-normal:             rgba(0, 0, 0, $emphasis-medium);
-$text-emphasis-low:                rgba(0, 0, 0, $emphasis-low);
+$text-emphasis-high:                rgba(0, 0, 0, $emphasis-High);
+$text-emphasis-normal:              rgba(0, 0, 0, $emphasis-medium);
+$text-emphasis-low:                 rgba(0, 0, 0, $emphasis-low);
 
 //inverted-text
-$text-inverted-emphasis-High:      rgba(255, 255, 255, $emphasis-High);
-$text-inverted-emphasis-high:      rgba(255, 255, 255, $emphasis-high);
-$text-inverted-emphasis-normal:    rgba(255, 255, 255, $emphasis-medium);
-$text-inverted-emphasis-low:       rgba(255, 255, 255, $emphasis-low);
-$text-inverted-emphasis-Low:       rgba(255, 255, 255, $emphasis-Low);
-$text-inverted-emphasis-LOW:       rgba(255, 255, 255, $emphasis-LOW);
+$text-inverted-emphasis-High:       rgba(255, 255, 255, $emphasis-High);
+$text-inverted-emphasis-high:       rgba(255, 255, 255, $emphasis-high);
+$text-inverted-emphasis-normal:     rgba(255, 255, 255, $emphasis-medium);
+$text-inverted-emphasis-LOW:        rgba(255, 255, 255, $emphasis-LOW);
+$text-inverted-emphasis-low:        rgba(255, 255, 255, $emphasis-low);
+$text-inverted-emphasis-Low:        rgba(255, 255, 255, $emphasis-Low);
 
 //border
-$b-color:                          rgba(0, 0, 0, $emphasis-Low);
-$b-color-inverted:                 rgba(255, 255, 255, $emphasis-Low);
-$b-color-light:                    rgba(0, 0, 0, $emphasis-LOW);
+$b-color:                           rgba(0, 0, 0, $emphasis-Low);
+$b-color-inverted:                  rgba(255, 255, 255, $emphasis-Low);
+$b-color-light:                     rgba(0, 0, 0, $emphasis-LOW);
 
 //background
-$background-base:                  rgb(243, 242, 243);
-$background-floating:              rgba(243, 242, 243, 0.4);
-$dark-background-floating:         rgba(59, 59, 59, 0.3);
-$background-block:                 rgb(247, 246, 249);
+$background-base:                   rgb(243, 242, 243);
+$background-util-button:            rgba(46, 40, 77);
+$background-floating:               rgba(243, 242, 243, 0.4);
+$dark-background-floating:          rgba(59, 59, 59, 0.3);
+$background-block:                  rgb(247, 246, 249);

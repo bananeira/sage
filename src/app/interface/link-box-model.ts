@@ -8,7 +8,6 @@ export interface LinkModel {
     remit?: string[];
     link?: string;
     codeLink?: string;
-    testLink?: string;
     state: State;
     conclusionDate?: string;
     archivedComment?: string;

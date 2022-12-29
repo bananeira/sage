@@ -18,6 +18,7 @@ import { SourceBadgeComponent } from './source-badge/source-badge.component';
 import { CopyrightComponent } from './copyright/copyright.component';
 import { StateBadgeComponent } from './state-badge/state-badge.component';
 import { ToolShowcaseComponent } from './tool-showcase/tool-showcase.component';
+import { ComplementBuilderShowcaseComponent } from './complement-builder-showcase/complement-builder-showcase.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ToolShowcaseComponent } from './tool-showcase/tool-showcase.component';
     CopyrightComponent,
     StateBadgeComponent,
     ToolShowcaseComponent,
+    ComplementBuilderShowcaseComponent,
   ],
   imports: [
     BrowserModule,

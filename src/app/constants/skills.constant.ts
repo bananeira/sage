@@ -2,13 +2,6 @@ import {SmallLinkModel} from "../interface/small-link-model";
 
 export const skills: SmallLinkModel[] = [
     {
-        id: "angular",
-        img: "assets/skills/angular.svg",
-        title: "Angular",
-        desc: "",
-        link: "https://angular.io/",
-    },
-    {
         id: "java",
         img: "assets/skills/java.svg",
         title: "Java",

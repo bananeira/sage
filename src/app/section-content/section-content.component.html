@@ -3,9 +3,10 @@
 </h1>
 <p *ngIf="content?.text" [innerHtml]="content?.text"></p>
 
+<app-complement-builder-showcase *ngIf="content?.id === 'tools'" class="tool-showcase" [complementBuilder]=tool></app-complement-builder-showcase>
+
 <app-links *ngIf="content?.id === 'skills' && content?.smallLinks?.length! % 4 == 3" class="center" [skills]="content?.smallLinks"></app-links>
 <app-links *ngIf="content?.id === 'skills' && content?.smallLinks?.length! % 4 != 3" [skills]="content?.smallLinks"></app-links>
-<app-links *ngIf="content?.id === 'tools'" [tools]="content?.tools"></app-links>
 <app-links *ngIf="content?.id === 'projects'" [projects]="content?.links"></app-links>
 <app-links *ngIf="content?.id === 'contributions'" [contributions]="content?.links"></app-links>
 <app-links *ngIf="content?.id === 'resources' && content?.smallLinks?.length! % 4 == 3" class="center" [resources]="content?.smallLinks"></app-links>

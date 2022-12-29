@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LinkModel} from "../interface/link-box-model";
 import {SmallLinkModel} from "../interface/small-link-model";
 import {projects} from "../constants/projects.constant";
-import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 
 @Component({
   selector: 'app-links',
@@ -12,9 +11,6 @@ import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 export class LinksComponent implements OnInit{
     @Input()
     contributions?: LinkModel[]
-
-    @Input()
-    tools?: ToolShowcaseModel[]
 
     @Input()
     projects?: LinkModel[]

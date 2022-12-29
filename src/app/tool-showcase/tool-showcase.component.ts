@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 
 @Component({
@@ -8,5 +8,15 @@ import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 })
 export class ToolShowcaseComponent {
     @Input()
-    tools?: ToolShowcaseModel;
+    tool?: ToolShowcaseModel;
+
+    public toolShowcaseActive: boolean = false;
+
+    @Output()
+    public toolShowcaseActiveOutput: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    public toggleToolShowcase(): void {
+        this.toolShowcaseActive = !this.toolShowcaseActive
+        this.toolShowcaseActiveOutput.emit(this.toolShowcaseActive);
+    }
 }

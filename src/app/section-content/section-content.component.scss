@@ -48,6 +48,10 @@ p {
     user-select: text;
 }
 
+.tool-showcase {
+    transition: 0.4s;
+}
+
 @keyframes animate-section-content {
     0% {
         opacity: 0;

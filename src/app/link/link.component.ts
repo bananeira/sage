@@ -5,8 +5,6 @@ import {typeBadgeModels} from "../constants/type-badge-constant";
 import {langBadgeModels} from "../constants/lang-badge-constant"
 import {stateBadgeModels} from "../constants/state-badge-constant";
 import {StateBadgeModel} from "../interface/state-badge-model";
-import {State} from "../enum/state.enum";
-import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 
 @Component({
     selector: 'app-link',
@@ -16,7 +14,6 @@ import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 export class LinkComponent implements OnInit {
     @Input()
     link!: LinkModel;
-    tool!: ToolShowcaseModel
     typeBadges: BadgeModel[] = [];
     langBadges: BadgeModel[] = [];
     stateBadge?: StateBadgeModel;

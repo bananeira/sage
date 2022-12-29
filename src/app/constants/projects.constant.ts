@@ -14,8 +14,7 @@ export const projects: LinkModel[] = [
         remit: [
 
         ],
-        codeLink: "https://github.com/bananeira/sage-toolbox/blob/main/src/main/java/com/sage/sagetoolbox/tool/ComplementBuilder.java",
-        testLink: "https://github.com/bananeira/sage-toolbox/blob/main/src/main/java/com/sage/sagetoolbox/tool/ComplementBuilder.java",
+        codeLink: "https://github.com/bananeira/sage-toolbox/blob/main/src/main/java/com/sage/sagetoolbox/service/ComplementBuilder.java",
         state: State.Concluded
     },
     {

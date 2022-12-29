@@ -5,7 +5,7 @@ app-link, app-small-link {
     box-sizing: border-box;
 
     border-radius: $b-radius-block;
-    border: 1px solid $b-color-light;
+    border: $b-width solid $b-color-light;
     background-color: $background-block;
     box-shadow: 0 12px 24px -12px rgba($text-emphasis-low, 0.22);
 
