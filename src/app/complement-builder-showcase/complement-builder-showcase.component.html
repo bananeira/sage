@@ -1,0 +1,38 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<app-tool-showcase (toolShowcaseActiveOutput)="setActive($event)" [tool]="complementBuilder"></app-tool-showcase>
+<div [ngClass]="{'active' : toolShowcaseActive}" class="content">
+    <span class="container">
+        <hr>
+        <h1>what is a complement?</h1>
+        <p>The complement of a number is the inversion of itself. The inverse represents the respective negative number.
+            The complement is used to make arithmetic operations with numbers more efficient, as subtractions
+            can be mapped to additions.
+        </p>
+        <h1>how is the complement of a number calculated?</h1>
+        <p>
+            To form the b-complement (with b as an arbitrary Radix) from a number,
+            we first form the b-1's complement. To do this, we invert the individual digits
+            using the largest value (b-1) in the given Radix. The inverse of a number n
+            is derived as follows: We map the numbers of the system to all numbers inversely.
+        </p>
+        <p>
+            The b-complement is then obtained after incrementing the result by 1.
+        </p>
+        <p>Let's look at the following example I prepared:</p>
+        <img class="tex-example" src="./assets/img/b-complement_example.svg" alt="10-complement example">
+        <hr>
+        <h1>demo: can you calculate my complement?</h1>
+        <p class="demo-text">Sure, give a Radix from 2 - 16 (from Radix 10 numbers will be mapped to A, B, C, D, E and F):</p>
+        <input class="input" type="number" [defaultValue]=2>
+        <p class="demo-text">Give a size your number should be mapped to:</p>
+        <input class="input" type="number" [defaultValue]=8>
+        <p class="demo-text">Give a number you want to get the complement of:</p>
+        <input class="input" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
+        <button class="btn-primary" (click)="getOutput()">calculate</button>
+        <div [ngClass]="{'error': isErrorMessage}" class="output-comments">
+            >> {{ output }}
+        </div>
+    </span>
+</div>

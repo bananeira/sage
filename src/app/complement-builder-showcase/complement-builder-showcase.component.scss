@@ -1,0 +1,92 @@
+@import "src/app/variables";
+
+hr {
+    color: $b-color;
+}
+
+h1 {
+    width: 80%;
+}
+
+p {
+    width: 60%;
+    margin-bottom: 2em;
+}
+
+.content {
+    margin-top: - $b-radius-block;
+    border: $b-width solid $b-color;
+    border-top: none;
+    border-bottom-left-radius: $b-radius-block;
+    border-bottom-right-radius: $b-radius-block;
+    background-color: $background-block;
+    display: none;
+    box-shadow: 0 12px 24px -12px rgba($text-emphasis-low, 0.22);
+
+    &.active {
+        display: block;
+    }
+
+    & .container {
+        display: block;
+        box-sizing: border-box;
+        padding: calc($padding-high / 2.5) $padding-high;
+    }
+}
+
+.demo-text {
+    margin-bottom: 0.7em;
+}
+
+.input, .output {
+    padding: $padding-normal;
+    background-color: $background-base;
+    border-radius: $b-radius-small;
+    color: $text-emphasis-normal;
+    font-family: "Mulish", sans-serif;
+    font-size: 15px;
+    border: $b-width solid $b-color;
+    transition: 0.4s;
+
+    &:focus {
+        border: $b-width solid $primary-color;
+        outline: none;
+    }
+}
+
+.btn-primary {
+    font-family: "Mulish", sans-serif;
+    margin-left: 12px;
+}
+
+.output-comments {
+    margin: 12px 0;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.07);
+    border-radius: $b-radius-small;
+    width: 100%;
+    user-select: text;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 300;
+    color: $text-emphasis-low;
+}
+
+.tex-example {
+    width: 60%;
+    margin-bottom: 12px;
+    opacity: $emphasis-high;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: $b-radius-block;
+    padding: 24px;
+}
+
+.error {
+    color: rgba($hint, $emphasis-medium);
+}
+
+@media only screen and (max-width: 1200px) {
+    .tex-example {
+        width: 80%;
+    }
+}
