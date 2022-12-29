@@ -62,7 +62,7 @@ p {
 .output-comments {
     margin: 12px 0;
     box-sizing: border-box;
-    padding: 12px;
+    padding: 14px 20px;
     background-color: rgba(0, 0, 0, 0.07);
     border-radius: $b-radius-small;
     width: 100%;
@@ -70,6 +70,10 @@ p {
     font-family: "JetBrains Mono", monospace;
     font-weight: 300;
     color: $text-emphasis-low;
+
+    &::selection {
+        background-color: rgba($primary-color, $emphasis-medium);
+    }
 }
 
 .tex-example {
@@ -89,12 +93,20 @@ p {
     color: rgba($hint, $emphasis-medium);
 }
 
+.success {
+    color: rgba($success, $emphasis-medium);
+}
+
 @media only screen and (max-width: 1200px) {
     h1 {
         width: 100%;
     }
     p {
         width: 100%;
+    }
+
+    .btn-primary {
+        margin-left: 0;
     }
 
     .tex-example {

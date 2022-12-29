@@ -25,14 +25,19 @@
         <img class="tex-example large" src="./assets/img/b-complement_example_large.svg" alt="10-complement example">
         <hr>
         <h1>demo: can you calculate my complement?</h1>
-        <p class="demo-text">Sure, give a Radix from 2 - 16 (from Radix 10 numbers will be mapped to A, B, C, D, E and F):</p>
-        <input class="input" type="number" [defaultValue]=2>
+
+        <p class="demo-text">Sure, give a Radix from 2 - 16 (starting from Radix 10, numbers will be mapped
+            to corresponding characters A, B, C, D, E and F):</p>
+        <input class="input" id="radix" type="number" [defaultValue]=2>
+
         <p class="demo-text">Give a size your number should be mapped to:</p>
-        <input class="input" type="number" [defaultValue]=8>
+        <input class="input" id="length" type="number" [defaultValue]=8>
+
         <p class="demo-text">Give a number you want to get the complement of:</p>
-        <input class="input" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
+        <input class="input" id="input" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
+
         <button class="btn-primary" (click)="getOutput()">calculate</button>
-        <div [ngClass]="{'error': isErrorMessage}" class="output-comments">
+        <div [ngClass]="{'error': isErrorMessage, 'success': isSuccessMessage}" class="output-comments">
             >> {{ output }}
         </div>
     </span>
