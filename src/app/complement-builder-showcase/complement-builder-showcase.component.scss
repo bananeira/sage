@@ -79,6 +79,10 @@ p {
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: $b-radius-block;
     padding: 24px;
+
+    &.large {
+        display: none;
+    }
 }
 
 .error {
@@ -86,7 +90,23 @@ p {
 }
 
 @media only screen and (max-width: 1200px) {
+    h1 {
+        width: 100%;
+    }
+    p {
+        width: 100%;
+    }
+
     .tex-example {
-        width: 80%;
+        padding: 12px;
+        width: 86%;
+
+        &.normal {
+            display: none;
+        }
+
+        &.large {
+            display: block;
+        }
     }
 }
