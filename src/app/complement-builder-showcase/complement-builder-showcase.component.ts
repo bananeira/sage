@@ -2,18 +2,32 @@ import {Component, Input} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 
 @Component({
-  selector: 'app-complement-builder-showcase',
-  templateUrl: './complement-builder-showcase.component.html',
-  styleUrls: ['./complement-builder-showcase.component.scss']
+    selector: 'app-complement-builder-showcase',
+    templateUrl: './complement-builder-showcase.component.html',
+    styleUrls: ['./complement-builder-showcase.component.scss']
 })
 export class ComplementBuilderShowcaseComponent {
-    radix: number = Number((document.getElementById("radix") as HTMLInputElement).value);
-    length: number = Number((document.getElementById("length") as HTMLInputElement).value);
-    input: string = (document.getElementById("input") as HTMLInputElement).value;
+    inputString: string = "";
+    radix: number = 2;
+    length: number = 8;
 
-    public output: string = "Output will be given here";
+    public outputs:{ text: string, className?: string}[] = [
+        { text:"Output will be given here", className: undefined },
+    ]
     public isErrorMessage: boolean = false;
     public isSuccessMessage: boolean = false;
+
+    getInputString(value: string) {
+        this.inputString = value;
+    }
+
+    getRadix(value: string) {
+        this.radix = Number(value);
+    }
+
+    getLength(value: string) {
+        this.length = Number(value);
+    }
 
     @Input()
     complementBuilder?: ToolShowcaseModel;
@@ -24,17 +38,19 @@ export class ComplementBuilderShowcaseComponent {
         this.toolShowcaseActive = toolShowcaseActive;
     }
 
+    pushOutput(output: string) {
+    }
+
     getOutput(): void {
-        this.output = "ERROR: tool is yet to be implemented. please be patient.";
-        this.checkForErrorMessage(this.output);
-        this.checkForSuccessMessage(this.output);
+        this.outputs.push({text: "ERROR: the tool is yet to be implemented. please be patient", className: "error"});
+        this.outputs.push({text: `SUCCESS: your values are (l: ${this.length} r: ${this.radix} i:${this.inputString}).`, className: "success"});
     }
 
-    checkForErrorMessage(input: string): void {
-        this.isErrorMessage = this.output.startsWith("ERROR");
+    checkForErrorMessage(input: string): boolean {
+        return input.startsWith("ERROR");
     }
 
-    checkForSuccessMessage(input: string): void {
-        this.isSuccessMessage = this.output.startsWith("SUCCESS");
+    checkForSuccessMessage(input: string): boolean {
+        return input.startsWith("SUCCESS");
     }
 }

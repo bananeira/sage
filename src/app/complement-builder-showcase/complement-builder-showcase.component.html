@@ -28,17 +28,19 @@
 
         <p class="demo-text">Sure, give a Radix from 2 - 16 (starting from Radix 10, numbers will be mapped
             to corresponding characters A, B, C, D, E and F):</p>
-        <input class="input" id="radix" type="number" [defaultValue]=2>
+        <input class="input" #radix (keyup)="getRadix(radix.value)" (click)="getRadix(radix.value)" type="number" [defaultValue]=2>
 
         <p class="demo-text">Give a size your number should be mapped to:</p>
-        <input class="input" id="length" type="number" [defaultValue]=8>
+        <input class="input" #length (keyup)="getLength(length.value)" (click)="getLength(length.value)" type="number" [defaultValue]=8>
 
         <p class="demo-text">Give a number you want to get the complement of:</p>
-        <input class="input" id="input" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
+        <input class="input" #inputString (keyup)="getInputString(inputString.value)" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
 
         <button class="btn-primary" (click)="getOutput()">calculate</button>
-        <div [ngClass]="{'error': isErrorMessage, 'success': isSuccessMessage}" class="output-comments">
-            >> {{ output }}
+        <div class="output-comments">
+            <span class="{{ output.className || '' }}" *ngFor="let output of outputs">
+                >> {{ output.text }}
+            </span>
         </div>
     </span>
 </div>
