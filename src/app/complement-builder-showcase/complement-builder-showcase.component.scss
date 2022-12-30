@@ -62,7 +62,7 @@ p {
 .output-comments {
     margin: 12px 0;
     box-sizing: border-box;
-    padding: 14px 20px;
+    padding: 24px 16px;
     background-color: $terminal-window;
     border-radius: $b-radius-small;
     width: 100%;
@@ -72,7 +72,7 @@ p {
     color: $text-inverted-emphasis-low;
     display: flex;
     flex-direction: column;
-    max-height: 33vh;
+    max-height: 38vh;
     overflow-y: scroll;
 }
 
@@ -102,10 +102,12 @@ p {
 }
 
 .line-counter {
-    display: inline-flex;
+    text-align: right;
+    display: inline-block;
     box-sizing: border-box;
     font-size: 14px;
     width: 22px;
+    margin-right: 6px;
     color: $text-inverted-emphasis-Low;
 }
 
