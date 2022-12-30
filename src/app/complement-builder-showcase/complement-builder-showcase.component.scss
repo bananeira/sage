@@ -63,16 +63,16 @@ p {
     margin: 12px 0;
     box-sizing: border-box;
     padding: 14px 20px;
-    background-color: rgba(0, 0, 0, 0.07);
+    background-color: $terminal-window;
     border-radius: $b-radius-small;
     width: 100%;
     user-select: text;
     font-family: "JetBrains Mono", monospace;
     font-weight: 300;
-    color: $text-emphasis-low;
+    color: $text-inverted-emphasis-low;
     display: flex;
     flex-direction: column;
-    max-height: 25vh;
+    max-height: 33vh;
     overflow-y: scroll;
 }
 
@@ -80,7 +80,7 @@ p {
     width: 60%;
     margin-bottom: 12px;
     opacity: $emphasis-high;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.04);
     border-radius: $b-radius-block;
     padding: 24px;
 
@@ -90,11 +90,23 @@ p {
 }
 
 .error {
-    color: rgba($hint, $emphasis-medium);
+    color: $terminal-error;
 }
 
 .success {
-    color: rgba($success, $emphasis-medium);
+    color: $terminal-success;
+}
+
+.hint {
+    color: $terminal-hint;
+}
+
+.line-counter {
+    display: inline-flex;
+    box-sizing: border-box;
+    font-size: 14px;
+    width: 22px;
+    color: $text-inverted-emphasis-Low;
 }
 
 @media only screen and (max-width: 1200px) {

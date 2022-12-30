@@ -12,7 +12,7 @@ export class ComplementBuilderShowcaseComponent {
     length: number = 8;
 
     public outputs:{ text: string, className?: string}[] = [
-        { text:"Output will be given here", className: undefined },
+        { text:"Output will be given here", className: "hint" },
     ]
     public isErrorMessage: boolean = false;
     public isSuccessMessage: boolean = false;
@@ -52,5 +52,9 @@ export class ComplementBuilderShowcaseComponent {
 
     checkForSuccessMessage(input: string): boolean {
         return input.startsWith("SUCCESS");
+    }
+
+    checkForHintMessage(input: string): boolean {
+        return input.startsWith("HINT");
     }
 }

@@ -6,7 +6,7 @@
     <span class="container">
         <hr>
         <h1>what is a complement?</h1>
-        <p>The complement of a number is the inversion of itself. The inverse represents the respective negative number.
+        <p>In a nutshell, the complement of a number is the inversion of itself. The inverse represents the respective negative number.
             The complement is used to make arithmetic operations with numbers more efficient, as subtractions
             can be mapped to additions.
         </p>
@@ -38,8 +38,8 @@
 
         <button class="btn-primary" (click)="getOutput()">calculate</button>
         <div class="output-comments">
-            <span class="{{ output.className || '' }}" *ngFor="let output of outputs">
-                >> {{ output.text }}
+            <span *ngFor="let output of outputs, let indexOfElement = index">
+                <span class="line-counter">{{ indexOfElement + 1 }}</span> $ <span class="{{ output.className }}">{{ output.text }}</span>
             </span>
         </div>
     </span>
