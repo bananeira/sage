@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
+import {ComplementBuilderService} from "../service/complement-builder.service";
 
 @Component({
     selector: 'app-complement-builder-showcase',
@@ -10,6 +11,9 @@ export class ComplementBuilderShowcaseComponent {
     inputString: string = "";
     radix: number = 2;
     length: number = 8;
+
+    constructor(private complementBuilderService: ComplementBuilderService) {
+    }
 
     public outputs:{ text: string, className?: string}[] = [
         { text:"Output will be given here", className: "hint" },
@@ -42,8 +46,10 @@ export class ComplementBuilderShowcaseComponent {
     }
 
     getOutput(): void {
-        this.outputs.push({text: "ERROR: the tool is yet to be implemented. please be patient", className: "error"});
-        this.outputs.push({text: `SUCCESS: your values are (l: ${this.length} r: ${this.radix} i:${this.inputString}).`, className: "success"});
+        this.complementBuilderService.sendComplementBuilderRequest();
+
+        //this.outputs.push({text: "ERROR: the tool is yet to be implemented. please be patient", className: "error"});
+        //this.outputs.push({text: `SUCCESS: your values are (l: ${this.length} r: ${this.radix} i:${this.inputString}).`, className: "success"});
     }
 
     checkForErrorMessage(input: string): boolean {
