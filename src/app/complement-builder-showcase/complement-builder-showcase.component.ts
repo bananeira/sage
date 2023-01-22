@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
-import {ComplementBuilderService} from "../service/complement-builder.service";
+import {ComplementBuilderService, Output} from "../service/complement-builder.service";
+import {map, take} from "rxjs";
 
 @Component({
     selector: 'app-complement-builder-showcase',
@@ -11,12 +12,13 @@ export class ComplementBuilderShowcaseComponent {
     inputString: string = "";
     radix: number = 2;
     length: number = 8;
+    getMinusOneComplement: boolean = false;
 
     constructor(private complementBuilderService: ComplementBuilderService) {
     }
 
-    public outputs:{ text: string, className?: string}[] = [
-        { text:"Output will be given here", className: "hint" },
+    public outputs: Output[] = [
+        {text: "Output will be given here", status: "hint"},
     ]
     public isErrorMessage: boolean = false;
     public isSuccessMessage: boolean = false;
@@ -42,25 +44,20 @@ export class ComplementBuilderShowcaseComponent {
         this.toolShowcaseActive = toolShowcaseActive;
     }
 
-    pushOutput(output: string) {
+    public toggleReturnMinusOneComplement(): void {
+        this.getMinusOneComplement = !this.getMinusOneComplement;
     }
 
     getOutput(): void {
-        this.complementBuilderService.sendComplementBuilderRequest();
-
-        //this.outputs.push({text: "ERROR: the tool is yet to be implemented. please be patient", className: "error"});
-        //this.outputs.push({text: `SUCCESS: your values are (l: ${this.length} r: ${this.radix} i:${this.inputString}).`, className: "success"});
-    }
-
-    checkForErrorMessage(input: string): boolean {
-        return input.startsWith("ERROR");
-    }
-
-    checkForSuccessMessage(input: string): boolean {
-        return input.startsWith("SUCCESS");
-    }
-
-    checkForHintMessage(input: string): boolean {
-        return input.startsWith("HINT");
+        this.complementBuilderService.sendComplementBuilderRequest(this.inputString, this.radix, this.length, this.getMinusOneComplement)
+            .pipe(
+                take(1),
+                map((output: Output) => {
+                        this.outputs.push(output);
+                    }
+                )
+            )
+            .subscribe();
+        console.log(this.getMinusOneComplement);
     }
 }

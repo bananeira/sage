@@ -82,7 +82,8 @@
                             "browserTarget": "sage:build:production"
                         },
                         "development": {
-                            "browserTarget": "sage:build:development"
+                            "browserTarget": "sage:build:development",
+                            "proxyConfig": "proxy.conf.json"
                         }
                     },
                     "defaultConfiguration": "development"

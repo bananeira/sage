@@ -12,7 +12,7 @@
         </p>
         <h1>how is the complement of a number calculated?</h1>
         <p>
-            To form the b-complement (with b as an arbitrary Radix) from a number,
+            To form the b-complement (with b as an arbitrary radix) from a number,
             we first form the b-1's complement. To do this, we invert the individual digits
             using the largest value (b-1) in the given Radix. The inverse of a number n
             is derived as follows: We map the numbers of the system to all numbers inversely.
@@ -26,20 +26,28 @@
         <hr>
         <h1>demo: can you calculate my complement?</h1>
 
-        <p class="demo-text">Sure, give a Radix from 2 - 16 (starting from Radix 10, numbers will be mapped
+        <p class="demo-text">Sure, give a radix from 2 - 16 (starting from radix 10, numbers will be mapped
             to corresponding characters A, B, C, D, E and F):</p>
         <input class="input" #radix (keyup)="getRadix(radix.value)" (click)="getRadix(radix.value)" type="number" [defaultValue]=2>
 
-        <p class="demo-text">Give a size your number should be mapped to:</p>
+        <p class="demo-text">Give a size your number should be mapped to or leave on 0:</p>
         <input class="input" #length (keyup)="getLength(length.value)" (click)="getLength(length.value)" type="number" [defaultValue]=8>
 
         <p class="demo-text">Give a number you want to get the complement of:</p>
         <input class="input" #inputString (keyup)="getInputString(inputString.value)" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
 
+        <p class="demo-text">Do you want to output the b-1's complement?
+            <span [ngClass]="{'active': getMinusOneComplement}" class="toggle-option-inline" (click)="toggleReturnMinusOneComplement()">
+                <span>
+                    &#10003;
+                </span>
+            </span>
+        </p>
+
         <button class="btn-primary" (click)="getOutput()">calculate</button>
         <div class="output-field">
             <span *ngFor="let output of outputs, let indexOfElement = index">
-                <span class="line-counter">{{ indexOfElement + 1 }}</span> $ <span class="{{ output.className }}">{{ output.text }}</span>
+                <span class="line-counter">{{ indexOfElement + 1 }}</span> $ <span class="{{ output.status }}">{{ output.text }}</span>
             </span>
         </div>
     </span>
