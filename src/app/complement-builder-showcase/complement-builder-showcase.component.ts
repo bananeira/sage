@@ -13,6 +13,7 @@ export class ComplementBuilderShowcaseComponent {
     radix: number = 2;
     length: number = 8;
     getMinusOneComplement: boolean = false;
+    tweaksWindow: boolean = false;
 
     constructor(private complementBuilderService: ComplementBuilderService) {
     }
@@ -20,8 +21,6 @@ export class ComplementBuilderShowcaseComponent {
     public outputs: Output[] = [
         {text: "Output will be given here", status: "hint"},
     ]
-    public isErrorMessage: boolean = false;
-    public isSuccessMessage: boolean = false;
 
     getInputString(value: string) {
         this.inputString = value;
@@ -46,6 +45,10 @@ export class ComplementBuilderShowcaseComponent {
 
     public toggleReturnMinusOneComplement(): void {
         this.getMinusOneComplement = !this.getMinusOneComplement;
+    }
+
+    public toggleTweaksWindow(): void {
+        this.tweaksWindow = !this.tweaksWindow;
     }
 
     getOutput(): void {

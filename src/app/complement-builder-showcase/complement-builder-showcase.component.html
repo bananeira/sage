@@ -23,26 +23,44 @@
         <p>Let's look at the following example I prepared:</p>
         <img class="tex-example normal" src="./assets/img/b-complement_example.svg" alt="10-complement example">
         <img class="tex-example large" src="./assets/img/b-complement_example_large.svg" alt="10-complement example">
+        <h1>can the calculation be simpler?</h1>
+        <p>
+            Yes, it can. In programming languages such as Java, there are already implemented methods that make it
+            much easier to derive the complement.
+        </p>
+        <h1>why did you write this tool then?</h1>
+        <p>
+            TL;DR I was quite bored.
+            <br>
+            <br>
+            It might have helped me to do homework a little bit quicker, moreover.
+        </p>
         <hr>
-        <h1>demo: can you calculate my complement?</h1>
+        <h1>demo</h1>
 
-        <p class="demo-text">Sure, give a radix from 2 - 16 (starting from radix 10, numbers will be mapped
+        <p class="demo-text">Enter a number you want to get the complement of:</p>
+        <input class="input" #inputString (keyup)="getInputString(inputString.value)" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
+
+        <p class="demo-text">Enter a radix from 2 - 16 (starting from radix 10, numbers will be mapped
             to corresponding characters A, B, C, D, E and F):</p>
         <input class="input" #radix (keyup)="getRadix(radix.value)" (click)="getRadix(radix.value)" type="number" [defaultValue]=2>
 
-        <p class="demo-text">Give a size your number should be mapped to or leave on 0:</p>
-        <input class="input" #length (keyup)="getLength(length.value)" (click)="getLength(length.value)" type="number" [defaultValue]=8>
+        <div class="tweaks-window">
+            <h1 class="sub-heading" (click)="toggleTweaksWindow()">tweaks</h1>
 
-        <p class="demo-text">Give a number you want to get the complement of:</p>
-        <input class="input" #inputString (keyup)="getInputString(inputString.value)" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
+            <div [ngClass]="{'active': tweaksWindow}" class="tweaks">
+                <p class="demo-text">Enter a size your number should be mapped to or leave on 0 to not map:</p>
+                <input class="input" #length (keyup)="getLength(length.value)" (click)="getLength(length.value)" type="number" [defaultValue]=0>
 
-        <p class="demo-text">Do you want to output the b-1's complement?
-            <span [ngClass]="{'active': getMinusOneComplement}" class="toggle-option-inline" (click)="toggleReturnMinusOneComplement()">
-                <span>
-                    &#10003;
-                </span>
-            </span>
-        </p>
+                <p class="demo-text">Do you want to output the b-1's complement?
+                    <span [ngClass]="{'active': getMinusOneComplement}" class="toggle-option-inline" (click)="toggleReturnMinusOneComplement()">
+                        <span>
+                            &#10003;
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </div>
 
         <button class="btn-primary" (click)="getOutput()">calculate</button>
         <div class="output-field">

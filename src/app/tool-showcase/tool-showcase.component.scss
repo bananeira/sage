@@ -66,34 +66,6 @@ h1, p {
     margin: 6px;
 }
 
-.toggle {
-    padding: 8px 18px;
-    border-radius: $b-radius-small;
-    width: fit-content;
-    font-size: 24px;
-    color: $text-emphasis-normal;
-    cursor: pointer;
-    background-color: rgba($background-util-button, 0.07);
-    transition: 0.4s;
-
-    & span {
-        transition: 0.4s;
-        display: block;
-        width: fit-content;
-        rotate: 90deg;
-    }
-
-    &.active {
-        & span {
-            rotate: -90deg;
-        }
-    }
-
-    &:hover {
-        background-color: rgba($background-util-button, 0.14);
-    }
-}
-
 @media only screen and (max-width: 1200px) {
     .info {
         flex-direction: column;
