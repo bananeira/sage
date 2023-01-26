@@ -22,6 +22,7 @@ import {StateBadgeComponent} from './state-badge/state-badge.component';
 import {ToolShowcaseComponent} from './tool-showcase/tool-showcase.component';
 import {ComplementBuilderShowcaseComponent} from './complement-builder-showcase/complement-builder-showcase.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MathjaxModule} from "mathjax-angular";
 
 @NgModule({
     declarations: [
@@ -47,6 +48,7 @@ import {HttpClientModule} from "@angular/common/http";
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        MathjaxModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

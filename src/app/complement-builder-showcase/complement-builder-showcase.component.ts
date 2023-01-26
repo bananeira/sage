@@ -38,6 +38,7 @@ export class ComplementBuilderShowcaseComponent {
     complementBuilder?: ToolShowcaseModel;
 
     public toolShowcaseActive!: boolean;
+    testformula: String = "$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$";
 
     setActive(toolShowcaseActive: boolean) {
         this.toolShowcaseActive = toolShowcaseActive;
