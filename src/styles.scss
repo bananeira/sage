@@ -92,6 +92,7 @@ h1 {
 
 .toggle-option-inline {
     display: inline-flex;
+    user-select: none;
     align-items: center;
     justify-content: center;
     margin: 0 6px;

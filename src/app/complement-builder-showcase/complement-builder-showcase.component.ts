@@ -19,7 +19,11 @@ export class ComplementBuilderShowcaseComponent {
     }
 
     public outputs: Output[] = [
-        {text: "Output will be given here", status: "hint"},
+        {text: "The output will appear here. There are default values that will be used if you do not enter your own. " +
+                "These are (\"input\", default = \"00000000\"),\n" +
+                "(\"radix\", default = \"2\"),\n" +
+                "(\"length\", default = \"8\"),\n" +
+                "(\"getMinusOneComplement\", default = \"false\")", status: "hint"},
     ]
 
     getInputString(value: string) {
@@ -38,7 +42,6 @@ export class ComplementBuilderShowcaseComponent {
     complementBuilder?: ToolShowcaseModel;
 
     public toolShowcaseActive!: boolean;
-    testFormula: string = "$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$";
 
     setActive(toolShowcaseActive: boolean) {
         this.toolShowcaseActive = toolShowcaseActive;
@@ -62,6 +65,5 @@ export class ComplementBuilderShowcaseComponent {
                 )
             )
             .subscribe();
-        console.log(this.getMinusOneComplement);
     }
 }
