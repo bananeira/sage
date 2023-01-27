@@ -53,6 +53,7 @@ p {
     border-bottom-right-radius: $b-radius-block;
     background-color: $background-block;
     display: none;
+    user-select: text;
     box-shadow: 0 12px 24px -12px rgba($text-emphasis-low, 0.22);
 
     &.active {

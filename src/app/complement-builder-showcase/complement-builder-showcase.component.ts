@@ -6,7 +6,7 @@ import {map, take} from "rxjs";
 @Component({
     selector: 'app-complement-builder-showcase',
     templateUrl: './complement-builder-showcase.component.html',
-    styleUrls: ['./complement-builder-showcase.component.scss']
+    styleUrls: ['./complement-builder-showcase.component.scss'],
 })
 export class ComplementBuilderShowcaseComponent {
     inputString: string = "";
@@ -38,7 +38,7 @@ export class ComplementBuilderShowcaseComponent {
     complementBuilder?: ToolShowcaseModel;
 
     public toolShowcaseActive!: boolean;
-    testformula: String = "$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$";
+    testFormula: string = "$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$";
 
     setActive(toolShowcaseActive: boolean) {
         this.toolShowcaseActive = toolShowcaseActive;

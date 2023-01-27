@@ -1,6 +1,3 @@
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 <app-tool-showcase (toolShowcaseActiveOutput)="setActive($event)" [tool]="complementBuilder"></app-tool-showcase>
 <div [ngClass]="{'active' : toolShowcaseActive}" class="content">
     <span class="container">
@@ -11,13 +8,39 @@
             can be mapped to additions.
         </p>
         <h1>how is the complement of a number calculated?</h1>
-        <p>For that, let's look at the following explanation I prepared:</p>
-        <img class="tex-example normal" src="./assets/img/b-complement_example.svg" alt="10-complement example">
-        <img class="tex-example large" src="./assets/img/b-complement_example_large.svg" alt="10-complement example">
-        <div class="tex" [mathjax]="testformula"></div>
+        <p ngNonBindable>
+            In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
+
+            Single digits of a number will be depicted as $n_{{b,i}}$. The complement is marked as $K_{{{b-i}}}(n_b)$
+            ($i$ may be $0$ or $1$, depending on whether we consider the one's or two's
+            complement regarding the binary representation).
+        </p>
+        <p ngNonBindable>
+            Let the number, we want to get the complement of, be 209 in the decimal format.
+            To get $K_{{10}}(209_{{10}})$, we will firstly define $K_{{10-1}}(209_{{10}})$.
+            This is achieved by inverting the digits of $209_{{10}}$.
+            To visualize: Invert the decimal system $:= S_{{10}}$ and map it to the non-inverted decimal system as follows
+            (please note that this is a non-formal concept, which applies to any arbitrary radix):
+            $S_{{10}} \rightarrow \overline{{S_{{10}}}}: 209_{{10,i}} \mapsto \overline{{209_{{10,i}}}}$
+            via $( 10 - 209_{{10,i}} - 1 ) \mod{{10}}$ or in general
+            $( b - n_{{b,i}} - 1 ) \mod{{10}}$. Theoretically, the modulo is relevant for later arithmetic operations (e.g.
+            determining the two's complement in one step).
+            Here, however, it is not.
+        </p>
+        <p ngNonBindable>
+            Through that, we receive $(2 \leftrightarrow 7, 0 \leftrightarrow 9, 9 \leftrightarrow 0)
+            \implies K_{{10-1}}(209_{{10}}) = 790_{{10}}$.
+        </p>
+        <p ngNonBindable>
+            From latter we conclude
+            $K_{{10-1}}(209_{{10}}) + 1_{{10}}
+                = K_{{10}}(209_{{10}})
+                = 790_{{10}} + 1_{{10}}
+                = 791_{{10}}$.
+        </p>
         <h1>can the calculation be simpler?</h1>
         <p>
-            Yes, it can. In programming languages such as Java, there are already implemented methods that make it
+            Totally. In programming languages such as Java, there are already implemented methods that make it
             much easier to derive the complement.
         </p>
         <h1>why did you write this tool then?</h1>
