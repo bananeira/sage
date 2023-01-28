@@ -7,11 +7,10 @@
     },
     "scripts": {
         "ng": "ng",
-        "start": "http-server-spa dist/sage index.html",
-        "build": "ng build",
+        "start": "node server.js",
+        "build": "ng build --configuration production",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test",
-        "heroku-postbuild": "ng build --configuration production && npm install -g http-server-spa"
+        "test": "ng test"
     },
     "private": true,
     "dependencies": {
