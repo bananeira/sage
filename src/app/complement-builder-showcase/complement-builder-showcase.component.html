@@ -8,17 +8,29 @@
             can be mapped to additions.
         </p>
         <h1>how is the complement of a number calculated?</h1>
-        <p ngNonBindable>
-            In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
-
-            Single digits of a number will be depicted as $n_{{b,i}}$. The complement is marked as $K_{{{b-nTC}}}(n_b)$
-            with $nTC :=$ notTwosComplement, which may be $0$ or $1$.
+        <p>
+            For this I will present a little tutorial by means of an example.
+            The concept by which the complement is calculated is not thoroughly formalizable by my personal way
+            of implementation. There are certainly more reasonable approaches to calculate the complement, for example,
+            if a known definition range of numerical values is fixed; just like in real hardware architecture.
+            I use here furthermore an arbitrary radix, on the basis of which the complement is calculated.
+            But this is usually done in the binary system and the result is then transferred to the desired place
+            value system if necessary.
         </p>
         <p ngNonBindable>
-            Let the number, we want to get the complement of, be 209 in the decimal format.
+            In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
+            Single digits of a number will be depicted as $n_{{b,i}}$. The complement is marked as $K_{{{b-nTC}}}(n_b)$
+            with $nTC =$ notTwosComplement and $nTC \in \text{{0,1}}$.
+        </p>
+        <p ngNonBindable>
+            Let the number $n$ be 209 in the decimal format $(b = 10)$. In the next part, we want to form the complement
+            $K_{{10}}$ of that number $n$.
+        </p>
+        <p ngNonBindable>
             To get $K_{{10}}(209_{{10}})$, we will firstly define $K_{{10-1}}(209_{{10}})$.
             This is achieved by inverting the digits of $209_{{10}}$.
-            To visualize: Invert the decimal system $:= S_{{10}}$ and map it to the non-inverted decimal system as follows
+            To visualize: Invert the decimal system $\overline{{S_{{10}}}}$ and map it to the non-inverted decimal
+            system $S_{{10}}$ as follows
             (please note that this is a non-formal concept, which applies to any arbitrary radix):
             $S_{{10}} \rightarrow \overline{{S_{{10}}}}: 209_{{10,i}} \mapsto \overline{{209_{{10,i}}}}$
             via $( 10 - 209_{{10,i}} - 1 ) \mod{{10}}$ or in general
@@ -39,7 +51,7 @@
         </p>
         <h1>can the calculation be simpler?</h1>
         <p>
-            Totally. In programming languages such as Java, there are already implemented methods that make it
+            Totally. In programming languages such as Java, C++ and C, there are already implemented methods that make it
             much easier to derive the complement.
         </p>
         <h1>why did you write this tool then?</h1>
