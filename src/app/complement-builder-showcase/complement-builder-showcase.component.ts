@@ -11,7 +11,7 @@ import {catchError, map, of, take} from "rxjs";
 export class ComplementBuilderShowcaseComponent {
     inputString: string = "";
     radix: number = 2;
-    length: number = 8;
+    length: number = 0;
     getMinusOneComplement: boolean = false;
     tweaksWindow: boolean = false;
     complementExplanation: boolean = false;
@@ -23,7 +23,7 @@ export class ComplementBuilderShowcaseComponent {
         {text: "The output will appear here. There are default values that will be used if you do not enter your own. " +
                 "These are (\"input\", default = \"00000000\"),\n" +
                 "(\"radix\", default = \"2\"),\n" +
-                "(\"length\", default = \"8\"),\n" +
+                "(\"length\", default = \"0\"),\n" +
                 "(\"getMinusOneComplement\", default = \"false\")", status: "hint"},
     ]
 
