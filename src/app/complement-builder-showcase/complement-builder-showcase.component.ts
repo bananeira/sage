@@ -98,13 +98,14 @@ export class ComplementBuilderShowcaseComponent {
             (please note that this is a non-formal concept, which applies to any arbitrary radix):
             \\begin{align}
             \\end{align}
-            $S_{10} \\rightarrow \\overline{S_{10}}:\\;\\begin{array}{|c|cccccccccc|}
+            $S_{10} \\rightarrow \\overline{S_{10}}:$
+            \\begin{array}{|c|cccccccccc|}
                 \\hline
                 S_{10} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\\\
                 \\hline
                 \\overline{S_{10}} & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0\\\\
                 \\hline
-            \\end{array}$
+            \\end{array}
             \\begin{align}
             \\end{align}
             $\\implies n_b \\mapsto \\overline{n_b}$
@@ -119,8 +120,8 @@ export class ComplementBuilderShowcaseComponent {
                 9 & = ( 10 - 0 - 1 )\\\\
                 0 & = ( 10 - 9 - 1 ),
             \\end{align}
-            we receive $(2 \\leftrightarrow 7, 0 \\leftrightarrow 9, 9 \\leftrightarrow 0)
-            \\implies K_{10-1}(209_{10}) = 790_{10}$.
+            we receive $(2 \\leftrightarrow 7, 0 \\leftrightarrow 9, 9 \\leftrightarrow 0)$
+            $\\implies K_{10-1}(209_{10}) = 790_{10}$.
 
             From latter we conclude
             \\begin{align}
