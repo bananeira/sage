@@ -1,6 +1,7 @@
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 export interface Output {
     status: string,
@@ -9,6 +10,8 @@ export interface Output {
 
 @Injectable({providedIn: "root"})
 export class ComplementBuilderService {
+    private apiBaseUrl = environment.apiUrl;
+
     constructor(private httpClient: HttpClient) {
 
     }
@@ -20,6 +23,6 @@ export class ComplementBuilderService {
             .set('getMinusOneComplement', getMinusOneComplement)
             .set('inputString', inputString);
 
-        return this.httpClient.get<Output>('complement', {params});
+        return this.httpClient.get<Output>(this.apiBaseUrl + 'complement', {params});
     }
 }

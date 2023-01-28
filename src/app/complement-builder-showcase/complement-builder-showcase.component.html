@@ -23,8 +23,7 @@
             TL;DR We build the minus one complement by inverting the number in the present place value system.
             Then 1 is added for the ones complement.
         </p>
-        <p [ngClass]="{'active': complementExplanation}" class="complement-explanation">
-          {{ complementTutorial }}
+        <p [ngClass]="{'active': complementExplanation}" class="complement-explanation" [innerHtml]="complementTutorial">
         </p>
         <h1>can the calculation be simpler?</h1>
         <p>

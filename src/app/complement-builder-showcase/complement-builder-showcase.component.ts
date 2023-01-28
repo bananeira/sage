@@ -1,7 +1,7 @@
 import {Component, Input, ViewChild} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 import {ComplementBuilderService, Output} from "../service/complement-builder.service";
-import {map, take} from "rxjs";
+import {catchError, map, of, take} from "rxjs";
 
 @Component({
     selector: 'app-complement-builder-showcase',
@@ -67,7 +67,17 @@ export class ComplementBuilderShowcaseComponent {
                 map((output: Output) => {
                         this.outputs.push(output);
                     }
-                )
+                ),
+                catchError(error => {
+                    if (error.error instanceof ErrorEvent) {
+                        let output: Output = {status: "error", text: `error: ${error.error.message}`};
+                        this.outputs.push(output);
+                    } else {
+                        let output: Output = {status: "error", text: `error: ${error.message}`};
+                        this.outputs.push (output);
+                    }
+                    return of([])
+                })
             )
             .subscribe();
     }
@@ -80,24 +90,20 @@ export class ComplementBuilderShowcaseComponent {
             I use here furthermore an arbitrary radix, on the basis of which the complement is calculated.
             But this is usually done in the binary system and the result is then transferred to the desired place
             value system if necessary.
-            \\begin{align}
-            \\end{align}
+            <br/><br/>
             In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
             Single digits of a number will be depicted as $n_{b,i}$. The complement is marked as $K_{b-nTC}(n_b)$
             with $nTC =$ notTwosComplement and $nTC \\in \\text{{0,1}}$.
-            \\begin{align}
-            \\end{align}
+            <br/><br/>
             Let $n := 209$ as a decimal value $(b = 10)$. In the next part, we want to form the complement
             $K_{{10}}$ of that number $n_b$.
-            \\begin{align}
-            \\end{align}
+            <br/><br/>
             To get $K_{{10}}(n_b)$, we will firstly define $K_{10-1}(n_b)$.
             This is achieved by inverting the digits of $n_b (209_{10})$.
             To visualize: Invert the decimal system $\\overline{S_{10}}$ and map it to the non-inverted decimal
             system $S_{10}$ as follows
             (please note that this is a non-formal concept, which applies to any arbitrary radix):
-            \\begin{align}
-            \\end{align}
+            <br/><br/>
             $S_{10} \\text{ (top row)} $ $\\rightarrow \\overline{S_{10}} \\text{ (bottom row)}:$
             \\begin{array}{|cccccccccc|}
                 \\hline
@@ -106,29 +112,29 @@ export class ComplementBuilderShowcaseComponent {
                 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0\\\\
                 \\hline
             \\end{array}
-            \\begin{align}
-            \\end{align}
+            <br/>
             $\\implies n_b \\mapsto \\overline{n_b}$
             via $( 10 - 209_{10,i} - 1 )$ or in general
             $( b - n_{b,i} - 1 ) \\mod{10}$. The modulo operator is relevant for later arithmetic operations (e.g.
             determining the two's complement in one step).
             In this case, however, it is not.
-
-            Through
-            \\begin{align}
+            <br/><br/>
+            Through $( 10 - 209_{10,i} - 1 )$
+            we receive
+            \\begin{aligned}
                 7 & = ( 10 - 2 - 1 )\\\\
                 9 & = ( 10 - 0 - 1 )\\\\
                 0 & = ( 10 - 9 - 1 ),
-            \\end{align}
-            we receive $(2 \\leftrightarrow 7, 0 \\leftrightarrow 9, 9 \\leftrightarrow 0)$
+            \\end{aligned}
+            $\\implies (2 \\leftrightarrow 7, 0 \\leftrightarrow 9, 9 \\leftrightarrow 0)$
             $\\implies K_{10-1}(209_{10}) = 790_{10}$.
-
+            <br/><br/>
             From latter we conclude
-            \\begin{align}
-            &\\quad K_{10-1}(209_{10}) + 1_{10}\\\\
-                & = K_{10}(209_{10})\\\\
-                & = 790_{10} + 1_{10}\\\\
-                & = 791_{10}.
-            \\end{align}
+            \\begin{aligned}
+            &K_{10-1}(209_{10}) + 1_{10}\\\\
+                ={} & K_{10}(209_{10})\\\\
+                ={} & 790_{10} + 1_{10}\\\\
+                ={} & 791_{10}.
+            \\end{aligned}
         `
 }
