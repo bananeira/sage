@@ -1,3 +1,8 @@
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
 <app-tool-showcase (toolShowcaseActiveOutput)="setActive($event)" [tool]="complementBuilder"></app-tool-showcase>
 <div [ngClass]="{'active' : toolShowcaseActive}" class="content">
     <span class="container">
@@ -7,47 +12,19 @@
             The complement is used to make arithmetic operations with numbers more efficient, as subtractions
             can be mapped to additions.
         </p>
-        <h1>how is the complement of a number calculated?</h1>
+        <h1>how is the complement of a number calculated?
+            <div [ngClass]="{'active': complementExplanation}" class="text-content-expander">
+                <span (click)="toggleComplementExplanation()">&#43;</span>
+                <span (click)="toggleComplementExplanation()">&#8722;</span>
+            </div>
+        </h1>
         <p>
-            For this I will present a little tutorial by means of an example.
-            The concept by which the complement is calculated is not thoroughly formalizable by my personal way
-            of implementation. There are certainly more reasonable approaches to calculate the complement, for example,
-            if a known definition range of numerical values is fixed; just like in real hardware architecture.
-            I use here furthermore an arbitrary radix, on the basis of which the complement is calculated.
-            But this is usually done in the binary system and the result is then transferred to the desired place
-            value system if necessary.
+            For this I will present a little tutorial by means of an example. You may expand if necessary.
+            TL;DR We build the minus one complement by inverting the number in the present place value system.
+            Then 1 is added for the ones complement.
         </p>
-        <p ngNonBindable>
-            In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
-            Single digits of a number will be depicted as $n_{{b,i}}$. The complement is marked as $K_{{{b-nTC}}}(n_b)$
-            with $nTC =$ notTwosComplement and $nTC \in \text{{0,1}}$.
-        </p>
-        <p ngNonBindable>
-            Let the number $n$ be 209 in the decimal format $(b = 10)$. In the next part, we want to form the complement
-            $K_{{10}}$ of that number $n$.
-        </p>
-        <p ngNonBindable>
-            To get $K_{{10}}(209_{{10}})$, we will firstly define $K_{{10-1}}(209_{{10}})$.
-            This is achieved by inverting the digits of $209_{{10}}$.
-            To visualize: Invert the decimal system $\overline{{S_{{10}}}}$ and map it to the non-inverted decimal
-            system $S_{{10}}$ as follows
-            (please note that this is a non-formal concept, which applies to any arbitrary radix):
-            $S_{{10}} \rightarrow \overline{{S_{{10}}}}: 209_{{10,i}} \mapsto \overline{{209_{{10,i}}}}$
-            via $( 10 - 209_{{10,i}} - 1 ) \mod{{10}}$ or in general
-            $( b - n_{{b,i}} - 1 ) \mod{{10}}$. Theoretically, the modulo is relevant for later arithmetic operations (e.g.
-            determining the two's complement in one step).
-            Here, however, it is not.
-        </p>
-        <p ngNonBindable>
-            Through that, we receive $(2 \leftrightarrow 7, 0 \leftrightarrow 9, 9 \leftrightarrow 0)
-            \implies K_{{10-1}}(209_{{10}}) = 790_{{10}}$.
-        </p>
-        <p ngNonBindable>
-            From latter we conclude
-            $K_{{10-1}}(209_{{10}}) + 1_{{10}}
-                = K_{{10}}(209_{{10}})
-                = 790_{{10}} + 1_{{10}}
-                = 791_{{10}}$.
+        <p [ngClass]="{'active': complementExplanation}" class="complement-explanation">
+          {{ complementTutorial }}
         </p>
         <h1>can the calculation be simpler?</h1>
         <p>
