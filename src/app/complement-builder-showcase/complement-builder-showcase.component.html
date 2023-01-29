@@ -66,8 +66,10 @@
 
         <button class="btn-primary" (click)="getOutput()">calculate</button>
         <div class="output-field">
-            <span *ngFor="let output of outputs, let indexOfElement = index">
-                <span class="line-counter">{{ indexOfElement + 1 }}</span> $ <span class="{{ output.status }}">{{ output.text }}</span>
+            <span class="output" *ngFor="let output of outputs, let indexOfElement = index">
+                <span class="line-counter">{{ indexOfElement + 1 }} </span>
+                <span style="margin-right: 8px">$</span>
+                <span class="output-line {{ output.status }}"> {{ output.text }}</span>
             </span>
         </div>
     </span>

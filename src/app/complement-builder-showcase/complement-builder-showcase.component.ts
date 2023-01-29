@@ -20,11 +20,12 @@ export class ComplementBuilderShowcaseComponent {
     }
 
     public outputs: Output[] = [
-        {text: "The output will appear here. There are default values that will be used if you do not enter your own. " +
+        {text: "The output will appear here.\n", status: "hint"},
+        {text: "There are default values that will be used if you do not enter your own. " +
                 "These are (\"input\", default = \"00000000\"),\n" +
                 "(\"radix\", default = \"2\"),\n" +
                 "(\"length\", default = \"0\"),\n" +
-                "(\"getMinusOneComplement\", default = \"false\")", status: "hint"},
+                "(\"getMinusOneComplement\", default = \"false\")", status: ""},
     ]
 
     getInputString(value: string) {

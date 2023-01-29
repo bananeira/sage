@@ -74,7 +74,17 @@ p {
     margin-bottom: 0.7em;
 }
 
-.input, .output {
+.output {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.output-line {
+    width: fit-content;
+}
+
+.input {
     padding: $padding-normal;
     background-color: $background-base;
     border-radius: $b-radius-small;
@@ -130,14 +140,17 @@ p {
 
 .error {
     color: $terminal-error;
+    word-break: break-all;
 }
 
 .success {
     color: $terminal-success;
+    word-break: break-all;
 }
 
 .hint {
     color: $terminal-hint;
+    word-break: break-all;
 }
 
 .line-counter {

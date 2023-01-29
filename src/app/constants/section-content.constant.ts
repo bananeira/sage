@@ -8,7 +8,7 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "about",
         title: "about me",
-        text: "Hello everyone! I'm Sora, a new software-systems development student @UHH. Currently I'm interested in " +
+        text: "Hello everyone! I'm Sora, a fresh software-systems development student @UHH. Currently I'm interested in " +
             "(attention, surprise) software development fairly general and, certainly off-topic, playing the piano. " +
             "I am currently learning especially the formal basics of software development, computational " +
             "architectures and extend my knowledge in Java... and learn (suffer) quite a bit of mathematics " +
@@ -43,7 +43,8 @@ export const sectionContentModels: SectionContentModel[] = [
         id: "contact",
         title: "contact",
         text: `If you have any issues or feedback you would like to contact me about, you may send an e-mail to
-            <a href="mailto:de.jamil@proton.me">de.jamil(at)proton.me</a>.`,
+            <a href="mailto:info@sorata.dev">info(at)sorata.dev</a>. For personal reference you can also send an e-mail
+            to <a href="mailto:sora@sorata.dev">sora(at)sorata.dev</a>.`,
     },
     {
         id: "copyright",
