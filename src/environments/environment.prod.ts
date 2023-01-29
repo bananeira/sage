@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-    apiUrl: "https://sora-dev.herokuapp.com/",
+    apiUrl: "https://api.sorata.dev/",
 };
