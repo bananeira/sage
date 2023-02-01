@@ -1,0 +1,76 @@
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<app-tool-showcase (toolShowcaseActiveOutput)="setActive($event)" [tool]="complementBuilder"></app-tool-showcase>
+<div [ngClass]="{'active' : toolShowcaseActive}" class="content">
+    <span class="container">
+        <hr>
+        <h1>what is a complement?</h1>
+        <p>In a nutshell, the complement of a number is the inversion of itself. The inverse represents the respective negative number.
+            The complement is used to make arithmetic operations with numbers more efficient, as subtractions
+            can be mapped to additions.
+        </p>
+        <h1>how is the complement of a number calculated?
+            <div [ngClass]="{'active': complementExplanation}" class="text-content-expander">
+                <span (click)="toggleComplementExplanation()">&#43;</span>
+                <span (click)="toggleComplementExplanation()">&#8722;</span>
+            </div>
+        </h1>
+        <p>
+            For this I will present a little tutorial by means of an example. You may expand if necessary.
+            TL;DR We build the minus one complement by inverting the number in the present place value system.
+            Then 1 is added for the ones complement.
+        </p>
+        <p [ngClass]="{'active': complementExplanation}" class="complement-explanation" [innerHtml]="complementTutorial">
+        </p>
+        <h1>can the calculation be simpler?</h1>
+        <p>
+            Totally. In programming languages such as Java, C++ and C, there are already implemented methods that make it
+            much easier to derive the complement.
+        </p>
+        <h1>why did you write this tool then?</h1>
+        <p>
+            TL;DR I was quite bored.
+            <br>
+            <br>
+            It might have helped me to do some assignments a little bit quicker, moreover.
+        </p>
+        <hr>
+        <h1>demo</h1>
+
+        <p class="demo-text">Enter a number you want to get the complement of:</p>
+        <input class="input" #inputString (keyup)="getInputString(inputString.value)" type="text" placeholder="e.g. &quot;3EF5&quot; with radix 16">
+
+        <p class="demo-text">Enter a radix from 2 - 16 (starting from radix 10, numbers will be mapped
+            to corresponding characters A, B, C, D, E and F):</p>
+        <input class="input" #radix (keyup)="getRadix(radix.value)" (click)="getRadix(radix.value)" type="number" [defaultValue]=2>
+
+        <div class="tweaks-window">
+            <h1 class="sub-heading" (click)="toggleTweaksWindow()">tweaks</h1>
+
+            <div [ngClass]="{'active': tweaksWindow}" class="tweaks">
+                <p class="demo-text">Enter a size your number should be mapped to or leave on 0 to not map:</p>
+                <input class="input" #length (keyup)="getLength(length.value)" (click)="getLength(length.value)" type="number" [defaultValue]=0>
+
+                <p class="demo-text">Do you want to output the b-1's complement?
+                    <span [ngClass]="{'active': getMinusOneComplement}" class="toggle-option-inline" (click)="toggleReturnMinusOneComplement()">
+                        <span>
+                            &#10003;
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <button class="btn-primary" (click)="getOutput()">calculate</button>
+        <div class="output-field">
+            <span class="output" *ngFor="let output of outputs, let indexOfElement = index">
+                <span class="line-counter">{{ indexOfElement + 1 }} </span>
+                <span style="margin-right: 8px">$</span>
+                <span class="output-line {{ output.status }}"> {{ output.text }}</span>
+            </span>
+        </div>
+    </span>
+</div>

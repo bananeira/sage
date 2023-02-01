@@ -21,8 +21,19 @@
     }
 }
 
+.curved {
+    height: 110vh;
+    width: 100%;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+    background-size: 100%;
+
+    background: $night-gradient;
+    background-size: 100% 150%;
+}
+
 .header {
-    flex-direction: row-reverse;
+    height: 100vh;
 }
 
 .text {
@@ -44,6 +55,11 @@
 @media only screen and (max-width: 1200px) {
     .block {
         width: 80%;
+    }
+    .curved {
+        height: 103vh;
+        border-bottom-left-radius: 50% 10%;
+        border-bottom-right-radius: 50% 10%;
     }
 }
 

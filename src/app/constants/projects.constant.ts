@@ -3,24 +3,19 @@ import {State} from "../enum/state.enum";
 
 export const projects: LinkModel[] = [
     {
-        id: "serveressentials",
-        title: "SEss 1.18",
-        description: "This is my attempt to get used to programming Minecraft plugins in " +
-            "Spigot and Java. Curious to see how far scope will " +
-            "expand over time...",
+        id: "complementbuilder",
+        title: "complement builder",
+        description: "The complement representation of numbers is used by computers to " +
+            "make operations like subtraction more efficient. This tool explains and calculates " +
+            "the complement of numbers to an arbitrary denominational number system (radix 2-16).",
         language: [
             "java",
-            "spigot",
         ],
         remit: [
 
         ],
-        codeLink: "https://github.com/bananeira/ServerEssentials",
-        state: State.Archived,
-        archivedComment: "This activity is archived, since I have " +
-            "learned key features of programming with Spigot and Java through this very project. " +
-            "However, clear thought outlines are missing here, which would define a strictly framed " +
-            "context of the plug-in.",
+        codeLink: "https://github.com/bananeira/sage-toolbox/blob/main/src/main/java/com/sage/sagetoolbox/service/ComplementBuilder.java",
+        state: State.Concluded
     },
     {
         id: "homepage",
@@ -38,8 +33,8 @@ export const projects: LinkModel[] = [
         remit: [
 
         ],
-        codeLink: "https://github.com/bananeira/sage",
-        state: State.Pending,
+        codeLink: "https://github.com/bananeira/sage/tree/new/ui",
+        state: State.Progressing,
     },
     {
         id: "teris",
@@ -54,7 +49,6 @@ export const projects: LinkModel[] = [
         ],
         remit: [
             "ui",
-            "web",
             "docs",
         ],
         link: "https://teris.vercel.app/",

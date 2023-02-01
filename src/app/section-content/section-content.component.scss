@@ -38,14 +38,18 @@ h1 {
         padding: 3px 8px;
         border-radius: 50px;
 
-        color: $text-medium-emphasis;
-        background-color: rgba(0, 0, 0, $lowest-emphasis);
+        color: $text-emphasis-normal;
+        background-color: rgba(0, 0, 0, $emphasis-LOW);
     }
 }
 
 p {
     width: 65%;
     user-select: text;
+}
+
+.tool-showcase {
+    transition: 0.4s;
 }
 
 @keyframes animate-section-content {

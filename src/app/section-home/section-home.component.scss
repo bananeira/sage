@@ -3,44 +3,66 @@
 :host {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
-.block--content {
+.content {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    text-align: end;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.btn--container {
-    margin: 12px 0;
+.headline {
+    margin: auto 0;
+    text-align: center;
 }
 
-.head-illustration {
-    width: 32vw;
+.arrow-down {
+    position: relative;
+    color: $text-bright;
+    font-size: 32px;
+    text-decoration: none;
+    padding: $padding-high;
+    transition: 0.6s;
+
+    animation: 5s animate-arrow-down-pos infinite ease-in-out,
+        13s animate-arrow-down-opacity infinite ease-in-out;
 }
 
-img {
-    pointer-events: none;
-    animation: 2s animate-paragraph ease-in-out;
+.btn {
+    margin: 12px 0 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: $text-bright;
 }
 
 h1 {
     font-size: 40px;
     user-select: text;
-    animation: 2.5s animate-title ease-in-out;
+    color: $text-Bright;
+    animation: 1.6s animate-title ease-in-out;
 }
 
 .sub-heading {
-    animation: 3.4s animate-emphasis ease-in-out;
+    animation: 2.8s animate-emphasis ease-in-out;
 }
 
 p {
     user-select: text;
-    animation: 3s animate-paragraph ease-in-out;
+    color: $text-bright;
+    animation: 1.5s animate-paragraph ease-in-out;
 }
 
 .btn-primary, .btn-secondary {
-    animation: 3s animate-emphasis ease-in-out;
+    color: $text-inverted-emphasis-normal;
+    animation: 1.5s animate-emphasis ease-in-out;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -54,13 +76,13 @@ p {
         width: 100%;
     }
 
-    .block--content {
+    .content {
         text-align: start;
     }
 
-    .btn--container {
+    .btn {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: flex-end;
         margin: auto 0;
     }
@@ -68,5 +90,44 @@ p {
     .btn-primary, .btn-secondary {
         display: flex;
         align-items: center;
+    }
+}
+
+@keyframes animate-arrow-down-pos {
+    0% {
+        rotate: 90deg;
+        transform: translateX(-25px);
+    }
+
+    50% {
+        rotate: 90deg;
+        transform: translateX(5px);
+    }
+
+    100% {
+        rotate: 90deg;
+        transform: translateX(-25px);
+    }
+}
+
+@keyframes animate-arrow-down-opacity {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    75% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

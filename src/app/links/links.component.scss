@@ -2,10 +2,17 @@
 
 app-link, app-small-link {
     transition: 0.4s;
+    box-sizing: border-box;
 
     border-radius: $b-radius-block;
+    border: $b-width solid $b-color-light;
     background-color: $background-block;
-    box-shadow: 0 12px 24px -12px rgba($text-low-emphasis, 0.22);
+    box-shadow: 0 12px 24px -12px rgba($text-emphasis-low, 0.22);
+
+    &:hover {
+        transform: scale(1.075);
+        box-shadow: 0 12px 32px -6px rgba($text-emphasis-low, 0.22);
+    }
 }
 
 app-link {

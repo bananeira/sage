@@ -2,16 +2,12 @@ import {BadgeModel} from "../interface/badge-model";
 
 export const typeBadgeModels: BadgeModel[] = [
     {
-        id: "ui",
-        displayName: "UI/UX",
-    },
-    {
         id: "api",
         displayName: "API",
     },
     {
-        id: "web",
-        displayName: "(Web) design",
+        id: "ui",
+        displayName: "Interface",
     },
     {
         id: "docs",

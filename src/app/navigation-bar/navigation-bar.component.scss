@@ -1,60 +1,70 @@
 @import "src/app/variables";
 
+:host {
+    width: 100%;
+}
+
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
     z-index: 1;
     animation: 1.75s animate-navbar ease-in-out;
+    border-radius: $b-radius-block;
 
-    padding: $padding-normal;
-    border-bottom: $b-width solid $b-color;
-    background-color: rgb($background-block, 0.78);
+    padding: $margin-floating;
 
-    &--content {
+    transition: 1s;
+
+    & .toggle {
+        display: none;
+    }
+
+    & .content {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        padding: 0 12px;
     }
 
-    &__icon {
+    & .icon {
         height: 28px;
         width: 28px;
         margin-right: 12px;
+        filter: brightness(1) saturate(1) hue-rotate(-6deg);
     }
 
-    &--opts {
+    & .opts {
         display: flex;
         flex-direction: row;
 
-        &__opt {
+        & .opt {
             margin-left: 6px;
             font-size: 16px;
             font-family: "Mulish", sans-serif;
             font-weight: 300;
             text-decoration: none;
-            transition: 0.2s;
+            transition: 0.5s;
 
             padding: $padding-normal;
-            color: $text-high-emphasis;
             border-radius: $b-radius-small;
 
-            &__icon {
+            & .icon {
                 display: none;
                 filter: brightness(1.75) saturate(0.2) hue-rotate(-30deg);
                 opacity: 0.8;
-                transition: 0.4s;
+                transition: 0.6s;
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, $very-low-emphasis);
-
                 & .navbar--opts__opt__icon {
                     filter: brightness(1) saturate(1) hue-rotate(0);
                     opacity: 0.9;
@@ -68,70 +78,143 @@
         bottom: -1px;
         width: 100%;
     }
-}
 
-@keyframes animate-navbar {
-    from {
-        opacity: 0;
-        top: -10%;
-    }
-    to {
-        opacity: 1;
-        top: 0;
+    &.light {
+        border: $b-width solid $b-color;
+        background-color: $background-floating;
+
+        & .opts {
+            & .opt {
+                color: $text-emphasis-high;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, $emphasis-Low);
+                }
+            }
+        }
     }
 
+    &.dark {
+        border: $b-width solid $b-color-inverted;
+        background-color: $dark-background-floating;
+
+        & .opts {
+            & .opt {
+                color: $text-inverted-emphasis-normal;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, $emphasis-Low);
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1000px) {
     .navbar {
-        top: initial;
-        bottom: 0;
-        border-bottom: none;
-        padding: 6px 0;
+        position: fixed;
+        top: 5%;
+        left: unset;
+        width: 21%;
+        height: 10%;
+        right: 0;
+        transform: translate(0, 0);
+        border-radius: 12px 0 0 12px;
+        border-right: none;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        transition: 0.6s;
 
         background-color: $background-block;
         border-top: $b-width solid $b-color;
 
-        &__icon {
+        & .icon {
             display: none;
         }
 
-        &--opts__opt {
-            margin-left: 24px;
+        & .toggle {
+            cursor: pointer;
+            font-size: 24px;
+            color: $text-inverted-emphasis-normal;
+            box-sizing: border-box;
+            display: block;
+            transition: 0.6s;
+            rotate: 180deg;
+        }
 
-            &:first-child {
-                margin-left: 0;
-            }
+        & .opts {
+            display: flex;
+            flex-direction: column;
 
-            &__icon {
-                display: block;
-                height: 24px;
-                max-width: 28px;
+            & .opt {
+                display: none;
+                margin-top: 12px;
             }
         }
 
         & a {
             & span {
-                display: none;
+                display: block;
             }
         }
 
-        & .scroll-progress {
-            position: absolute;
-            top: -1px;
-            bottom: revert;
+        &.active {
             width: 100%;
-        }
-    }
+            height: 100%;
+            border-radius: 0;
+            border: none;
+            top: 0;
+            text-align: center;
 
-    @keyframes animate-navbar {
-        from {
-            opacity: 0;
-            bottom: -10%;
+            & .opts {
+                & .opt {
+                    display: block;
+                }
+            }
+
+            & .toggle {
+                rotate: 0deg;
+                align-self: center;
+            }
         }
-        to {
-            opacity: 1;
-            bottom: 0;
+
+        &.light {
+            border: $b-width solid $b-color;
+            background-color: $background-floating;
+
+            & .opts {
+                & .toggle {
+                    color: $text-emphasis-normal;
+                }
+
+                & .opt {
+                    color: $text-emphasis-normal;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, $emphasis-Low);
+                    }
+                }
+            }
+        }
+
+        &.dark {
+            border: $b-width solid $b-color-inverted;
+            background-color: $dark-background-floating;
+
+            & .opts {
+                & .toggle {
+                    color: $text-inverted-emphasis-normal;
+                }
+
+                & .opt {
+                    color: $text-inverted-emphasis-normal;
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, $emphasis-Low);
+                    }
+                }
+            }
         }
     }
 }
