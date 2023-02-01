@@ -13,6 +13,7 @@ export class ComplementBuilderShowcaseComponent {
     radix: number = 2;
     length: number = 0;
     getMinusOneComplement: boolean = false;
+    interpretAsBinary: boolean = true;
     tweaksWindow: boolean = false;
     complementExplanation: boolean = false;
 
@@ -25,7 +26,8 @@ export class ComplementBuilderShowcaseComponent {
                 "These are (\"input\", default = \"00000000\"),\n" +
                 "(\"radix\", default = \"2\"),\n" +
                 "(\"length\", default = \"0\"),\n" +
-                "(\"getMinusOneComplement\", default = \"false\")", status: ""},
+                "(\"getMinusOneComplement\", default = \"false\")" +
+                "(\"interpretAsBinary\", default = \"true\")", status: ""},
     ]
 
     getInputString(value: string) {
@@ -53,6 +55,10 @@ export class ComplementBuilderShowcaseComponent {
         this.getMinusOneComplement = !this.getMinusOneComplement;
     }
 
+    public toggleInterpretAsBinary(): void {
+        this.interpretAsBinary = !this.interpretAsBinary;
+    }
+
     public toggleTweaksWindow(): void {
         this.tweaksWindow = !this.tweaksWindow;
     }
@@ -62,10 +68,23 @@ export class ComplementBuilderShowcaseComponent {
     }
 
     getOutput(): void {
-        this.complementBuilderService.sendComplementBuilderRequest(this.inputString, this.radix, this.length, this.getMinusOneComplement)
+        this.complementBuilderService.sendComplementBuilderRequest(
+            this.inputString,
+            this.radix,
+            this.length,
+            this.getMinusOneComplement,
+            this.interpretAsBinary
+        )
             .pipe(
                 take(1),
                 map((output: Output) => {
+                        let givenValues: Output = {status: "", text: `Your input was:
+                        ("input": ${this.inputString}),
+                        ("radix": ${this.radix}),
+                        ("length": ${this.length}),
+                        ("getMinusOneComplement": ${this.getMinusOneComplement}),
+                        ("interpretAsBinary": ${this.interpretAsBinary}).`};
+                        this.outputs.push(output);
                         this.outputs.push(output);
                     }
                 ),
@@ -93,8 +112,8 @@ export class ComplementBuilderShowcaseComponent {
             value system if necessary.
             <br/><br/>
             In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
-            Single digits of a number will be depicted as $n_{b,i}$. The complement is marked as $K_{b-nTC}(n_b)$
-            with $nTC =$ notTwosComplement and $nTC \\in \\text{{0,1}}$.
+            Single digits of a number will be depicted as $n_{b,i}$. The complement is marked as $K_{b-nM}(n_b)$
+            with nM =$ notMinusOneComplement and $nTC \\in \\text{{0,1}}$.
             <br/><br/>
             Let $n := 209$ as a decimal value $(b = 10)$. In the next part, we want to form the complement
             $K_{{10}}$ of that number $n_b$.
@@ -103,7 +122,7 @@ export class ComplementBuilderShowcaseComponent {
             This is achieved by inverting the digits of $n_b (209_{10})$.
             To visualize: Invert the decimal system $\\overline{S_{10}}$ and map it to the non-inverted decimal
             system $S_{10}$ as follows
-            (please note that this is a non-formal concept, which applies to any arbitrary radix):
+            (please note that this is a non-formal concept, but it can be applied to any radix.):
             <br/><br/>
             $S_{10} \\text{ (top row)} $ $\\rightarrow \\overline{S_{10}} \\text{ (bottom row)}:$
             \\begin{array}{|cccccccccc|}
