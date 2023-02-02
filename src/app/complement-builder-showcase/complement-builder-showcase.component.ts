@@ -9,7 +9,7 @@ import {catchError, map, of, take} from "rxjs";
     styleUrls: ['./complement-builder-showcase.component.scss'],
 })
 export class ComplementBuilderShowcaseComponent {
-    inputString: string = "";
+    inputString: string = "00000000";
     radix: number = 2;
     length: number = 0;
     getMinusOneComplement: boolean = false;
@@ -26,7 +26,7 @@ export class ComplementBuilderShowcaseComponent {
                 "These are (\"input\", default = \"00000000\"),\n" +
                 "(\"radix\", default = \"2\"),\n" +
                 "(\"length\", default = \"0\"),\n" +
-                "(\"getMinusOneComplement\", default = \"false\")" +
+                "(\"getMinusOneComplement\", default = \"false\"),\n" +
                 "(\"interpretAsBinary\", default = \"true\")", status: ""},
     ]
 
@@ -84,7 +84,7 @@ export class ComplementBuilderShowcaseComponent {
                         ("length": ${this.length}),
                         ("getMinusOneComplement": ${this.getMinusOneComplement}),
                         ("interpretAsBinary": ${this.interpretAsBinary}).`};
-                        this.outputs.push(output);
+                        this.outputs.push(givenValues);
                         this.outputs.push(output);
                     }
                 ),
