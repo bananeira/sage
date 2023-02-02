@@ -113,7 +113,7 @@ export class ComplementBuilderShowcaseComponent {
             <br/><br/>
             In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
             Single digits of a number will be depicted as $n_{b,i}$. The complement is marked as $K_{b-nM}(n_b)$
-            with nM =$ notMinusOneComplement and $nTC \\in \\text{{0,1}}$.
+            with $nM =$ notMinusOneComplement and $nTC \\in \\text{{0,1}}$.
             <br/><br/>
             Let $n := 209$ as a decimal value $(b = 10)$. In the next part, we want to form the complement
             $K_{{10}}$ of that number $n_b$.
