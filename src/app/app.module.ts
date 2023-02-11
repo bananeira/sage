@@ -35,7 +35,6 @@ import {MathjaxModule} from "mathjax-angular";
         TypeBadgeComponent,
         LinkComponent,
         LangBadgeComponent,
-        ContentEmptyComponent,
         SmallLinkComponent,
         SourceBadgeComponent,
         CopyrightComponent,
