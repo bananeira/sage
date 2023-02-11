@@ -9,6 +9,13 @@ export const skills: SmallLinkModel[] = [
         link: "https://dev.java/",
     },
     {
+        id: "latex",
+        img: "assets/skills/latex.svg",
+        title: "Latex",
+        desc: "",
+        link: "https://www.latex-project.org/",
+    },
+    {
         id: "spigot",
         img: "assets/skills/spigot.png",
         title: "Spigot",
