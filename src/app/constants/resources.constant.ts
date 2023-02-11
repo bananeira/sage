@@ -9,6 +9,20 @@ export const resources: SmallLinkModel[] = [
         link: "https://www.jetbrains.com/de-de/idea/",
     },
     {
+        id: "heroku",
+        img: "assets/resources/heroku-4.svg",
+        title: "Heroku",
+        desc: "",
+        link: "https://heroku.com/",
+    },
+    {
+        id: "spring",
+        img: "assets/resources/spring-3.svg",
+        title: "Spring",
+        desc: "",
+        link: "https://spring.io/",
+    },
+    {
         id: "node",
         img: "assets/resources/nodejs.svg",
         title: "NodeJS",
