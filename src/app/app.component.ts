@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import { sectionContentModels } from "./constants/section-content.constant";
-import { SectionContentModel } from "./interface/section-content-model";
 
 @Component({
     selector: 'app-root',
@@ -9,5 +7,4 @@ import { SectionContentModel } from "./interface/section-content-model";
     animations: []
 })
 export class AppComponent {
-    textSectionContent: SectionContentModel[] = sectionContentModels;
 }
