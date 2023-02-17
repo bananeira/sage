@@ -43,8 +43,7 @@ export const sectionContentModels: SectionContentModel[] = [
         id: "contact",
         title: "contact",
         text: `If you have any issues or feedback you would like to contact me about, you may send an e-mail to
-            <a href="mailto:info@sorata.dev">info(at)sorata.dev</a>. For personal reference you can also send an e-mail
-            to <a href="mailto:sora@sorata.dev">sora(at)sorata.dev</a>.`,
+            <a href="mailto:sora@sorata.dev">sora(at)sorata.dev</a>.`,
     },
     {
         id: "copyright",
