@@ -22,10 +22,11 @@ export const projects: LinkModel[] = [
         title: "recursion",
         description: "A scientific derivation on my part to explain the principle of recursion in an understandable way.",
         language: [
+            "typescript"
         ],
         remit: [
         ],
-        codeLink: "https://me.sorata.dev#projects",
+        link: "https://me.sorata.dev/#projects",
         state: State.Concluded
     },
     {
