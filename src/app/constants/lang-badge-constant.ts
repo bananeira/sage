@@ -9,6 +9,10 @@ export const langBadgeModels: BadgeModel[] = [
         displayName: "HTML",
     },
     {
+        id: "spring",
+        displayName: "Spring",
+    },
+    {
         id: "css",
         displayName: "CSS",
     },
