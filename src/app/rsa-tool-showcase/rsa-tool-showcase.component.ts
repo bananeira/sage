@@ -174,10 +174,10 @@ export class RsaToolShowcaseComponent implements OnInit {
 
             this.N = this.p * this.q;
 
-            this.eulerTotient = (this.p - 1) * (this.q - 1);
-
-            this.eulerTotientProcess =
-                `
+            if (this.p != this.q) {
+                this.eulerTotient = (this.p - 1) * (this.q - 1);
+                this.eulerTotientProcess =
+                    `
                     Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
@@ -198,6 +198,31 @@ export class RsaToolShowcaseComponent implements OnInit {
                     $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
+            } else {
+                this.eulerTotient = (this.p - 1) * (this.q);
+                this.eulerTotientProcess =
+                    `
+                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    <br/>
+                    <br/>
+                    Weil hier zwei feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
+                    es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
+                    $ \\: := (p - 1) \\cdot (q - 1)$.
+                    <br/>
+                    <br/>
+                    Damit ergibt sich $\\varphi (${this.N}) $$\\: = (${this.p} - 1) \\cdot ${this.q}$
+                    $\\: = ${this.eulerTotient}$.
+                    <br/>
+                    <br/>
+                    Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
+                    Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
+                    Inverse $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
+                    $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
+                    gelten.
+                `
+            }
 
             if (this.divisorFormatList!.length == 1) {
                 formattedGCDList = formattedGCDList.concat(
@@ -271,7 +296,7 @@ export class RsaToolShowcaseComponent implements OnInit {
             }
 
             this.factorizationProcess =
-                `
+            `
                 Es ist der Schlüssel $(e, N) = (${this.e}, ${this.N})$ gegeben.
                 <br/>
                 <br/>
@@ -562,8 +587,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                     = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     <br/>
                     <br/>
-                    Man erhält nun das Schlüsselpaar $(d, N) = (${defaultRepresentative}, ${this.N}), (e, N)
-                    = (${this.e}, ${this.N})$.
+                    Man erhält nun das Schlüsselpaar $(d, N) = (${this.foundKey}, ${this.N}), (e, N)
+                    = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
+                    und der private Schlüssel ist $(${this.foundKey}, ${this.N})$.
                 `
         } else {
             this.displayKeys =
