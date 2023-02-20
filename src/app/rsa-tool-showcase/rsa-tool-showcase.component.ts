@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
-import {map, take} from "rxjs";
+import {map, take, tap} from "rxjs";
 import {rsaOutputWithKey, rsaOutputWithPrimes, RSAService} from "../service/rsa.service";
 
 @Component({
@@ -69,11 +69,10 @@ export class RsaToolShowcaseComponent implements OnInit {
                         this.divisorFormatList = output.divisorFormatList;
                         this.extendedGCDList = output.extendedGCDList;
                     }
-                )
+                ),
+                tap(() => this.doRSAWithKeyProcedure())
             )
             .subscribe();
-
-        this.doRSAWithKeyProcedure();
     }
 
     getRSAOutputWithPrimes(): void {
@@ -91,11 +90,10 @@ export class RsaToolShowcaseComponent implements OnInit {
                         this.divisorFormatList = output.divisorFormatList;
                         this.extendedGCDList = output.extendedGCDList;
                     }
-                )
+                ),
+                tap(() => this.doRSAWithPrimesProcedure())
             )
             .subscribe();
-
-        this.doRSAWithPrimesProcedure();
     }
 
     refreshInputs(procedure: string, newE: string, newP: string, newQ: string, newN: string): void {
@@ -103,13 +101,13 @@ export class RsaToolShowcaseComponent implements OnInit {
             this.e = Number(newE);
             this.N = Number(newN);
 
-            this.getRSAOutputWithKey()
+            this.getRSAOutputWithKey();
         } else if (procedure == "with-primes") {
             this.e = Number(newE);
             this.p = Number(newP);
             this.q = Number(newQ);
 
-            this.getRSAOutputWithPrimes()
+            this.getRSAOutputWithPrimes();
         }
     }
 

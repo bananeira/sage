@@ -36,9 +36,9 @@
                 <p [mathjax]="factorizationProcess"></p>
                 <p [mathjax]="eulerTotientProcess"></p>
                 <p *ngIf="exception == 0 || exception == 3" [mathjax]="findingGCDProcess"></p>
-                <p *ngIf="exception == 0" [mathjax]="extendGCDProcess"></p>
-                <p *ngIf="exception == 0" [mathjax]="findCongurenceProcess"></p>
-                <p *ngIf="exception == 0" [mathjax]="displayKeys"></p>
+                <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
+                <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
+                <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="displayKeys"></p>
             </div>
 
             <input type="radio" name="rsa-procedure" id="with-primes">
@@ -79,9 +79,9 @@
                 <p [mathjax]="findRSAModulProcess"></p>
                 <p [mathjax]="eulerTotientProcess"></p>
                 <p *ngIf="exception == 0 || exception == 7" [mathjax]="findingGCDProcess"></p>
-                <p *ngIf="exception == 0" [mathjax]="extendGCDProcess"></p>
-                <p *ngIf="exception == 0" [mathjax]="findCongurenceProcess"></p>
-                <p *ngIf="exception == 0" [mathjax]="displayKeys"></p>
+                <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
+                <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
+                <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="displayKeys"></p>
             </div>
 
         </div>
