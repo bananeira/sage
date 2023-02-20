@@ -36,6 +36,7 @@ hr {
 label {
     font-family: "Mulish", sans-serif;
     color: $text-emphasis-high;
+    user-select: none;
 }
 
 .tabs label {
@@ -61,7 +62,6 @@ label {
     order: 99; // Put the tabs last
     flex-grow: 1;
     width: 100%;
-    user-select: none;
     display: none;
     padding: $padding-normal;
 }
