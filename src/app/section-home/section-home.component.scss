@@ -47,7 +47,24 @@ h1 {
     font-size: 40px;
     user-select: text;
     color: $text-Bright;
+    font-weight: 800;
     animation: 1.6s animate-title ease-in-out;
+
+    a {
+        font-size: 40px;
+        user-select: text;
+        font-weight: 800;
+        color: $text-Bright;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        text-decoration-color: $text-inverted-emphasis-low;
+        transition: 0.4s;
+
+        &:hover {
+            color: $primary-color;
+            text-decoration-color: rgba($primary-color, 0.75);
+        }
+    }
 }
 
 .sub-heading {

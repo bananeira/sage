@@ -2,10 +2,10 @@
 <div [ngClass]="{'active' : toolShowcaseActive}" class="content">
     <span class="container">
         <hr>
-        <div [ngClass]="{'hidden' : hideAlertBox}" (click)="setHideAlertBox()" class="altert-box info">
+        <div [ngClass]="{'hidden' : hideAlertBox}" class="altert-box info">
             <span class="heading">
                 <h1>info</h1>
-                <span class="closing-button">&#10005;</span>
+                <span (click)="setHideAlertBox()" class="closing-button">&#10005;</span>
             </span>
             <hr>
             <p>
