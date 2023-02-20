@@ -1,0 +1,87 @@
+<app-tool-showcase (toolShowcaseActiveOutput)="setActive($event)" [tool]="rsa"></app-tool-showcase>
+<div [ngClass]="{'active' : toolShowcaseActive}" class="content">
+    <span class="container">
+        <hr>
+        <h1>RSA</h1>
+        <div class="tabs">
+            <input type="radio" name="rsa-procedure" id="with-key" checked="checked">
+            <label for="with-key">RSA-Schlüssel</label>
+            <div class="tab">
+                <p ngNonBindable>Man gebe einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ und
+                    den dazugehörigen RSA-Modul $N$ an.
+                </p>
+                <p>$e = $ <input #eWithKey
+                                 [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6}"
+                                 (keyup)="setE(eWithKey.value)"
+                                 (click)="setE(eWithKey.value)"
+                                 class="input">
+
+                    <span class="error" [ngClass]="{'true' : exception == 8 || exception == 1 || exception == 6}"> $e$ ist so zu wählen,
+                        dass $1 < e < \varphi (N)$ und $ggT(e, \varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$)
+                        gilt.
+                    </span>
+                </p>
+                <p>$N = $ <input #N
+                                 [ngClass]="{'faulty' : exception == 11}"
+                                 (keyup)="setN(N.value)"
+                                 (click)="setN(N.value)"
+                                 class="input">
+
+                    <span class="error" [ngClass]="{'true' : exception == 11}"> $N$ muss $>0$ sein.
+                        </span>
+                </p>
+                <button class="btn-primary" (click)="getRSAOutputWithKey()">berechnen</button>
+                <hr *ngIf="factorizationProcess">
+                <p [mathjax]="factorizationProcess"></p>
+                <p [mathjax]="eulerTotientProcess"></p>
+                <p *ngIf="exception == 0 || exception == 3" [mathjax]="findingGCDProcess"></p>
+                <p *ngIf="exception == 0" [mathjax]="extendGCDProcess"></p>
+                <p *ngIf="exception == 0" [mathjax]="findCongurenceProcess"></p>
+                <p *ngIf="exception == 0" [mathjax]="displayKeys"></p>
+            </div>
+
+            <input type="radio" name="rsa-procedure" id="with-primes">
+            <label for="with-primes">Primzahlen</label>
+            <div class="tab">
+                <p>Man gebe zwei Primzahlen $p$, $q$ und einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ an.</p>
+                <p>$p = $ <input #p
+                                 [ngClass]="{'faulty' : exception == 4 || exception == 9}"
+                                 (keyup)="setPrimeP(p.value)"
+                                 (click)="setPrimeP(p.value)"
+                                 class="input">
+                    <span class="error" [ngClass]="{'true' : exception == 4 || exception == 9}"> $p$ muss $>0$ sein.
+                    </span>
+                </p>
+                <p>$q = $ <input #q
+                                 [ngClass]="{'faulty' : exception == 5 || exception == 10}"
+                                 (keyup)="setPrimeQ(q.value)"
+                                 (click)="setPrimeQ(q.value)"
+                                 class="input">
+
+                    <span class="error" [ngClass]="{'true' : exception == 5 || exception == 10}"> $q$ muss $>0$ sein.</span>
+                </p>
+                <p>$e = $ <input #eWithPrimes
+                                 [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6}"
+                                 (keyup)="setE(eWithPrimes.value)"
+                                 (click)="setE(eWithPrimes.value)"
+                                 class="input">
+
+                    <span class="error" [ngClass]="{'true' : exception == 8 || exception == 1 || exception == 6}"> $e$ ist so zu wählen,
+                        dass $1 < e < \varphi (N)$ und $ggT(e, \varphi (N)) = 1$ ($e$ ist teilerfremd zu $\varphi (N)$)
+                        gilt.
+                    </span>
+                </p>
+                <button class="btn-primary" (click)="getRSAOutputWithPrimes()">berechnen</button>
+                <hr *ngIf="findRSAModulProcess">
+                <p [mathjax]="findRSAModulProcess"></p>
+                <p [mathjax]="eulerTotientProcess"></p>
+                <p *ngIf="exception == 0 || exception == 7" [mathjax]="findingGCDProcess"></p>
+                <p *ngIf="exception == 0" [mathjax]="extendGCDProcess"></p>
+                <p *ngIf="exception == 0" [mathjax]="findCongurenceProcess"></p>
+                <p *ngIf="exception == 0" [mathjax]="displayKeys"></p>
+            </div>
+
+        </div>
+
+    </span>
+</div>

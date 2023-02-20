@@ -4,6 +4,7 @@
     padding: $padding-high;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     box-sizing: border-box;
     width: 100%;
     background-color: $background-block;
@@ -64,10 +65,4 @@ h1 {
 
 h1, p {
     margin: 6px;
-}
-
-@media only screen and (max-width: 1200px) {
-    .info {
-        flex-direction: column;
-    }
 }

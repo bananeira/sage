@@ -4,6 +4,11 @@ export const tools: ToolShowcaseModel[] = [
     {
         id: "complement-builder-tool",
         title: "complement builder",
-        shortDescription: "A tool to build the complement of a number..."
+        shortDescription: "[computational architectures]"
+    },
+    {
+        id: "rsa",
+        title: "RSA",
+        shortDescription: "[discrete mathematics]"
     },
 ];

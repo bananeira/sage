@@ -5,8 +5,8 @@ export const projects: LinkModel[] = [
     {
         id: "sage-toolbox",
         title: "sage-toolbox",
-        description: "This is a small Java project in Spring. Only the Complement Builder" +
-            " is included yet. More may follow later.",
+        description: "This is a small Java project in Spring. Both the RSA project and" +
+            "the complement builder are included. More to follow later.",
         language: [
             "java",
             "spring",

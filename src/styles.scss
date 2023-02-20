@@ -124,6 +124,29 @@ h1 {
     }
 }
 
+.input {
+    padding: 8px;
+    background-color: $background-base;
+    border-radius: $b-radius-small;
+    color: $text-emphasis-normal;
+    font-family: "Mulish", sans-serif;
+    font-size: 15px;
+    border: $b-width solid $b-color;
+    outline: 3px solid rgba($primary-color, 0);
+    transition: 0.4s;
+
+    &:focus {
+        border: $b-width solid $primary-color;
+        outline: 3px solid rgba($primary-color, 0.25);
+    }
+}
+
+.input.faulty {
+    border: $b-width solid rgba($terminal-error, 0.75);
+    background-color: rgba($terminal-error, 0.15);
+    outline: 3px solid rgba($terminal-error, 0.3);
+}
+
 .text-content-expander {
     display: inline-block;
     user-select: none;

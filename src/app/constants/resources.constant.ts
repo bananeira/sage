@@ -23,6 +23,13 @@ export const resources: SmallLinkModel[] = [
         link: "https://spring.io/",
     },
     {
+        id: "mathjax",
+        img: "assets/resources/mathjax.png",
+        title: "MathJax",
+        desc: "",
+        link: "https://www.mathjax.org/",
+    },
+    {
         id: "node",
         img: "assets/resources/nodejs.svg",
         title: "NodeJS",

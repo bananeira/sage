@@ -1,0 +1,122 @@
+@import "src/app/variables";
+
+hr {
+    color: $b-color;
+    margin: 22px 0;
+}
+
+.content {
+    margin-top: - $b-radius-block;
+    border: $b-width solid $b-color;
+    border-top: none;
+    border-bottom-left-radius: $b-radius-block;
+    border-bottom-right-radius: $b-radius-block;
+    background-color: $background-block;
+    display: none;
+    user-select: text;
+    box-shadow: 0 12px 24px -12px rgba($text-emphasis-low, 0.22);
+
+    &.active {
+        display: block;
+    }
+
+    & .container {
+        display: block;
+        box-sizing: border-box;
+        padding: calc($padding-high / 2.5) $padding-high;
+    }
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap; // make sure it wraps
+    margin-bottom: $margin-links-y;
+}
+
+label {
+    font-family: "Mulish", sans-serif;
+    color: $text-emphasis-high;
+}
+
+.tabs label {
+    order: 1;
+    opacity: 0.5;
+    display: block;
+    padding: $padding-normal;
+    margin-right: 3px;
+    cursor: pointer;
+    background: $background-base;
+    border: $b-width solid $b-color;
+    border-bottom: none;
+    border-top-left-radius: $b-radius-small;
+    border-top-right-radius: $b-radius-small;
+    transition: 0.4s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.tabs .tab {
+    order: 99; // Put the tabs last
+    flex-grow: 1;
+    width: 100%;
+    user-select: none;
+    display: none;
+    padding: $padding-normal;
+}
+
+.tabs input[type="radio"] {
+    display: none;
+}
+
+.tabs input[type="radio"]:checked + label {
+    opacity: 1;
+    background: $background-block;
+}
+
+.tabs input[type="radio"]:checked + label + .tab {
+    display: block;
+    background: $background-block;
+    border: $b-width solid $b-color;
+    border-top-right-radius: $b-radius-small;
+    border-bottom-left-radius: $b-radius-small;
+    border-bottom-right-radius: $b-radius-small;
+}
+
+//reference https://codepen.io/mikestreety/pen/yVNNNm?editors=1100
+
+.error {
+    color: $terminal-error;
+    display: none;
+
+    &.true {
+        display: block;
+    }
+}
+
+.success {
+    color: $terminal-success;
+    display: none;
+
+    &.true {
+        display: block;
+    }
+}
+
+.hint {
+    color: $terminal-hint;
+    display: none;
+
+    &.true {
+        display: block;
+    }
+}
+
+.rsa-procedure {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}

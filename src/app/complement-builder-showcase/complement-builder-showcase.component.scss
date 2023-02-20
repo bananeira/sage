@@ -84,23 +84,6 @@ p {
     width: fit-content;
 }
 
-.input {
-    padding: $padding-normal;
-    background-color: $background-base;
-    border-radius: $b-radius-small;
-    color: $text-emphasis-normal;
-    font-family: "Mulish", sans-serif;
-    font-size: 15px;
-    border: $b-width solid $b-color;
-    outline: 3px solid rgba($primary-color, 0);
-    transition: 0.4s;
-
-    &:focus {
-        border: $b-width solid $primary-color;
-        outline: 3px solid rgba($primary-color, 0.25);
-    }
-}
-
 .btn-primary {
     font-family: "Mulish", sans-serif;
 }
@@ -194,7 +177,7 @@ p {
         width: 80%;
     }
     p {
-        width: 80%;
+        width: 95%;
     }
 
     .btn-primary {

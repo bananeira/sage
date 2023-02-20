@@ -12,7 +12,11 @@ export class SectionContentComponent {
     @Input()
     content?: SectionContentModel;
 
-    tool = tools.find(
+    complementTool = tools.find(
         (toolShowcaseModel?: ToolShowcaseModel) => (toolShowcaseModel?.id === "complement-builder-tool")
+    );
+
+    rsaTool = tools.find(
+        (toolShowcaseModel?: ToolShowcaseModel) => (toolShowcaseModel?.id === "rsa")
     );
 }
