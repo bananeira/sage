@@ -57,6 +57,47 @@ export class RsaToolShowcaseComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    refreshInputs(procedure: string, newE: string, newP: string, newQ: string, newN: string): void {
+        if (procedure == "with-key") {
+            this.e = Number(newE);
+            this.N = Number(newN);
+        } else if (procedure == "with-primes") {
+            this.e = Number(newE);
+            this.p = Number(newP);
+            this.q = Number(newQ);
+        }
+    }
+
+    resetProcedure(): void {
+        this.p = 0;
+        this.q = 0;
+        this.e = 0;
+        this.N = 0;
+        this.exception = 0;
+
+        this.totientComponents = [];
+        this.eulerTotient = 0;
+        this.primeFactors = [];
+        this.divisorFormatList = [];
+        this.extendedGCDList = [];
+
+        this.factorizationProcess = "";
+
+        // procedure with rsa primes
+
+        this.findRSAModulProcess = "";
+
+        // procedure common
+
+        this.eulerTotientProcess = "";
+        this.findingGCDProcess = "";
+        this.gcd = 0;
+        this.extendGCDProcess = "";
+        this.findCongurenceProcess = "";
+        this.displayKeys = "";
+        this.foundKey = 0;
+    }
+
     getRSAOutputWithKey(): void {
         this.rsaService.sendRSAWithKeyRequest(
             this.e,
@@ -137,7 +178,13 @@ export class RsaToolShowcaseComponent implements OnInit {
 
             this.eulerTotientProcess =
                 `
-                    Es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
+                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    <br/>
+                    <br/>
+                    Weil hier zwei feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
+                    es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot (q - 1)$.
                     <br/>
                     <br/>
@@ -240,8 +287,13 @@ export class RsaToolShowcaseComponent implements OnInit {
 
             if (this.primeFactors.length != 2) {
                 this.eulerTotientProcess =
-                    `
-                    $\\varphi (N)$ ist $${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
+                `
+                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    <br/>
+                    <br/>
+                    $\\varphi (N)$ ist also $${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
                     aus genau 2 Primfaktoren zusammen. Das Verfahren wird in diesem Falle nicht weitergeführt.
                 `
                 this.exception = 2;
@@ -249,6 +301,13 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                     `
                     Es gilt $N = p \\cdot q = ${formattedFactorList} = ${this.N}$.
+                    <br/>
+                    <br/>
+                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    <br/>
+                    <br/>
                     Für $\\varphi (N)$ gibt es zwei eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
                     und $q = ${this.totientComponents![2]}$, sodass folglich
                     $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot (q - 1) $ gilt.

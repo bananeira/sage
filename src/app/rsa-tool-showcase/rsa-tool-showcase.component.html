@@ -5,7 +5,7 @@
         <h1>RSA</h1>
         <div class="tabs">
             <input type="radio" name="rsa-procedure" id="with-key" checked="checked">
-            <label for="with-key">RSA-Schlüssel</label>
+            <label for="with-key" (click)="resetProcedure()">RSA-Schlüssel</label>
             <div class="tab">
                 <p ngNonBindable>Man gebe einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ und
                     den dazugehörigen RSA-Modul $N$ an.
@@ -17,7 +17,7 @@
                                  class="input">
 
                     <span class="error" [ngClass]="{'true' : exception == 8 || exception == 1 || exception == 6}"> $e$ ist so zu wählen,
-                        dass $1 < e < \varphi (N)$ und $ggT(e, \varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$)
+                        dass $1 < e < \varphi (N)$ und $ggT(e, \varphi (N)) = 1$ ($e$ ist teilerfremd zu $\varphi (N)$)
                         gilt.
                     </span>
                 </p>
@@ -28,9 +28,11 @@
                                  class="input">
 
                     <span class="error" [ngClass]="{'true' : exception == 11}"> $N$ muss $>0$ sein.
-                        </span>
+                    </span>
                 </p>
-                <button class="btn-primary" (click)="getRSAOutputWithKey()">berechnen</button>
+                <button class="btn-primary" (click)="
+                    refreshInputs('with-key', eWithKey.value, '0', '0', N.value);
+                    getRSAOutputWithKey()">berechnen</button>
                 <hr *ngIf="factorizationProcess">
                 <p [mathjax]="factorizationProcess"></p>
                 <p [mathjax]="eulerTotientProcess"></p>
@@ -41,7 +43,7 @@
             </div>
 
             <input type="radio" name="rsa-procedure" id="with-primes">
-            <label for="with-primes">Primzahlen</label>
+            <label for="with-primes" (click)="resetProcedure()">Primzahlen</label>
             <div class="tab">
                 <p>Man gebe zwei Primzahlen $p$, $q$ und einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ an.</p>
                 <p>$p = $ <input #p
@@ -49,7 +51,8 @@
                                  (keyup)="setPrimeP(p.value)"
                                  (click)="setPrimeP(p.value)"
                                  class="input">
-                    <span class="error" [ngClass]="{'true' : exception == 4 || exception == 9}"> $p$ muss $>0$ sein.
+                    <span class="error" [ngClass]="{'true' : exception == 4 || exception == 9}"> $p$ muss $>0$
+                        und eine Primzahl sein.
                     </span>
                 </p>
                 <p>$q = $ <input #q
@@ -58,7 +61,8 @@
                                  (click)="setPrimeQ(q.value)"
                                  class="input">
 
-                    <span class="error" [ngClass]="{'true' : exception == 5 || exception == 10}"> $q$ muss $>0$ sein.</span>
+                    <span class="error" [ngClass]="{'true' : exception == 5 || exception == 10}"> $q$ muss $>0$
+                        und eine Primzahl sein.</span>
                 </p>
                 <p>$e = $ <input #eWithPrimes
                                  [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6}"
@@ -71,7 +75,9 @@
                         gilt.
                     </span>
                 </p>
-                <button class="btn-primary" (click)="getRSAOutputWithPrimes()">berechnen</button>
+                <button class="btn-primary" (click)="
+                    refreshInputs('with-primes', eWithPrimes.value, p.value, q.value, '');
+                    getRSAOutputWithPrimes()">berechnen</button>
                 <hr *ngIf="findRSAModulProcess">
                 <p [mathjax]="findRSAModulProcess"></p>
                 <p [mathjax]="eulerTotientProcess"></p>
