@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Output} from "./complement-builder.service";
 
 export interface rsaOutputWithKey {
     eulerTotient: number;
@@ -51,5 +50,25 @@ export class RSAService {
             .set('encryptKey', encryptKey);
 
         return this.httpClient.get<rsaOutputWithPrimes>(this.apiBaseUrl + 'rsaWithPrimes', {params});
+    }
+
+    public sendGenerateRSAPrimesSetRequest(
+        min: number,
+        max: number
+    ): Observable<number[]> {
+        const params = new HttpParams()
+            .set('min', min)
+            .set('max', max);
+
+        return this.httpClient.get<number[]>(this.apiBaseUrl + 'generateRSAPrimesSet', {params});
+    }
+
+    public sendGenerateRSAKeySetRequest(
+        max: number
+    ): Observable<number[]> {
+        const params = new HttpParams()
+            .set('max', max);
+
+        return this.httpClient.get<number[]>(this.apiBaseUrl + 'generateRSAKeySet', {params});
     }
 }

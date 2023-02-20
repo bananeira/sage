@@ -62,7 +62,7 @@ label {
     flex-grow: 1;
     width: 100%;
     display: none;
-    padding: $padding-normal;
+    padding: $padding-high;
 }
 
 .tabs input[type="radio"] {
@@ -118,4 +118,8 @@ label {
     &.show {
         display: block;
     }
+}
+
+.sub-heading {
+    color: $text-emphasis-normal;
 }

@@ -31,6 +31,9 @@ export class RsaToolShowcaseComponent implements OnInit {
     displayKeys: string = "";
     foundKey: number = 0;
 
+    min: number = 0;
+    max: number = 0;
+
     e: number = 0;
     p: number = 0;
     q: number = 0;
@@ -59,13 +62,47 @@ export class RsaToolShowcaseComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    getRSAOutputWithGeneratedKey(): void {
+        this.rsaService.sendGenerateRSAKeySetRequest(this.max)
+            .pipe(
+                take(1),
+                tap((output: number[]) => console.log(output)),
+                map((output: number[]) => {
+                        this.N = output[0];
+                        this.e = output[1];
+                    }
+                ),
+                tap(() => this.getRSAOutputWithKey())
+            )
+            .subscribe();
+    }
+
+    getRSAOutputWithGeneratedPrimes(): void {
+        this.rsaService.sendGenerateRSAPrimesSetRequest(this.min, this.max)
+            .pipe(
+                take(1),
+                map((output: number[]) => {
+                        this.p = output[0];
+                        this.q = output[1];
+                        this.e = output[2];
+                    }
+                ),
+                tap(() => this.getRSAOutputWithPrimes())
+            )
+            .subscribe();
+    }
+
     getRSAOutputWithKey(): void {
+        console.log( this.e,
+            this.N)
+
         this.rsaService.sendRSAWithKeyRequest(
             this.e,
             this.N
         )
             .pipe(
                 take(1),
+                tap((output) => console.log(output)),
                 map((output: rsaOutputWithKey) => {
                         this.exception = output.exception;
                         this.totientComponents = output.totientComponents;
@@ -81,6 +118,9 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithPrimes(): void {
+        if (this.e == null) {
+            this.exception = 19;
+        }
         this.rsaService.sendRSAWithPrimesRequest(
             this.p,
             this.q,
@@ -130,6 +170,34 @@ export class RsaToolShowcaseComponent implements OnInit {
         }
     }
 
+    randomInputs(procedure: string, min: string = '0', max: string = '0'): void {
+        if (procedure == "with-key") {
+            this.max = 800;
+            this.getRSAOutputWithGeneratedKey();
+
+            return;
+        }
+
+        this.min = Number(min);
+        this.max = Number(max);
+
+        if (this.min > this.max) {
+            this.exception = 18;
+            console.log(this.exception)
+            return;
+        } else if (this.min > 46340 || this.min <= 1) {
+            this.exception = 16;
+            console.log(this.exception)
+            return;
+        } else if (this.max > 46340 || this.max <= 1) {
+            this.exception = 17;
+            console.log(this.exception)
+            return;
+        }
+
+        this.getRSAOutputWithGeneratedPrimes();
+    }
+
     resetProcedure(): void {
         this.p = 0;
         this.q = 0;
@@ -175,6 +243,14 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.N = Number(value);
     }
 
+    setMax(value: string) {
+        this.max = Number(value);
+    }
+
+    setMin(value: string) {
+        this.min = Number(value);
+    }
+
     // rsa primes procedure
 
     doRSAWithPrimesProcedure(): void {
@@ -182,7 +258,16 @@ export class RsaToolShowcaseComponent implements OnInit {
 
         if (this.p && this.q && this.e) {
             this.findRSAModulProcess =
-                `
+            `
+                Für das Verfahren seien die Werte
+                \\begin{align}
+                    p & = ${String(this.p)} \\tag{I}\\\\
+                    q & = ${String(this.q)} \\tag{II}\\\\
+                    e & = ${String(this.e)} \\tag{III}
+                \\end{align}
+                gegeben.
+                <br/>
+                <br/>
                 Aus den gegebenen Primfaktoren $p = ${String(this.p)}$ und $q = ${String(this.q)}$ lässt sich der
                 entsprechende RSA-Modul berechnen. Es gilt $N = p \\cdot q = ${String(this.p)} \\cdot
                 ${String(this.q)} = ${String(this.p * this.q)}$. Im Nachfolgenden kann die
@@ -314,7 +399,7 @@ export class RsaToolShowcaseComponent implements OnInit {
 
             this.factorizationProcess =
             `
-                Es ist der Schlüssel $(e, N) = (${this.e}, ${this.N})$ gegeben.
+                Für das Verfahren sei der Schlüssel $(e, N) = (${this.e}, ${this.N})$ gegeben.
                 <br/>
                 <br/>
                 Man finde also $\\varphi (N)$. Dafür muss zunächst $N$ durch Primfaktorzerlegung bestimmt werden.
