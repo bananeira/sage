@@ -191,7 +191,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                     `
                     Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
@@ -215,7 +215,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                     `
                     Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
@@ -326,7 +326,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                 `
                     Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
@@ -341,7 +341,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     <br/>
                     Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
+                    $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
