@@ -587,7 +587,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     Man erhält nun das Schlüsselpaar $(d, N) = (${this.foundKey}, ${this.N}), (e, N)
                     = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
-                    und der private Schlüssel ist $(${this.foundKey}, ${this.N})$.
+                    und der private Schlüssel ist $(${defaultRepresentative}, ${this.N})$.
                 `
         } else {
             this.displayKeys =
