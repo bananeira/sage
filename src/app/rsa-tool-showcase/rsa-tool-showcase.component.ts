@@ -330,7 +330,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     Weil hier zwei feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
-                    $ \\: := (p - 1) \\cdot (q - 1)$.
+                    $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$.
                     <br/>
                     <br/>
                     Damit ergibt sich $\\varphi (${this.N}) $$\\: = (${this.p} - 1) \\cdot ${this.q}$
