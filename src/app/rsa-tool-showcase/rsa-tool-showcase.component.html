@@ -11,7 +11,7 @@
                     den dazugehörigen RSA-Modul $N$ an.
                 </p>
                 <p>$e = $ <input #eWithKey
-                                 [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6}"
+                                 [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6 || exception == 12}"
                                  (keyup)="setE(eWithKey.value)"
                                  (click)="setE(eWithKey.value)"
                                  class="input">
@@ -20,21 +20,24 @@
                         dass $1 < e < \varphi (N)$ und $ggT(e, \varphi (N)) = 1$ ($e$ ist teilerfremd zu $\varphi (N)$)
                         gilt.
                     </span>
+                    <span class="error" [ngClass]="{'true' : exception == 12}"> Es ist darauf zu achten, dass $e$
+                    nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                 </p>
                 <p>$N = $ <input #N
-                                 [ngClass]="{'faulty' : exception == 11}"
+                                 [ngClass]="{'faulty' : exception == 11|| exception == 15}"
                                  (keyup)="setN(N.value)"
                                  (click)="setN(N.value)"
                                  class="input">
 
-                    <span class="error" [ngClass]="{'true' : exception == 11}"> $N$ muss $>0$ sein.
-                    </span>
+                    <span class="error" [ngClass]="{'true' : exception == 11}"> $N$ muss $>0$ sein.</span>
+                    <span class="error" [ngClass]="{'true' : exception == 15}"> Es ist darauf zu achten, dass $N$
+                    nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                 </p>
                 <button class="btn-primary" (click)="
                     refreshInputs('with-key', eWithKey.value, '0', '0', N.value)">berechnen</button>
-                <hr *ngIf="factorizationProcess">
-                <p [mathjax]="factorizationProcess"></p>
-                <p [mathjax]="eulerTotientProcess"></p>
+                <hr *ngIf="factorizationProcess && exception != 1">
+                <p *ngIf="exception != 1" [mathjax]="factorizationProcess"></p>
+                <p *ngIf="exception != 1" [mathjax]="eulerTotientProcess"></p>
                 <p *ngIf="exception == 0 || exception == 3" [mathjax]="findingGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
@@ -46,25 +49,29 @@
             <div class="tab">
                 <p>Man gebe zwei Primzahlen $p$, $q$ und einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ an.</p>
                 <p>$p = $ <input #p
-                                 [ngClass]="{'faulty' : exception == 4 || exception == 9}"
+                                 [ngClass]="{'faulty' : exception == 4 || exception == 9 || exception == 13}"
                                  (keyup)="setPrimeP(p.value)"
                                  (click)="setPrimeP(p.value)"
                                  class="input">
                     <span class="error" [ngClass]="{'true' : exception == 4 || exception == 9}"> $p$ muss $>0$
                         und eine Primzahl sein.
                     </span>
+                    <span class="error" [ngClass]="{'true' : exception == 13}"> Es ist darauf zu achten, dass $p$
+                    nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                 </p>
                 <p>$q = $ <input #q
-                                 [ngClass]="{'faulty' : exception == 5 || exception == 10}"
+                                 [ngClass]="{'faulty' : exception == 5 || exception == 10 || exception == 14}"
                                  (keyup)="setPrimeQ(q.value)"
                                  (click)="setPrimeQ(q.value)"
                                  class="input">
 
                     <span class="error" [ngClass]="{'true' : exception == 5 || exception == 10}"> $q$ muss $>0$
                         und eine Primzahl sein.</span>
+                    <span class="error" [ngClass]="{'true' : exception == 13}"> Es ist darauf zu achten, dass $q$
+                    nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                 </p>
                 <p>$e = $ <input #eWithPrimes
-                                 [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6}"
+                                 [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6 || exception == 12}"
                                  (keyup)="setE(eWithPrimes.value)"
                                  (click)="setE(eWithPrimes.value)"
                                  class="input">
@@ -73,11 +80,15 @@
                         dass $1 < e < \varphi (N)$ und $ggT(e, \varphi (N)) = 1$ ($e$ ist teilerfremd zu $\varphi (N)$)
                         gilt.
                     </span>
+                    <span class="error" [ngClass]="{'true' : exception == 12}"> Es ist darauf zu achten, dass $e$
+                    nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
+                    <span class="error" [ngClass]="{'true' :exception == 1}"> Hinweis: $e$ ist $\geq \varphi (N)$.
+                    </span>
                 </p>
                 <button class="btn-primary" (click)="refreshInputs('with-primes', eWithPrimes.value, p.value, q.value, '')">berechnen</button>
-                <hr *ngIf="findRSAModulProcess">
-                <p [mathjax]="findRSAModulProcess"></p>
-                <p [mathjax]="eulerTotientProcess"></p>
+                <hr *ngIf="findRSAModulProcess && exception != 1">
+                <p *ngIf="exception != 1" [mathjax]="findRSAModulProcess"></p>
+                <p *ngIf="exception != 1" [mathjax]="eulerTotientProcess"></p>
                 <p *ngIf="exception == 0 || exception == 7" [mathjax]="findingGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
