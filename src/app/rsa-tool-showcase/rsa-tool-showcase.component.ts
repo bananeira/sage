@@ -549,17 +549,17 @@ export class RsaToolShowcaseComponent implements OnInit {
 
             this.displayKeys =
                 `
-                    Das multiplikative Inverse $[${this.e}]_{\\varphi (${this.eulerTotient})}^{-1}$ von
-                    $[${this.e}]_{\\varphi (${this.eulerTotient})}$ ergibt sich aus der gefundenen Kongruenz
+                    Das multiplikative Inverse $[${this.e}]_{\\varphi (${this.N})}^{-1}$ von
+                    $[${this.e}]_{\\varphi (${this.N})}$ ergibt sich aus der gefundenen Kongruenz
                     $${this.foundKey} \\cdot ${this.e} \\equiv 1 \\pmod{${this.eulerTotient}}$.
-                    Also ist $[${this.foundKey}]_{\\varphi (${this.eulerTotient})}
-                    = [${this.e}]_{\\varphi (${this.eulerTotient})}^{-1}$.
+                    Also ist $[${this.foundKey}]_{\\varphi (${this.N})}
+                    = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     Es liegt nun allerdings eine negative Restklasse vor, sodass man vorerst nach dem
                     Standardrepräsentant sucht. Dazu wird solange $\\varphi (N) = ${this.eulerTotient}$ auf
                     das gefundene multiplikative Inverse addiert, bis man den ersten positiven Repräsentanten erhält.
-                    Das Ergebnis lautet $[${defaultRepresentative}]_{\\varphi (${this.eulerTotient})}
-                    = [${this.foundKey}]_{\\varphi (${this.eulerTotient})}
-                    = [${this.e}]_{\\varphi (${this.eulerTotient})}^{-1}$.
+                    Das Ergebnis lautet $[${defaultRepresentative}]_{\\varphi (${this.N})}
+                    = [${this.foundKey}]_{\\varphi (${this.N})}
+                    = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     <br/>
                     <br/>
                     Man erhält nun das Schlüsselpaar $(d, N) = (${defaultRepresentative}, ${this.N}), (e, N)
@@ -568,15 +568,16 @@ export class RsaToolShowcaseComponent implements OnInit {
         } else {
             this.displayKeys =
                 `
-                    Das multiplikative Inverse $[${this.e}]_{\\varphi (${this.eulerTotient})}^{-1}$ von
-                    $[${this.e}]_{\\varphi (${this.eulerTotient})}$ ergibt sich aus der gefundenen Kongruenz
-                    $${this.foundKey} \\cdot ${this.e} \\equiv 1 \\pmod{${this.eulerTotient}}$.
-                    Also ist $[${this.foundKey}]_{\\varphi (${this.eulerTotient})}
-                    = [${this.e}]_{\\varphi (${this.eulerTotient})}^{-1}$.
+                    Das multiplikative Inverse $[${this.e}]_{\\varphi (${this.N})}^{-1}$ von
+                    $[${this.e}]_{\\varphi (${this.N})}$ ergibt sich aus der gefundenen Kongruenz
+                    $${this.foundKey} \\cdot ${this.e} \\equiv 1 \\pmod{${this.N}}$.
+                    Also ist $[${this.foundKey}]_{\\varphi (${this.N})}
+                    = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     <br/>
                     <br/>
                     Man erhält nun das Schlüsselpaar $(d, N) = (${this.foundKey}, ${this.N}), (e, N)
-                    = (${this.e}, ${this.N})$.
+                    = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
+                    und der private Schlüssel ist $(${this.foundKey}, ${this.N})$.
                 `
         }
     }
