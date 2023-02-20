@@ -285,7 +285,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
-                    Weil hier zwei verschiedene, feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
+                    Weil hier zwei verschiedene, aber feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot (q - 1)$.
                     <br/>
@@ -328,7 +328,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
-                    Weil hier zwei gleiche, feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
+                    Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$.
                     <br/>
@@ -492,7 +492,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 } else {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
                     `
-                        Für $\\varphi (N)$ gibt es zwei unterschiedliche eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
+                        Für $\\varphi (N)$ gibt es zwei eindeutige, aber unterschiedliche Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
                         $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot (q - 1) $ gilt.
                         <br>
