@@ -206,7 +206,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
                     Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
-                    Inverse $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
+                    Inverse $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
                     $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
@@ -230,7 +230,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
                     Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
-                    Inverse $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
+                    Inverse $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
                     $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
@@ -424,7 +424,8 @@ export class RsaToolShowcaseComponent implements OnInit {
 
         this.findingGCDProcess =
             `
-                Die Kongruenz $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$ ist genau dann korrekt, wenn der
+                Die Kongruenz $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$, hier
+                $${this.e} \\cdot d \\equiv 1 \\pmod{${this.eulerTotient}}$ ist genau dann korrekt, wenn der
                 $ggT(e, \\varphi (N)) = 1$, also $ggT(${this.e}, ${this.eulerTotient})) = 1$. Der euklidische Algorithmus
                 liefert die Antwort darauf, ob das der Fall ist, oder nicht.
 
@@ -439,7 +440,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 `
                     Aus dem euklidischen Algorithmus ergibt sich also $ggT(${this.e}, ${this.eulerTotient}) = 1$.
                     Damit lässt sich der euklidische Algorithmus erweitern, um das gesuchte multiplikative Inverse
-                    $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ zu finden.
+                    $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ zu finden.
                 `
             );
 
@@ -513,7 +514,7 @@ export class RsaToolShowcaseComponent implements OnInit {
             }
         } else {
             this.findingGCDProcess = this.findingGCDProcess.concat(
-                `
+            `
                 Aus dem euklidischen Algorithmus ergibt sich also $ggT(${this.e}, ${this.eulerTotient}) = ${this.gcd}$.
                 Damit lässt sich der euklidische Algorithmus nicht erweitern. Das Verfahren wird in diesem Falle nicht
                 weitergeführt.
@@ -592,12 +593,13 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Also ist $[${this.foundKey}]_{\\varphi (${this.N})}
                     = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     Es liegt nun allerdings eine negative Restklasse vor, sodass man vorerst nach dem
-                    Standardrepräsentant sucht. Dazu wird solange $\\varphi (N) = ${this.eulerTotient}$ auf
+                    Standardrepräsentanten $d$ von $d'$ in der Restklasse $\\pmod{${this.eulerTotient}}$ sucht.
+                    Dazu wird solange $\\varphi (N) = ${this.eulerTotient}$ auf
                     das gefundene multiplikative Inverse addiert, bis man den ersten positiven Repräsentanten
                     der Restklasse erhält.
-                    Das Ergebnis lautet $[${defaultRepresentative}]_{\\varphi (${this.N})}
-                    = [${this.foundKey}]_{\\varphi (${this.N})}
-                    = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
+                    Das Ergebnis lautet $d = [${defaultRepresentative}]_{\\varphi (${this.N})}
+                    $$= [${this.foundKey}]_{\\varphi (${this.N})}
+                    $$= [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     <br/>
                     <br/>
                     Man erhält nun das Schlüsselpaar $(d, N) = (${defaultRepresentative}, ${this.N}), (e, N)
@@ -610,12 +612,12 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Das multiplikative Inverse $[${this.e}]_{\\varphi (${this.N})}^{-1}$ von
                     $[${this.e}]_{\\varphi (${this.N})}$ ergibt sich aus der gefundenen Kongruenz
                     $${this.foundKey} \\cdot ${this.e} \\equiv 1 \\pmod{${this.N}}$.
-                    Also ist $[${this.foundKey}]_{\\varphi (${this.N})}
-                    = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
+                    Also ist $d = d' = [${this.foundKey}]_{\\varphi (${this.N})}
+                    $$= [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     <br/>
                     <br/>
                     Man erhält nun das Schlüsselpaar $(d, N) = (${this.foundKey}, ${this.N}), (e, N)
-                    = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
+                    $$= (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
                     und der private Schlüssel ist $(${this.foundKey}, ${this.N})$.
                 `
         }
