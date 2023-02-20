@@ -1,10 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
-import {catchError, map, of, take} from "rxjs";
+import {map, take} from "rxjs";
 import {rsaOutputWithKey, rsaOutputWithPrimes, RSAService} from "../service/rsa.service";
-import {MathjaxDirective, MathjaxModule, MathJaxUtils} from "mathjax-angular";
-import {isMathjax} from "mathjax-angular/utils";
-import {MathjaxDefaultConfig, RootMathjaxConfig} from "mathjax-angular/models";
 
 @Component({
   selector: 'app-rsa-tool-showcase',
@@ -57,47 +54,6 @@ export class RsaToolShowcaseComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    refreshInputs(procedure: string, newE: string, newP: string, newQ: string, newN: string): void {
-        if (procedure == "with-key") {
-            this.e = Number(newE);
-            this.N = Number(newN);
-        } else if (procedure == "with-primes") {
-            this.e = Number(newE);
-            this.p = Number(newP);
-            this.q = Number(newQ);
-        }
-    }
-
-    resetProcedure(): void {
-        this.p = 0;
-        this.q = 0;
-        this.e = 0;
-        this.N = 0;
-        this.exception = 0;
-
-        this.totientComponents = [];
-        this.eulerTotient = 0;
-        this.primeFactors = [];
-        this.divisorFormatList = [];
-        this.extendedGCDList = [];
-
-        this.factorizationProcess = "";
-
-        // procedure with rsa primes
-
-        this.findRSAModulProcess = "";
-
-        // procedure common
-
-        this.eulerTotientProcess = "";
-        this.findingGCDProcess = "";
-        this.gcd = 0;
-        this.extendGCDProcess = "";
-        this.findCongurenceProcess = "";
-        this.displayKeys = "";
-        this.foundKey = 0;
-    }
-
     getRSAOutputWithKey(): void {
         this.rsaService.sendRSAWithKeyRequest(
             this.e,
@@ -142,6 +98,50 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.doRSAWithPrimesProcedure();
     }
 
+    refreshInputs(procedure: string, newE: string, newP: string, newQ: string, newN: string): void {
+        if (procedure == "with-key") {
+            this.e = Number(newE);
+            this.N = Number(newN);
+
+            this.getRSAOutputWithKey()
+        } else if (procedure == "with-primes") {
+            this.e = Number(newE);
+            this.p = Number(newP);
+            this.q = Number(newQ);
+
+            this.getRSAOutputWithPrimes()
+        }
+    }
+
+    resetProcedure(): void {
+        this.p = 0;
+        this.q = 0;
+        this.e = 0;
+        this.N = 0;
+        this.exception = 0;
+
+        this.totientComponents = [];
+        this.eulerTotient = 0;
+        this.primeFactors = [];
+        this.divisorFormatList = [];
+        this.extendedGCDList = [];
+
+        this.factorizationProcess = "";
+
+        // procedure with rsa primes
+
+        this.findRSAModulProcess = "";
+
+        // procedure common
+
+        this.eulerTotientProcess = "";
+        this.findingGCDProcess = "";
+        this.gcd = 0;
+        this.extendGCDProcess = "";
+        this.findCongurenceProcess = "";
+        this.displayKeys = "";
+        this.foundKey = 0;
+    }
     setPrimeP(value: string) {
         this.p = Number(value);
     }
@@ -555,7 +555,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Also ist $[${this.foundKey}]_{\\varphi (${this.eulerTotient})}
                     = [${this.e}]_{\\varphi (${this.eulerTotient})}^{-1}$.
                     Es liegt nun allerdings eine negative Restklasse vor, sodass man vorerst nach dem
-                    Standardrepräsentant sucht. Dazu wird solange $\\varphi (N) = \\varphi (${this.eulerTotient})$ auf
+                    Standardrepräsentant sucht. Dazu wird solange $\\varphi (N) = ${this.eulerTotient}$ auf
                     das gefundene multiplikative Inverse addiert, bis man den ersten positiven Repräsentanten erhält.
                     Das Ergebnis lautet $[${defaultRepresentative}]_{\\varphi (${this.eulerTotient})}
                     = [${this.foundKey}]_{\\varphi (${this.eulerTotient})}

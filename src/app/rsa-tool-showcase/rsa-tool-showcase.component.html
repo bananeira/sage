@@ -31,8 +31,7 @@
                     </span>
                 </p>
                 <button class="btn-primary" (click)="
-                    refreshInputs('with-key', eWithKey.value, '0', '0', N.value);
-                    getRSAOutputWithKey()">berechnen</button>
+                    refreshInputs('with-key', eWithKey.value, '0', '0', N.value)">berechnen</button>
                 <hr *ngIf="factorizationProcess">
                 <p [mathjax]="factorizationProcess"></p>
                 <p [mathjax]="eulerTotientProcess"></p>
@@ -75,9 +74,7 @@
                         gilt.
                     </span>
                 </p>
-                <button class="btn-primary" (click)="
-                    refreshInputs('with-primes', eWithPrimes.value, p.value, q.value, '');
-                    getRSAOutputWithPrimes()">berechnen</button>
+                <button class="btn-primary" (click)="refreshInputs('with-primes', eWithPrimes.value, p.value, q.value, '')">berechnen</button>
                 <hr *ngIf="findRSAModulProcess">
                 <p [mathjax]="findRSAModulProcess"></p>
                 <p [mathjax]="eulerTotientProcess"></p>
