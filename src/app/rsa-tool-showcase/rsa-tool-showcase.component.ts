@@ -185,11 +185,11 @@ export class RsaToolShowcaseComponent implements OnInit {
             this.exception = 18;
             console.log(this.exception)
             return;
-        } else if (this.min > 46340 || this.min <= 1) {
+        } else if (this.min > 10000 || this.min <= 1) { // shouldnt be more than 46340, sqrt of 32-bit integer limit
             this.exception = 16;
             console.log(this.exception)
             return;
-        } else if (this.max > 46340 || this.max <= 1) {
+        } else if (this.max > 10000 || this.max <= 1) {
             this.exception = 17;
             console.log(this.exception)
             return;
