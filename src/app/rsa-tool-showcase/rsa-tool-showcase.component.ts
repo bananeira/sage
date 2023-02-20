@@ -300,6 +300,25 @@ export class RsaToolShowcaseComponent implements OnInit {
                     $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
+
+                if (this.e == 1) {
+                    this.eulerTotientProcess = this.eulerTotientProcess.concat(
+                        `
+                        Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
+                        das neutrale Element ist, ist $${this.e}$ selbstinvers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
+                        [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                    `
+                    );
+
+                    this.displayKeys =
+                        `
+                        Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
+                        = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
+                        und der private Schlüssel ist $(${this.e}, ${this.N})$.
+                    `
+
+                    return;
+                }
             } else {
                 this.eulerTotient = (this.p - 1) * (this.q);
                 this.eulerTotientProcess =
@@ -324,6 +343,25 @@ export class RsaToolShowcaseComponent implements OnInit {
                     $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
+
+                if (this.e == 1) {
+                    this.eulerTotientProcess = this.eulerTotientProcess.concat(
+                        `
+                        Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
+                        das neutrale Element ist, ist $${this.e}$ selbstinvers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
+                        [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                    `
+                    );
+
+                    this.displayKeys =
+                        `
+                        Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
+                        = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
+                        und der private Schlüssel ist $(${this.e}, ${this.N})$.
+                    `
+
+                    return;
+                }
             }
 
             if (this.divisorFormatList!.length == 1) {
@@ -451,6 +489,25 @@ export class RsaToolShowcaseComponent implements OnInit {
                     $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
+
+                if (this.e == 1) {
+                    this.eulerTotientProcess = this.eulerTotientProcess.concat(
+                    `
+                        Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
+                        das neutrale Element ist, ist $${this.e}$ selbstinvers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
+                        [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                    `
+                    );
+
+                    this.displayKeys =
+                    `
+                        Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
+                        = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
+                        und der private Schlüssel ist $(${this.e}, ${this.N})$.
+                    `
+
+                    return;
+                }
 
                 if (this.divisorFormatList!.length == 1) {
                     formattedGCDList = formattedGCDList.concat(
