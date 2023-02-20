@@ -593,7 +593,8 @@ export class RsaToolShowcaseComponent implements OnInit {
                     = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     Es liegt nun allerdings eine negative Restklasse vor, sodass man vorerst nach dem
                     Standardrepräsentant sucht. Dazu wird solange $\\varphi (N) = ${this.eulerTotient}$ auf
-                    das gefundene multiplikative Inverse addiert, bis man den ersten positiven Repräsentanten erhält.
+                    das gefundene multiplikative Inverse addiert, bis man den ersten positiven Repräsentanten
+                    der Restklasse erhält.
                     Das Ergebnis lautet $[${defaultRepresentative}]_{\\varphi (${this.N})}
                     = [${this.foundKey}]_{\\varphi (${this.N})}
                     = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
