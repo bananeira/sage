@@ -285,7 +285,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
-                    Weil hier zwei feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
+                    Weil hier zwei verschiedene, feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot (q - 1)$.
                     <br/>
@@ -328,8 +328,8 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
-                    Weil hier zwei feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
-                    es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
+                    Weil hier zwei gleiche, feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
+                    es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$.
                     <br/>
                     <br/>
@@ -478,9 +478,10 @@ export class RsaToolShowcaseComponent implements OnInit {
                 if (this.totientComponents![2] == this.totientComponents![0]) {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
                         `
-                        Für $\\varphi (N)$ gibt es zwei eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
+                        Für $\\varphi (N)$ gibt es zwei eindeutige, aber gleiche Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
-                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot q $$\\:= p \\cdot (q - 1)$ gilt.
+                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot q$$ = p \\cdot \\varphi (q) \$$ \\: := (p - 1) \\cdot q $
+                        $\\:= p \\cdot (q - 1)$ gilt.
                         <br>
                         <br>
                         Damit ergibt sich $\\varphi (${this.N}) $$\\: =(${this.totientComponents![0]} -
@@ -491,7 +492,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 } else {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
                     `
-                        Für $\\varphi (N)$ gibt es zwei eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
+                        Für $\\varphi (N)$ gibt es zwei unterschiedliche eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
                         $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot (q - 1) $ gilt.
                         <br>
