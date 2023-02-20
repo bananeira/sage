@@ -473,22 +473,45 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
                     <br/>
                     <br/>
-                    Für $\\varphi (N)$ gibt es zwei eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
-                    und $q = ${this.totientComponents![2]}$, sodass folglich
-                    $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot (q - 1) $ gilt.
-                    <br/>
-                    <br/>
-                    Damit ergibt sich $\\varphi (${this.N}) $$\\: =(${this.totientComponents![0]} -
-                    ${this.totientComponents![1]}) \\cdot (${this.totientComponents![2]} - ${this.totientComponents![3]})
-                    $$\\: = ${this.eulerTotient}$.
-                    <br/>
-                    <br/>
+                `
+
+                if (this.totientComponents![2] == this.totientComponents![0]) {
+                    this.eulerTotientProcess = this.eulerTotientProcess.concat(
+                        `
+                        Für $\\varphi (N)$ gibt es zwei eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
+                        und $q = ${this.totientComponents![2]}$, sodass folglich
+                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot q $$\:= p \\cdot (q - 1)$ gilt.
+                        <br>
+                        <br>
+                        Damit ergibt sich $\\varphi (${this.N}) $$\\: =(${this.totientComponents![0]} -
+                        ${this.totientComponents![1]}) \\cdot ${this.totientComponents![2]}
+                        $$\\: = ${this.eulerTotient}$.
+                    `
+                    );
+                } else {
+                    this.eulerTotientProcess = this.eulerTotientProcess.concat(
+                    `
+                        Für $\\varphi (N)$ gibt es zwei eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
+                        und $q = ${this.totientComponents![2]}$, sodass folglich
+                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot (q - 1) $ gilt.
+                        <br>
+                        <br>
+                        Damit ergibt sich $\\varphi (${this.N}) $$\\: =(${this.totientComponents![0]} -
+                        ${this.totientComponents![1]}) \\cdot (${this.totientComponents![2]} - ${this.totientComponents![3]})
+                        $$\\: = ${this.eulerTotient}$.
+                    `
+                    );
+                }
+
+                this.eulerTotientProcess = this.eulerTotientProcess.concat(
+                `
                     Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
                     Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
                     Inverse $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
                     $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
+                );
 
                 if (this.e == 1) {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
