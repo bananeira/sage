@@ -317,6 +317,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         und der private Schlüssel ist $(${this.e}, ${this.N})$.
                     `
 
+                    this.exception = 20;
                     return;
                 }
             } else {
@@ -360,8 +361,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                         und der private Schlüssel ist $(${this.e}, ${this.N})$.
                     `
 
+                    this.exception = 20;
                     return;
                 }
+            }
+
+            if (this.e == 1) {
+                this.exception = 20;
+                return;
             }
 
             if (this.divisorFormatList!.length == 1) {
@@ -526,10 +533,19 @@ export class RsaToolShowcaseComponent implements OnInit {
                     this.displayKeys =
                     `
                         Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
-                        = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
-                        und der private Schlüssel ist $(${this.e}, ${this.N})$.
+                        = (${this.e}, ${this.N})$.
+
+                        Es ergibt sich also:
+                        \\begin{array}{|l|c|}
+                            \\hline
+                            \\text{private Schlüssel: }&(${this.e}, ${this.N}) = (d, N)\\\\
+                            \\hline
+                            \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                            \\hline
+                        \\end{array}
                     `
 
+                    this.exception = 20;
                     return;
                 }
 
@@ -594,6 +610,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         let formattedExtendedGCDList = "";
 
         if (this.e == 1) {
+            this.exception = 20;
             return;
         }
 
@@ -780,11 +797,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Man erhält nun das Schlüsselpaar $(d, N) = (${defaultRepresentative}, ${this.N}), (e, N)
                     = (${this.e}, ${this.N})$.
 
-                    Also ist der
-                    \\begin{align}
-                        \\text{private Schlüssel: }&(${this.foundKey}, ${this.N}) = (d, N) \\text{ und der }\\\\
-                        \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\text{.}
-                    \\end{align}
+                    Es ergibt sich also:
+                    \\begin{array}{|l|c|}
+                        \\hline
+                        \\text{private Schlüssel: }&(${defaultRepresentative}, ${this.N}) = (d, N)\\\\
+                        \\hline
+                        \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                        \\hline
+                    \\end{array}
                 `
         } else {
             this.displayKeys =
@@ -799,11 +819,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Man erhält nun das Schlüsselpaar $(d, N) = (${this.foundKey}, ${this.N}), (e, N)
                     $$= (${this.e}, ${this.N})$.
 
-                    Also ist der
-                    \\begin{align}
-                        \\text{private Schlüssel: }&(${this.foundKey}, ${this.N}) = (d, N) \\text{ und der }\\\\
-                        \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\text{.}
-                    \\end{align}
+                    Es ergibt sich also:
+                    \\begin{array}{|l|c|}
+                        \\hline
+                        \\text{private Schlüssel: }&(${this.foundKey}, ${this.N}) = (d, N)\\\\
+                        \\hline
+                        \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                        \\hline
+                    \\end{array}
                 `
         }
     }
