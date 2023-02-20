@@ -480,7 +480,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         `
                         Für $\\varphi (N)$ gibt es zwei eindeutige Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
-                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot q $$\:= p \\cdot (q - 1)$ gilt.
+                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot q $$\\:= p \\cdot (q - 1)$ gilt.
                         <br>
                         <br>
                         Damit ergibt sich $\\varphi (${this.N}) $$\\: =(${this.totientComponents![0]} -
