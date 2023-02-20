@@ -354,7 +354,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     );
 
                     this.displayKeys =
-                        `
+                    `
                         Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
                         = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
                         und der private Schlüssel ist $(${this.e}, ${this.N})$.
@@ -568,6 +568,10 @@ export class RsaToolShowcaseComponent implements OnInit {
 
     private doUnifiedRSA(formattedGCDList: string) {
         let formattedExtendedGCDList = "";
+
+        if (this.e == 1) {
+            return;
+        }
 
         this.findingGCDProcess =
             `
