@@ -2,6 +2,19 @@
 <div [ngClass]="{'active' : toolShowcaseActive}" class="content">
     <span class="container">
         <hr>
+        <div [ngClass]="{'hidden' : hideAlertBox}" (click)="setHideAlertBox()" class="altert-box info">
+            <span class="heading">
+                <h1>info</h1>
+                <span class="closing-button">&#10005;</span>
+            </span>
+            <hr>
+            <p>
+                It should be noted that there may be errors with this tool. I may not have completely purged the
+                procedures of sources of error. Despite the small probability that there are flaws, you are very welcome
+                to contact me via e-mail (<strong>sora(at)sorata.dev</strong>) if you have found any.
+            </p>
+        </div>
+
         <h1>what is a complement?</h1>
         <p>In a nutshell, the complement of a number is the inversion of itself. The inverse represents the respective negative number.
             The complement is used to make arithmetic operations with numbers more efficient, as subtractions

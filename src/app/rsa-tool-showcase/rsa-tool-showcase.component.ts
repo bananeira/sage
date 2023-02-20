@@ -11,6 +11,7 @@ import {rsaOutputWithKey, rsaOutputWithPrimes, RSAService} from "../service/rsa.
 export class RsaToolShowcaseComponent implements OnInit {
     @Input()
     rsa?: ToolShowcaseModel;
+    hideAlertBox: boolean = false;
 
     // procedure with rsa key
 
@@ -49,6 +50,10 @@ export class RsaToolShowcaseComponent implements OnInit {
 
     setActive(toolShowcaseActive: boolean) {
         this.toolShowcaseActive = toolShowcaseActive;
+    }
+
+    setHideAlertBox() {
+        this.hideAlertBox = !this.hideAlertBox;
     }
 
     ngOnInit(): void {

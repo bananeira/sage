@@ -3,6 +3,28 @@
     <span class="container">
         <hr>
         <h1>RSA</h1>
+        <div [ngClass]="{'hidden' : hideAlertBox}" (click)="setHideAlertBox()" class="altert-box info">
+            <span class="heading">
+                <h1>info</h1>
+                <span class="closing-button">&#10005;</span>
+            </span>
+
+            <hr>
+            <p>
+                The following tool is not available in English. I have decided to write it in German, because I think
+                that I can represent natural language aspects more accurately in German, which can be fundamental
+                in the following procedure.
+            </p>
+            <p>
+                It should be noted that there may be errors with this tool. I may not have completely purged the
+                procedures of sources of error. Despite the small probability that there are flaws, you are very welcome
+                to contact me via e-mail (<strong>sora(at)sorata.dev</strong>) if you have found any.
+            </p>
+            <p>
+                For the following tool, it may be helpful if you are already familiar with <strong>residue classes</strong> and
+                preferably the basic idea of <strong>asymmetric cryptographic encryption algorithms</strong>.
+            </p>
+        </div>
         <div class="tabs">
             <input type="radio" name="rsa-procedure" id="with-key" checked="checked">
             <label for="with-key" (click)="resetProcedure()">RSA-Schlüssel</label>

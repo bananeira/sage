@@ -178,6 +178,80 @@ h1 {
     }
 }
 
+.altert-box {
+    margin: calc($margin-links-y/2) 0;
+    padding: 0 16px;
+    border-radius: $b-radius-small;
+    border: $b-width solid $b-color;
+    background-color: $background-base;
+    user-select: none;
+
+    .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        hr {
+            margin: 12px 0;
+        }
+
+        .closing-button {
+            align-self: center;
+            cursor: pointer;
+        }
+    }
+
+    & h1 {
+        font-size: 16px;
+        font-weight: bolder;
+        margin-top: 12px;
+    }
+
+    & p {
+        font-size: 15px;
+        margin: 8px 0;
+
+        & strong {
+            font-weight: bold;
+        }
+    }
+
+    &.info {
+        .heading {
+            .closing-button {
+                border-radius: 50%;
+                padding: 1px 5px;
+
+                transition: 0.2s;
+
+                &:hover {
+                    background-color: rgba($terminal-neutral, 0.25);
+                }
+            }
+        }
+
+        background-color: rgba($terminal-neutral, 0.15);
+        color: rgba($terminal-neutral, 0.75);
+        border-color: rgba($terminal-neutral, 0.25);
+
+        hr {
+            color: rgba($terminal-neutral, 0.25);
+        }
+
+        & h1 {
+            color: rgba($terminal-neutral, 0.75);
+        }
+
+        & p {
+            color: rgba($terminal-neutral, 0.75);
+        }
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
 @keyframes animate-title {
     0% {
         top: 80px;

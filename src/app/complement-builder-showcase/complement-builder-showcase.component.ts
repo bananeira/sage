@@ -9,6 +9,7 @@ import {catchError, map, of, take} from "rxjs";
     styleUrls: ['./complement-builder-showcase.component.scss'],
 })
 export class ComplementBuilderShowcaseComponent {
+    hideAlertBox: boolean = false;
     inputString: string = "00000000";
     radix: number = 2;
     length: number = 0;
@@ -29,6 +30,10 @@ export class ComplementBuilderShowcaseComponent {
                 "(\"getMinusOneComplement\", default = \"false\"),\n" +
                 "(\"interpretAsBinary\", default = \"true\")", status: ""},
     ]
+
+    setHideAlertBox() {
+        this.hideAlertBox = !this.hideAlertBox;
+    }
 
     getInputString(value: string) {
         this.inputString = value;
