@@ -73,6 +73,11 @@ h1 {
         color: $text-inverted-emphasis-high;
         background-color: $primary-color;
     }
+
+    &.disabled {
+        pointer-events: none;
+        background-color: $disabled-primary-color;
+    }
 }
 
 .btn-secondary {

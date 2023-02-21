@@ -64,7 +64,7 @@
                             <span class="error" [ngClass]="{'true' : exception == 15}"> Es ist darauf zu achten, dass $N$
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
-                        <button class="btn-primary" (click)="
+                        <button class="btn-primary" [ngClass]="{'disabled': processLoading}" (click)="
                             refreshInputs('with-key', eWithKey.value, '0', '0', N.value)">berechnen</button>
                     </div>
                     <input type="radio" name="calculation-style-key" id="with-key-generated">
@@ -89,7 +89,7 @@
                         <p class="error" [ngClass]="{'true': exception == 18}">Das Minimum ist größer als das Maximum.</p>
                         <p class="error" [ngClass]="{'true': exception == 19}">Im angegebenen Intervall befinden sich keine Primzahlen.</p>
 
-                        <button class="btn-primary" (click)="
+                        <button class="btn-primary" [ngClass]="{'disabled': processLoading}" (click)="
                             randomInputs('with-key', keyPrimesMin.value, keyPrimesMax.value)">zufällig</button>
                     </div>
                 </div>
@@ -150,7 +150,8 @@
                             <span class="error" [ngClass]="{'true' :exception == 1}"> Hinweis: $e$ ist $\geq \varphi (N)$.
                             </span>
                         </p>
-                        <button class="btn-primary" (click)="refreshInputs('with-primes', eWithPrimes.value, p.value, q.value, '')">berechnen</button>
+                        <button class="btn-primary" [ngClass]="{'disabled': processLoading}"
+                                (click)="refreshInputs('with-primes', eWithPrimes.value, p.value, q.value, '')">berechnen</button>
 
                     </div>
 
@@ -173,7 +174,7 @@
                         <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
                         <p class="error" [ngClass]="{'true': exception == 18}">Das Minimum ist größer als das Maximum.</p>
                         <p class="error" [ngClass]="{'true': exception == 19}">Im angegebenen Intervall befinden sich keine Primzahlen.</p>
-                        <button class="btn-primary" (click)="
+                        <button class="btn-primary" [ngClass]="{'disabled': processLoading}" (click)="
                             randomInputs('with-primes', primesMin.value, primesMax.value)">zufällig</button>
                     </div>
                 </div>
