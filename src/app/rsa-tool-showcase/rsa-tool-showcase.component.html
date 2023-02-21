@@ -191,13 +191,11 @@
                             && exception != 17
                             && exception != 18
                             && exception != 19" [mathjax]="eulerTotientProcess"></p>
-                <p *ngIf="exception == 0 || exception == 7" [mathjax]="findingGCDProcess"></p>
+                <p *ngIf="exception == 0 || exception == 7 || exception == 3" [mathjax]="findingGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
                 <p *ngIf="exception == 0 || exception == 20" [mathjax]="displayKeys"></p>
             </div>
-
         </div>
-
     </span>
 </div>
