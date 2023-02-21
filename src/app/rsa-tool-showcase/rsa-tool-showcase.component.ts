@@ -134,7 +134,6 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.processLoading = true;
 
         if (this.e == null) {
-            this.resetProcedure();
             this.processLoading = false;
             this.exception = 19;
 
@@ -164,6 +163,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     refreshInputs(procedure: string, newE: string, newP: string, newQ: string, newN: string): void {
+        this.resetProcedure();
+
         if (procedure == "with-key") {
             this.e = Number(newE);
             this.N = Number(newN);
@@ -193,6 +194,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     randomInputs(procedure: string, min: string = '0', max: string = '0'): void {
+        this.resetProcedure();
+
         this.min = Number(min);
         this.max = Number(max);
 
@@ -326,7 +329,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         `
                         Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
                         das neutrale Element ist, ist $${this.e}$ stets zu sich selbst invers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
-                        [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
                     `
                     );
 
@@ -370,7 +373,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         `
                         Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
                         das neutrale Element ist, ist $${this.e}$ stets zu sich selbst invers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
-                        [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
                     `
                     );
 
