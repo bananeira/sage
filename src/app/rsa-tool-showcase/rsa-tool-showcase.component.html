@@ -94,6 +94,8 @@
                     </div>
                 </div>
 
+                <app-dash-loading *ngIf="processLoading"></app-dash-loading>
+
                 <p *ngIf="exception != 1" [mathjax]="factorizationProcess"></p>
                 <p *ngIf="exception != 1" [mathjax]="eulerTotientProcess"></p>
                 <p *ngIf="exception == 0 || exception == 3" [mathjax]="findingGCDProcess"></p>
@@ -175,6 +177,8 @@
                             randomInputs('with-primes', primesMin.value, primesMax.value)">zufällig</button>
                     </div>
                 </div>
+
+                <app-dash-loading *ngIf="processLoading"></app-dash-loading>
 
                 <p *ngIf="exception != 1
                             && exception != 16

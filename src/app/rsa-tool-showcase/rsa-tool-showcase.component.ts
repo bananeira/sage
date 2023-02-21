@@ -11,6 +11,8 @@ import {rsaOutputWithKey, rsaOutputWithPrimes, RSAService} from "../service/rsa.
 export class RsaToolShowcaseComponent implements OnInit {
     @Input()
     rsa?: ToolShowcaseModel;
+
+    processLoading: boolean = false;
     hideAlertBox: boolean = false;
 
     // procedure with rsa key
@@ -63,6 +65,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithGeneratedKey(): void {
+        this.processLoading = true;
+
         this.rsaService.sendGenerateRSAKeySetRequest(this.min, this.max)
             .pipe(
                 take(1),
@@ -77,6 +81,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithGeneratedPrimes(): void {
+        this.processLoading = true;
+
         this.rsaService.sendGenerateRSAPrimesSetRequest(this.min, this.max)
             .pipe(
                 take(1),
@@ -92,6 +98,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithKey(): void {
+        this.processLoading = true;
+
         if (this.e == null) {
             this.exception = 19;
         }
@@ -116,6 +124,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithPrimes(): void {
+        this.processLoading = true;
+
         if (this.e == null) {
             this.exception = 19;
         }
@@ -248,6 +258,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     // rsa primes procedure
 
     doRSAWithPrimesProcedure(): void {
+        this.processLoading = false;
+
         let formattedGCDList = "";
 
         if (this.p && this.q && this.e) {
@@ -424,6 +436,8 @@ export class RsaToolShowcaseComponent implements OnInit {
     // rsa key procedure:
 
     doRSAWithKeyProcedure(): void {
+        this.processLoading = false;
+
         if (this.primeFactors) {
             let formattedFactorList = "";
             let formattedGCDList = "";
