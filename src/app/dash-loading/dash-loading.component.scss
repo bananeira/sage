@@ -1,23 +1,22 @@
-.dash-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
+@import "src/app/variables";
+
+:host {
+    margin: 64px;
     display: flex;
+    justify-content: center;
 }
 
 .dash {
-    margin: 0 15px;
-    width: 35px;
-    height: 15px;
-    border-radius: 8px;
-    background: $primary-color;
-    box-shadow: 0 0 10px 0 $text-emphasis-normal;
+    margin: 0 9px;
+    width: 18px;
+    height: 7px;
+    border-radius: 7px;
+    background: $text-emphasis-normal;
+    box-shadow: 0 0 10px 0 $text-emphasis-low;
 }
 
 .uno {
-    margin-right: -18px;
+    margin-right: -7px;
     transform-origin: center left;
     animation: spin 3s linear infinite;
 }

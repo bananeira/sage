@@ -65,6 +65,7 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithGeneratedKey(): void {
+        this.resetProcedure();
         this.processLoading = true;
 
         this.rsaService.sendGenerateRSAKeySetRequest(this.min, this.max)
@@ -81,6 +82,7 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithGeneratedPrimes(): void {
+        this.resetProcedure();
         this.processLoading = true;
 
         this.rsaService.sendGenerateRSAPrimesSetRequest(this.min, this.max)
@@ -317,7 +319,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     );
 
                     this.displayKeys =
-                        `
+                    `
                         Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
                         = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
                         und der private Schlüssel ist $(${this.e}, ${this.N})$.
@@ -363,8 +365,16 @@ export class RsaToolShowcaseComponent implements OnInit {
                     this.displayKeys =
                     `
                         Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
-                        = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
-                        und der private Schlüssel ist $(${this.e}, ${this.N})$.
+                        = (${this.e}, ${this.N})$.
+
+                        Es ergibt sich also:
+                        \\begin{array}{|l|c|}
+                            \\hline
+                            \\text{privater Schlüssel: }&(${this.e}, ${this.N}) = (d, N)\\\\
+                            \\hline
+                            \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                            \\hline
+                        \\end{array}
                     `
 
                     this.exception = 20;
@@ -546,9 +556,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                         Es ergibt sich also:
                         \\begin{array}{|l|c|}
                             \\hline
-                            \\text{private Schlüssel: }&(${this.e}, ${this.N}) = (d, N)\\\\
+                            \\text{privater Schlüssel: }&(${this.e}, ${this.N}) = (d, N)\\\\
                             \\hline
-                            \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                            \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
                             \\hline
                         \\end{array}
                     `
@@ -808,9 +818,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Es ergibt sich also:
                     \\begin{array}{|l|c|}
                         \\hline
-                        \\text{private Schlüssel: }&(${defaultRepresentative}, ${this.N}) = (d, N)\\\\
+                        \\text{privater Schlüssel: }&(${defaultRepresentative}, ${this.N}) = (d, N)\\\\
                         \\hline
-                        \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                        \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
                         \\hline
                     \\end{array}
                 `
@@ -830,9 +840,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Es ergibt sich also:
                     \\begin{array}{|l|c|}
                         \\hline
-                        \\text{private Schlüssel: }&(${this.foundKey}, ${this.N}) = (d, N)\\\\
+                        \\text{privater Schlüssel: }&(${this.foundKey}, ${this.N}) = (d, N)\\\\
                         \\hline
-                        \\text{öffentliche Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                        \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
                         \\hline
                     \\end{array}
                 `

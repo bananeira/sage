@@ -23,6 +23,7 @@ import {ComplementBuilderShowcaseComponent} from './complement-builder-showcase/
 import {HttpClientModule} from "@angular/common/http";
 import {MathjaxModule} from "mathjax-angular";
 import { RsaToolShowcaseComponent } from './rsa-tool-showcase/rsa-tool-showcase.component';
+import {DashLoadingComponent} from "./dash-loading/dash-loading.component";
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import { RsaToolShowcaseComponent } from './rsa-tool-showcase/rsa-tool-showcase.
         ToolShowcaseComponent,
         ComplementBuilderShowcaseComponent,
         RsaToolShowcaseComponent,
+        DashLoadingComponent
     ],
     imports: [
         BrowserModule,
