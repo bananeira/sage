@@ -64,9 +64,11 @@ export class RSAService {
     }
 
     public sendGenerateRSAKeySetRequest(
+        min: number,
         max: number
     ): Observable<number[]> {
         const params = new HttpParams()
+            .set('min', min)
             .set('max', max);
 
         return this.httpClient.get<number[]>(this.apiBaseUrl + 'generateRSAKeySet', {params});

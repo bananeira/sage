@@ -63,10 +63,9 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithGeneratedKey(): void {
-        this.rsaService.sendGenerateRSAKeySetRequest(this.max)
+        this.rsaService.sendGenerateRSAKeySetRequest(this.min, this.max)
             .pipe(
                 take(1),
-                tap((output: number[]) => console.log(output)),
                 map((output: number[]) => {
                         this.N = output[0];
                         this.e = output[1];
@@ -93,16 +92,15 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     getRSAOutputWithKey(): void {
-        console.log( this.e,
-            this.N)
-
+        if (this.e == null) {
+            this.exception = 19;
+        }
         this.rsaService.sendRSAWithKeyRequest(
             this.e,
             this.N
         )
             .pipe(
                 take(1),
-                tap((output) => console.log(output)),
                 map((output: rsaOutputWithKey) => {
                         this.exception = output.exception;
                         this.totientComponents = output.totientComponents;
@@ -171,27 +169,23 @@ export class RsaToolShowcaseComponent implements OnInit {
     }
 
     randomInputs(procedure: string, min: string = '0', max: string = '0'): void {
-        if (procedure == "with-key") {
-            this.max = 800;
-            this.getRSAOutputWithGeneratedKey();
-
-            return;
-        }
-
         this.min = Number(min);
         this.max = Number(max);
 
         if (this.min > this.max) {
             this.exception = 18;
-            console.log(this.exception)
             return;
         } else if (this.min > 10000 || this.min <= 1) { // shouldnt be more than 46340, sqrt of 32-bit integer limit
             this.exception = 16;
-            console.log(this.exception)
             return;
         } else if (this.max > 10000 || this.max <= 1) {
             this.exception = 17;
-            console.log(this.exception)
+            return;
+        }
+
+        if (procedure == "with-key") {
+            this.getRSAOutputWithGeneratedKey();
+
             return;
         }
 

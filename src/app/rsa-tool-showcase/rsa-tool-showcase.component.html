@@ -74,8 +74,23 @@
                         <p>Hier lassen sich zufällige Werte generieren. Es ist auch zu berücksichtigen, dass hier nur
                         solche Werte generiert werden, die ein vollständiges Verfahren ermöglichen. Es werden also
                         (voraussichtlich) keine Ausnahmefälle eintreten, es sei denn $e$ ist $1$.</p>
+
+                        <p>
+                            Grenzwerte für die Primfaktoren:
+                            <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 16}"
+                                   class="input limits" type="number" #keyPrimesMin [defaultValue]="5">
+                            -
+                            <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 17}"
+                                   class="input limits" type="number" #keyPrimesMax [defaultValue]="29">
+                        </p>
+
+                        <p class="error" [ngClass]="{'true': exception == 16}">Das Minimum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
+                        <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
+                        <p class="error" [ngClass]="{'true': exception == 18}">Das Minimum ist größer als das Maximum.</p>
+                        <p class="error" [ngClass]="{'true': exception == 19}">Im angegebenen Intervall befinden sich keine Primzahlen.</p>
+
                         <button class="btn-primary" (click)="
-                            randomInputs('with-key')">zufällig</button>
+                            randomInputs('with-key', keyPrimesMin.value, keyPrimesMax.value)">zufällig</button>
                     </div>
                 </div>
 
@@ -147,17 +162,17 @@
                         <p>
                             Grenzwerte für die Primfaktoren:
                             <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 16}"
-                                   class="input limits" type="number" #min [defaultValue]="5">
+                                   class="input limits" type="number" #primesMin [defaultValue]="5">
                             -
                             <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 17}"
-                                class="input limits" type="number" #max [defaultValue]="29">
+                                class="input limits" type="number" #primesMax [defaultValue]="29">
                         </p>
                         <p class="error" [ngClass]="{'true': exception == 16}">Das Minimum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
                         <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
                         <p class="error" [ngClass]="{'true': exception == 18}">Das Minimum ist größer als das Maximum.</p>
                         <p class="error" [ngClass]="{'true': exception == 19}">Im angegebenen Intervall befinden sich keine Primzahlen.</p>
                         <button class="btn-primary" (click)="
-                            randomInputs('with-primes', min.value, max.value)">zufällig</button>
+                            randomInputs('with-primes', primesMin.value, primesMax.value)">zufällig</button>
                     </div>
                 </div>
 
