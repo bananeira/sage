@@ -103,8 +103,13 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.processLoading = true;
 
         if (this.e == null) {
+            this.resetProcedure();
+            this.processLoading = false;
             this.exception = 19;
+
+            return;
         }
+
         this.rsaService.sendRSAWithKeyRequest(
             this.e,
             this.N
@@ -129,8 +134,15 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.processLoading = true;
 
         if (this.e == null) {
+            this.resetProcedure();
+            this.processLoading = false;
             this.exception = 19;
+
+            return;
         }
+
+        this.processLoading = true;
+
         this.rsaService.sendRSAWithPrimesRequest(
             this.p,
             this.q,
