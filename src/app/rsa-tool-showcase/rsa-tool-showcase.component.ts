@@ -520,7 +520,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         `
                         Für $\\varphi (N)$ gibt es zwei eindeutige, aber gleiche Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
-                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot q$$ = p \\cdot \\varphi (q) \$$ \\: := (p - 1) \\cdot q $
+                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot q$$\\: = p \\cdot \\varphi (q) \$$ \\: := (p - 1) \\cdot q $
                         $\\:= p \\cdot (q - 1)$ gilt.
                         <br>
                         <br>
