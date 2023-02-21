@@ -73,7 +73,7 @@
                         <h1 class="sub-heading">Generiere Werte durch Zufall</h1>
                         <p>Hier lassen sich zufällige Werte generieren. Es ist auch zu berücksichtigen, dass hier nur
                         solche Werte generiert werden, die ein vollständiges Verfahren ermöglichen. Es werden also
-                        (voraussichtlich) keine Ausnahmefälle eintreten, es sei denn $e$ ist $1$.</p>
+                        (voraussichtlich) keine Ausnahmefälle eintreten, es sei denn, $e$ ist $1$.</p>
 
                         <p>
                             Grenzwerte für die Primfaktoren:
@@ -193,7 +193,7 @@
                 <p *ngIf="exception == 0 || exception == 7" [mathjax]="findingGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
                 <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
-                <p *ngIf="exception == 0 && extendedGCDList" [mathjax]="displayKeys"></p>
+                <p *ngIf="exception == 0 || exception == 20" [mathjax]="displayKeys"></p>
             </div>
 
         </div>
