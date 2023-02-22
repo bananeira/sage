@@ -312,8 +312,6 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
-                    <br/>
-                    <br/>
                     Weil hier zwei verschiedene, aber feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot (q - 1)$.
@@ -365,8 +363,6 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
-                    <br/>
-                    <br/>
                     Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$.
@@ -526,8 +522,6 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
-                    <br/>
-                    <br/>
                     $\\varphi (N)$ ist also $${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
                     aus genau 2 Primfaktoren zusammen. Das Verfahren wird in diesem Falle nicht weitergeführt.
                 `
@@ -541,8 +535,6 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
-                    <br/>
-                    <br/>
                 `
 
                 if (this.totientComponents![2] == this.totientComponents![0]) {
