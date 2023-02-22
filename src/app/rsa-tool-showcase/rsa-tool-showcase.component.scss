@@ -128,4 +128,5 @@ label {
     border: $b-width solid $b-color;
     border-radius: $b-radius-block;
     padding: $padding-normal;
+    margin: calc($margin-links-y/4) 0;
 }
