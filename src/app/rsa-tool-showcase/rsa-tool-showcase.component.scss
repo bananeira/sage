@@ -123,3 +123,9 @@ label {
 .sub-heading {
     color: $text-emphasis-normal;
 }
+
+::ng-deep .definition-box {
+    border: $b-width solid $b-color;
+    border-radius: $b-radius-block;
+    padding: $padding-normal;
+}

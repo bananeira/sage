@@ -9,14 +9,14 @@
 .dash {
     margin: 0 9px;
     width: 18px;
-    height: 7px;
-    border-radius: 7px;
+    height: 5px;
+    border-radius: 5px;
     background: $text-emphasis-normal;
-    box-shadow: 0 0 5px 0 rgba($text-emphasis-low, 0.3);
+    box-shadow: 0 0 5px 0 rgba($text-emphasis-low, 0.15);
 }
 
 .uno {
-    margin-right: -7px;
+    margin-right: -8px;
     transform-origin: center left;
     animation: spin 3s linear infinite;
 }

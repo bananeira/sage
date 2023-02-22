@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
-import {map, take, tap} from "rxjs";
+import {catchError, map, of, take, tap} from "rxjs";
 import {rsaOutputWithKey, rsaOutputWithPrimes, RSAService} from "../service/rsa.service";
+import {Output} from "../service/complement-builder.service";
 
 @Component({
   selector: 'app-rsa-tool-showcase',
@@ -14,6 +15,8 @@ export class RsaToolShowcaseComponent implements OnInit {
 
     processLoading: boolean = false;
     hideAlertBox: boolean = false;
+
+    validRange: string = "";
 
     // procedure with rsa key
 
@@ -263,19 +266,22 @@ export class RsaToolShowcaseComponent implements OnInit {
     setN(value: string) {
         this.N = Number(value);
     }
-
-    setMax(value: string) {
-        this.max = Number(value);
-    }
-
-    setMin(value: string) {
-        this.min = Number(value);
-    }
-
     // rsa primes procedure
 
     doRSAWithPrimesProcedure(): void {
         this.processLoading = false;
+
+        if (this.exception == 1) {
+            return;
+        }
+
+        this.validRange = "$e$ ist so zu wählen, " +
+            "dass $(1 <) e < \\varphi (N)$ und $ggT(e, \\varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$) " +
+            "gilt.";
+
+        this.validRange = this.validRange.concat(
+            ` $e$ muss also in der Menge $[1; ${this.eulerTotient! - 1}] \\cap \\mathbb{N}$ liegen.`
+        )
 
         let formattedGCDList = "";
 
@@ -303,9 +309,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotient = (this.p - 1) * (this.q - 1);
                 this.eulerTotientProcess =
                     `
-                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
-                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     <br/>
                     <br/>
                     Weil hier zwei verschiedene, aber feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
@@ -326,18 +332,27 @@ export class RsaToolShowcaseComponent implements OnInit {
 
                 if (this.e == 1) {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
-                        `
-                        Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
+                    `
+                        <div class="definition-box">Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
                         das neutrale Element ist, ist $${this.e}$ stets zu sich selbst invers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
-                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.</div>
                     `
                     );
 
                     this.displayKeys =
-                    `
+                        `
                         Man erhält nun das Schlüsselpaar $(d, N) = (${this.e}, ${this.N}), (e, N)
-                        = (${this.e}, ${this.N})$. Der öffentliche Schlüssel ist dabei $(${this.e}, ${this.N})$
-                        und der private Schlüssel ist $(${this.e}, ${this.N})$.
+                        = (${this.e}, ${this.N})$.
+
+                        Es ergibt sich also:
+                        \\begin{array}{|l|}
+                            \\hline
+                            (${this.e}, ${this.N}) = (d, N)\\\\
+                            \\hline
+                            (${this.e}, ${this.N}) = (e, N)\\\\
+                            \\hline
+                        \\end{array}
+                        $(d,N)$ ist der private Schlüssel und $(e,N)$ der öffentliche.
                     `
 
                     this.exception = 20;
@@ -347,9 +362,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotient = (this.p - 1) * (this.q);
                 this.eulerTotientProcess =
                     `
-                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
-                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     <br/>
                     <br/>
                     Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
@@ -370,10 +385,10 @@ export class RsaToolShowcaseComponent implements OnInit {
 
                 if (this.e == 1) {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
-                        `
-                        Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
+                    `
+                        <div class="definition-box">Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
                         das neutrale Element ist, ist $${this.e}$ stets zu sich selbst invers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
-                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.</div>
                     `
                     );
 
@@ -383,13 +398,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                         = (${this.e}, ${this.N})$.
 
                         Es ergibt sich also:
-                        \\begin{array}{|l|c|}
+                        \\begin{array}{|l|}
                             \\hline
-                            \\text{privater Schlüssel: }&(${this.e}, ${this.N}) = (d, N)\\\\
+                            (${this.e}, ${this.N}) = (d, N)\\\\
                             \\hline
-                            \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                            (${this.e}, ${this.N}) = (e, N)\\\\
                             \\hline
                         \\end{array}
+                        $(d,N)$ ist der private Schlüssel und $(e,N)$ der öffentliche.
                     `
 
                     this.exception = 20;
@@ -463,6 +479,18 @@ export class RsaToolShowcaseComponent implements OnInit {
     doRSAWithKeyProcedure(): void {
         this.processLoading = false;
 
+        this.validRange = "$e$ ist so zu wählen, " +
+            "dass $(1 <) e < \\varphi (N)$ und $ggT(e, \\varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$) " +
+            "gilt.";
+
+        this.validRange = this.validRange.concat(
+            ` $e$ muss also in der Menge $[1; ${this.eulerTotient! - 1}] \\cap \\mathbb{N}$ liegen.`
+        )
+
+        if (this.exception == 1) {
+            return;
+        }
+
         if (this.primeFactors) {
             let formattedFactorList = "";
             let formattedGCDList = "";
@@ -480,22 +508,24 @@ export class RsaToolShowcaseComponent implements OnInit {
                 Für das Verfahren sei der Schlüssel $(e, N) = (${this.e}, ${this.N})$ gegeben.
                 <br/>
                 <br/>
-                Man finde also $\\varphi (N)$. Dafür muss zunächst $N$ durch Primfaktorzerlegung bestimmt werden.
+                Man finde also $\\varphi (N)$.
+                <br/>
+                <br/>
+                <div class="definition-box">Dafür muss zunächst $N$ durch Primfaktorzerlegung bestimmt werden.
                 Bei der Primfaktorzerlegung einer Zahl hilft es grundsätzlich, wenn man nur bis zur abgerundeten Wurzel
                 dieser Zahl sucht. Also suche man in dem Fall bis $\\lfloor\\sqrt{${this.N}}\\rfloor
                 = ${Math.floor(Math.sqrt(this.N))}$. Wurde ein solcher Teiler dann gefunden, so spalte man diesen durch
                 Division ab. Es bleibt der zweite Faktor. Sollte auch dieser keine Primzahl sein, so wiederholt man
                 das Prinzip, bis nur noch Primfaktoren vorliegen. Im Kontext RSA sollte dies allerdings nicht der Fall
-                sein, da hier nur mit zwei Primfaktoren gerechnet wird.
+                sein, da hier nur mit zwei Primfaktoren gerechnet wird.</div>
             `
-            this.exception = 0;
 
             if (this.primeFactors.length != 2) {
                 this.eulerTotientProcess =
                 `
-                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
-                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     <br/>
                     <br/>
                     $\\varphi (N)$ ist also $${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
@@ -508,16 +538,16 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Es gilt $N = p \\cdot q = ${formattedFactorList} = ${this.N}$.
                     <br/>
                     <br/>
-                    Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
+                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
                     $\\varphi (n) := \\,\\mid \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\mid$.
-                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.
+                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     <br/>
                     <br/>
                 `
 
                 if (this.totientComponents![2] == this.totientComponents![0]) {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
-                        `
+                    `
                         Für $\\varphi (N)$ gibt es zwei eindeutige, aber gleiche Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
                         $\\varphi (N)$$\\: := \\varphi (p) \\cdot q$$\\: = p \\cdot \\varphi (q) \$$ \\: := (p - 1) \\cdot q $
@@ -557,9 +587,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                 if (this.e == 1) {
                     this.eulerTotientProcess = this.eulerTotientProcess.concat(
                     `
-                        Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
+                        <div class="definition-box">Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}$ bezüglich der Multiplikation
                         das neutrale Element ist, ist $${this.e}$ stets zu sich selbst invers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
-                        [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.
+                        [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.</div>
                     `
                     );
 
@@ -569,13 +599,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                         = (${this.e}, ${this.N})$.
 
                         Es ergibt sich also:
-                        \\begin{array}{|l|c|}
+                        \\begin{array}{|l|}
                             \\hline
-                            \\text{privater Schlüssel: }&(${this.e}, ${this.N}) = (d, N)\\\\
+                            (${this.e}, ${this.N}) = (d, N)\\\\
                             \\hline
-                            \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                            (${this.e}, ${this.N}) = (e, N)\\\\
                             \\hline
                         \\end{array}
+                        $(d,N)$ ist der private Schlüssel und $(e,N)$ der öffentliche.
                     `
 
                     this.exception = 20;
@@ -598,7 +629,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     for (let i = 0; i < this.divisorFormatList!.length; i++) {
                         if (i == this.divisorFormatList!.length - 2) {
                             formattedGCDList = formattedGCDList.concat(
-                                `
+                            `
                                 ${String(this.divisorFormatList![i][0])} & = ${String(this.divisorFormatList![i][1])}
                                 \\cdot ${String(this.divisorFormatList![i][2])}
                                 + \\underline{${String(this.divisorFormatList![i][3])}} \\leftarrow ggT(${String(this.e)},
@@ -771,7 +802,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         }_{\\equiv\\:0}
                         \\pmod{${this.eulerTotient}}
                     \\end{align*}
-                    Also:
+                    Also ist
                     \\begin{align*}
                         1 & \\equiv ${String(this.extendedGCDList![this.extendedGCDList!.length - 1][1])}
                         \\cdot ${String(this.extendedGCDList![this.extendedGCDList!.length - 1][2])}
@@ -792,7 +823,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         \\cdot ${String(this.extendedGCDList![this.extendedGCDList!.length - 1][4])}
                         \\pmod{${this.eulerTotient}}
                     \\end{align*}
-                    Also:
+                    Also ist
                     \\begin{align*}
                         1 & \\equiv ${String(this.extendedGCDList![this.extendedGCDList!.length - 1][3])}
                         \\cdot ${String(this.extendedGCDList![this.extendedGCDList!.length - 1][4])}
@@ -831,13 +862,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                     = (${this.e}, ${this.N})$.
 
                     Es ergibt sich also:
-                    \\begin{array}{|l|c|}
+                    \\begin{array}{|l|}
                         \\hline
-                        \\text{privater Schlüssel: }&(${defaultRepresentative}, ${this.N}) = (d, N)\\\\
+                        (${defaultRepresentative}, ${this.N}) = (d, N)\\\\
                         \\hline
-                        \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
+                        (${this.e}, ${this.N}) = (e, N)\\\\
                         \\hline
                     \\end{array}
+                    $(d,N)$ ist der private Schlüssel und $(e,N)$ der öffentliche.
                 `
         } else {
             this.displayKeys =
@@ -853,13 +885,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                     $$= (${this.e}, ${this.N})$.
 
                     Es ergibt sich also:
-                    \\begin{array}{|l|c|}
-                        \\hline
-                        \\text{privater Schlüssel: }&(${this.foundKey}, ${this.N}) = (d, N)\\\\
-                        \\hline
-                        \\text{öffentlicher Schlüssel: }&(${this.e}, ${this.N}) = (e, N)\\\\
-                        \\hline
-                    \\end{array}
+                        \\begin{array}{|l|}
+                            \\hline
+                            (${this.foundKey}, ${this.N}) = (d, N)\\\\
+                            \\hline
+                            (${this.e}, ${this.N}) = (e, N)\\\\
+                            \\hline
+                        \\end{array}
+                        $(d,N)$ ist der private Schlüssel und $(e,N)$ der öffentliche.
                 `
         }
     }
