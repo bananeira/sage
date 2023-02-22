@@ -63,6 +63,10 @@ label {
     width: 100%;
     display: none;
     padding: 12px 24px;
+
+    p {
+        color: $text-emphasis-high;
+    }
 }
 
 .tabs input[type="radio"] {
