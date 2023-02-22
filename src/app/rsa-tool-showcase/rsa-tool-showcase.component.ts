@@ -323,7 +323,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
                     Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
-                    Inverse $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
+                    Inverse $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$
                     in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}\\:(\\mathbb{Z}_{${this.eulerTotient}})$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
