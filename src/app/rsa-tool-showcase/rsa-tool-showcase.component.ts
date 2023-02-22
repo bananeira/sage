@@ -271,10 +271,6 @@ export class RsaToolShowcaseComponent implements OnInit {
     doRSAWithPrimesProcedure(): void {
         this.processLoading = false;
 
-        if (this.exception == 1) {
-            return;
-        }
-
         this.validRange = "$e$ ist so zu wählen, " +
             "dass $(1 <) e < \\varphi (N)$ und $ggT(e, \\varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$) " +
             "gilt.";
@@ -282,6 +278,10 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.validRange = this.validRange.concat(
             ` $e$ muss also in der Menge $[1; ${this.eulerTotient! - 1}] \\cap \\mathbb{N}$ liegen.`
         )
+
+        if (this.exception == 1) {
+            return;
+        }
 
         let formattedGCDList = "";
 
