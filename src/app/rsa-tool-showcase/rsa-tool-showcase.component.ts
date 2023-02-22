@@ -507,13 +507,14 @@ export class RsaToolShowcaseComponent implements OnInit {
                 Man finde also $\\varphi (N)$.
                 <br/>
                 <br/>
-                <div class="definition-box">Dafür muss zunächst $N$ durch Primfaktorzerlegung bestimmt werden.
-                Bei der Primfaktorzerlegung einer Zahl hilft es grundsätzlich, wenn man nur bis zur abgerundeten Wurzel
-                dieser Zahl sucht. Also suche man in dem Fall bis $\\lfloor\\sqrt{${this.N}}\\rfloor
-                = ${Math.floor(Math.sqrt(this.N))}$. Wurde ein solcher Teiler dann gefunden, so spalte man diesen durch
-                Division ab. Es bleibt der zweite Faktor. Sollte auch dieser keine Primzahl sein, so wiederholt man
-                das Prinzip, bis nur noch Primfaktoren vorliegen. Im Kontext RSA sollte dies allerdings nicht der Fall
-                sein, da hier nur mit zwei Primfaktoren gerechnet wird.</div>
+                Dafür muss zunächst der RSA-Modul $N$ in seine Primfaktoren zerlegt werden.
+                <div class="definition-box">Bei der Primfaktorzerlegung einer Zahl hilft es grundsätzlich,
+                wenn man nur bis zur abgerundeten Wurzel dieser Zahl sucht. Also suche man in dem Fall bis
+                $\\lfloor\\sqrt{${this.N}}\\rfloor = ${Math.floor(Math.sqrt(this.N))}$. Wurde ein solcher Teiler
+                dann gefunden, so spalte man diesen durch Division ab. Es bleibt der zweite Faktor. Sollte auch
+                dieser keine Primzahl sein, so wiederholt man das Prinzip, bis nur noch Primfaktoren vorliegen.
+                Im Kontext RSA sollte dies allerdings nicht der Fall sein, da hier nur mit zwei Primfaktoren
+                gerechnet wird.</div>
             `
 
             if (this.primeFactors.length != 2) {
