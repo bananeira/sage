@@ -59,7 +59,7 @@
                                          (click)="setN(N.value)"
                                          class="input">
 
-                            <span class="error" [ngClass]="{'true' : exception == 11}"> $N$ muss $>0$ sein.</span>
+                            <span class="error" [ngClass]="{'true' : exception == 11}"> $N$ muss $\geq 4$ sein.</span>
                             <span class="error" [ngClass]="{'true' : exception == 15}"> Es ist darauf zu achten, dass $N$
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
