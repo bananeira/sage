@@ -63,10 +63,6 @@ label {
     width: 100%;
     display: none;
     padding: 12px 24px;
-
-    p {
-        color: $text-emphasis-high;
-    }
 }
 
 .tabs input[type="radio"] {
@@ -88,6 +84,10 @@ label {
 }
 
 //reference https://codepen.io/mikestreety/pen/yVNNNm?editors=1100
+
+.mathjax {
+    color: $text-emphasis-high;
+}
 
 .error {
     color: $terminal-error;
