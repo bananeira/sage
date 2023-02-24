@@ -219,11 +219,8 @@ export class RsaToolShowcaseComponent implements OnInit {
             if (this.e > 2147483647) {
                 this.exception = 12;
                 return;
-            } else if (this.p > 2147483647) {
-                this.exception = 13;
-                return;
-            } else if (this.q > 2147483647) {
-                this.exception = 14;
+            } else if ((this.p * this.q) > 2147483647) {
+                this.exception = 27;
                 return;
             } else {
                 this.getRSAOutputWithPrimes();

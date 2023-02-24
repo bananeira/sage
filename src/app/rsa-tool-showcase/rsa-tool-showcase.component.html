@@ -139,7 +139,8 @@
                                          exception == 4
                                          || exception == 9
                                          || exception == 13
-                                         || exception == 21}"
+                                         || exception == 21
+                                         || exception == 27}"
                                          (keyup)="setPrimeP(p.value)"
                                          (click)="setPrimeP(p.value)"
                                          class="input">
@@ -154,14 +155,15 @@
                                          exception == 5
                                          || exception == 10
                                          || exception == 14
-                                         || exception == 22}"
+                                         || exception == 22
+                                         || exception == 27}"
                                          (keyup)="setPrimeQ(q.value)"
                                          (click)="setPrimeQ(q.value)"
                                          class="input">
 
                             <span class="error" [ngClass]="{'true' : exception == 5 || exception == 10}"> $q$ muss $>0$
                                 und eine Primzahl sein.</span>
-                            <span class="error" [ngClass]="{'true' : exception == 13}"> Es ist darauf zu achten, dass $q$
+                            <span class="error" [ngClass]="{'true' : exception == 27}"> Es ist darauf zu achten, dass das Produkt $p \cdot q$
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
                         <p>$e = $ <input #eWithPrimes
