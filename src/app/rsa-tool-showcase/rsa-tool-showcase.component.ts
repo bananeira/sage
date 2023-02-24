@@ -509,7 +509,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 <br/>
                 Dafür muss zunächst der RSA-Modul $N$ in seine Primfaktoren zerlegt werden.
                 <div class="definition-box">Bei der Primfaktorzerlegung einer Zahl hilft es grundsätzlich,
-                wenn man nur bis zur abgerundeten Wurzel dieser Zahl nach Teilern sucht. Also suche man in dem Fall nach einem Teilerbis
+                wenn man nur bis zur abgerundeten Wurzel dieser Zahl nach Teilern sucht. Also suche man in dem Fall nach einem Teiler bis
                 $\\lfloor\\sqrt{${this.N}}\\rfloor = ${Math.floor(Math.sqrt(this.N))}$. Wurde ein solcher Teiler
                 dann gefunden, so spalte man diesen durch Division ab. Es bleibt der zweite Faktor. Sollte auch
                 dieser keine Primzahl sein, so wiederholt man das Prinzip, bis nur noch Primfaktoren vorliegen.
