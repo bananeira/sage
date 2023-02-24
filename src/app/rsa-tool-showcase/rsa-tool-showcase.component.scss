@@ -85,7 +85,7 @@ label {
 
 //reference https://codepen.io/mikestreety/pen/yVNNNm?editors=1100
 
-.mathjax {
+.mathjax-content {
     color: $text-emphasis-high;
 }
 
@@ -132,5 +132,5 @@ label {
     border: $b-width solid $b-color;
     border-radius: $b-radius-block;
     padding: $padding-normal;
-    margin: calc($margin-links-y/4) 0;
+    margin: calc($margin-links-y/2) 0;
 }

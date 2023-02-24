@@ -169,27 +169,62 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.resetProcedure();
 
         if (procedure == "with-key") {
+            if (!Number.isInteger(Number(newE)))
+            {
+                this.exception = 23;
+                return;
+            }
+
+            if (!Number.isInteger(Number(newN)))
+            {
+                this.exception = 24;
+                return;
+            }
+
             this.e = Number(newE);
             this.N = Number(newN);
 
             if (this.e > 2147483647) {
                 this.exception = 12;
+                return;
             } else if (this.N > 2147483647) {
                 this.exception = 15;
+                return;
             } else {
                 this.getRSAOutputWithKey();
             }
         } else if (procedure == "with-primes") {
+            if (!Number.isInteger(Number(newE)))
+            {
+                this.exception = 23;
+                return;
+            }
+
+            if (!Number.isInteger(Number(newP)))
+            {
+                this.exception = 21;
+                return;
+            }
+
+            if (!Number.isInteger(Number(newQ)))
+            {
+                this.exception = 22;
+                return;
+            }
+
             this.e = Number(newE);
             this.p = Number(newP);
             this.q = Number(newQ);
 
             if (this.e > 2147483647) {
                 this.exception = 12;
+                return;
             } else if (this.p > 2147483647) {
                 this.exception = 13;
+                return;
             } else if (this.q > 2147483647) {
                 this.exception = 14;
+                return;
             } else {
                 this.getRSAOutputWithPrimes();
             }
@@ -202,13 +237,25 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.min = Number(min);
         this.max = Number(max);
 
+        if (!Number.isInteger(min))
+        {
+            this.exception = 25;
+            return;
+        }
+
+        if (!Number.isInteger(max))
+        {
+            this.exception = 26;
+            return;
+        }
+
         if (this.min > this.max) {
             this.exception = 18;
             return;
-        } else if (this.min > 10000 || this.min <= 1) { // shouldnt be more than 46340, sqrt of 32-bit integer limit
+        } else if (this.min > 6000 || this.min <= 1) { // shouldnt be more than 46340, sqrt of 32-bit integer limit
             this.exception = 16;
             return;
-        } else if (this.max > 10000 || this.max <= 1) {
+        } else if (this.max > 6000 || this.max <= 1) {
             this.exception = 17;
             return;
         }
@@ -228,6 +275,8 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.e = 0;
         this.N = 0;
         this.exception = 0;
+        this.min = 0;
+        this.max = 0;
 
         this.totientComponents = [];
         this.eulerTotient = 0;

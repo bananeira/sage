@@ -42,19 +42,30 @@
                             den dazugehörigen RSA-Modul $N$ an.
                         </p>
                         <p>$e = $ <input #eWithKey
-                                         [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6 || exception == 12}"
+                                         [ngClass]="{'faulty' :
+                                         exception == 8
+                                         || exception == 1
+                                         || exception == 6
+                                         || exception == 12
+                                         || exception == 23}"
                                          (keyup)="setE(eWithKey.value)"
                                          (click)="setE(eWithKey.value)"
                                          class="input">
 
-                            <span class="error" [ngClass]="{'true' : exception == 8 || exception == 1 || exception == 6}"
+                            <span class="error" [ngClass]="{'true' :
+                            exception == 8
+                            || exception == 1
+                            || exception == 6}"
                                   [mathjax]="validRange">
                             </span>
                             <span class="error" [ngClass]="{'true' : exception == 12}"> Es ist darauf zu achten, dass $e$
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
                         <p>$N = $ <input #N
-                                         [ngClass]="{'faulty' : exception == 11|| exception == 15}"
+                                         [ngClass]="{'faulty' :
+                                         exception == 11
+                                         || exception == 15
+                                         || exception == 24}"
                                          (keyup)="setN(N.value)"
                                          (click)="setN(N.value)"
                                          class="input">
@@ -63,6 +74,8 @@
                             <span class="error" [ngClass]="{'true' : exception == 15}"> Es ist darauf zu achten, dass $N$
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
+                        <p class="error" [ngClass]="{'true': exception == 23 || exception == 24}">
+                            Die Eingaben müssen Zahlen $\in \mathbb&#123;N&#125;$ sein.</p>
                         <button class="btn-primary" [ngClass]="{'disabled': processLoading}" (click)="
                             refreshInputs('with-key', eWithKey.value, '0', '0', N.value)">berechnen</button>
                     </div>
@@ -76,15 +89,24 @@
 
                         <p>
                             Grenzwerte für die Primfaktoren:
-                            <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 16}"
+                            <input [ngClass]="{'faulty': exception == 18
+                            || exception == 19
+                            || exception == 16
+                            || exception == 25}"
                                    class="input limits" type="number" #keyPrimesMin [defaultValue]="5">
                             -
-                            <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 17}"
+                            <input [ngClass]="{'faulty':
+                            exception == 18
+                            || exception == 19
+                            || exception == 17
+                            || exception == 26}"
                                    class="input limits" type="number" #keyPrimesMax [defaultValue]="29">
                         </p>
 
-                        <p class="error" [ngClass]="{'true': exception == 16}">Das Minimum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
-                        <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
+                        <p class="error" [ngClass]="{'true': exception == 25 || exception == 26}">
+                            Die Eingaben müssen Zahlen $\in \mathbb&#123;N&#125;$ sein.</p>
+                        <p class="error" [ngClass]="{'true': exception == 16}">Das Minimum befindet sich nicht im gültigen Intervall $(2 - 6\:000)$.</p>
+                        <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 6\:000)$.</p>
                         <p class="error" [ngClass]="{'true': exception == 18}">Das Minimum ist größer als das Maximum.</p>
                         <p class="error" [ngClass]="{'true': exception == 19}">Im angegebenen Intervall befinden sich keine Primzahlen.</p>
 
@@ -95,12 +117,12 @@
 
                 <app-dash-loading *ngIf="processLoading"></app-dash-loading>
 
-                <p class="mathjax" *ngIf="exception != 1" [mathjax]="factorizationProcess"></p>
-                <p class="mathjax" *ngIf="exception != 1" [mathjax]="eulerTotientProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 || exception == 3" [mathjax]="findingGCDProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 || exception == 20" [mathjax]="displayKeys"></p>
+                <p class="mathjax-content" *ngIf="exception != 1" [mathjax]="factorizationProcess"></p>
+                <p class="mathjax-content" *ngIf="exception != 1" [mathjax]="eulerTotientProcess"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 || exception == 3" [mathjax]="findingGCDProcess"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 || exception == 20" [mathjax]="displayKeys"></p>
             </div>
 
             <input type="radio" name="rsa-procedure" id="with-primes">
@@ -113,7 +135,11 @@
                         <h1 class="sub-heading">Verwende eigene Werte</h1>
                         <p>Man gebe zwei Primzahlen $p$, $q$ und einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ an.</p>
                         <p>$p = $ <input #p
-                                         [ngClass]="{'faulty' : exception == 4 || exception == 9 || exception == 13}"
+                                         [ngClass]="{'faulty' :
+                                         exception == 4
+                                         || exception == 9
+                                         || exception == 13
+                                         || exception == 21}"
                                          (keyup)="setPrimeP(p.value)"
                                          (click)="setPrimeP(p.value)"
                                          class="input">
@@ -124,7 +150,11 @@
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
                         <p>$q = $ <input #q
-                                         [ngClass]="{'faulty' : exception == 5 || exception == 10 || exception == 14}"
+                                         [ngClass]="{'faulty' :
+                                         exception == 5
+                                         || exception == 10
+                                         || exception == 14
+                                         || exception == 22}"
                                          (keyup)="setPrimeQ(q.value)"
                                          (click)="setPrimeQ(q.value)"
                                          class="input">
@@ -135,17 +165,30 @@
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
                         <p>$e = $ <input #eWithPrimes
-                                         [ngClass]="{'faulty' : exception == 8 || exception == 1 || exception == 6 || exception == 12}"
+                                         [ngClass]="{'faulty' :
+                                         exception == 8
+                                         || exception == 1
+                                         || exception == 6
+                                         || exception == 12
+                                         || exception == 23}"
                                          (keyup)="setE(eWithPrimes.value)"
                                          (click)="setE(eWithPrimes.value)"
                                          class="input">
 
-                            <span class="error" [ngClass]="{'true' : exception == 8 || exception == 1 || exception == 6}"
+                            <span class="error" [ngClass]="{'true' :
+                            exception == 8
+                            || exception == 1
+                            || exception == 6}"
                             [mathjax]="validRange">
                             </span>
                             <span class="error" [ngClass]="{'true' : exception == 12}"> Es ist darauf zu achten, dass $e$
                             nicht das 32-Bit-Integer-Limit von $2\:147\:483\:647$ überschreitet.</span>
                         </p>
+                        <p class="error" [ngClass]="{'true':
+                        exception == 21 ||
+                        exception == 22 ||
+                        exception == 23}">
+                            Die Eingaben müssen Zahlen $\in \mathbb&#123;N&#125;$ sein.</p>
                         <button class="btn-primary" [ngClass]="{'disabled': processLoading}"
                                 (click)="refreshInputs('with-primes', eWithPrimes.value, p.value, q.value, '')">berechnen</button>
 
@@ -160,14 +203,23 @@
                         (voraussichtlich) keine Ausnahmefälle eintreten, es sei denn, $e$ ist $1$.</p>
                         <p>
                             Grenzwerte für die Primfaktoren:
-                            <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 16}"
+                            <input [ngClass]="{'faulty':
+                            exception == 18
+                            || exception == 19
+                            || exception == 16
+                            || exception == 25}"
                                    class="input limits" type="number" #primesMin [defaultValue]="5">
                             -
-                            <input [ngClass]="{'faulty': exception == 18 || exception == 19 || exception == 17}"
+                            <input [ngClass]="{'faulty':
+                            exception == 18
+                            || exception == 19
+                            || exception == 17
+                            || exception == 26}"
                                 class="input limits" type="number" #primesMax [defaultValue]="29">
                         </p>
-                        <p class="error" [ngClass]="{'true': exception == 16}">Das Minimum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
-                        <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 10\:000)$.</p>
+                        <p class="error" [ngClass]="{'true': exception == 25 || exception == 26}">
+                            Die Eingaben müssen Zahlen $\in \mathbb&#123;N&#125;$ sein.</p>
+                        <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 6\:000)$.</p>
                         <p class="error" [ngClass]="{'true': exception == 18}">Das Minimum ist größer als das Maximum.</p>
                         <p class="error" [ngClass]="{'true': exception == 19}">Im angegebenen Intervall befinden sich keine Primzahlen.</p>
                         <button class="btn-primary" [ngClass]="{'disabled': processLoading}" (click)="
@@ -177,20 +229,20 @@
 
                 <app-dash-loading *ngIf="processLoading"></app-dash-loading>
 
-                <p class="mathjax" *ngIf="exception != 1
+                <p class="mathjax-content" *ngIf="exception != 1
                             && exception != 16
                             && exception != 17
                             && exception != 18
                             && exception != 19" [mathjax]="findRSAModulProcess"></p>
-                <p class="mathjax" *ngIf="exception != 1
+                <p class="mathjax-content" *ngIf="exception != 1
                             && exception != 16
                             && exception != 17
                             && exception != 18
                             && exception != 19" [mathjax]="eulerTotientProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 || exception == 7 || exception == 3" [mathjax]="findingGCDProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
-                <p class="mathjax" *ngIf="exception == 0 || exception == 20" [mathjax]="displayKeys"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 || exception == 7 || exception == 3" [mathjax]="findingGCDProcess"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 && extendedGCDList" [mathjax]="extendGCDProcess"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 && extendedGCDList" [mathjax]="findCongurenceProcess"></p>
+                <p class="mathjax-content" *ngIf="exception == 0 || exception == 20" [mathjax]="displayKeys"></p>
             </div>
         </div>
     </span>
