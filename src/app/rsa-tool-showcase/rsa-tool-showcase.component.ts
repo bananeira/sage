@@ -237,13 +237,13 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.min = Number(min);
         this.max = Number(max);
 
-        if (!Number.isInteger(min))
+        if (!Number.isInteger(Number(min)))
         {
             this.exception = 25;
             return;
         }
 
-        if (!Number.isInteger(max))
+        if (!Number.isInteger(Number(max)))
         {
             this.exception = 26;
             return;
@@ -275,8 +275,6 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.e = 0;
         this.N = 0;
         this.exception = 0;
-        this.min = 0;
-        this.max = 0;
 
         this.totientComponents = [];
         this.eulerTotient = 0;
