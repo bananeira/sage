@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
-import {catchError, map, of, take, tap} from "rxjs";
+import {map, take, tap} from "rxjs";
 import {rsaOutputWithKey, rsaOutputWithPrimes, RSAService} from "../service/rsa.service";
-import {Output} from "../service/complement-builder.service";
 
 @Component({
   selector: 'app-rsa-tool-showcase',
@@ -231,9 +230,6 @@ export class RsaToolShowcaseComponent implements OnInit {
     randomInputs(procedure: string, min: string = '0', max: string = '0'): void {
         this.resetProcedure();
 
-        this.min = Number(min);
-        this.max = Number(max);
-
         if (!Number.isInteger(Number(min)))
         {
             this.exception = 25;
@@ -245,6 +241,9 @@ export class RsaToolShowcaseComponent implements OnInit {
             this.exception = 26;
             return;
         }
+
+        this.min = Number(min);
+        this.max = Number(max);
 
         if (this.min > this.max) {
             this.exception = 18;

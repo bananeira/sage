@@ -54,15 +54,46 @@ h1 {
         font-size: 40px;
         user-select: text;
         font-weight: 800;
-        color: $text-Bright;
-        text-decoration: underline;
-        text-underline-offset: 8px;
-        text-decoration-color: $text-inverted-emphasis-low;
+        color: $primary-color;
         transition: 0.4s;
 
+        & :nth-child(1) {
+            position: absolute;
+            display: inline-block;
+            transform: translateY(0);
+            opacity: 1;
+            transition: 0.4s;
+        }
+
+        & :nth-child(2) {
+            position: absolute;
+            display: inline-block;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        & :nth-child(3) {
+            margin: 0;
+            position: relative;
+            color: transparent;
+            transition: 0.4s;
+        }
+
         &:hover {
-            color: $primary-color;
-            text-decoration-color: rgba($primary-color, 0.75);
+            & :nth-child(1) {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            & :nth-child(2) {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+
+            & :nth-child(3) {
+                margin: 0 -22px;
+            }
         }
     }
 }
