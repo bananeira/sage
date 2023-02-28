@@ -706,7 +706,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         }
     }
 
-    private doUnifiedRSA(formattedGCDList: string) {
+    doUnifiedRSA(formattedGCDList: string) {
         let formattedExtendedGCDList = "";
 
         if (this.e == 1) {
