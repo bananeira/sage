@@ -322,7 +322,7 @@ export class RsaToolShowcaseComponent implements OnInit {
             ` $e$ muss also in der Menge $[1; ${this.eulerTotient! - 1}] \\cap \\mathbb{N}$ liegen.`
         )
 
-        if (this.exception == 1) {
+        if (this.exception == 1 || this.exception == 4 || this.exception == 5) {
             return;
         }
 
