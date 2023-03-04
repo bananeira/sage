@@ -315,7 +315,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.processLoading = false;
 
         this.validRange = "$e$ ist so zu wählen, " +
-            "dass $(1 <) e < \\varphi (N)$ und $ggT(e, \\varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$) " +
+            "dass $(1 <) e < \\varphi (N)$ und $\operatorname{ggT}(e, \\varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$) " +
             "gilt.";
 
         this.validRange = this.validRange.concat(
@@ -353,7 +353,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                     `
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \operatorname{ggT}(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei verschiedene, aber feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
@@ -404,7 +404,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                     `
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \operatorname{ggT}(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
@@ -462,7 +462,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     `
                         ${String(this.divisorFormatList![0][0])} & = ${String(this.divisorFormatList![0][1])}
                         \\cdot \\underline{${String(this.divisorFormatList![0][2])}}
-                        + ${String(this.divisorFormatList![0][3])} \\leftarrow ggT(${String(this.e)},
+                        + ${String(this.divisorFormatList![0][3])} \\leftarrow \operatorname{ggT}(${String(this.e)},
                         \\varphi (${String(this.N)})) = ${String(this.divisorFormatList![0][2])}\\\\
                     `
                 );
@@ -476,7 +476,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                             `
                                 ${String(this.divisorFormatList![i][0])} & = ${String(this.divisorFormatList![i][1])}
                                 \\cdot ${String(this.divisorFormatList![i][2])}
-                                + \\underline{${String(this.divisorFormatList![i][3])}} \\leftarrow ggT(${String(this.e)},
+                                + \\underline{${String(this.divisorFormatList![i][3])}} \\leftarrow \operatorname{ggT}(${String(this.e)},
                                 \\varphi (${String(this.N)})) = ${String(this.divisorFormatList![i][3])}\\\\
                             `
                         );
@@ -519,7 +519,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.processLoading = false;
 
         this.validRange = "$e$ ist so zu wählen, " +
-            "dass $(1 <) e < \\varphi (N)$ und $ggT(e, \\varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$) " +
+            "dass $(1 <) e < \\varphi (N)$ und $\operatorname{ggT}(e, \\varphi (N)) = 1$ ($e$ ist teilerfremd zu $\\varphi (N)$) " +
             "gilt.";
 
         this.validRange = this.validRange.concat(
@@ -564,7 +564,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                 `
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \operatorname{ggT}(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     $\\varphi (N)$ ist also $${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
                     aus genau 2 Primfaktoren zusammen. Das Verfahren wird in diesem Falle nicht weitergeführt.
@@ -577,7 +577,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     <br/>
                     <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land ggT(a,n) = 1\\} \\rvert$.
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \operatorname{ggT}(a,n) = 1\\} \\rvert$.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                 `
 
@@ -654,7 +654,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         `
                             ${String(this.divisorFormatList![0][0])} & = ${String(this.divisorFormatList![0][1])}
                             \\cdot \\underline{${String(this.divisorFormatList![0][2])}}
-                            + ${String(this.divisorFormatList![0][3])} \\leftarrow ggT(${String(this.e)},
+                            + ${String(this.divisorFormatList![0][3])} \\leftarrow \operatorname{ggT}(${String(this.e)},
                             \\varphi (${String(this.N)})) = ${String(this.divisorFormatList![0][2])}\\\\
                         `
                     );
@@ -668,7 +668,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                             `
                                 ${String(this.divisorFormatList![i][0])} & = ${String(this.divisorFormatList![i][1])}
                                 \\cdot ${String(this.divisorFormatList![i][2])}
-                                + \\underline{${String(this.divisorFormatList![i][3])}} \\leftarrow ggT(${String(this.e)},
+                                + \\underline{${String(this.divisorFormatList![i][3])}} \\leftarrow \operatorname{ggT}(${String(this.e)},
                                 \\varphi (${String(this.N)})) = ${String(this.divisorFormatList![i][3])}\\\\
                             `
                             );
@@ -718,7 +718,7 @@ export class RsaToolShowcaseComponent implements OnInit {
             `
                 Die Kongruenz $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$, hier
                 $${this.e} \\cdot d \\equiv 1 \\pmod{${this.eulerTotient}}$ ist genau dann korrekt, wenn der
-                $ggT(e, \\varphi (N)) = 1$, also $ggT(${this.e}, ${this.eulerTotient})) = 1$. Der euklidische Algorithmus
+                $\operatorname{ggT}(e, \\varphi (N)) = 1$, also $\operatorname{ggT}(${this.e}, ${this.eulerTotient})) = 1$. Der euklidische Algorithmus
                 liefert die Antwort darauf, ob das der Fall ist, oder nicht.
 
                 Es folgt also:
@@ -730,7 +730,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         if (this.gcd == 1) {
             this.findingGCDProcess = this.findingGCDProcess.concat(
                 `
-                    Aus dem euklidischen Algorithmus ergibt sich also $ggT(${this.e}, ${this.eulerTotient}) = 1$.
+                    Aus dem euklidischen Algorithmus ergibt sich also $\operatorname{ggT}(${this.e}, ${this.eulerTotient}) = 1$.
                     Damit lässt sich der euklidische Algorithmus erweitern, um das gesuchte multiplikative Inverse
                     $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ zu finden.
                 `
@@ -807,7 +807,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         } else {
             this.findingGCDProcess = this.findingGCDProcess.concat(
             `
-                Aus dem euklidischen Algorithmus ergibt sich also $ggT(${this.e}, ${this.eulerTotient}) = ${this.gcd}$.
+                Aus dem euklidischen Algorithmus ergibt sich also $\operatorname{ggT}(${this.e}, ${this.eulerTotient}) = ${this.gcd}$.
                 Damit lässt sich der euklidische Algorithmus nicht erweitern. Das Verfahren wird in diesem Falle nicht
                 weitergeführt.
             `
