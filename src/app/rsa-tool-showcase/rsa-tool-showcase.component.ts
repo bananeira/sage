@@ -364,11 +364,10 @@ export class RsaToolShowcaseComponent implements OnInit {
                     $\\: = ${this.eulerTotient}$.
                     <br/>
                     <br/>
-                    Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
-                    Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
-                    Inverse $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$
-                    in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}\\:(\\mathbb{Z}_{${this.eulerTotient}})$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
-                    gelten.
+                    Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, ein $d$ für den Schlüssel
+                    $(d,N)$ zu finden, sodass $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$ gilt. Bei dem gesuchten $d$ handelt
+                    es sich also um das multiplikative Inverse $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$
+                    oder von $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}\\:(\\mathbb{Z}_{${this.eulerTotient}})$.
                 `
 
                 if (this.e == 1) {
@@ -612,11 +611,10 @@ export class RsaToolShowcaseComponent implements OnInit {
 
                 this.eulerTotientProcess = this.eulerTotientProcess.concat(
                 `
-                    Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
-                    Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
-                    Inverse $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
-                    in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}\\:(\\mathbb{Z}_{${this.eulerTotient}})$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
-                    gelten.
+                    Mittels $\\varphi (N) = \\varphi (${this.N})$ lässt sich im Folgenden versuchen, ein $d$ für den Schlüssel
+                    $(d,N)$ zu finden, sodass $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$ gilt. Bei dem gesuchten $d$ handelt
+                    es sich also um das multiplikative Inverse $[${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$
+                    oder von $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}\\:(\\mathbb{Z}_{${this.eulerTotient}})$.
                 `
                 );
 
@@ -716,12 +714,12 @@ export class RsaToolShowcaseComponent implements OnInit {
 
         this.findingGCDProcess =
             `
-                Die Kongruenz $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$, hier
-                $${this.e} \\cdot d \\equiv 1 \\pmod{${this.eulerTotient}}$ ist genau dann korrekt, wenn der
-                $\\operatorname{ggT}(e, \\varphi (N)) = 1$, also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient})) = 1$. Der euklidische Algorithmus
-                liefert die Antwort darauf, ob das der Fall ist, oder nicht.
+                Mittels des berechneten $\\varphi (${this.N})$ kann jetzt $d$ bestimmt werden, für das die Kongruenz
+                $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$, also $${this.e} \\cdot d \\equiv 1 \\pmod{${this.eulerTotient}}$ gilt.
+                Vorweg muss allerdings gegeben sein, dass $e$ und $\\varphi (N)$ teilerfremd sind. Das hei{\ss}t, wenn
+                der $\\operatorname{ggT}(e, \\varphi (N)) = 1$, also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient})) = 1$.
+                Der euklidische Algorithmus liefert die Antwort darauf, ob dies der Fall ist, oder nicht.
 
-                Es folgt also:
                 \\begin{align*}
                     ${formattedGCDList}
                 \\end{align*}
@@ -816,13 +814,13 @@ export class RsaToolShowcaseComponent implements OnInit {
 
         this.extendGCDProcess =
             `
-                Der erweiterte euklidische Algorithmus lautet nun wie folgt:
+                Der erweiterte euklidische Algorithmus lautet:
 
                 \\begin{align*}
                     ${formattedExtendedGCDList}
                 \\end{align*}
 
-                Daraus lässt sich auch die folgende Kongruenz ableiten:
+                Aus der vorangegangenen Gleichheit kann lässt sich die folgende Kongruenz ablesen:
             `
 
         if (this.extendedGCDList![this.extendedGCDList!.length - 1][4] % this.eulerTotient! == 0) {
