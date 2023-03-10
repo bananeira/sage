@@ -191,6 +191,10 @@ h1 {
     background-color: $background-base;
     user-select: none;
 
+    & strong {
+        user-select: text;
+    }
+
     .heading {
         display: flex;
         flex-direction: row;
