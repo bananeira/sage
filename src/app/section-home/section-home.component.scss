@@ -49,6 +49,7 @@ h1 {
     color: $text-Bright;
     font-weight: 800;
     animation: 1.6s animate-title ease-in-out;
+    overflow: hidden;
 
     a {
         font-size: 40px;
