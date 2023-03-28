@@ -1,5 +1,21 @@
 <app-navigation-bar></app-navigation-bar>
 
+<div [ngClass]="{'hidden' : !showWebring}" class="webring-frame">
+    <div class="frame-top">
+        <span class="headline">webring</span>
+        <div class="buttons">
+            <span [ngClass]="{'minimize' : !minimizeWebring}" class="minimize-button" (click)="toggleMinimizeWebring()">
+                <span [ngClass]="{'minimize' : minimizeWebring}">&#9866;</span>
+                <span [ngClass]="{'minimize' : !minimizeWebring}">&#9870;</span>
+            </span>
+            <span class="closing-button" (click)="toggleShowWebring()">
+                &#10005;
+            </span>
+        </div>
+    </div>
+    <iframe [ngClass]="{'minimize' : !minimizeWebring}" id="webring" width="500" height="50" sandbox="allow-top-navigation-by-user-activation" src="https://ring.helena.place/sora"></iframe>
+</div>
+
 <div class="container">
     <section class="curved container" id="night-section">
         <app-section-home id="top" class="block header"></app-section-home>

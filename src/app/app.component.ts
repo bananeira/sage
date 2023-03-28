@@ -10,4 +10,14 @@ import { SectionContentModel } from "./interface/section-content-model";
 })
 export class AppComponent {
     textSectionContent: SectionContentModel[] = sectionContentModels;
+    showWebring: boolean = true;
+    minimizeWebring: boolean = true;
+
+    toggleShowWebring(): void {
+        this.showWebring = !this.showWebring;
+    }
+
+    toggleMinimizeWebring(): void {
+        this.minimizeWebring = !this.minimizeWebring;
+    }
 }
