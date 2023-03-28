@@ -38,7 +38,7 @@
                     <label for="with-key-own" (click)="resetProcedure()">Eigene Werte</label>
                     <div class="tab">
                         <h1 class="sub-heading">Verwende eigene Werte</h1>
-                        <p ngNonBindable>Man gebe einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ und
+                        <p ngNonBindable>Bitte gib einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ und
                             den dazugehörigen RSA-Modul $N$ an.
                         </p>
                         <p>$e = $ <input #eWithKey
@@ -133,7 +133,7 @@
                     <label for="with-primes-own" (click)="resetProcedure()">Eigene Werte</label>
                     <div class="tab">
                         <h1 class="sub-heading">Verwende eigene Werte</h1>
-                        <p>Man gebe zwei Primzahlen $p$, $q$ und einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ an.</p>
+                        <p>Bitte gib zwei Primzahlen $p$, $q$ und einen beliebigen ($\text&#123;encrypt&#125;$) Schlüssel $e$ an.</p>
                         <p>$p = $ <input #p
                                          [ngClass]="{'faulty' :
                                          exception == 4
