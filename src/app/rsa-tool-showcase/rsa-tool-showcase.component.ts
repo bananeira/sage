@@ -352,8 +352,8 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotient = (this.p - 1) * (this.q - 1);
                 this.eulerTotientProcess =
                     `
-                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$.
+                    <div class="definition-box">Die eulersche $\\varphi$-Funktion ist grundsätzlich durch
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$ definiert.
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei verschiedene, aber feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
@@ -402,9 +402,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotient = (this.p - 1) * (this.q);
                 this.eulerTotientProcess =
                     `
-                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$.
-                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
+                    <div class="definition-box">Die eulersche $\\varphi$-Funktion ist grundsätzlich durch
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$ definiert.
+                    Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
                     $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$.
@@ -416,7 +416,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     Mittels $\\varphi (${this.N})$ lässt sich im Folgenden versuchen, $d$ für den
                     Schlüssel $(d, N)$ zu ermitteln. Bei dem gesuchten $d$ handelt es sich also um das multiplikative
-                    Inverse $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
+                    Inverse $d =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ oder von $${this.e}$ in
                     in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}\\:(\\mathbb{Z}_{${this.eulerTotient}})$. Dafür muss $e \\cdot d \\equiv 1 \\pmod{\\varphi (N)}$
                     gelten.
                 `
@@ -546,7 +546,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 Für das Verfahren sei der Schlüssel $(e, N) = (${this.e}, ${this.N})$ gegeben.
                 <br/>
                 <br/>
-                Man finde also $\\varphi (N)$.
+                Zu finden ist vorerst $\\varphi (N)$.
                 <br/>
                 <br/>
                 Dafür muss zunächst der RSA-Modul $N$ in seine Primfaktoren zerlegt werden.
@@ -562,10 +562,10 @@ export class RsaToolShowcaseComponent implements OnInit {
             if (this.primeFactors.length != 2) {
                 this.eulerTotientProcess =
                 `
-                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$.
-                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
-                    $\\varphi (N)$ ist also $${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
+                    <div class="definition-box">Die eulersche $\\varphi$-Funktion ist grundsätzlich durch
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$ definiert.
+                    Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
+                    In dem Fall ist $\\varphi (N) = ${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
                     aus genau 2 Primfaktoren zusammen. Das Verfahren wird in diesem Falle nicht weitergeführt.
                 `
                 this.exception = 2;
@@ -575,9 +575,9 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Es gilt $N = p \\cdot q = ${formattedFactorList} = ${this.N}$.
                     <br/>
                     <br/>
-                    <div class="definition-box">Man definiere die eulersche $\\varphi$-Funktion grundsätzlich durch
-                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$.
-                    Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
+                    <div class="definition-box">Die eulersche $\\varphi$-Funktion ist grundsätzlich durch
+                    $\\varphi (n) := \\,\\lvert \\{a \\in \\mathbb{N} $$ : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\rvert$ definiert.
+                    Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                 `
 
                 if (this.totientComponents![2] == this.totientComponents![0]) {
@@ -623,7 +623,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     `
                         <div class="definition-box">Weil $${this.e}$ in $\\mathbb{Z}/${this.eulerTotient}\\mathbb{Z}\\:(\\mathbb{Z}_{${this.eulerTotient}})$ bezüglich der Multiplikation
                         das neutrale Element ist, ist $${this.e}$ stets zu sich selbst invers. Damit ist $[${this.e}]_{\\varphi (N)}^{-1}
-                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich also um $${this.e}$.</div>
+                        = [${this.e}]_{\\varphi (N)}$. Bei $d$ handelt es sich um $${this.e}$.</div>
                     `
                     );
 
@@ -714,8 +714,8 @@ export class RsaToolShowcaseComponent implements OnInit {
 
         this.findingGCDProcess =
             `
-                Vorweg muss allerdings gegeben sein, dass $e$ und $\\varphi (N)$ teilerfremd sind. Das heißt, wenn
-                der $\\operatorname{ggT}(e, \\varphi (N)) = 1$, also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient})) = 1$.
+                Vorweg muss allerdings gegeben sein, dass $e$ und $\\varphi (N)$ teilerfremd sind. Das ist der Fall, wenn
+                der $\\operatorname{ggT}(e, \\varphi (N)) = 1$, also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient})) = ist.
                 Der euklidische Algorithmus liefert die Antwort darauf, ob dies der Fall ist, oder nicht.
 
                 \\begin{align*}
@@ -726,9 +726,9 @@ export class RsaToolShowcaseComponent implements OnInit {
         if (this.gcd == 1) {
             this.findingGCDProcess = this.findingGCDProcess.concat(
                 `
-                    Aus dem euklidischen Algorithmus ergibt sich also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient}) = 1$.
+                    Aus dem euklidischen Algorithmus ergibt sich $\\operatorname{ggT}(${this.e}, ${this.eulerTotient}) = 1$.
                     Damit lässt sich der euklidische Algorithmus erweitern, um das gesuchte multiplikative Inverse
-                    $d' =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ zu finden.
+                    $d =  [${this.e}]_{\\varphi (N)}^{-1}$ von $[${this.e}]_{\\varphi (N)}$ zu finden.
                 `
             );
 
@@ -803,7 +803,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         } else {
             this.findingGCDProcess = this.findingGCDProcess.concat(
             `
-                Aus dem euklidischen Algorithmus ergibt sich also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient}) = ${this.gcd}$.
+                Aus dem euklidischen Algorithmus ergibt sich $\\operatorname{ggT}(${this.e}, ${this.eulerTotient}) = ${this.gcd}$.
                 Damit lässt sich der euklidische Algorithmus nicht erweitern. Das Verfahren wird in diesem Falle nicht
                 weitergeführt.
             `
@@ -880,7 +880,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     $${this.foundKey} \\cdot ${this.e} \\equiv 1 \\pmod{${this.eulerTotient}}$.
                     Also ist $[${this.foundKey}]_{\\varphi (${this.N})}
                     = [${this.e}]_{\\varphi (${this.N})}^{-1}$.
-                    Es liegt nun allerdings eine negative Restklasse vor, sodass man vorerst nach dem
+                    Es liegt nun allerdings eine negative Restklasse vor, sodass man nach dem
                     Standardrepräsentanten $d$ von $d'$ in der Restklasse $\\pmod{${this.eulerTotient}}$ sucht.
                     Dazu wird solange $\\varphi (N) = ${this.eulerTotient}$ auf
                     das gefundene multiplikative Inverse addiert, bis man den ersten positiven Repräsentanten
@@ -909,7 +909,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Das multiplikative Inverse $[${this.e}]_{\\varphi (${this.N})}^{-1}$ von
                     $[${this.e}]_{\\varphi (${this.N})}$ ergibt sich aus der gefundenen Kongruenz
                     $${this.foundKey} \\cdot ${this.e} \\equiv 1 \\pmod{${this.N}}$.
-                    Also ist $d = d' = [${this.foundKey}]_{\\varphi (${this.N})}
+                    Also ist $d = [${this.foundKey}]_{\\varphi (${this.N})}
                     $$= [${this.e}]_{\\varphi (${this.N})}^{-1}$.
                     <br/>
                     <br/>
