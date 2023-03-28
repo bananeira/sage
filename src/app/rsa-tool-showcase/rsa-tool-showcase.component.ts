@@ -715,7 +715,7 @@ export class RsaToolShowcaseComponent implements OnInit {
         this.findingGCDProcess =
             `
                 Vorweg muss allerdings gegeben sein, dass $e$ und $\\varphi (N)$ teilerfremd sind. Das ist der Fall, wenn
-                der $\\operatorname{ggT}(e, \\varphi (N)) = 1$, also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient})) = ist.
+                der $\\operatorname{ggT}(e, \\varphi (N)) = 1$, also $\\operatorname{ggT}(${this.e}, ${this.eulerTotient})) = 1$ ist.
                 Der euklidische Algorithmus liefert die Antwort darauf, ob dies der Fall ist, oder nicht.
 
                 \\begin{align*}
