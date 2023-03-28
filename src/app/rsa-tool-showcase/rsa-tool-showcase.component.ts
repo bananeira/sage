@@ -357,7 +357,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei verschiedene, aber feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
-                    $ \\: := (p - 1) \\cdot (q - 1)$.
+                    $ \\: := (p - 1) \\cdot (q - 1)$, denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
                     <br/>
                     <br/>
                     Damit ergibt sich $\\varphi (${this.N}) $$\\: = (${this.p} - 1) \\cdot (${this.q} - 1)$
@@ -407,7 +407,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
-                    $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$.
+                    $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$, denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
                     <br/>
                     <br/>
                     Damit ergibt sich $\\varphi (${this.N}) $$\\: = (${this.p} - 1) \\cdot ${this.q}$
