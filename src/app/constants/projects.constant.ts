@@ -3,10 +3,10 @@ import {State} from "../enum/state.enum";
 
 export const projects: LinkModel[] = [
     {
-        id: "sage-toolbox",
+        id: "toolbox",
         title: "sage-toolbox",
-        description: "This is a small Java project in Spring. Both the RSA project and" +
-            "the complement builder are included. More to follow later.",
+        description: "A collection of tools that I continuously write and collect here. All tools included here are " +
+            "made available under <a href='https://sorata.dev/#tools'>tools</a> with a graphical interface.",
         language: [
             "java",
             "spring",
@@ -15,7 +15,8 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/sage-toolbox",
-        state: State.Concluded
+        state: State.Concluded,
+        conclusionDate: "current release v2.1.6",
     },
     {
         id: "recursion",
