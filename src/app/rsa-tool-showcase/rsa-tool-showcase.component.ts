@@ -357,7 +357,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt also die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei verschiedene, aber feste Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$
-                    $ \\: := (p - 1) \\cdot (q - 1)$, denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
+                    $ \\: := (p - 1) \\cdot (q - 1)$ - denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
                     <br/>
                     <br/>
                     Damit ergibt sich $\\varphi (${this.N}) $$\\: = (${this.p} - 1) \\cdot (${this.q} - 1)$
@@ -407,7 +407,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N)$$\\: := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
-                    $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$, denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
+                    $ \\: := (p - 1) \\cdot q = p \\cdot (q - 1)$ - denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
                     <br/>
                     <br/>
                     Damit ergibt sich $\\varphi (${this.N}) $$\\: = (${this.p} - 1) \\cdot ${this.q}$
@@ -586,7 +586,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                         Für $\\varphi (N)$ gibt es zwei eindeutige, aber gleiche Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
                         $\\varphi (N)$$\\: := \\varphi (p) \\cdot q$$\\: = p \\cdot \\varphi (q) \$$ \\: := (p - 1) \\cdot q $
-                        $\\:= p \\cdot (q - 1)$ gilt.
+                        $\\:= p \\cdot (q - 1)$ gilt - denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
                         <br>
                         <br>
                         Damit ergibt sich $\\varphi (${this.N}) $$\\: =(${this.totientComponents![0]} -
@@ -599,7 +599,8 @@ export class RsaToolShowcaseComponent implements OnInit {
                     `
                         Für $\\varphi (N)$ gibt es zwei eindeutige, aber unterschiedliche Primfaktoren $p = ${this.totientComponents![0]}$
                         und $q = ${this.totientComponents![2]}$, sodass folglich
-                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot (q - 1) $ gilt.
+                        $\\varphi (N)$$\\: := \\varphi (p) \\cdot \\varphi (q)$$ \\: := (p - 1) \\cdot (q - 1) $ gilt -
+                        denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
                         <br>
                         <br>
                         Damit ergibt sich $\\varphi (${this.N}) $$\\: =(${this.totientComponents![0]} -
