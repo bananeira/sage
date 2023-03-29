@@ -89,10 +89,6 @@
             transition: 0.3s;
             cursor: pointer;
 
-            & .minimize {
-                rotate: -90deg;
-            }
-
             &:hover {
                 background-color: rgba($text-bright, 0.25);
             }
