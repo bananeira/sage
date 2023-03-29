@@ -4,7 +4,7 @@ import {State} from "../enum/state.enum";
 export const projects: LinkModel[] = [
     {
         id: "toolbox",
-        title: "sage-toolbox",
+        title: "toolbox",
         description: "A collection of tools that I continuously write and collect here. All tools included here are " +
             "made available under <a href='https://sorata.dev/#tools'>tools</a> with a graphical interface.",
         language: [
