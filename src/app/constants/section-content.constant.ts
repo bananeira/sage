@@ -25,10 +25,10 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "tools",
         title: "tools",
-        text: "A collection of tools that I continuously write and collect here. It should also be kept in mind that the tools on" +
-            "scientific topics are an elaboration on my part based on the knowledge acquired during my studies." +
-            "The tools are therefore limited to my understanding of the subject." +
-            "It is therefore not recommended to use them without careful consideration." +
+        text: "A collection of tools that I continuously write and collect here. It should also be kept in mind that the tools on " +
+            "scientific topics are an elaboration on my part based on the knowledge acquired during my studies. " +
+            "The tools are therefore limited to my understanding of the subject. " +
+            "It is therefore not recommended to use them without careful consideration. " +
             "Nevertheless, I value accuracy and subject-specific precision and will continue to uodate the existing " +
             "tools, if any problems have been spotted.",
         tools: tools,

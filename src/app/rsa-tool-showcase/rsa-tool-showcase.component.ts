@@ -549,7 +549,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 Zu finden ist vorerst $\\varphi (N)$.
                 <br/>
                 <br/>
-                Dafür muss zunächst der RSA-Modul $N$ in seine Primfaktoren zerlegt werden.
+                Dafür muss der RSA-Modul $N$ in seine Primfaktoren zerlegt werden.
                 <div class="definition-box">Bei der Primfaktorzerlegung einer Zahl hilft es grundsätzlich,
                 wenn man nur bis zur abgerundeten Wurzel dieser Zahl nach Teilern sucht. Also suche man in dem Fall nach einem Teiler bis
                 $\\lfloor\\sqrt{${this.N}}\\rfloor = ${Math.floor(Math.sqrt(this.N))}$. Wurde ein solcher Teiler
