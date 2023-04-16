@@ -1,4 +1,4 @@
-# Welcome to my homepage
+# sora
 
 This homepage is a small personal project that I have been working on for some time. It is intended to present my interests and serves as some sort of portfolio to showcase and collet my activities and soft skills, that I have acquired.
 
