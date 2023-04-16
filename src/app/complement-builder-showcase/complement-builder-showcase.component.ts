@@ -117,17 +117,17 @@ export class ComplementBuilderShowcaseComponent {
             value system if necessary.
             <br/><br/>
             In the following part, we depict a number as $n_b$ with $n$ being the number and $b$ the radix.
-            Single digits of a number will be depicted as $n_{b,i}$. The complement is marked as $K_{b-nM}(n_b)$
-            with $nM =$ notMinusOneComplement and $nTC \\in \\text{{0,1}}$.
+            Single digits of a number will be depicted as $n_{b,i}$. Furthermore, let $nM :=$ a boolean $\\text{{true, false}}$ mapped to an according number
+            $\\in \\text{{0,1}}$.
+            $nM$ is a term that determines whether we look at the $k$ or $k-1$ complement. The complement is then written as $K_{b-nM}(n_b)$.
             <br/><br/>
+            To make this clearer, we will approach this procedure with an example:
             Let $n := 209$ as a decimal value $(b = 10)$. In the next part, we want to form the complement
             $K_{{10}}$ of that number $n_b$.
             <br/><br/>
-            To get $K_{{10}}(n_b)$, we will firstly define $K_{10-1}(n_b)$.
-            This is achieved by inverting the digits of $n_b (209_{10})$.
-            To visualize: Invert the decimal system $\\overline{S_{10}}$ and map it to the non-inverted decimal
-            system $S_{10}$ as follows
-            (please note that this is a non-formal concept, but it can be applied to any radix.):
+            To get $K_{{10}}(n_b)$, we define $K_{10-1}(n_b)$.
+            This is done by inverting the digits of $n_b (209_{10})$, hence the decimal system $S_{10}$ mapped to
+            the inverted decimal system $\\overline{S_{10}}$ as follows:
             <br/><br/>
             $S_{10} \\text{ (top row)} $ $\\rightarrow \\overline{S_{10}} \\text{ (bottom row)}:$
             \\begin{array}{|cccccccccc|}
