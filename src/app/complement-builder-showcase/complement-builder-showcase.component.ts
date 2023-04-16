@@ -126,7 +126,7 @@ export class ComplementBuilderShowcaseComponent {
             $K_{{10}}$ of that number $n_b$.
             <br/><br/>
             To get $K_{{10}}(n_b)$, we define $K_{10-1}(n_b)$.
-            This is done by inverting the digits of $n_b (209_{10})$, hence the decimal system $S_{10}$ mapped to
+            This is done by inverting the digits of $n_b (209_{10})$, hence the decimal system $S_{10} := \\text{{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}}$ mapped to
             the inverted decimal system $\\overline{S_{10}}$ as follows:
             <br/><br/>
             $S_{10} \\text{ (top row)} $ $\\rightarrow \\overline{S_{10}} \\text{ (bottom row)}:$
