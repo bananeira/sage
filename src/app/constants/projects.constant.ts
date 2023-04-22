@@ -5,8 +5,8 @@ export const projects: LinkModel[] = [
     {
         id: "toolbox",
         title: "toolbox",
-        description: "A collection of tools that I continuously write and collect here. All tools included here are " +
-            "made available under <a href='https://sorata.dev/#tools'>tools</a> with a graphical interface.",
+        description: `<span>A collection of tools that I continuously write and collect here. All tools included here are ` +
+            `made available under <a href='#tools'>tools</a> with a graphical interface.</span>`,
         language: [
             "java",
             "spring",
