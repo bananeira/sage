@@ -817,7 +817,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     ${formattedExtendedGCDList}
                 \\end{align*}
 
-                Aus der vorangegangenen Gleichheit kann lässt sich die folgende Kongruenz ablesen:
+                Aus der vorangegangenen Gleichheit lässt sich die folgende Kongruenz ablesen:
             `
 
         if (this.extendedGCDList![this.extendedGCDList!.length - 1][4] % this.eulerTotient! == 0) {
