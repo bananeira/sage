@@ -53,6 +53,7 @@
     border-radius: $b-radius-block;
     border: $b-width solid rgba($text-bright, 0.25);
     transition: 0.55s;
+    z-index: 1;
 
     & .frame-top {
         display: flex;
@@ -100,11 +101,9 @@
     }
 
     & #webring {
+        background-color: rgba($dark-background-floating, 0.9);
         border: none;
-        border-top-left-radius: $b-radius-small;
-        border-top-right-radius: $b-radius-small;
-        border-bottom-left-radius: $b-radius-block;
-        border-bottom-right-radius: $b-radius-block;
+        border-radius: $b-radius-small $b-radius-small $b-radius-block $b-radius-block;
         bottom: 0;
         overflow: hidden;
         transition: 0.55s;
