@@ -84,6 +84,7 @@ export class GaussToolShowcaseComponent {
             this.columns = Array(this.n + 1).map((x, i) => i);
             this.correctDimensions = 0;
             this.matrixElements = new Array<string>(this.m * (this.n + 1)).fill(String(0));
+            this.stringifiedSolutionList = new Array<string>(this.n).fill("");
         } else {
             this.correctDimensions = 2;
         }
@@ -468,6 +469,8 @@ export class GaussToolShowcaseComponent {
 
         stringifiedSolutionListCopy.reverse();
 
+        console.log(stringifiedSolutionListCopy)
+
         this.visualizedEquationSystem = this.visualizedEquationSystem.concat(`\\end{aligned}`);
 
         let solutionDefinite: boolean = true;
@@ -499,12 +502,10 @@ export class GaussToolShowcaseComponent {
             this.visualizedSolution = this.visualizedSolution.concat(`\\right) = \\left(`);
 
             for (let j = 0; j < this.n; j++) {
-                console.log(this.stringifiedSolutionList)
-                console.log(j)
                 if (j < this.n - 1) {
-                    this.visualizedSolution = this.visualizedSolution.concat(`${this.stringifiedSolutionList[j]}, `);
+                    this.visualizedSolution = this.visualizedSolution.concat(`${stringifiedSolutionListCopy[j]}, `);
                 } else {
-                    this.visualizedSolution = this.visualizedSolution.concat(`${this.stringifiedSolutionList[j]}`);
+                    this.visualizedSolution = this.visualizedSolution.concat(`${stringifiedSolutionListCopy[j]}`);
                 }
             }
 
@@ -532,7 +533,8 @@ export class GaussToolShowcaseComponent {
 
             if (this.getDependencies().length == 1) {
                 this.visualizedSolution =
-                    this.visualizedSolution.concat(`$\\lambda \\in \\mathbb{Q}$, sodass $\\lambda = x_{${this.getDependencies()[0] - this.n}}$.
+                    this.visualizedSolution.concat(`$\\lambda \\in \\mathbb{Q}$, sodass dieses der freien Variable wie folgt entspricht:
+                     $\\lambda = x_{${this.getDependencies()[0] - this.n}}$.
                     Dann gilt mit diesen im Weiteren: \\begin{gather*}`);
             } else {
                 this.visualizedSolution = this.visualizedSolution.concat(`$`);
@@ -544,7 +546,7 @@ export class GaussToolShowcaseComponent {
                         this.visualizedSolution.concat(i < this.getDependencies().length - 1 ? "," : "");
                 }
 
-                this.visualizedSolution = this.visualizedSolution.concat(`\\in \\mathbb{Q}$, sodass $`);
+                this.visualizedSolution = this.visualizedSolution.concat(`\\in \\mathbb{Q}$, sodass diese $\\lambda_i$ den freien Variablen wie folgt entsprechen: $`);
 
                 for (let i = 0; i < this.getDependencies().length; i++) {
                     this.visualizedSolution =
