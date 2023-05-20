@@ -92,7 +92,12 @@ export class GaussToolShowcaseComponent {
     }
 
     setMatrixElement(at: number, value: string) {
-        if (Number.isInteger(Number(value))) {
+        if (value == "") {
+            this.matrixElements[at] = "0";
+            if (this.incorrectMatrixInputs.includes(at)) {
+                this.incorrectMatrixInputs = this.incorrectMatrixInputs.filter(function(e) { return e !== at })
+            }
+        } else if (Number.isInteger(Number(value))) {
             this.matrixElements[at] = value;
             if (this.incorrectMatrixInputs.includes(at)) {
                 this.incorrectMatrixInputs = this.incorrectMatrixInputs.filter(function(e) { return e !== at })
@@ -101,7 +106,7 @@ export class GaussToolShowcaseComponent {
             && Number.isInteger(Number(value.split("/", 2)[1]))
             && value.split("/", 2)[1].length > 0
             && value.split("/", 2)[0].length > 0
-            && Number(value.split("/", 2)[1]) != 0) {
+            && Number(value.split("/", 2)[1]) > 0) {
             let split = value.split("/", 2);
 
             let numerator = Number(split[0]);
@@ -338,7 +343,7 @@ export class GaussToolShowcaseComponent {
         }
 
         this.visualizedEquationSystem = "Die erweiterte Koeffizientenmatrix kann dann im Weiteren wieder in das " +
-            `entsprechende lineare Gleichungssystem überführt werden. Die Matrix lesen wir dann wie:<br>`;
+            `entsprechende lineare Gleichungssystem überführt werden. Die Matrix ist dann mit dem folgenden äquivalenten Gleichungssystem zu assoziieren:<br>`;
 
         this.visualizedEquationSystem = this.visualizedEquationSystem.concat(`\\begin{aligned}`);
 
@@ -485,7 +490,7 @@ export class GaussToolShowcaseComponent {
 
         if (solutionDefinite && this.getDependencies().length == 0) {
             this.visualizedSolution = this.visualizedSolution.concat(`Aus dem Rückwärtssubstituieren folgt für alle
-             Unbekannten $x_i$ eine eindeutige Lösung. Folglich hat das Gleichungssystem nur eine korrekte Lösung und mit dieser
+             Unbekannten $x_i$ eine eindeutige Lösung. Folglich hat das Gleichungssystem nur eine Lösung. Mit dieser
               lässt sich auch ein eindeutiger Lösungsvektor aufstellen.
               Sei $\\ell$ dazu ein $${this.n}$-Tupel, für das gilt: \\begin{gather*}`);
 
@@ -510,11 +515,11 @@ export class GaussToolShowcaseComponent {
             }
 
             this.visualizedSolution = this.visualizedSolution.concat(`\\right).\\end{gather*} Damit haben wir für unser
-            anfängliches Gleichungssystem mittels Gauß-Algorithmus einen Lösungsvektor $\\ell$ gefunden, der das Gleichungssystem
+            anfängliches Gleichungssystem mittels Gauß-Algorithmus einen Lösungsvektor $\\ell$ gefunden, der dieses
             eindeutig löst.`);
         } else {
             this.visualizedSolution = this.visualizedSolution.concat(`Aus dem Rückwärtssubstituieren folgt für alle
-             Unbekannten $x_i$ eine nicht-eindeutige Lösung. Folglich hat das Gleichungssystem unendlich korrekte Lösungen.
+             Unbekannten $x_i$ eine nicht-eindeutige Lösung. Folglich hat das Gleichungssystem unendlich viele Lösungen.
              <br>
              In diesem Falle stellen wir eine allgemeine Lösung als Linearkombination, also in Parameterform dar.
               Sei $\\ell$ dazu ein $(${this.n} \\times 1)$-Vektor mit allen $x_i \\in \\mathbb{Q}$ der Form \\begin{gather*}`);

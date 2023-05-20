@@ -55,10 +55,11 @@
 
                 <p>
                     In die Eingabefelder können Zahlen im herkömmlichen Format oder auch als Bruch eingegeben werden
-                    (wobei Zähler und Nenner durch ein "/" getrennt werden). Es sollten auch nur ganze Zahlen
-                    zu verwendet werden (nicht z.B. 1.25 oder 1,365). Es ist auch daran zu denken, dass Division durch 0
-                    nicht definiert ist. Eingaben, die auf "/0" enden, werden also nicht akzeptiert.
-                    Felder, in denen zum Zeitpunkt des Absendens der Anfrage kein Eintrag steht, werden durch 0 ersetzt.
+                    (wobei Zähler und Nenner durch ein "/" getrennt werden und der Nenner eine natürliche Zahl ist).
+                    Es sollten auch nur ganze Zahlen verwendet werden (nicht z.B. 1.25 oder 1,365).
+                    Auch ist daran zu denken, dass Division durch 0 nicht definiert ist. Eingaben, die auf "/0" enden,
+                    werden also nicht akzeptiert. Felder, in denen zum Zeitpunkt des Absendens der Anfrage kein Eintrag
+                    steht, werden durch 0 ersetzt.
                 </p>
 
                 <button class="btn-primary" [ngClass]="{'disabled': processLoading || incorrectMatrixInputs.length != 0 || correctDimensions != 0}"
