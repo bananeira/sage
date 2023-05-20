@@ -43,7 +43,7 @@ export class GaussToolShowcaseComponent {
         this.columns = Array(this.n + 1).map((x, i) => i);
     }
 
-    public toolShowcaseActive: boolean = true;
+    public toolShowcaseActive: boolean = false;
     processLoading: boolean = false;
 
     setHideAlertBox() {
@@ -268,7 +268,7 @@ export class GaussToolShowcaseComponent {
                             case "swap" :
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(`
-                                    \\quad ${this.int2roman(Number(currentOperation[2]) + 1)}
+                                    \\quad \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}}
                                     \\leftrightarrow
                                     \\mathrm{${this.int2roman(Number(currentOperation[3]) + 1)}}
                                 `);
@@ -350,7 +350,7 @@ export class GaussToolShowcaseComponent {
                     firstVar = j;
 
                     if (firstVar == this.matrixHistory[this.matrixHistory.length - 1][i].length - 1) {
-                        this.illegalEquationRow = this.int2roman(i + 1);
+                        this.illegalEquationRow = `\\mathrm{` + this.int2roman(i + 1) + `}`;
                     }
 
                     break;
@@ -386,7 +386,7 @@ export class GaussToolShowcaseComponent {
                 }
 
                 if (j == this.matrixHistory[0][i].length - 1) {
-                    if (i != 2) {
+                    if (i != this.m - 1) {
                         this.visualizedEquationSystem = this.visualizedEquationSystem.concat("\\\\");
                     }
                 }
@@ -427,7 +427,7 @@ export class GaussToolShowcaseComponent {
                         firstVar = j;
 
                         if (firstVar == this.matrixHistory[this.matrixHistory.length - 1][i].length - 1) {
-                            this.illegalEquationRow = this.int2roman(i + 1);
+                            this.illegalEquationRow = `\\mathrm{` + this.int2roman(i + 1) + `}`;
                         }
 
                         break;
@@ -440,7 +440,7 @@ export class GaussToolShowcaseComponent {
                         firstVar = j;
 
                         if (firstVar == this.matrixHistory[this.matrixHistory.length - 1][i].length - 1) {
-                            this.illegalEquationRow = this.int2roman(i + 1);
+                            this.illegalEquationRow = `\\mathrm{` + this.int2roman(i + 1) + `}`;
                         }
 
                         break;
@@ -464,25 +464,27 @@ export class GaussToolShowcaseComponent {
             }
         }
 
-        this.stringifiedSolutionList.reverse();
+        let stringifiedSolutionListCopy = this.stringifiedSolutionList.slice();
+
+        stringifiedSolutionListCopy.reverse();
 
         this.visualizedEquationSystem = this.visualizedEquationSystem.concat(`\\end{aligned}`);
 
         let solutionDefinite: boolean = true;
 
-        for (let j = 0; j < this.stringifiedSolutionList.length; j++) {
-            for (let k = 0; k < this.stringifiedSolutionList.length; k++) {
-                if (this.stringifiedSolutionList[j].includes("x")) {
+        for (let j = 0; j < stringifiedSolutionListCopy.length; j++) {
+            for (let k = 0; k < stringifiedSolutionListCopy.length; k++) {
+                if (stringifiedSolutionListCopy[j].includes("x")) {
                     solutionDefinite = false;
                 }
             }
         }
 
-        if (solutionDefinite) {
+        if (solutionDefinite && this.getDependencies().length == 0) {
             this.visualizedSolution = this.visualizedSolution.concat(`Aus dem Rückwärtssubstituieren folgt für alle
              Unbekannten $x_i$ eine eindeutige Lösung. Folglich hat das Gleichungssystem nur eine korrekte Lösung und mit dieser
               lässt sich auch ein eindeutiger Lösungsvektor aufstellen.
-              Sei $\\ell$ dazu ein $${this.n}$-Tupel, für den gilt: \\begin{gather*}`);
+              Sei $\\ell$ dazu ein $${this.n}$-Tupel, für das gilt: \\begin{gather*}`);
 
             this.visualizedSolution = this.visualizedSolution.concat(`\\ell = \\left(`);
 
@@ -494,24 +496,15 @@ export class GaussToolShowcaseComponent {
                 }
             }
 
-
             this.visualizedSolution = this.visualizedSolution.concat(`\\right) = \\left(`);
 
             for (let j = 0; j < this.n; j++) {
-                let currentSolution = this.stringifiedSolutionList[j].split("/");
-
+                console.log(this.stringifiedSolutionList)
+                console.log(j)
                 if (j < this.n - 1) {
-                    if (currentSolution.length == 2) {
-                        this.visualizedSolution = this.visualizedSolution.concat(`\\frac{${currentSolution[1]}}{${currentSolution[0]}}, `);
-                    } else {
-                        this.visualizedSolution = this.visualizedSolution.concat(`${currentSolution}, `);
-                    }
+                    this.visualizedSolution = this.visualizedSolution.concat(`${this.stringifiedSolutionList[j]}, `);
                 } else {
-                    if (currentSolution.length == 2) {
-                        this.visualizedSolution = this.visualizedSolution.concat(`\\frac{${currentSolution[1]}}{${currentSolution[0]}}`);
-                    } else {
-                        this.visualizedSolution = this.visualizedSolution.concat(`${currentSolution}`);
-                    }
+                    this.visualizedSolution = this.visualizedSolution.concat(`${this.stringifiedSolutionList[j]}`);
                 }
             }
 
@@ -579,26 +572,40 @@ export class GaussToolShowcaseComponent {
 
             this.visualizedSolution = this.visualizedSolution.concat(`\\end{pmatrix} = `);
 
+            let columnIsAllZeroes: boolean = true;
+
+            for (let j = 0; j < this.eqSysTransformationHistory[2].length; j++) {
+                if (this.generalNumberFormatter(
+                    this.eqSysTransformationCopy[j][this.n],
+                    0,
+                    false,
+                    false) != "0") {
+                    columnIsAllZeroes = false;
+                }
+            }
+
             for (let i = 0; i <= this.getDependencies().length; i++) {
                 if (i == 0) {
-                    this.visualizedSolution = this.visualizedSolution.concat(`\\begin{pmatrix}`);
+                    if (!columnIsAllZeroes) {
+                        this.visualizedSolution = this.visualizedSolution.concat(`\\begin{pmatrix}`);
 
-                    for (let j = 0; j < this.eqSysTransformationHistory[2].length; j++) {
-                        this.visualizedSolution =
-                            this.visualizedSolution.concat(this.generalNumberFormatter(
-                                this.eqSysTransformationCopy[j][this.n],
-                                0,
-                                false,
-                                false))
-                        if (j < this.eqSysTransformationCopy.length - 1) {
+                        for (let j = 0; j < this.eqSysTransformationHistory[2].length; j++) {
                             this.visualizedSolution =
-                                this.visualizedSolution.concat("\\\\")
+                                this.visualizedSolution.concat(this.generalNumberFormatter(
+                                    this.eqSysTransformationCopy[j][this.n],
+                                    0,
+                                    false,
+                                    false))
+                            if (j < this.eqSysTransformationCopy.length - 1) {
+                                this.visualizedSolution =
+                                    this.visualizedSolution.concat("\\\\")
+                            }
                         }
-                    }
 
-                    this.visualizedSolution = this.visualizedSolution.concat(`\\end{pmatrix}`);
+                        this.visualizedSolution = this.visualizedSolution.concat(`\\end{pmatrix}`);
+                    }
                 } else {
-                    this.visualizedSolution = this.visualizedSolution.concat(`+`);
+                    this.visualizedSolution = this.visualizedSolution.concat(!columnIsAllZeroes ? `+` : "");
                     this.visualizedSolution = this.visualizedSolution.concat(`\\lambda${this.getDependencies().length > 1 ? `_{${(this.getDependencies()[i - 1] - this.n).toString()}}` : ""}`);
 
                     this.visualizedSolution = this.visualizedSolution.concat(`\\begin{pmatrix}`);
@@ -633,7 +640,7 @@ export class GaussToolShowcaseComponent {
         let dependencyList: number[] = [];
 
         for (let j = this.matrixHistory[0][0].length; j < this.eqSysTransformationHistory[2][0].length; j++) {
-            if (this.isDependency(j)) {
+            if (this.isDependency(j) && !dependencyList.includes(j)) {
                 dependencyList.push(j);
             }
         }
@@ -642,15 +649,29 @@ export class GaussToolShowcaseComponent {
     }
 
     isDependency(column: number) {
+        let isDependency: boolean = false;
+
         for (let j = this.matrixHistory[0][0].length - 1; j < this.eqSysTransformationHistory[2][0].length; j++) {
             for (let i = 0; i < this.m; i++) {
                 if (this.eqSysTransformationHistory[2][i][column].num != "0") {
-                    return true;
+                    isDependency = true;
                 }
             }
         }
 
-        return false;
+        if (!isDependency) {
+            isDependency = true;
+
+            for (let j = 0; j < this.matrixHistory[0][0].length; j++) {
+                for (let i = 0; i < this.m; i++) {
+                    if (this.matrixHistory[this.matrixHistory.length - 1][i][column - this.n - 1].num != "0") {
+                        isDependency = false;
+                    }
+                }
+            }
+        }
+
+        return isDependency;
     }
 
     getFrontOfEqSign = (matrixRow: { den: string, num: string }[]): string => {
@@ -679,7 +700,7 @@ export class GaussToolShowcaseComponent {
         }
 
         if (output == "") {
-            return "0"
+            return "0";
         } else return output;
     }
 
