@@ -516,7 +516,7 @@ export class GaussToolShowcaseComponent {
             this.visualizedSolution = this.visualizedSolution.concat(`Aus dem Rückwärtssubstituieren folgt für alle
              Unbekannten $x_i$ eine nicht-eindeutige Lösung. Folglich hat das Gleichungssystem unendlich korrekte Lösungen.
              <br>
-             In diesem Falle ist es besser, eine allgemeine Lösung als Linearkombination, also in Parameterform darzustellen.
+             In diesem Falle stellen wir eine allgemeine Lösung als Linearkombination, also in Parameterform dar.
               Sei $\\ell$ dazu ein $(${this.n} \\times 1)$-Vektor mit allen $x_i \\in \\mathbb{Q}$ der Form \\begin{gather*}`);
 
             this.visualizedSolution = this.visualizedSolution.concat(`\\ell = \\left(`);
