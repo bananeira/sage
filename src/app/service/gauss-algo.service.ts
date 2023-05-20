@@ -9,6 +9,7 @@ export interface GaussOutput {
     operationsOnPass: number[];
     eqSysTranformationHistory: {den: string, num: string}[][][];
     containsIllegalEquation: boolean;
+    foundVariables: number[];
 }
 
 @Injectable({providedIn: "root"})

@@ -28,6 +28,7 @@ export class GaussToolShowcaseComponent {
     protected eqSysTransformationHistory!: {den: string, num: string}[][][];
     protected eqSysTransformationCopy: {den: string, num: string}[][] = [];
     protected containsIllegalEquation!: boolean;
+    protected foundVariables!: number[];
 
     protected illegalEquationRow!: string;
 
@@ -127,6 +128,7 @@ export class GaussToolShowcaseComponent {
                         this.operationsOnPass = output.operationsOnPass;
                         this.eqSysTransformationHistory = output.eqSysTranformationHistory;
                         this.containsIllegalEquation = output.containsIllegalEquation;
+                        this.foundVariables = output.foundVariables;
                     }
                 ),
                 tap(() => this.doDisplayProcedure())
@@ -469,8 +471,6 @@ export class GaussToolShowcaseComponent {
 
         stringifiedSolutionListCopy.reverse();
 
-        console.log(stringifiedSolutionListCopy)
-
         this.visualizedEquationSystem = this.visualizedEquationSystem.concat(`\\end{aligned}`);
 
         let solutionDefinite: boolean = true;
@@ -552,7 +552,7 @@ export class GaussToolShowcaseComponent {
                     this.visualizedSolution =
                         this.visualizedSolution.concat(`\\lambda_{${this.getDependencies()[i] - this.n}} = x_{${this.getDependencies()[i] - this.n}}`);
                     this.visualizedSolution =
-                        this.visualizedSolution.concat(i < this.getDependencies().length - 2 ? "," : i < this.getDependencies().length - 1 ? "$ und $" : "");
+                        this.visualizedSolution.concat(i < this.getDependencies().length - 2 ? "$, $" : i < this.getDependencies().length - 1 ? "$ und $" : "");
                 }
 
                 this.visualizedSolution = this.visualizedSolution.concat(`$. Dann gilt mit diesen im Weiteren: \\begin{gather*}`);
@@ -562,7 +562,7 @@ export class GaussToolShowcaseComponent {
 
             this.eqSysTransformationCopy.reverse();
 
-            this.visualizedSolution = this.visualizedSolution.concat(`\\begin{pmatrix}`);
+            this.visualizedSolution = this.visualizedSolution.concat(`\\begin{bmatrix}`);
 
             for (let j = 0; j < this.n; j++) {
                 if (j < this.n - 1) {
@@ -572,9 +572,11 @@ export class GaussToolShowcaseComponent {
                 }
             }
 
-            this.visualizedSolution = this.visualizedSolution.concat(`\\end{pmatrix} = `);
+            this.visualizedSolution = this.visualizedSolution.concat(`\\end{bmatrix} = `);
 
             let columnIsAllZeroes: boolean = true;
+
+            this.foundVariables.reverse();
 
             for (let j = 0; j < this.eqSysTransformationHistory[2].length; j++) {
                 if (this.generalNumberFormatter(
@@ -589,44 +591,58 @@ export class GaussToolShowcaseComponent {
             for (let i = 0; i <= this.getDependencies().length; i++) {
                 if (i == 0) {
                     if (!columnIsAllZeroes) {
-                        this.visualizedSolution = this.visualizedSolution.concat(`\\begin{pmatrix}`);
+                        this.visualizedSolution = this.visualizedSolution.concat(`\\begin{bmatrix}`);
 
-                        for (let j = 0; j < this.eqSysTransformationHistory[2].length; j++) {
-                            this.visualizedSolution =
-                                this.visualizedSolution.concat(this.generalNumberFormatter(
-                                    this.eqSysTransformationCopy[j][this.n],
-                                    0,
-                                    false,
-                                    false))
-                            if (j < this.eqSysTransformationCopy.length - 1) {
+                        for (let j = 0; j < this.n; j++) {
+                            if (j < this.m) {
                                 this.visualizedSolution =
-                                    this.visualizedSolution.concat("\\\\")
+                                    this.visualizedSolution.concat(this.generalNumberFormatter(
+                                        this.eqSysTransformationCopy[j][this.n],
+                                        0,
+                                        false,
+                                        false));
+                            } else {
+                                this.visualizedSolution =
+                                    this.visualizedSolution.concat("0");
+                            }
+
+                            if (j < this.n - 1) {
+                                this.visualizedSolution =
+                                    this.visualizedSolution.concat("\\\\");
                             }
                         }
 
-                        this.visualizedSolution = this.visualizedSolution.concat(`\\end{pmatrix}`);
+                        this.visualizedSolution = this.visualizedSolution.concat(`\\end{bmatrix}`);
                     }
                 } else {
                     this.visualizedSolution = this.visualizedSolution.concat(!columnIsAllZeroes ? `+` : "");
+
+                    columnIsAllZeroes = false;
+
                     this.visualizedSolution = this.visualizedSolution.concat(`\\lambda${this.getDependencies().length > 1 ? `_{${(this.getDependencies()[i - 1] - this.n).toString()}}` : ""}`);
 
-                    this.visualizedSolution = this.visualizedSolution.concat(`\\begin{pmatrix}`);
+                    this.visualizedSolution = this.visualizedSolution.concat(`\\begin{bmatrix}`);
 
                     for (let j = 0; j < this.n; j++) {
-                        this.visualizedSolution =
-                            this.visualizedSolution.concat(this.getDependencies()[i - 1] - this.n - 1 != j ?
-                                this.generalNumberFormatter(
-                                this.eqSysTransformationCopy[j][this.getDependencies()[i - 1]],
-                                0,
-                                false,
-                                false) : "1")
-                        if (j < this.eqSysTransformationCopy.length - 1) {
+                        if (this.foundVariables.includes(j)) {
                             this.visualizedSolution =
-                                this.visualizedSolution.concat("\\\\")
+                                this.visualizedSolution.concat(this.getDependencies()[i - 1] - this.n - 1 != j ?
+                                    this.generalNumberFormatter(
+                                        this.eqSysTransformationCopy[this.foundVariables.indexOf(j)][this.getDependencies()[i - 1]],
+                                        0,
+                                        false,
+                                        false) : "1");
+                        } else {
+                            this.visualizedSolution =
+                                this.visualizedSolution.concat(this.getDependencies()[i - 1] - this.n - 1 != j ? "0" : "1");
+                        }
+
+                        if (j < this.n - 1) {
+                            this.visualizedSolution = this.visualizedSolution.concat("\\\\");
                         }
                     }
 
-                    this.visualizedSolution = this.visualizedSolution.concat(`\\end{pmatrix}`);
+                    this.visualizedSolution = this.visualizedSolution.concat(`\\end{bmatrix}`);
                 }
             }
 
