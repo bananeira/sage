@@ -9,6 +9,8 @@ import {GaussAlgoService, GaussOutput} from "../service/gauss-algo.service";
     styleUrls: ['./gauss-tool-showcase.component.scss']
 })
 export class GaussToolShowcaseComponent {
+    hideAlertBox: boolean = false;
+
     protected m: number = 3;
     protected n: number = 3;
 
@@ -43,6 +45,10 @@ export class GaussToolShowcaseComponent {
 
     public toolShowcaseActive: boolean = true;
     processLoading: boolean = false;
+
+    setHideAlertBox() {
+        this.hideAlertBox = !this.hideAlertBox;
+    }
 
     @Input()
     gauss?: ToolShowcaseModel;

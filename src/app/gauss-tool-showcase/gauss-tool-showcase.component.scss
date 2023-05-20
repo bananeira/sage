@@ -130,3 +130,17 @@ label {
     padding: $padding-normal;
     margin: calc($margin-links-y/2) 0;
 }
+
+.device-too-small {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .mathjax-content {
+        display: none;
+    }
+
+    .device-too-small {
+        display: block;
+    }
+}

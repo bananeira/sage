@@ -3,6 +3,17 @@
     <span class="container">
         <hr>
         <h1>Lösen von linearen Gleichungssystemem mittels Gauß-Algorithmus</h1>
+        <div [ngClass]="{'hidden' : hideAlertBox}" class="alert-box info">
+            <span class="heading">
+                <h1>info</h1>
+                <span (click)="setHideAlertBox()" class="closing-button">&#10005;</span>
+            </span>
+
+            <hr>
+            <p>
+                The following tool is not available in English.
+            </p>
+        </div>
         <p ngNonBindable>
             Im Folgenden sollen lineare Gleichungssysteme mit $m$ Gleichungen und $n$ Unbekannten $x_i$ gelöst werden
             ($m,n \in \mathbb{{N}}$).
@@ -60,6 +71,9 @@
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedEquationSystem"></p>
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedSolution"></p>
                 </div>
+
+                <p class="device-too-small">Please try to rotate the device or use a larger device,
+                    because the content may not be displayed correctly here.</p>
             </div>
 
             <input type="radio" name="gauss-procedure" id="generator">
