@@ -24,6 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MathjaxModule} from "mathjax-angular";
 import { RsaToolShowcaseComponent } from './rsa-tool-showcase/rsa-tool-showcase.component';
 import {DashLoadingComponent} from "./dash-loading/dash-loading.component";
+import { GaussToolShowcaseComponent } from './gauss-tool-showcase/gauss-tool-showcase.component';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import {DashLoadingComponent} from "./dash-loading/dash-loading.component";
         ToolShowcaseComponent,
         ComplementBuilderShowcaseComponent,
         RsaToolShowcaseComponent,
-        DashLoadingComponent
+        DashLoadingComponent,
+        GaussToolShowcaseComponent
     ],
     imports: [
         BrowserModule,

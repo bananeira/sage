@@ -20,20 +20,7 @@ export class SectionContentComponent {
         (toolShowcaseModel?: ToolShowcaseModel) => (toolShowcaseModel?.id === "rsa")
     );
 
-    @HostListener('window:scroll', ['$event']) // for window scroll events
-    onScroll(element: { getBoundingClientRect: () => any; }, threshold: number, mode: string) {
-        this.isOnScreen(element, threshold, mode);
-    }
-
-    isOnScreen(elm: { getBoundingClientRect: () => any; }, threshold: number, mode?: string) {
-        threshold = threshold || 0;
-        mode = mode || 'visible';
-
-        const rect = elm.getBoundingClientRect();
-        const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-        const above = rect.bottom - threshold < 0;
-        const below = rect.top - viewHeight + threshold >= 0;
-
-        return mode === 'above' ? above : (mode === 'below' ? below : !above && !below);
-    }
+    gaussTool = tools.find(
+        (toolShowcaseModel?: ToolShowcaseModel) => (toolShowcaseModel?.id === "gauss")
+    );
 }

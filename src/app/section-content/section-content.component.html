@@ -6,6 +6,7 @@
 <div class="tool-showcases">
     <app-complement-builder-showcase *ngIf="content?.id === 'tools'" class="tool-showcase" [complementBuilder]=complementTool></app-complement-builder-showcase>
     <app-rsa-tool-showcase *ngIf="content?.id === 'tools'" class="tool-showcase" [rsa]=rsaTool></app-rsa-tool-showcase>
+    <app-gauss-tool-showcase *ngIf="content?.id === 'tools'" class="tool-showcase" [gauss]=gaussTool></app-gauss-tool-showcase>
 </div>
 
 <app-links *ngIf="content?.id === 'skills' && content?.smallLinks?.length! % 4 == 3" class="center" [skills]="content?.smallLinks"></app-links>

@@ -11,4 +11,9 @@ export const tools: ToolShowcaseModel[] = [
         title: "RSA",
         shortDescription: "[discrete mathematics]"
     },
+    {
+        id: "gauss",
+        title: "linear equation systems",
+        shortDescription: "[linear algebra]"
+    },
 ];

@@ -1,0 +1,73 @@
+<app-tool-showcase (toolShowcaseActiveOutput)="setActive($event)" [tool]="gauss"></app-tool-showcase>
+<div [ngClass]="{'active' : toolShowcaseActive}" class="content">
+    <span class="container">
+        <hr>
+        <h1>Lösen von linearen Gleichungssystemem mittels Gauß-Algorithmus</h1>
+        <p ngNonBindable>
+            Im Folgenden sollen lineare Gleichungssysteme mit $m$ Gleichungen und $n$ Unbekannten $x_i$ gelöst werden
+            ($m,n \in \mathbb{{N}}$).
+            <br>
+            Ein lineares Gleichungssystem lässt sich grundsätzlich auch in Form einer Matrix darstellen, da die Anzahl
+            und Position der Unbekannten $x_i$ eindeutig bestimmt sind. Diese Form nennen wir erweiterte Koeffizientenmatrix.
+            <br>
+            Hier betrachten wir also eine Matrix im Matrizenraum $\mathbb{{Q}}^{{m \times n}}$ und auch einen
+            $(m \times 1)$-Lösungsvektor $\ell$, die ein lineares Gleichungssystem mit den Unbekannten $x_i \in \mathbb{{Q}}$
+            repräsentieren. Der Lösungsvektor löst das Gleichungssystem und soll mittels Gauß-Algorithmus gefunden werden.
+        </p>
+        <div class="tabs">
+            <input type="radio" name="gauss-procedure" id="own-values" checked="checked">
+            <label for="own-values">Eigene Werte</label>
+            <div class="tab">
+                <h1 class="sub-heading">Verwende eigene Werte</h1>
+                <p>Das lineare Gleichungssystem soll
+                    $m =$ <input class="input dimensions" [ngClass]="{'faulty' : correctDimensions == 1}"
+                                 #m type="number" (input)="updateDimM(m.value)" (click)="updateDimM(m.value)" [defaultValue]="3">
+                    Gleichungen und
+                    $n =$  <input class="input dimensions" [ngClass]="{'faulty' : correctDimensions == 2}"
+                                  #n type="number" (input)="updateDimN(n.value)" (click)="updateDimN(n.value)" [defaultValue]="3">
+                    Unbekannte haben.</p>
+                <p class="error" [ngClass]="{'true' : correctDimensions == 1 || correctDimensions == 2}">
+                    Die Eingaben für $n$ und $m$ sollten sich innerhalb des Intervalls 1 - 10 befinden.
+                </p>
+                <p *ngFor="let row of rows; let rowIndex = index">
+                    <span *ngFor="let column of columns; let columnIndex = index">
+                        <input class="input" onClick="this.select();" [ngClass]="{'faulty' : !correctMatrixInputs}"
+                               #elem (input)="setMatrixElement(rowIndex * columns.length + columnIndex, elem.value)"
+                               [value]="matrixElements[rowIndex * columns.length + columnIndex]">
+                        <span [mathjax]="getDisplayX(columnIndex)"></span>
+                    </span>
+                </p>
+
+                <p class="error" [ngClass]="{'true' : !correctMatrixInputs}">
+                    Für die Faktoren aller Unbekannten sollten erlaubte Werte wie unten beschrieben verwendet werden.
+                </p>
+
+                <p>
+                    In die Eingabefelder können Zahlen im herkömmlichen Format oder auch als Bruch eingegeben werden
+                    (wobei Zähler und Nenner durch ein "/" getrennt werden). Es sollten auch nur ganze Zahlen
+                    zu verwendet werden (nicht z.B. 1.25 oder 1,365). Es ist auch daran zu denken, dass Division durch 0
+                    nicht definiert ist. Eingaben, die auf "/0" enden, werden also nicht akzeptiert.
+                    Felder, in denen zum Zeitpunkt des Absendens der Anfrage kein Eintrag steht, werden durch 0 ersetzt.
+                </p>
+
+                <button class="btn-primary" [ngClass]="{'disabled': processLoading || !correctMatrixInputs || correctDimensions != 0}"
+                        (click)="getGaussOutput()">berechnen</button>
+
+                <app-dash-loading *ngIf="processLoading"></app-dash-loading>
+
+                <div *ngIf="matrixHistory != null && visualizedEquationSystem != null" class="definition-box">
+                    <p *ngIf="matrixHistory != null" class="mathjax-content" [mathjax]="visualizedGaussAlgorithm"></p>
+                    <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedEquationSystem"></p>
+                    <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedSolution"></p>
+                </div>
+            </div>
+
+            <input type="radio" name="gauss-procedure" id="generator">
+            <label for="generator">Zufällige Werte</label>
+            <div class="tab">
+                <h1 class="sub-heading">Sorry, there's nothing to see here!</h1>
+                <p>This page is still under construction...</p>
+            </div>
+        </div>
+    </span>
+</div>
