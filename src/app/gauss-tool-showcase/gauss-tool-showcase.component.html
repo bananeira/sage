@@ -31,14 +31,14 @@
                 </p>
                 <p *ngFor="let row of rows; let rowIndex = index">
                     <span *ngFor="let column of columns; let columnIndex = index">
-                        <input class="input" onClick="this.select();" [ngClass]="{'faulty' : !correctMatrixInputs}"
+                        <input class="input" onClick="this.select();" [ngClass]="{'faulty' : incorrectMatrixInputs.length != 0}"
                                #elem (input)="setMatrixElement(rowIndex * columns.length + columnIndex, elem.value)"
                                [value]="matrixElements[rowIndex * columns.length + columnIndex]">
                         <span [mathjax]="getDisplayX(columnIndex)"></span>
                     </span>
                 </p>
 
-                <p class="error" [ngClass]="{'true' : !correctMatrixInputs}">
+                <p class="error" [ngClass]="{'true' : incorrectMatrixInputs.length > 0}">
                     Für die Faktoren aller Unbekannten sollten erlaubte Werte wie unten beschrieben verwendet werden.
                 </p>
 
@@ -50,7 +50,7 @@
                     Felder, in denen zum Zeitpunkt des Absendens der Anfrage kein Eintrag steht, werden durch 0 ersetzt.
                 </p>
 
-                <button class="btn-primary" [ngClass]="{'disabled': processLoading || !correctMatrixInputs || correctDimensions != 0}"
+                <button class="btn-primary" [ngClass]="{'disabled': processLoading || incorrectMatrixInputs.length != 0 || correctDimensions != 0}"
                         (click)="getGaussOutput()">berechnen</button>
 
                 <app-dash-loading *ngIf="processLoading"></app-dash-loading>

@@ -16,7 +16,7 @@ export class GaussToolShowcaseComponent {
     protected columns: number[];
 
     protected correctDimensions: number = 0;
-    protected correctMatrixInputs: boolean = true;
+    protected incorrectMatrixInputs: number[] = [];
 
     protected matrixElements: string[] = new Array<string>(this.m * (this.n + 1)).fill(String(0));
 
@@ -86,7 +86,9 @@ export class GaussToolShowcaseComponent {
     setMatrixElement(at: number, value: string) {
         if (Number.isInteger(Number(value))) {
             this.matrixElements[at] = value;
-            this.correctMatrixInputs = true;
+            if (this.incorrectMatrixInputs.includes(at)) {
+                this.incorrectMatrixInputs = this.incorrectMatrixInputs.filter(function(e) { return e !== at })
+            }
         } else if (Number.isInteger(Number(value.split("/", 2)[0]))
             && Number.isInteger(Number(value.split("/", 2)[1]))
             && value.split("/", 2)[1].length > 0
@@ -98,9 +100,11 @@ export class GaussToolShowcaseComponent {
             let denominator = Number(split[1]);
 
             this.matrixElements[at] = numerator + "/" + denominator;
-            this.correctMatrixInputs = true;
+            this.incorrectMatrixInputs = this.incorrectMatrixInputs.filter(function(e) { return e !== at })
         } else {
-            this.correctMatrixInputs = false;
+            if (!this.incorrectMatrixInputs.includes(at)) {
+                this.incorrectMatrixInputs.push(at)
+            }
         }
     }
 
