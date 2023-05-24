@@ -320,8 +320,8 @@ export class GaussToolShowcaseComponent {
                                 }
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(`
-                                    \\quad ${this.generalNumberFormatter({den, num}, 0, false, false)}
-                                    \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}}
+                                    \\quad \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}} \\cdot
+                                    ${this.generalNumberFormatter({den, num}, 0, false, false)}
                                 `);
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(o < currentMatrixOperations.length - 1
@@ -528,7 +528,7 @@ export class GaussToolShowcaseComponent {
              Unbekannten $x_i$ eine nicht-eindeutige Lösung. Folglich hat das Gleichungssystem unendlich viele Lösungen.
              <br>
              In diesem Falle stellen wir eine allgemeine Lösung als Linearkombination, also in Parameterform dar.
-              Sei $\\ell$ dazu ein $(${this.n} \\times 1)$-Vektor mit allen $x_i \\in \\mathbb{Q}$ der Form \\begin{gather*}`);
+              Sei $\\ell$ dazu ein $(${this.n} \\times 1)$-Vektor mit allen $x_i$ der Form \\begin{gather*}`);
 
             this.visualizedSolution = this.visualizedSolution.concat(`\\ell = \\left(`);
 
