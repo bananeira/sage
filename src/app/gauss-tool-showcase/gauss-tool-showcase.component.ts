@@ -212,7 +212,7 @@ export class GaussToolShowcaseComponent {
             `)
         }
 
-        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\begin{gather*}`);
+        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\begin{align*}`);
 
         for (let h = 0; h < this.matrixHistory.length; h++) {
             if (h == 0) {
@@ -236,18 +236,24 @@ export class GaussToolShowcaseComponent {
                     const { den, num } = this.matrixHistory[h][i][j];
 
                     if (j < this.matrixHistory[h][i].length - 1) {
-                        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat( den == "1" ? `${num} & ` : `\\frac{${num}}{${den}} & `);
+                        this.visualizedGaussAlgorithm =
+                            this.visualizedGaussAlgorithm.concat(
+                                this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false) + `&`);
                     } else {
                         if (i < this.matrixHistory[h].length - 1) {
-                            this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat( den == "1" ? `${num} \\\\` : `\\frac{${num}}{${den}} \\\\`);
+                            this.visualizedGaussAlgorithm =
+                                this.visualizedGaussAlgorithm.concat(
+                                    this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false) + `\\\\`);
                         } else {
-                            this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat( den == "1" ? `${num}` : `\\frac{${num}}{${den}}`);
+                            this.visualizedGaussAlgorithm =
+                                this.visualizedGaussAlgorithm.concat(
+                                    this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false));
                         }
                     }
                 }
             }
 
-            this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\end{array}\\right]`);
+            this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\end{array}\\right]&`);
             this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\begin{array}{l}`);
 
             for (let i = 0; i < this.matrixHistory[h].length; i++) {
@@ -296,7 +302,7 @@ export class GaussToolShowcaseComponent {
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(`
                                     \\quad \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}}
-                                    ${Number(num) >= 0 ? "+" : ""} ${den == "1" ? num : `\\frac{${num}}{${den}}`}
+                                    ${this.generalNumberFormatter({den, num}, 0, true, false)}
                                     \\mathrm{${this.int2roman(Number(currentOperation[3]) + 1)}}
                                 `);
                                 this.visualizedGaussAlgorithm =
@@ -314,7 +320,7 @@ export class GaussToolShowcaseComponent {
                                 }
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(`
-                                    \\quad ${den == "1" ? num : `\\frac{${num}}{${den}}`}
+                                    \\quad ${this.generalNumberFormatter({den, num}, 0, false, false)}
                                     \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}}
                                 `);
                                 this.visualizedGaussAlgorithm =
@@ -335,7 +341,7 @@ export class GaussToolShowcaseComponent {
             this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\end{array} \\\\`);
         }
 
-        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\end{gather*}`);
+        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(`\\end{align*}`);
 
 
         for (let i = 0; i < this.n; i++) {
