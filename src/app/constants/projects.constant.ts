@@ -16,7 +16,7 @@ export const projects: LinkModel[] = [
         ],
         codeLink: "https://github.com/bananeira/sage-toolbox",
         state: State.Concluded,
-        conclusionDate: "current release v3.1.0",
+        conclusionDate: "ver 3.2.0",
     },
     {
         id: "recursion",
