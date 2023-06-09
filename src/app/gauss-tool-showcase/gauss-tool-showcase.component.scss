@@ -144,3 +144,11 @@ label {
         display: block;
     }
 }
+
+.toggle-option-inline {
+    display: flex;
+
+    & span {
+        display: block;
+    }
+}

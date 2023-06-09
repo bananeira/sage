@@ -10,8 +10,10 @@ const routes: Routes = [];
             {
                 "config": {
                     "loader": {
-                        "load": ["input/tex-full", "output/svg", "[tex]/require", "[tex]/ams"]
+                        "load": ["input/tex-full", "output/chtml", 'ui/menu', "[tex]/require", "[tex]/ams"]
                     },
+                    "ignoreHtmlClass": 'tex2jax_ignore',
+                    "processHtmlClass": 'tex2jax_process',
                     "tex": {
                         "inlineMath": [["$", "$"]],
                         "packages": [
@@ -20,7 +22,7 @@ const routes: Routes = [];
                             "ams",
                         ],
                     },
-                    "svg": { "fontCache": "global" },
+                    "svg": { "fontCache": "global", "mtextInheritFont": "false", "merrorInheritFont": "false"}
                 },
                 "src": "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/startup.js"
             }

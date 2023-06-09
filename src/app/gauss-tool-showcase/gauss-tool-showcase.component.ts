@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ToolShowcaseModel} from "../interface/tool-showcase-model";
 import {map, take, tap} from "rxjs";
-import {GaussAlgoService, GaussOutput} from "../service/gauss-algo.service";
+import {GaussAlgoService, GaussOutput, RandomGaussMatrix} from "../service/gauss-algo.service";
 
 @Component({
     selector: 'app-gauss-tool-showcase',
@@ -39,7 +39,14 @@ export class GaussToolShowcaseComponent {
     protected visualizedEquationSystem: string = "";
     protected visualizedSolution: string = "";
 
-    constructor(private gaussAlgoService: GaussAlgoService) {
+    protected numOfFreeVars: number = 0;
+    protected generateFractions: boolean = false;
+    protected generatingRadius: number = 20;
+    protected illegalFreeVars: boolean = false;
+
+    protected illegalRad: boolean = false;
+
+    constructor(private gaussAlgoService: GaussAlgoService, private randomGaussMatrixService: RandomGaussMatrix) {
         this.rows = Array(this.m).map((x, i) => i);
         this.columns = Array(this.n + 1).map((x, i) => i);
     }
@@ -121,6 +128,22 @@ export class GaussToolShowcaseComponent {
         }
     }
 
+
+    getRandomMatrixOutput() {
+        this.processLoading = true;
+
+        this.randomGaussMatrixService.sendRandomMatrixRequest(this.generatingRadius, this.generateFractions, this.m, this.n, this.numOfFreeVars)
+            .pipe(
+                take(1),
+                map((output: string[]) => {
+                        this.matrixElements = output;
+                    }
+                ),
+                tap(() => this.getGaussOutput())
+            )
+            .subscribe();
+    }
+
     getGaussOutput(): void {
         this.processLoading = true;
 
@@ -143,15 +166,20 @@ export class GaussToolShowcaseComponent {
 
     doDisplayProcedure() {
         this.processLoading = false;
-        this.resetValues();
+        this.resetValues(this.m, this.n);
 
         this.visualizeGaussAlgorithm();
     }
 
-    private resetValues() {
+    protected resetValues(m: number, n: number) {
         this.visualizedGaussAlgorithm = "";
         this.visualizedEquationSystem = "";
         this.visualizedSolution = "";
+        this.matrixElements = new Array<string>(this.m * (this.n + 1)).fill(String(0));
+        this.m = m;
+        this.n = n;
+        this.rows = Array(this.m).map((x, i) => i);
+        this.columns = Array(this.n + 1).map((x, i) => i);
     }
 
     private visualizeGaussAlgorithm() {
@@ -174,12 +202,27 @@ export class GaussToolShowcaseComponent {
                 const { den, num } = this.matrixHistory[0][i][j];
 
                 if (j < this.matrixHistory[0][i].length - 1) {
-                    this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat( den == "1" ? `${num} & ` : `\\frac{${num}}{${den}} & `);
+                    this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(this.generalNumberFormatter(
+                        {den, num},
+                        0,
+                        false,
+                        false,
+                        false) + `&`);
                 } else {
                     if (i < this.matrixHistory[0].length - 1) {
-                        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat( den == "1" ? `${num} \\\\` : `\\frac{${num}}{${den}} \\\\`);
+                        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(this.generalNumberFormatter(
+                            {den, num},
+                            0,
+                            false,
+                            false,
+                            false) + `\\\\`);
                     } else {
-                        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat( den == "1" ? `${num}` : `\\frac{${num}}{${den}}`);
+                        this.visualizedGaussAlgorithm = this.visualizedGaussAlgorithm.concat(this.generalNumberFormatter(
+                            {den, num},
+                            0,
+                            false,
+                            false,
+                            false));
                     }
                 }
             }
@@ -238,16 +281,16 @@ export class GaussToolShowcaseComponent {
                     if (j < this.matrixHistory[h][i].length - 1) {
                         this.visualizedGaussAlgorithm =
                             this.visualizedGaussAlgorithm.concat(
-                                this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false) + `&`);
+                                this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false, false) + `&`);
                     } else {
                         if (i < this.matrixHistory[h].length - 1) {
                             this.visualizedGaussAlgorithm =
                                 this.visualizedGaussAlgorithm.concat(
-                                    this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false) + `\\\\`);
+                                    this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false, false) + `\\\\`);
                         } else {
                             this.visualizedGaussAlgorithm =
                                 this.visualizedGaussAlgorithm.concat(
-                                    this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false));
+                                    this.generalNumberFormatter(this.matrixHistory[h][i][j], 0, false, false, false));
                         }
                     }
                 }
@@ -302,7 +345,7 @@ export class GaussToolShowcaseComponent {
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(`
                                     \\quad \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}}
-                                    ${this.generalNumberFormatter({den, num}, 0, true, false)}
+                                    ${this.generalNumberFormatter({den, num}, 0, true, false, true)}
                                     \\mathrm{${this.int2roman(Number(currentOperation[3]) + 1)}}
                                 `);
                                 this.visualizedGaussAlgorithm =
@@ -321,7 +364,13 @@ export class GaussToolShowcaseComponent {
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(`
                                     \\quad \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}} \\cdot
-                                    ${this.generalNumberFormatter({den, num}, 0, false, false)}
+                                    ${this.generalNumberFormatter(
+                                        {den, num},
+                                        0,
+                                        false,
+                                        false,
+                                        true)
+                                    }
                                 `);
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(o < currentMatrixOperations.length - 1
@@ -384,18 +433,22 @@ export class GaussToolShowcaseComponent {
                 if (j == firstVar && j < this.matrixHistory[0][i].length - 2) {
                     this.visualizedEquationSystem = this.visualizedEquationSystem.concat(
                         this.generalNumberFormatter(currVar, j + 1, false,
-                            true));
+                            true,
+                            false));
                 } else if (j == firstVar && j < this.matrixHistory[0][i].length - 1) {
                     this.visualizedEquationSystem = this.visualizedEquationSystem.concat(
                         this.generalNumberFormatter(currVar, j + 1, false,
+                            false,
                             false));
                 } else if (j != this.matrixHistory[0][i].length - 1) {
                     this.visualizedEquationSystem = this.visualizedEquationSystem.concat(
                         this.generalNumberFormatter(currVar, j + 1, true,
-                            true));
+                            true,
+                            false));
                 } else {
                     this.visualizedEquationSystem = this.visualizedEquationSystem.concat(
                         this.generalNumberFormatter(currVar, 0, false,
+                            false,
                             false));
                 }
 
@@ -594,6 +647,7 @@ export class GaussToolShowcaseComponent {
                     this.eqSysTransformationCopy[j][this.n],
                     0,
                     false,
+                    false,
                     false) != "0") {
                     columnIsAllZeroes = false;
                 }
@@ -610,6 +664,7 @@ export class GaussToolShowcaseComponent {
                                     this.visualizedSolution.concat(this.generalNumberFormatter(
                                         this.eqSysTransformationCopy[j][this.n],
                                         0,
+                                        false,
                                         false,
                                         false));
                             } else {
@@ -641,6 +696,7 @@ export class GaussToolShowcaseComponent {
                                     this.generalNumberFormatter(
                                         this.eqSysTransformationCopy[this.foundVariables.indexOf(j)][this.getDependencies()[i - 1]],
                                         0,
+                                        false,
                                         false,
                                         false) : "1");
                         } else {
@@ -720,10 +776,12 @@ export class GaussToolShowcaseComponent {
             for (let j = firstVar; j < (matrixRow.length - 1)/2; j++) {
                 if (j == firstVar) {
                     output = output.concat(this.generalNumberFormatter(matrixRow[j], j + 1, false,
-                        true));
+                        true,
+                        false));
                 } else {
                     output = output.concat(this.generalNumberFormatter(matrixRow[j], j + 1, true,
-                        true));
+                        true,
+                        false));
                 }
             }
         }
@@ -762,7 +820,8 @@ export class GaussToolShowcaseComponent {
                         matrixRow[j],
                         0,
                         false,
-                        true));
+                        true,
+                        false));
             } else if (j == firstVar) {
                 output = output.concat(
                     this.generalNumberFormatter(
@@ -771,7 +830,8 @@ export class GaussToolShowcaseComponent {
                             ? j + 1
                             : parseInt(String(j - (matrixRow.length) / 2)) + 1,
                         false,
-                        true));
+                        true,
+                        false));
             } else {
                 output = output.concat(
                     this.generalNumberFormatter(
@@ -780,7 +840,8 @@ export class GaussToolShowcaseComponent {
                             ? j + 1
                             : parseInt(String(j - (matrixRow.length) / 2)) + 1,
                         true,
-                        true));
+                        true,
+                        false));
             }
         }
 
@@ -793,12 +854,17 @@ export class GaussToolShowcaseComponent {
         }
     }
 
-    generalNumberFormatter(fraction: {den: string, num: string}, index: number, getAllSigns: boolean, hideZeroes: boolean): string {
+    generalNumberFormatter(fraction: {den: string, num: string}, index: number, getAllSigns: boolean, hideZeroes: boolean, usePars: boolean): string {
         let formattedFraction: string = "";
 
         let newNum = fraction.num;
+        let numIsNegative = fraction.num.toString().includes("-");
 
-        if (fraction.num.toString().includes("-")) {
+        if (numIsNegative && usePars) {
+            formattedFraction = formattedFraction.concat("(")
+        }
+
+        if (numIsNegative) {
             newNum = fraction.num.toString().replace("-", "");
             formattedFraction = formattedFraction.concat(`-`);
         } else if (getAllSigns && fraction.num != "0") {
@@ -814,6 +880,10 @@ export class GaussToolShowcaseComponent {
         }
 
         formattedFraction = formattedFraction.concat(index > 0 && newNum != "0" ? `x_{${index}}` : "");
+
+        if (numIsNegative && usePars) {
+            formattedFraction = formattedFraction.concat(")")
+        }
 
         return formattedFraction;
     }
@@ -843,4 +913,46 @@ export class GaussToolShowcaseComponent {
             return roman;
         }, '');
     }
+
+    toggleFreeVars() {
+        if (this.numOfFreeVars != -1) {
+            this.numOfFreeVars = -1;
+            this.illegalFreeVars = false;
+        } else {
+            this.numOfFreeVars = 0;
+            this.illegalFreeVars = false;
+        }
+    }
+
+    toggleGenerateFractions() {
+        this.generateFractions = !this.generateFractions;
+    }
+
+    setFreeVars(freeVars: string) {
+        if (Number(freeVars) > this.n || Number(freeVars) < -1) {
+            if (Number(freeVars) == -1) {
+                this.numOfFreeVars = -1;
+                this.illegalFreeVars = false;
+            }
+            this.illegalFreeVars = true;
+        } else {
+            this.numOfFreeVars = Number(freeVars);
+            this.illegalFreeVars = false;
+        }
+    }
+
+    setRadius(rad: string) {
+        if (Number(rad) < 0 || Number(rad) > 100) {
+            this.illegalRad = true;
+        } else {
+            this.generatingRadius = Number(rad);
+            this.illegalRad = false;
+        }
+    }
+
+    getFreeVarsInterval(val: string) {
+        return `Die Anzahl der freien Variablen sollte im Bereich $0 - ${val}$ liegen`;
+    }
+
+    protected readonly Number = Number;
 }

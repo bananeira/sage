@@ -15,19 +15,19 @@
             </p>
         </div>
         <p ngNonBindable>
-            Im Folgenden sollen lineare Gleichungssysteme mit $m$ Gleichungen und $n$ Unbekannten $x_i$ gelöst werden
+            Im Folgenden sollen lineare Gleichungssysteme mit $m$ Gleichungen und $n$ Variablen $x_i$ gelöst werden
             ($m,n \in \mathbb{{N}}$).
             <br>
             Ein lineares Gleichungssystem lässt sich grundsätzlich auch in Form einer Matrix darstellen, da die Anzahl
-            und Position der Unbekannten $x_i$ eindeutig bestimmt sind. Diese Form nennen wir erweiterte Koeffizientenmatrix.
+            und Position der Variablen $x_i$ eindeutig bestimmt sind. Diese Form nennen wir erweiterte Koeffizientenmatrix.
             <br>
             Hier betrachten wir also eine Matrix im Matrizenraum $\mathbb{{Q}}^{{m \times n}}$ und auch einen
-            $(m \times 1)$-Lösungsvektor $\ell$, die ein lineares Gleichungssystem mit den Unbekannten $x_i \in \mathbb{{Q}}$
+            $(m \times 1)$-Lösungsvektor $\ell$, die ein lineares Gleichungssystem mit den Variablen $x_i \in \mathbb{{Q}}$
             repräsentieren. Der Lösungsvektor löst das Gleichungssystem und soll mittels Gauß-Algorithmus gefunden werden.
         </p>
         <div class="tabs">
             <input type="radio" name="gauss-procedure" id="own-values" checked="checked">
-            <label for="own-values">Eigene Werte</label>
+            <label for="own-values" (click)="resetValues(Number(m.value), Number(n.value))">Eigene Werte</label>
             <div class="tab">
                 <h1 class="sub-heading">Verwende eigene Werte</h1>
                 <p>Das lineare Gleichungssystem soll
@@ -36,7 +36,7 @@
                     Gleichungen und
                     $n =$  <input class="input dimensions" [ngClass]="{'faulty' : correctDimensions == 2}"
                                   #n type="number" (input)="updateDimN(n.value)" (click)="updateDimN(n.value)" [defaultValue]="3">
-                    Unbekannte haben.</p>
+                    Variablen haben.</p>
                 <p class="error" [ngClass]="{'true' : correctDimensions == 1 || correctDimensions == 2}">
                     Die Eingaben für $n$ und $m$ sollten sich innerhalb des Intervalls 1 - 10 befinden.
                 </p>
@@ -50,7 +50,7 @@
                 </p>
 
                 <p class="error" [ngClass]="{'true' : incorrectMatrixInputs.length > 0}">
-                    Für die Faktoren aller Unbekannten sollten erlaubte Werte wie unten beschrieben verwendet werden.
+                    Für die Faktoren aller Variablen sollten erlaubte Werte wie unten beschrieben verwendet werden.
                 </p>
 
                 <p>
@@ -67,7 +67,7 @@
 
                 <app-dash-loading *ngIf="processLoading"></app-dash-loading>
 
-                <div *ngIf="matrixHistory != null && visualizedEquationSystem != null" class="definition-box">
+                <div *ngIf='matrixHistory != null && visualizedEquationSystem != null && visualizedEquationSystem != ""' class="definition-box">
                     <p *ngIf="matrixHistory != null" class="mathjax-content" [mathjax]="visualizedGaussAlgorithm"></p>
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedEquationSystem"></p>
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedSolution"></p>
@@ -78,10 +78,64 @@
             </div>
 
             <input type="radio" name="gauss-procedure" id="generator">
-            <label for="generator">Zufällige Werte</label>
+            <label for="generator" (click)="resetValues(Number(mGen.value), Number(nGen.value))">Zufällige Werte</label>
             <div class="tab">
-                <h1 class="sub-heading">Sorry, there's nothing to see here!</h1>
-                <p>This page is still under construction...</p>
+                <h1 class="sub-heading">Generiere zufällige Werte</h1>
+                <p>Das lineare Gleichungssystem soll
+                    $m =$ <input class="input dimensions" [ngClass]="{'faulty' : correctDimensions == 1}"
+                                 #mGen type="number" (input)="updateDimM(mGen.value)" (click)="updateDimM(mGen.value)" [defaultValue]="3">
+                    Gleichungen und
+                    $n =$  <input class="input dimensions" [ngClass]="{'faulty' : correctDimensions == 2}"
+                                  #nGen type="number" (input)="updateDimN(nGen.value)" (click)="updateDimN(nGen.value)" [defaultValue]="3">
+                    Variablen haben.</p>
+                <p class="error" [ngClass]="{'true' : correctDimensions == 1 || correctDimensions == 2}">
+                    Die Eingaben für $n$ und $m$ sollten sich innerhalb des Intervalls $1 - 10$ befinden.
+                </p>
+                <span style="display: flex; flex-direction: row; align-items: baseline">
+                    <span [ngClass]="{'active': numOfFreeVars != -1}" class="toggle-option-inline" (click)="toggleFreeVars()" style="margin-right: 6px">
+                        <span>
+                            &#10003;
+                        </span>
+                    </span>
+                    <p style="margin: 3px 0">Freie Variablen $\lambda_i$ des Gleichungssystems:
+                        <input #freeVars [ngClass]="{'faulty': illegalFreeVars}" class="input dimensions" type="number" [value]="numOfFreeVars == -1 ? '0' : numOfFreeVars" (input)="setFreeVars(freeVars.value)">
+                    </p>
+                </span>
+                <p class="error" [ngClass]="{'true' : illegalFreeVars}" [mathjax]="getFreeVarsInterval(nGen.value)"></p>
+                <span style="display: flex; flex-direction: row; align-items: baseline">
+                    <span [ngClass]="{'active': generateFractions}" class="toggle-option-inline" (click)="toggleGenerateFractions()" style="margin-right: 6px">
+                        <span>
+                            &#10003;
+                        </span>
+                    </span>
+                    <p style="margin: 3px 0">Generiere Brüche</p>
+                </span>
+                <span style="display: flex; flex-direction: row; align-items: baseline">
+                    <p style="margin: 3px 0">Alle Einträge und Komponente der Matrix befinden sich innerhalb des Radius
+                        <input #rad [ngClass]="{'faulty': illegalRad}" class="input dimensions" type="number" [value]="generatingRadius" (input)="setRadius(rad.value)">
+                    </p>
+                </span>
+                <p class="error" [ngClass]="{'true' : illegalRad}">
+                    Der Radius sollte sich im Intervall $0 - 100$ befinden.
+                </p>
+
+                <p class="error" [ngClass]="{'true' : incorrectMatrixInputs.length > 0}">
+                    Für die Faktoren aller Variablen sollten erlaubte Werte wie unten beschrieben verwendet werden.
+                </p>
+
+                <button class="btn-primary" [ngClass]="{'disabled': processLoading || illegalRad || illegalFreeVars || correctDimensions != 0}"
+                        (click)="getRandomMatrixOutput()">berechnen</button>
+
+                <app-dash-loading *ngIf="processLoading"></app-dash-loading>
+
+                <div *ngIf='matrixHistory != null && visualizedEquationSystem != null && visualizedEquationSystem != ""' class="definition-box">
+                    <p *ngIf="matrixHistory != null" class="mathjax-content" [mathjax]="visualizedGaussAlgorithm"></p>
+                    <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedEquationSystem"></p>
+                    <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedSolution"></p>
+                </div>
+
+                <p class="device-too-small">Please try to rotate the device or use a larger device,
+                    because the content may not be displayed correctly here.</p>
             </div>
         </div>
     </span>

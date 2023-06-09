@@ -32,3 +32,28 @@ export class GaussAlgoService {
     }
 
 }
+
+@Injectable({providedIn: "root"})
+export class RandomGaussMatrix {
+    private apiBaseUrl = environment.apiUrl;
+
+    constructor(private httpClient: HttpClient) {}
+
+    public sendRandomMatrixRequest(
+        max: number,
+        useFractions: boolean,
+        m: number,
+        n: number,
+        numOfFreeVars: number
+    ): Observable<string[]> {
+        const params = new HttpParams()
+            .set('max', max)
+            .set('useFractions', useFractions)
+            .set('m', m)
+            .set('n', n)
+            .set('numOfFreeVars', numOfFreeVars);
+
+        return this.httpClient.get<string[]>(this.apiBaseUrl + 'randomGaussMatrix', {params});
+    }
+
+}
