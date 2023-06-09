@@ -22,4 +22,9 @@ export const stateBadgeModels: StateBadgeModel[] = [
         displayName: "ARCHIVED",
         state: State.Archived,
     },
+    {
+        id: "empty",
+        displayName: "",
+        state: State.Empty,
+    },
 ];

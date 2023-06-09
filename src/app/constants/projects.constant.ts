@@ -4,7 +4,7 @@ import {State} from "../enum/state.enum";
 export const projects: LinkModel[] = [
     {
         id: "toolbox",
-        title: "toolbox",
+        title: `toolbox`,
         description: `<span>A collection of tools that I continuously write and collect here. All tools included here are ` +
             `made available under <a href='#tools'>tools</a> with a graphical interface.</span>`,
         language: [
@@ -15,8 +15,8 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/sage-toolbox",
-        state: State.Concluded,
-        conclusionDate: "ver 3.2.0",
+        state: State.Empty,
+        conclusionDate: `<img src="https://img.shields.io/github/v/release/bananeira/sage-toolbox?include_prereleases&label=toolbox&logo=GitHub&style=flat-square" alt="">`,
     },
     {
         id: "recursion",

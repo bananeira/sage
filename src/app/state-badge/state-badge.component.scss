@@ -1,11 +1,17 @@
 @import "src/app/variables";
 
+:host {
+    display: inline-flex;
+    align-items: center;
+}
+
 .badge {
-    margin: 0 5px;
+    display: block;
+    margin: 3px;
     font-family: "Mulish", sans-serif;
     font-weight: 500;
     font-size: 13px;
-    padding: 3px 5px;
+    padding: 0 5px;
     color: rgba(0, 0, 0, 0.75);
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -28,4 +34,8 @@
 .archived {
     color: rgba(83, 128, 131, 0.83);
     background-color: rgba(83, 128, 131, 0.11);
+}
+
+.empty {
+    background-color: transparent;
 }
