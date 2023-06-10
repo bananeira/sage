@@ -47,7 +47,8 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/sage/tree/new/ui",
-        state: State.Progressing,
+        conclusionDate: `<img src="https://img.shields.io/github/last-commit/bananeira/sage?logo=GitHub&style=flat-square" alt="">`,
+        state: State.Empty,
     },
     {
         id: "teris",
@@ -66,8 +67,8 @@ export const projects: LinkModel[] = [
         ],
         link: "https://teris.vercel.app/",
         codeLink: "https://github.com/clk1006/tetris/",
-        state: State.Concluded,
-        conclusionDate: "15 Apr 2022",
+        state: State.Empty,
+        conclusionDate: `<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/clk1006/teris?logo=GitHub&style=flat-square">`,
     },
     {
         id: "terminal velocity",
@@ -131,7 +132,8 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/spigot-cardinal",
-        state: State.Pending,
+        state: State.Empty,
+        conclusionDate: `<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bananeira/spigot-cardinal?logo=GitHub&style=flat-square">`
     },
     {
         id: "codewars",
@@ -147,6 +149,7 @@ export const projects: LinkModel[] = [
 
         ],
         codeLink: "https://github.com/bananeira/codewars",
-        state: State.Pending,
+        state: State.Empty,
+        conclusionDate: `<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bananeira/codewars?logo=GitHub&style=flat-square">`
     },
 ];
