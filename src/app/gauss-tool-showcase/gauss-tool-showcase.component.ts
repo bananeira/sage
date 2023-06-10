@@ -344,8 +344,8 @@ export class GaussToolShowcaseComponent {
                                 }
                                 this.visualizedGaussAlgorithm =
                                     this.visualizedGaussAlgorithm.concat(`
-                                    \\quad \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}}
-                                    ${this.generalNumberFormatter({den, num}, 0, true, false, true)}
+                                    \\quad \\mathrm{${this.int2roman(Number(currentOperation[2]) + 1)}} +
+                                    ${this.generalNumberFormatter({den, num}, 0, false, false, true)}
                                     \\mathrm{${this.int2roman(Number(currentOperation[3]) + 1)}}
                                 `);
                                 this.visualizedGaussAlgorithm =
