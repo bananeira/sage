@@ -54,17 +54,13 @@ export const resources: SmallLinkModel[] = [
         id: "github",
         img: "assets/resources/github.svg",
         title: "GitHub",
-        desc: "Or check out my profile "
-            + `<a href="https://github.com/bananeira" target="_blank">bananeira</a>.`,
-        link: "https://github.com/",
+        link: "https://github.com/bananeira",
     },
     {
         id: "codewars",
         img: "assets/resources/codewars.svg",
         title: "Codewars",
-        desc: "Or check out my profile "
-            + `<a href="https://www.codewars.com/users/bananeira" target="_blank">bananeira</a>.`,
-        link: "https://codewars.com/",
+        link: "https://www.codewars.com/users/bananeira",
     },
     {
         id: "bitbucket",
