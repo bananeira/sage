@@ -8,11 +8,11 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "about",
         title: "about me",
-        text: "Hello everyone! I'm Sora, a software-systems development student @UHH. Currently I'm interested in " +
+        text: "Hello everyone! I'm Sora, a software-systems development student at University of Hamburg. Currently I'm interested in " +
             "(attention, surprise) software development fairly general and, certainly off-topic, playing the piano. " +
-            "I am currently learning especially the formal basics of software development, computational " +
-            "architectures and extend my knowledge in Java... and learn (suffer) quite a bit of mathematics " +
-            "on the side. Furthermore, I'm currently exploring Angular and TypeScript for the site you are on right now."
+            "I am currently learning theory of computation, distributed systems and system security " +
+            "and extend my knowledge in Java... and learn (suffer) quite a bit of mathematics " +
+            "on the side."
     },
     {
         id: "skills",
@@ -49,7 +49,7 @@ export const sectionContentModels: SectionContentModel[] = [
         id: "contact",
         title: "contact",
         text: `If you have any issues or feedback you would like to contact me about, you may send an e-mail to
-            <a href="mailto:sora@sorata.dev">sora(at)sorata.dev</a>.`,
+            <a href="mailto:sora@sora.coffee">sora at sora dot coffee</a>.`,
     },
     {
         id: "copyright",
