@@ -942,7 +942,7 @@ export class GaussToolShowcaseComponent {
     }
 
     setRadius(rad: string) {
-        if (Number(rad) < 0 || Number(rad) > 100) {
+        if (Number(rad) < 1 || Number(rad) > 100) {
             this.illegalRad = true;
         } else {
             this.generatingRadius = Number(rad);
@@ -951,7 +951,7 @@ export class GaussToolShowcaseComponent {
     }
 
     getFreeVarsInterval(val: string) {
-        return `Die Anzahl der freien Variablen sollte im Bereich $0 - ${val}$ liegen`;
+        return `Die Anzahl der freien Variablen sollte im Bereich $1 - ${val}$ liegen`;
     }
 
     protected readonly Number = Number;
