@@ -951,7 +951,7 @@ export class GaussToolShowcaseComponent {
     }
 
     getFreeVarsInterval(val: string) {
-        return `Die Anzahl der freien Variablen sollte im Bereich $1 - ${val}$ liegen`;
+        return `Die Anzahl der freien Variablen sollte im Bereich $0 - ${val}$ liegen`;
     }
 
     protected readonly Number = Number;
