@@ -58,14 +58,5 @@ import {environment} from "../environments/environment";
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule implements OnInit {
-    title = 'vp-app';
-
-    ngOnInit() {
-        if (environment.production) {
-            if (location.protocol === 'http:') {
-                window.location.href = location.href.replace('http', 'https');
-            }
-        }
-    }
+export class AppModule {
 }
