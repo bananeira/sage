@@ -27,7 +27,7 @@
         </p>
         <div class="tabs">
             <input type="radio" name="gauss-procedure" id="own-values" checked="checked">
-            <label for="own-values" (click)="resetValues(Number(m.value), Number(n.value))">Eigene Werte</label>
+            <label for="own-values" (click)="resetValues(true, Number(m.value), Number(n.value))">Eigene Werte</label>
             <div class="tab">
                 <h1 class="sub-heading">Verwende eigene Werte</h1>
                 <p>Das lineare Gleichungssystem soll
@@ -78,7 +78,7 @@
             </div>
 
             <input type="radio" name="gauss-procedure" id="generator">
-            <label for="generator" (click)="resetValues(Number(mGen.value), Number(nGen.value))">Zufällige Werte</label>
+            <label for="generator" (click)="resetValues(true, Number(mGen.value), Number(nGen.value))">Zufällige Werte</label>
             <div class="tab">
                 <h1 class="sub-heading">Generiere zufällige Werte</h1>
                 <p>Das lineare Gleichungssystem soll

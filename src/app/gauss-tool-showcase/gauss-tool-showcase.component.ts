@@ -166,20 +166,23 @@ export class GaussToolShowcaseComponent {
 
     doDisplayProcedure() {
         this.processLoading = false;
-        this.resetValues(this.m, this.n);
+        this.resetValues(false, this.m, this.n);
 
         this.visualizeGaussAlgorithm();
     }
 
-    protected resetValues(m: number, n: number) {
+    protected resetValues(hardReset: boolean, m?: number, n?: number) {
+        if (hardReset) {
+            this.matrixElements = new Array<string>(this.m * (this.n + 1)).fill(String(0));
+            this.m = <number> m;
+            this.n = <number> n;
+            this.rows = Array(this.m).map((x, i) => i);
+            this.columns = Array(this.n + 1).map((x, i) => i);
+        }
+
         this.visualizedGaussAlgorithm = "";
         this.visualizedEquationSystem = "";
         this.visualizedSolution = "";
-        this.matrixElements = new Array<string>(this.m * (this.n + 1)).fill(String(0));
-        this.m = m;
-        this.n = n;
-        this.rows = Array(this.m).map((x, i) => i);
-        this.columns = Array(this.n + 1).map((x, i) => i);
     }
 
     private visualizeGaussAlgorithm() {
