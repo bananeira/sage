@@ -1,6 +1,9 @@
+var sslRedirect = require('heroku-ssl-redirect');
+const app = express();
+app.use(sslRedirect());
+
 const express = require('express');
 const path = require('path');
-const app = express();
 
 app.use(express.static(__dirname + '/dist/sage'));
 app.get('/*', function(req,res) {
