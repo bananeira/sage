@@ -42,8 +42,9 @@ export class GaussToolShowcaseComponent {
     protected numOfFreeVars: number = 0;
     protected generateFractions: boolean = false;
     protected generatingRadius: number = 20;
-    protected illegalFreeVars: boolean = false;
+    protected unsolvable: boolean = false;
 
+    protected illegalFreeVars: boolean = false;
     protected illegalRad: boolean = false;
 
     constructor(private gaussAlgoService: GaussAlgoService, private randomGaussMatrixService: RandomGaussMatrix) {
@@ -132,7 +133,7 @@ export class GaussToolShowcaseComponent {
     getRandomMatrixOutput() {
         this.processLoading = true;
 
-        this.randomGaussMatrixService.sendRandomMatrixRequest(this.generatingRadius, this.generateFractions, this.m, this.n, this.numOfFreeVars)
+        this.randomGaussMatrixService.sendRandomMatrixRequest(this.generatingRadius, this.generateFractions, this.m, this.n, this.numOfFreeVars, this.unsolvable)
             .pipe(
                 take(1),
                 map((output: string[]) => {
@@ -958,4 +959,11 @@ export class GaussToolShowcaseComponent {
     }
 
     protected readonly Number = Number;
+
+    toggleUnsolvable() {
+        this.unsolvable = !this.unsolvable;
+        if (this.unsolvable) {
+            this.numOfFreeVars = 0;
+        }
+    }
 }

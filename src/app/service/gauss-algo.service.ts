@@ -44,14 +44,16 @@ export class RandomGaussMatrix {
         useFractions: boolean,
         m: number,
         n: number,
-        numOfFreeVars: number
+        numOfFreeVars: number,
+        unsolvable: boolean
     ): Observable<string[]> {
         const params = new HttpParams()
             .set('max', max)
             .set('useFractions', useFractions)
             .set('m', m)
             .set('n', n)
-            .set('numOfFreeVars', numOfFreeVars);
+            .set('numOfFreeVars', numOfFreeVars)
+            .set('unsolvable', unsolvable);
 
         return this.httpClient.get<string[]>(this.apiBaseUrl + 'randomGaussMatrix', {params});
     }

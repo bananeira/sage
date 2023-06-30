@@ -98,7 +98,7 @@ h1 {
 }
 
 .toggle-option-inline {
-    display: inline-flex;
+    display: block;
     user-select: none;
     align-items: center;
     justify-content: center;
@@ -123,6 +123,18 @@ h1 {
     &.active {
         background-color: $primary-color;
         outline: 3px solid rgba($primary-color, 0.25);
+
+        & span {
+            color: $text-inverted-emphasis-high;
+            rotate: 0deg;
+        }
+    }
+
+    &.inactive {
+        background-color: $text-emphasis-low;
+        color: rgba($text-emphasis-low, 0.75);
+        outline: 3px solid rgba($text-emphasis-low, 0.2);
+        cursor: not-allowed;
 
         & span {
             color: $text-inverted-emphasis-high;

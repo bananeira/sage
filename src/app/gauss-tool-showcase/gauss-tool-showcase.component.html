@@ -92,14 +92,22 @@
                     Die Eingaben für $n$ und $m$ sollten sich innerhalb des Intervalls $1 - 10$ befinden.
                 </p>
                 <span style="display: flex; flex-direction: row; align-items: baseline">
-                    <span [ngClass]="{'active': numOfFreeVars != -1}" class="toggle-option-inline" (click)="toggleFreeVars()" style="margin-right: 6px">
+                    <span [ngClass]="{'active': numOfFreeVars != -1, 'inactive': unsolvable}" class="toggle-option-inline" (click)="toggleFreeVars()" style="margin-right: 6px">
                         <span>
                             &#10003;
                         </span>
                     </span>
                     <p style="margin: 3px 0">Freie Variablen $\lambda_i$ des Gleichungssystems:
-                        <input #freeVars [ngClass]="{'faulty': illegalFreeVars}" class="input dimensions" type="number" [value]="numOfFreeVars == -1 ? '0' : numOfFreeVars" (input)="setFreeVars(freeVars.value)">
+                        <input #freeVars [ngClass]="{'faulty': illegalFreeVars, 'inactive': unsolvable}" class="input dimensions" type="number" [value]="numOfFreeVars == -1 ? '0' : numOfFreeVars" (input)="setFreeVars(freeVars.value)">
                     </p>
+                </span>
+                <span style="display: flex; flex-direction: row; align-items: baseline">
+                    <span [ngClass]="{'active': unsolvable}" class="toggle-option-inline" (click)="toggleUnsolvable()" style="margin-right: 6px">
+                        <span>
+                            &#10003;
+                        </span>
+                    </span>
+                    <p style="margin: 3px 0">Das Gleichungssystem soll unlösbar sein.</p>
                 </span>
                 <p class="error" [ngClass]="{'true' : illegalFreeVars}" [mathjax]="getFreeVarsInterval(nGen.value)"></p>
                 <span style="display: flex; flex-direction: row; align-items: baseline">
@@ -108,7 +116,7 @@
                             &#10003;
                         </span>
                     </span>
-                    <p style="margin: 3px 0">Generiere Brüche</p>
+                    <p style="margin: 3px 0">Generiere Brüche.</p>
                 </span>
                 <span style="display: flex; flex-direction: row; align-items: baseline">
                     <p style="margin: 3px 0">Alle Einträge und Komponente der Matrix befinden sich innerhalb des Radius

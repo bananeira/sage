@@ -113,6 +113,10 @@ label {
     &.dimensions {
         width: 50px;
     }
+
+    &.inactive {
+        pointer-events: none;
+    }
 }
 
 .error {
