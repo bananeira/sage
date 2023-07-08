@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('path');
+var enforce = require('express-sslify');
 const app = express();
 
-// this is very bad
-if (location.protocol !== 'https:'){
-    location.replace(`https:${location.href.substring(location.protocol.length)}`);
-}
-
 app.use(express.static(__dirname + '/dist/sage'));
+
+if (location.protocol !== 'https:'){
+    app.use(enforce.HTTPS());
+}
 app.get('/*', function(req,res) {
     res.sendFile(path.join(__dirname+'/dist/sage/index.html'));
 });
