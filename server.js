@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+// this is very bad
 if (location.protocol !== 'https:'){
     location.replace(`https:${location.href.substring(location.protocol.length)}`);
 }
