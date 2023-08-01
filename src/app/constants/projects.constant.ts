@@ -46,7 +46,7 @@ export const projects: LinkModel[] = [
         remit: [
 
         ],
-        codeLink: "https://github.com/bananeira/sage/tree/new/ui",
+        codeLink: "https://github.com/bananeira/sage/",
         conclusionDate: `<img src="https://img.shields.io/github/last-commit/bananeira/sage?logo=GitHub&style=flat-square" alt="">`,
         state: State.Empty,
     },
