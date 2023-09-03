@@ -1,4 +1,4 @@
-import {Component, NgModule, OnInit} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -25,9 +25,21 @@ import {MathjaxModule} from "mathjax-angular";
 import { RsaToolShowcaseComponent } from './rsa-tool-showcase/rsa-tool-showcase.component';
 import {DashLoadingComponent} from "./dash-loading/dash-loading.component";
 import { GaussToolShowcaseComponent } from './gauss-tool-showcase/gauss-tool-showcase.component';
-import {environment} from "../environments/environment";
+
+export function redirectToHttps() {
+    if (location.protocol !== 'https:') {
+        window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
+}
 
 @NgModule({
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: redirectToHttps,
+            multi: true,
+        },
+    ],
     declarations: [
         AppComponent,
         NavigationBarComponent,
@@ -55,7 +67,6 @@ import {environment} from "../environments/environment";
         HttpClientModule,
         MathjaxModule,
     ],
-    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {
