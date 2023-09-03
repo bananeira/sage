@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, enableProdMode } from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
@@ -8,17 +8,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-export function redirectToHttps() {
-    if (location.protocol !== 'https:') {
-        window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-    }
-}
-
-platformBrowserDynamic([
-    {
-        provide: APP_INITIALIZER,
-        useFactory: redirectToHttps,
-        multi: true,
-    },
-]).bootstrapModule(AppModule)
+platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
