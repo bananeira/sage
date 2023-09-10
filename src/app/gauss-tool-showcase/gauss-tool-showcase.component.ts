@@ -468,8 +468,7 @@ export class GaussToolShowcaseComponent {
 
         if (this.containsIllegalEquation) {
             this.visualizedEquationSystem = this.visualizedEquationSystem.concat(`
-                Aus dem Gleichungssystem folgt, dass $0 = 1$ gelte. Das führt zu einem
-                Widerspruch. Folglich existiert keine Lösung für die Gleichung $\\mathrm{${this.illegalEquationRow}}$
+                Aus dem Gleichungssystem folgte $0 = 1$. Das funktioniert nicht. Folglich existiert keine Lösung für die Gleichung $\\mathrm{${this.illegalEquationRow}}$
                 und damit auch kein Vektor $\\ell$, der das Gleichungssystem löst.
             `);
             this.eqSysTransformationHistory = null!;
