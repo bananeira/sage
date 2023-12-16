@@ -19,11 +19,11 @@
             ($m,n \in \mathbb{{N}}$).
             <br>
             Ein lineares Gleichungssystem lässt sich grundsätzlich auch in Form einer Matrix darstellen, da die Anzahl
-            und Position der Variablen $x_i$ eindeutig bestimmt sind. Diese Form nennen wir erweiterte Koeffizientenmatrix.
+            und Position der Variablen $x_i$ eindeutig bestimmt sind. Eine solche Matrix nennen wir erweiterte Koeffizientenmatrix.
             <br>
             Hier betrachten wir also eine Matrix im Matrizenraum $\mathbb{{Q}}^{{m \times n}}$ und auch einen
             $(m \times 1)$-Lösungsvektor $\ell$, die ein lineares Gleichungssystem mit den Variablen $x_i \in \mathbb{{Q}}$
-            repräsentieren. Der Lösungsvektor löst das Gleichungssystem und soll mittels Gauß-Algorithmus gefunden werden.
+            repräsentieren. Der Lösungsvektor löst das Gleichungssystem und soll mittels des Gauß-Algorithmus gefunden werden.
         </p>
         <div class="tabs">
             <input type="radio" name="gauss-procedure" id="own-values" checked="checked">
@@ -68,7 +68,7 @@
                 <app-dash-loading *ngIf="processLoading"></app-dash-loading>
 
                 <div *ngIf='matrixHistory != null && visualizedEquationSystem != null && visualizedEquationSystem != ""' class="definition-box">
-                    <p *ngIf="matrixHistory != null" class="mathjax-content" [mathjax]="visualizedGaussAlgorithm"></p>
+                    <p class="mathjax-content" [mathjax]="visualizedGaussAlgorithm"></p>
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedEquationSystem"></p>
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedSolution"></p>
                 </div>
@@ -119,7 +119,7 @@
                     <p style="margin: 3px 0">Generiere Brüche.</p>
                 </span>
                 <span style="display: flex; flex-direction: row; align-items: baseline">
-                    <p style="margin: 3px 0">Alle Einträge und Komponente der Matrix befinden sich innerhalb des Radius
+                    <p style="margin: 3px 0">Die Werte aller Einträge der Matrix befinden sich innerhalb des Radius
                         <input #rad [ngClass]="{'faulty': illegalRad}" class="input dimensions" type="number" [value]="generatingRadius" (input)="setRadius(rad.value)">
                     </p>
                 </span>
@@ -137,7 +137,7 @@
                 <app-dash-loading *ngIf="processLoading"></app-dash-loading>
 
                 <div *ngIf='matrixHistory != null && visualizedEquationSystem != null && visualizedEquationSystem != ""' class="definition-box">
-                    <p *ngIf="matrixHistory != null" class="mathjax-content" [mathjax]="visualizedGaussAlgorithm"></p>
+                    <p class="mathjax-content" [mathjax]="visualizedGaussAlgorithm"></p>
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedEquationSystem"></p>
                     <p *ngIf="visualizedEquationSystem != null" class="mathjax-content" [mathjax]="visualizedSolution"></p>
                 </div>
