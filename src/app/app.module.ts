@@ -1,4 +1,4 @@
-import {Component, NgModule, OnInit} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -25,7 +25,6 @@ import {MathjaxModule} from "mathjax-angular";
 import { RsaToolShowcaseComponent } from './rsa-tool-showcase/rsa-tool-showcase.component';
 import {DashLoadingComponent} from "./dash-loading/dash-loading.component";
 import { GaussToolShowcaseComponent } from './gauss-tool-showcase/gauss-tool-showcase.component';
-import {environment} from "../environments/environment";
 
 @NgModule({
     declarations: [
@@ -55,7 +54,6 @@ import {environment} from "../environments/environment";
         HttpClientModule,
         MathjaxModule,
     ],
-    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {
