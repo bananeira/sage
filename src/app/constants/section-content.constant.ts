@@ -8,11 +8,11 @@ export const sectionContentModels: SectionContentModel[] = [
     {
         id: "about",
         title: "about me",
-        text: "Hello everyone! I'm Sora, a software-systems development student at University of Hamburg. Currently I'm interested in " +
+        text: "Hello everyone! I'm a software-systems development student at the University of Hamburg. Currently I'm interested in " +
             "(attention, surprise) software development fairly general and, certainly off-topic, playing the piano. " +
-            "I am currently learning theory of computation, distributed systems and system security " +
-            "and extend my knowledge in Java... and learn (suffer) quite a bit of mathematics " +
-            "on the side."
+            "I am currently attending the courses Algorithms and Data Structures, Fundamentals of Databases and " +
+            "Introduction to Experimental and Theoretical Physics. I am also currently working as a tutor for" +
+            " the Software Engineering 1 exercises."
     },
     {
         id: "skills",
