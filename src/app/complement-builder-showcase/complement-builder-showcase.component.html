@@ -10,7 +10,18 @@
             <hr>
             <p>
                 I am aware that the accuracy of the calculation decreases greatly for strings in radix interpreted in binary, which are not powers of two.
-                I'll try to get to this issue as soon as possible.
+            </p>
+        </div>
+
+        <div [ngClass]="{'hidden' : hideAlertBox}" class="alert-box info">
+            <span class="heading">
+                <h1>info</h1>
+                <span (click)="setHideAlertBox()" class="closing-button">&#10005;</span>
+            </span>
+            <hr>
+            <p>
+                The implementation of the complement builder no longer meets my standards for subject-specific
+                and functional robustness and will soon be deleted by me.
             </p>
         </div>
 
