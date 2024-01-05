@@ -52,4 +52,8 @@ export const langBadgeModels: BadgeModel[] = [
         id: "physics",
         displayName: "Physics",
     },
+    {
+        id: "tex",
+        displayName: "TeX",
+    },
 ];

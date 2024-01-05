@@ -92,7 +92,7 @@ export const projects: LinkModel[] = [
         title: "latex-temp-jan24",
         description: "This is a tidied up version of my LaTeX template for (my) homework.",
         language: [
-            "TeX",
+            "tex",
         ],
         remit: [
 
