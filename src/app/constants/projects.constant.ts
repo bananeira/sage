@@ -88,6 +88,20 @@ export const projects: LinkModel[] = [
         conclusionDate: "Feb-Mar 2022",
     },
     {
+        id: "latex-temp-jan24",
+        title: "latex-temp-jan24",
+        description: "This is a tidied up version of my LaTeX template for (my) homework.",
+        language: [
+            "TeX",
+        ],
+        remit: [
+
+        ],
+        link: "https://github.com/bananeira/latex-temp-jan24",
+        state: State.Concluded,
+        conclusionDate: `<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bananeira/latex-temp-jan24?logo=GitHub&style=flat-square">`,
+    },
+    {
         id: "coupled pendulums",
         title: "pendulums",
         description: "I created this simulation for a school presentation, in which occurring energy exchange " +
@@ -117,23 +131,6 @@ export const projects: LinkModel[] = [
         link: "https://insightmaker.com/insight/4UT9qjXaBc265DOFOpD5XZ/Simulation-einer-Pandemie",
         state: State.Concluded,
         conclusionDate: "2 May 2021",
-    },
-    {
-        id: "cardinal-spigot",
-        title: "cardinal",
-        description: "A first renewal of the concept from the previous SEss to implement a structure with stricter " +
-            "logical sense divisions. This plugin is intended to deal with in-game management " +
-            "capabilities for admins.",
-        language: [
-            "java",
-            "spigot",
-        ],
-        remit: [
-
-        ],
-        codeLink: "https://github.com/bananeira/spigot-cardinal",
-        state: State.Empty,
-        conclusionDate: `<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bananeira/spigot-cardinal?logo=GitHub&style=flat-square">`
     },
     {
         id: "codewars",
