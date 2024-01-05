@@ -98,7 +98,7 @@ export const projects: LinkModel[] = [
 
         ],
         link: "https://github.com/bananeira/latex-temp-jan24",
-        state: State.Concluded,
+        state: State.Empty,
         conclusionDate: `<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bananeira/latex-temp-jan24?logo=GitHub&style=flat-square">`,
     },
     {
