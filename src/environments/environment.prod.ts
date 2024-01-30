@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-    apiUrl: "https://api.sorata.dev/",
+    apiUrl: "https://api.sora.coffee/",
 };
