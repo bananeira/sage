@@ -94,8 +94,8 @@
 
                         <p class="error" [ngClass]="{'true': exception == 25 || exception == 26}">
                             Die Eingaben müssen Zahlen $\in \mathbb&#123;N&#125;$ sein.</p>
-                        <p class="error" [ngClass]="{'true': exception == 16}">Das Minimum befindet sich nicht im gültigen Intervall $(2 - 6\:000)$.</p>
-                        <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 6\:000)$.</p>
+                        <p class="error" [ngClass]="{'true': exception == 16}">Das Minimum befindet sich nicht im gültigen Intervall $(2 - 256)$.</p>
+                        <p class="error" [ngClass]="{'true': exception == 17}">Das Maximum befindet sich nicht im gültigen Intervall $(2 - 256)$.</p>
                         <p class="error" [ngClass]="{'true': exception == 18}">Das Minimum ist größer als das Maximum.</p>
                         <p class="error" [ngClass]="{'true': exception == 19}">Im angegebenen Intervall befinden sich keine Primzahlen.</p>
 

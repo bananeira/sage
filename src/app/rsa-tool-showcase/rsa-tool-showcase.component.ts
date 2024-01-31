@@ -248,10 +248,10 @@ export class RsaToolShowcaseComponent implements OnInit {
         if (this.min > this.max) {
             this.exception = 18;
             return;
-        } else if (this.min > 6000 || this.min <= 1) {
+        } else if (this.min > 256 || this.min <= 1) {
             this.exception = 16;
             return;
-        } else if (this.max > 6000 || this.max <= 1) {
+        } else if (this.max > 256 || this.max <= 1) {
             this.exception = 17;
             return;
         }
