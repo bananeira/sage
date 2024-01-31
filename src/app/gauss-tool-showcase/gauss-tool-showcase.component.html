@@ -89,7 +89,7 @@
                                   #nGen type="number" (input)="updateDimN(nGen.value)" (click)="updateDimN(nGen.value)" [defaultValue]="3">
                     Variablen haben.</p>
                 <p class="error" [ngClass]="{'true' : correctDimensions == 1 || correctDimensions == 2}">
-                    Die Eingaben für $n$ und $m$ sollten sich innerhalb des Intervalls $1 - 10$ befinden.
+                    Die Eingaben für $n$ und $m$ sollten sich innerhalb des Intervalls $1 - 8$ befinden.
                 </p>
                 <span style="display: flex; flex-direction: row; align-items: baseline">
                     <span [ngClass]="{'active': numOfFreeVars != -1, 'inactive': unsolvable}" class="toggle-option-inline" (click)="toggleFreeVars()" style="margin-right: 6px">
@@ -124,7 +124,7 @@
                     </p>
                 </span>
                 <p class="error" [ngClass]="{'true' : illegalRad}">
-                    Der Radius sollte sich im Intervall $1 - 100$ befinden.
+                    Der Radius sollte sich innerhalb des Intervalls $1 - 50$ befinden.
                 </p>
 
                 <p class="error" [ngClass]="{'true' : incorrectMatrixInputs.length > 0}">

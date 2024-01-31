@@ -77,7 +77,7 @@ export class GaussToolShowcaseComponent {
     }
 
     updateDimM(value: string) {
-        if (Number(value) > 0 && Number(value) <= 10) {
+        if (Number(value) > 0 && Number(value) <= 8) {
             this.m = Number(value);
             this.rows = Array(this.m).map((x, i) => i);
             this.correctDimensions = 0;
@@ -88,7 +88,7 @@ export class GaussToolShowcaseComponent {
     }
 
     updateDimN(value: string) {
-        if (Number(value) > 0 && Number(value) <= 10) {
+        if (Number(value) > 0 && Number(value) <= 8) {
             this.n = Number(value);
             this.columns = Array(this.n + 1).map((x, i) => i);
             this.correctDimensions = 0;
@@ -945,7 +945,7 @@ export class GaussToolShowcaseComponent {
     }
 
     setRadius(rad: string) {
-        if (Number(rad) < 1 || Number(rad) > 100) {
+        if (Number(rad) < 1 || Number(rad) > 50) {
             this.illegalRad = true;
         } else {
             this.generatingRadius = Number(rad);
