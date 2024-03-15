@@ -352,7 +352,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                     `
                     <div class="definition-box">Wir definieren die eulersche $\\varphi$-Funktion wie folgt:
-                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\nolimits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1}$.
+                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\limits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1} 1$.
                     Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei verschiedene Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion also wie folgt berechnen:
                     es gilt $\\varphi (N) := \\varphi (p) \\cdot \\varphi (q) := (p - 1) \\cdot (q - 1)$ - denn es wird von jedem einzigartigen Primfaktor genau einmal $1$ abgezogen.
@@ -397,7 +397,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                     `
                     <div class="definition-box">Wir definieren die eulersche $\\varphi$-Funktion wie folgt:
-                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\nolimits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1}$.
+                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\limits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1} 1$.
                     Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     Weil hier zwei gleiche Primfaktoren vorliegen, lässt sich die $\\varphi$-Funktion wie folgt berechnen:
                     es gilt $\\varphi (N) := \\varphi (p) \\cdot q = p \\cdot \\varphi (q)$
@@ -551,7 +551,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                 this.eulerTotientProcess =
                 `
                     <div class="definition-box">Wir definieren die eulersche $\\varphi$-Funktion wie folgt:
-                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\nolimits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1}$.
+                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\limits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1} 1$.
                     Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                     In dem Fall ist $\\varphi (N) = ${this.eulerTotient}$. Allerdings setzt sich $N = ${this.N}$ nicht
                     aus genau 2 Primfaktoren zusammen. Das Verfahren wird in diesem Falle nicht weitergeführt.
@@ -563,7 +563,7 @@ export class RsaToolShowcaseComponent implements OnInit {
                     <br/>
                     <br/>
                      <div class="definition-box">Wir definieren die eulersche $\\varphi$-Funktion wie folgt:
-                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\nolimits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1}$.
+                    $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ mit $\\varphi(n) := \\big\\vert \\{a \\in \\mathbb{N} : 1 \\leq a \\leq n \\land \\operatorname{ggT}(a,n) = 1\\} \\big\\vert$ oder $\\varphi(n) = \\displaystyle\\sum\\limits_{\\scriptstyle 1 \\leq a \\leq n \\atop \\operatorname{ggT}(a,n) = 1} 1$.
                     Sie gibt die Anzahl aller teilerfremden natürlichen Zahlen zu einer natürlichen Zahl $n$ an.</div>
                 `
 
