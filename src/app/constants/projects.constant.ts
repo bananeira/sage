@@ -16,19 +16,7 @@ export const projects: LinkModel[] = [
         ],
         codeLink: "https://github.com/bananeira/sage-toolbox",
         state: State.Empty,
-        conclusionDate: `<img src="https://img.shields.io/github/v/release/bananeira/sage-toolbox?include_prereleases&label=toolbox&logo=GitHub&style=flat-square" alt="">`,
-    },
-    {
-        id: "recursion",
-        title: "recursion",
-        description: "A scientific derivation on my part to explain the principle of recursion in an understandable way.",
-        language: [
-            "typescript"
-        ],
-        remit: [
-        ],
-        link: "https://me.sorata.dev/#projects",
-        state: State.Concluded
+        conclusionDate: `<img src="https://img.shields.io/github/last-commit/bananeira/sage-toolbox?logo=GitHub&style=flat-square" alt="">`,
     },
     {
         id: "homepage",
